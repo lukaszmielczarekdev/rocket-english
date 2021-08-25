@@ -21,6 +21,15 @@ const Quiz = (props) => {
   return (
     <div>
       <p>{renderDefinition()}</p>
+      <form id="submitAnswerForm" onSubmit={props.submitAnswer}>
+        <input
+          autoFocus
+          type="text"
+          max="15"
+          required="required"
+          id="submitAnswerFormInput"
+        />
+      </form>
     </div>
   );
 };
