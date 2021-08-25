@@ -8,7 +8,7 @@
 
 ## Workflow
 
-The preferred method is the [Forking Workflow](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html)
+The preferred method is the [Forking Workflow](https://guides.github.com/activities/forking/)
 
 Commit messages should be named like this: RI-*number* *short description*
 
