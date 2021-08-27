@@ -40,13 +40,14 @@ const Quiz = (props) => {
               id="submitAnswerFormInput"
             />
           </form>
+          <button onClick={props.skipDefinition}>Skip</button>
         </div>
       );
     } else {
       return (
         <div>
           <p>{errorMessage}</p>
-          <button onClick={() => getDefinition()}>Try again</button>
+          <button onClick={getDefinition}>Try again</button>
         </div>
       );
     }

@@ -65,11 +65,17 @@ const Controller = (props) => {
     }
   };
 
+  const handleSkipDefinition = () => {
+    wordsList.current[currentIndex.current].skipped = true;
+    currentIndex.current += 1;
+    counter.current += 1;
+    currentWord.current = wordsList.current[currentIndex.current].word;
+    setKey(Math.random());
+  };
+
   // #TODO
   // end of a quiz - summary, points++, lvl++
-  // next def button
   // next game option
-  // 1/50 counter above the definition
 
   return (
     <div>
@@ -87,6 +93,7 @@ const Controller = (props) => {
           key={key}
           word={currentWord.current}
           submitAnswer={handleSubmitAnswer}
+          skipDefinition={handleSkipDefinition}
         />
       )}
     </div>
