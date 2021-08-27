@@ -4,34 +4,55 @@ import api from "../utils/api";
 
 const Quiz = (props) => {
   const [definition, setDefinition] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
 
   useEffect(() => {
     getDefinition();
   }, []);
 
   const getDefinition = async () => {
-    const def = await api.getWordData(props.word);
-    setDefinition(def);
+    try {
+      setErrorMessage(false);
+      const def = await api.getWordData(props.word);
+      setDefinition(def);
+    } catch (err) {
+      console.error(err.message);
+      if (err.message === "Network Error") {
+        setErrorMessage("It looks like there is a connection problem ...");
+      } else {
+        setErrorMessage(err.message);
+      }
+    }
   };
 
-  const renderDefinition = () => {
-    return definition ? definition : "";
+  const renderContentOrError = () => {
+    if (!errorMessage) {
+      return (
+        <div>
+          <p>{`${props.count} / ${props.len}`}</p>
+          <p>{definition}</p>
+          <form id="submitAnswerForm" onSubmit={props.submitAnswer}>
+            <input
+              autoFocus
+              type="text"
+              max="15"
+              required
+              id="submitAnswerFormInput"
+            />
+          </form>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p>{errorMessage}</p>
+          <button onClick={() => getDefinition()}>Try again</button>
+        </div>
+      );
+    }
   };
 
-  return (
-    <div>
-      <p>{renderDefinition()}</p>
-      <form id="submitAnswerForm" onSubmit={props.submitAnswer}>
-        <input
-          autoFocus
-          type="text"
-          max="15"
-          required="required"
-          id="submitAnswerFormInput"
-        />
-      </form>
-    </div>
-  );
+  return <div>{renderContentOrError()}</div>;
 };
 
 export default Quiz;

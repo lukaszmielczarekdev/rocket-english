@@ -9,7 +9,8 @@ const Controller = (props) => {
   let quizLength = useRef(0);
   let wordsList = useRef([]);
   let currentIndex = useRef(0);
-  const [word, setWord] = useState("");
+  let currentWord = useRef("");
+  let counter = useRef(1);
   const [key, setKey] = useState(Math.random());
 
   const handleShowMenu = () => {
@@ -23,8 +24,8 @@ const Controller = (props) => {
   const handleSetUpQuiz = () => {
     const inputElement = document.getElementById("submitQuizLengthFormInput");
     const inputValue = inputElement.value ? inputElement.value : 1;
-    quizLength = inputValue;
-    makeWordsList(quizLength);
+    quizLength.current = inputValue;
+    makeWordsList(quizLength.current);
   };
 
   const makeWordsList = (quizLength) => {
@@ -39,8 +40,7 @@ const Controller = (props) => {
       });
     }
     wordsList.current = arr;
-    console.log(wordsList.current);
-    setWord(wordsList.current[currentIndex.current].word);
+    currentWord.current = wordsList.current[currentIndex.current].word;
     handleShowQuiz();
   };
 
@@ -52,16 +52,24 @@ const Controller = (props) => {
   };
 
   const inputValidation = (answer) => {
-    if (answer === word) {
+    console.log(wordsList.current);
+    if (answer === currentWord.current) {
       wordsList.current[currentIndex.current].guessed = true;
       currentIndex.current += 1;
-      setWord(wordsList.current[currentIndex.current].word);
+      counter.current += 1;
+      currentWord.current = wordsList.current[currentIndex.current].word;
       // forces the Quiz component to re-render with a new word by changing it's uniqe key
       setKey(Math.random());
     } else {
       alert("Try again");
     }
   };
+
+  // #TODO
+  // end of a quiz - summary, points++, lvl++
+  // next def button
+  // next game option
+  // 1/50 counter above the definition
 
   return (
     <div>
@@ -73,7 +81,13 @@ const Controller = (props) => {
         />
       )}
       {showQuiz && (
-        <Quiz key={key} word={word} submitAnswer={handleSubmitAnswer} />
+        <Quiz
+          count={counter.current}
+          len={quizLength.current}
+          key={key}
+          word={currentWord.current}
+          submitAnswer={handleSubmitAnswer}
+        />
       )}
     </div>
   );
