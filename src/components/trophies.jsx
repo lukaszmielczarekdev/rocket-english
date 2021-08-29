@@ -15,7 +15,7 @@ const Trophies = (props) => {
     return (
       <ul>
         {trophies.map((trophy) => (
-          <li>{trophy}</li>
+          <li id={trophy}>{trophy}</li>
         ))}
       </ul>
     );
