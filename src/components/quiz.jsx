@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import api from "../utils/api";
+import "./quiz.css";
 
 const Quiz = (props) => {
   const [definition, setDefinition] = useState("");
@@ -40,14 +41,18 @@ const Quiz = (props) => {
               id="submitAnswerFormInput"
             />
           </form>
-          <button onClick={props.skipDefinition}>Skip</button>
+          <button className="button" onClick={props.skipDefinition}>
+            Skip
+          </button>
         </div>
       );
     } else {
       return (
         <div>
           <p>{errorMessage}</p>
-          <button onClick={getDefinition}>Try again</button>
+          <button className="button" onClick={getDefinition}>
+            Try again
+          </button>
         </div>
       );
     }

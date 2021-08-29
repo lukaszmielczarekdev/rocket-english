@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
 import getRandomWords from "../utils/wordsList";
+import "./controller.css";
 
 const Controller = (props) => {
   const [showMenu, setShowMenu] = useState(true);
@@ -78,7 +79,7 @@ const Controller = (props) => {
   // next game option
 
   return (
-    <div>
+    <div id="main">
       {showMenu && (
         <Menu
           showMenu={handleShowMenu}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = (props) => {
   return (
-    <div>
+    <div id="footer">
       <h3>© 2021 Lukasz Mielczarek</h3>
     </div>
   );

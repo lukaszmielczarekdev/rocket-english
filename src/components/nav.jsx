@@ -12,10 +12,10 @@ const Nav = (props) => {
   });
 
   return (
-    <nav id="nav">
+    <nav id="nav" className="split container">
       <h1>ROCKET ENGLISH</h1>
       <ul>
-        <li>favorities</li>
+        <li>favorites</li>
         <li>trophies</li>
         <li>lvl: 1</li>
         <li>total: {score}</li>
