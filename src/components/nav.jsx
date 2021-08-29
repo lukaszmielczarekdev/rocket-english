@@ -6,8 +6,8 @@ const Nav = (props) => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    Emitter.on("SEND_NUMBER", (data) => {
-      setScore(data);
+    Emitter.on("SEND_SCORE", (data) => {
+      setScore(score + data);
     });
   });
 

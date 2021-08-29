@@ -1,17 +1,21 @@
 import React, { useState, useRef } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
+import Summary from "./quizSummary";
 import getRandomWords from "../utils/wordsList";
+import Emitter from "../utils/emitter";
 import "./controller.css";
 
 const Controller = (props) => {
   const [showMenu, setShowMenu] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
   let quizLength = useRef(0);
   let wordsList = useRef([]);
   let currentIndex = useRef(0);
   let currentWord = useRef("");
   let counter = useRef(1);
+  let quizPoints = useRef(0);
   const [key, setKey] = useState(Math.random());
 
   const handleShowMenu = () => {
@@ -20,6 +24,9 @@ const Controller = (props) => {
 
   const handleShowQuiz = () => {
     setShowQuiz((showQuiz) => !showQuiz);
+  };
+  const handleShowSummary = () => {
+    setShowSummary((showSummary) => !showSummary);
   };
 
   const handleSetUpQuiz = () => {
@@ -38,6 +45,7 @@ const Controller = (props) => {
         word: word,
         guessed: false,
         skipped: false,
+        points: 0,
       });
     }
     wordsList.current = arr;
@@ -56,9 +64,15 @@ const Controller = (props) => {
     console.log(wordsList.current);
     if (answer === currentWord.current) {
       wordsList.current[currentIndex.current].guessed = true;
+      wordsList.current[currentIndex.current].points = 100;
       currentIndex.current += 1;
       counter.current += 1;
-      currentWord.current = wordsList.current[currentIndex.current].word;
+      if (quizLength.current >= counter.current) {
+        currentWord.current = wordsList.current[currentIndex.current].word;
+      }
+      if (quizLength.current < counter.current) {
+        quizSummary();
+      }
       // forces the Quiz component to re-render with a new word by changing it's uniqe key
       setKey(Math.random());
     } else {
@@ -70,10 +84,27 @@ const Controller = (props) => {
     wordsList.current[currentIndex.current].skipped = true;
     currentIndex.current += 1;
     counter.current += 1;
-    currentWord.current = wordsList.current[currentIndex.current].word;
+    if (quizLength.current >= counter.current) {
+      currentWord.current = wordsList.current[currentIndex.current].word;
+    }
+    if (quizLength.current < counter.current) {
+      quizSummary();
+    }
     setKey(Math.random());
   };
 
+  const quizSummary = () => {
+    const rawPoints = wordsList.current.reduce((total, current) => {
+      return total + current.points;
+    }, 0);
+    quizPoints.current = rawPoints;
+    Emitter.emit("SEND_SCORE", quizPoints.current);
+    counter.current = 1;
+    currentIndex.current = 0;
+    currentWord.current = "";
+    handleShowSummary();
+    handleShowQuiz();
+  };
   // #TODO
   // end of a quiz - summary, points++, lvl++
   // next game option
@@ -95,6 +126,14 @@ const Controller = (props) => {
           word={currentWord.current}
           submitAnswer={handleSubmitAnswer}
           skipDefinition={handleSkipDefinition}
+        />
+      )}
+      {showSummary && (
+        <Summary
+          summary={quizPoints.current}
+          showQuiz={handleShowQuiz}
+          showMenu={handleShowMenu}
+          showSummary={handleShowSummary}
         />
       )}
     </div>

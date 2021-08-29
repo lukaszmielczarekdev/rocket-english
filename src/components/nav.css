@@ -1,3 +1,17 @@
+/* layout */
+
+.split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  .split {
+    flex-direction: row;
+  }
+}
+
 #nav {
   display: flex;
   justify-content: space-between;
@@ -11,4 +25,16 @@
 #nav > ul > li {
   float: left;
   margin: 2rem;
+}
+
+.container {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-inline: auto;
+}
+
+a {
+  color: inherit;
 }
