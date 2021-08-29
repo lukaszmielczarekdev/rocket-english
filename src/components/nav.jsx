@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Emitter from "../utils/emitter";
 import "./nav.css";
 
@@ -15,8 +16,12 @@ const Nav = (props) => {
     <nav id="nav" className="split container">
       <h1>ROCKET ENGLISH</h1>
       <ul>
-        <li>favorites</li>
-        <li>trophies</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/trophies">Trophies</Link>
+        </li>
         <li>lvl: 1</li>
         <li>total: {score}</li>
       </ul>

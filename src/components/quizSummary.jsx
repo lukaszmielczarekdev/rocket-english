@@ -4,14 +4,14 @@ const Summary = (props) => {
   return (
     <div id="quiz-summary">
       <h3>Summary</h3>
-      <p>{props.summary}</p>
+      <p>Points: {props.summary}</p>
       <button
         onClick={() => {
           props.showSummary();
           props.showMenu();
         }}
       >
-        Next quiz
+        Menu
       </button>
     </div>
   );

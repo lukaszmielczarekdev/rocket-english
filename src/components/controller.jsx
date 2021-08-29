@@ -105,9 +105,6 @@ const Controller = (props) => {
     handleShowSummary();
     handleShowQuiz();
   };
-  // #TODO
-  // end of a quiz - summary, points++, lvl++
-  // next game option
 
   return (
     <div id="main">
