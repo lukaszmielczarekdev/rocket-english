@@ -1,0 +1,7 @@
+#footer {
+  padding: 1rem;
+}
+
+#footer > h3 {
+  color: var(--clr-primary-200);
+}

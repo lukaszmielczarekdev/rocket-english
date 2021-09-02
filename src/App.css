@@ -1,9 +1,12 @@
 :root {
   --clr-primary-000: transparent;
-  --clr-primary-200: #12c4f5;
+  --clr-primary-100: #ffffffc2;
+  --clr-primary-200: #0e5b70;
+  --clr-primary-500: #58a7f7;
   --clr-primary-900: black;
 
   --clr-nautral-100: white;
+  --clr-nautral-200: #929191;
 
   --ff-primary: "Futura", sans-serif;
   --ff-secondary: "Source Sans Pro", Arial, sans-serif;
@@ -135,10 +138,6 @@ ul {
   margin: 0;
 }
 
-button {
-  border: 1px solid white;
-}
-
 .flex {
   display: flex;
 }
@@ -155,7 +154,7 @@ button {
 }
 
 body {
-  background: url(../src/images/main_background.png) no-repeat center center
+  background: url(../src/images/main_background.jpg) no-repeat center center
     fixed;
   background-size: cover;
 }

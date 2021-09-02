@@ -1,0 +1,99 @@
+/* general */
+
+#welcome {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -moz-justify-content: -moz-flex-start;
+  -webkit-justify-content: -webkit-flex-start;
+  -ms-justify-content: -ms-flex-start;
+  justify-content: flex-start;
+  position: relative;
+  cursor: default;
+  text-align: center;
+  z-index: 1;
+  min-height: 90vh;
+  padding: 4rem 2rem 0 2rem;
+}
+
+#welcome > h2 {
+  padding-bottom: 2rem;
+}
+
+#welcome p {
+  margin: 0;
+}
+
+#welcome > a {
+  color: inherit;
+}
+
+#welcome > form {
+  padding: 1rem;
+}
+
+@media screen and (min-width: 420px) {
+  #welcome {
+    padding: 3rem;
+  }
+}
+
+/* typography */
+
+#welcome {
+  font-family: var(--ff-primary);
+  font-size: 0.5rem;
+  color: var(--clr-primary-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+#welcome > p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#welcome > h1 {
+  font-size: 3rem;
+}
+
+#welcome > h2 {
+  font-size: 1rem;
+  padding-bottom: 2rem;
+}
+
+#welcome a:hover {
+  text-decoration: none;
+  color: var(--clr-nautral-100) !important;
+  color: inherit;
+}
+
+/* buttons */
+
+#welcome button {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: var(--clr-primary-000);
+  padding-inline: 0.5rem;
+  text-transform: uppercase;
+  border: 1px solid var(--clr-primary-100);
+}
+#welcome button:hover {
+  border: 1px solid var(--clr-nautral-100);
+}
+
+#welcome button a {
+  text-decoration: none;
+}

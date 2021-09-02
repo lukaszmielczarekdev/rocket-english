@@ -1,3 +1,53 @@
+/* :root {
+  --clr-primary-000: transparent;
+  --clr-primary-100: #ffffffc2;
+  --clr-primary-200: #0e5b70;
+  --clr-primary-500: #8e959c;
+  --clr-primary-900: black;
+
+  --clr-nautral-100: white;
+  --clr-nautral-200: #d8d3d3;
+
+  --ff-primary: "Futura", sans-serif;
+  --ff-secondary: "Source Sans Pro", Arial, sans-serif;
+} */
+
+/* typography */
+
+#nav > h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+}
+
+#nav {
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+#nav {
+  color: var(--clr-primary-100);
+  position: relative;
+  cursor: default;
+  border-bottom-color: inherit;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+#nav a {
+  color: inherit;
+}
+
+#nav a:hover {
+  text-decoration: none;
+  color: var(--clr-nautral-100) !important;
+  color: inherit;
+}
+
 /* layout */
 
 .split {
@@ -10,11 +60,6 @@
   .split {
     flex-direction: row;
   }
-}
-
-#nav {
-  display: flex;
-  justify-content: space-between;
 }
 
 #nav > ul {
@@ -33,8 +78,4 @@
   -ms-align-items: center;
   align-items: center;
   margin-inline: auto;
-}
-
-a {
-  color: inherit;
 }
