@@ -7,16 +7,15 @@ const Nav = (props) => {
   const user = useContext(UserContext);
 
   return (
-    <nav id="nav" className="split container">
-      <h1>ROCKET ENGLISH</h1>
+    <nav id="nav" className="text-center split container">
+      <Link to="/">
+        <h1>ROCKET ENGLISH</h1>
+      </Link>
       {/* Test buttons */}
       {/* <button onClick={() => user.onSetName("Luke")}>Set Name</button>
       <button onClick={() => user.onAddExp(100)}>Add exp</button>
       <button onClick={() => user.onSetPlanet("Tatooine")}>Set planet</button> */}
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/galaxy/inventory">Inventory</Link>
         </li>

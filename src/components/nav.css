@@ -60,16 +60,30 @@
   .split {
     flex-direction: row;
   }
+  .split > * {
+    flex-basis: 100%;
+  }
+}
+
+/* general */
+
+@media screen and (min-width: 420px) {
+  #nav > ul {
+    padding-block: 1rem;
+  }
 }
 
 #nav > ul {
   list-style: none;
-  margin-right: 3rem;
+  margin-right: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+  margin-inline: 1rem;
 }
 
 #nav > ul > li {
   float: left;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .container {
@@ -78,4 +92,8 @@
   -ms-align-items: center;
   align-items: center;
   margin-inline: auto;
+}
+
+.text-center {
+  text-align: center;
 }
