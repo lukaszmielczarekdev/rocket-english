@@ -14,13 +14,6 @@
 
 /* typography */
 
-#nav > h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: var(--ff-primary);
-  text-transform: uppercase;
-}
-
 #nav {
   font-family: var(--ff-primary);
   font-size: 1rem;
@@ -28,16 +21,13 @@
   letter-spacing: 0.1rem;
   text-align: center;
 }
-
-#nav {
-  color: var(--clr-primary-100);
-  position: relative;
-  cursor: default;
-  border-bottom-color: inherit;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-between;
+#nav > h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
 }
+
 #nav a {
   color: inherit;
 }
@@ -70,6 +60,21 @@
 @media screen and (min-width: 420px) {
   #nav > ul {
     padding-block: 1rem;
+  }
+}
+
+#nav {
+  color: var(--clr-primary-100);
+  position: relative;
+  cursor: default;
+  border-bottom-color: inherit;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 420px) {
+  #nav {
+    padding-bottom: 5rem;
   }
 }
 

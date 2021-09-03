@@ -28,7 +28,7 @@ const Welcome = (props) => {
         />
       </form>
       <button onClick={handleSubmitUserData}>
-        <Link to="/galaxy">Start</Link>
+        <Link to="/galaxy/earth">Start</Link>
       </button>
     </div>
   );

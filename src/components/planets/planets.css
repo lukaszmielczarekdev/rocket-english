@@ -1,0 +1,70 @@
+/* typography */
+
+.planet-container h3 {
+  color: var(--clr-primary-100);
+}
+
+h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: var(--clr-primary-100);
+}
+
+/* layout */
+
+.planet-container {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-inline: auto;
+  width: min(100%, 70rem);
+}
+
+@media screen and (min-width: 1280px) {
+  .planet-container {
+    margin-inline: auto;
+    width: min(50%, 70rem);
+  }
+}
+
+.planet-split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  .planet-split {
+    flex-direction: row;
+  }
+  .planet-split > * {
+    flex-basis: 100%;
+  }
+}
+
+/* backgrounds */
+.main-background {
+  background-color: #112238f6;
+}
+
+/* general */
+.border {
+  border: 1px solid var(--clr-primary-200);
+}
+
+.padding-places {
+  padding: 1rem;
+}
+
+@media screen and (min-width: 420px) {
+  .padding-places {
+    padding: 2rem;
+  }
+}
+
+.padding {
+  padding: 2rem;
+}
