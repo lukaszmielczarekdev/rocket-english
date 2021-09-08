@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Nav from "./nav";
-import Trophies from "./trophies";
+import Factory from "./factory";
+import Shop from "./shop";
 import Inventory from "./inventory";
-import Earth from "./planets/earth";
-import Mars from "./planets/mars";
-import Mercury from "./planets/mercury";
-import Venus from "./planets/venus";
+import Controller from "./controller";
+import Casino from "./casino";
+import Mine from "./mine";
+// import Earth from "./planets/earth";
 import "./galaxy.css";
 
 const Galaxy = (props) => {
@@ -14,13 +15,12 @@ const Galaxy = (props) => {
     <React.Fragment>
       <Nav />
       <Switch>
-        <Route path="/galaxy/venus" component={Venus} />
-        <Route path="/galaxy/mars" component={Mars} />
-        <Route path="/galaxy/mercury" component={Mercury} />
-        <Route path="/galaxy/earth" component={Earth} />
+        <Route path="/galaxy/factory" component={Factory} />
+        <Route path="/galaxy/casino" component={Casino} />
+        <Route path="/galaxy/shop" component={Shop} />
+        <Route path="/galaxy/earth" component={Controller} />
+        <Route path="/galaxy/mine" component={Mine} />
         <Route path="/galaxy/inventory" component={Inventory} />
-        <Route path="/galaxy/trophies" component={Trophies} />
-        {/* <Route path="/" component={Controller} /> */}
       </Switch>
     </React.Fragment>
   );
