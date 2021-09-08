@@ -15,28 +15,13 @@ const Nav = (props) => {
       </Link>
       <ul>
         <li>
-          <Link to="/galaxy/earth">Quiz - earth</Link>
-        </li>
-        <li>
-          <Link to="/galaxy/mine">Mine</Link>
-        </li>
-        <li>
-          <Link to="/galaxy/shop">Shop</Link>
-        </li>
-        <li>
           <Link to="/galaxy/inventory">Inventory</Link>
         </li>
-        <li>
-          <Link to="/galaxy/casino">Casino</Link>
-        </li>
-        <li>
-          <Link to="/galaxy/factory">Factory</Link>
-        </li>
         <li>Planet: {user.user.currentPlanet}</li>
-        <li>Lvl: {user.user.lvl}</li>
-        <li>Exp: {user.user.exp}</li>
-        <li>Name: {user.user.name}</li>
         <li>Credits: {inventory.inventory.credits}</li>
+        <li>Name: {user.user.name}</li>
+        <li>Exp: {user.user.exp}</li>
+        <li>Lvl: {user.user.lvl}</li>
       </ul>
     </nav>
   );
