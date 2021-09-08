@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import InventoryContext from "../contexts/inventoryContext";
 import api from "../utils/api";
 import "./quiz.css";
 
 const Quiz = (props) => {
+  const inventory = useContext(InventoryContext);
   const [definition, setDefinition] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -26,6 +28,21 @@ const Quiz = (props) => {
     }
   };
 
+  const useWord = () => {
+    inventory.subtractItem("word", 1);
+    props.fillTheWord(props.word);
+  };
+
+  const renderWord = () => {
+    if (inventory.inventory.word > 0) {
+      return (
+        <button className="button" onClick={useWord}>
+          word
+        </button>
+      );
+    }
+  };
+
   const renderContentOrError = () => {
     if (!errorMessage) {
       return (
@@ -44,6 +61,7 @@ const Quiz = (props) => {
           <button className="button" onClick={props.skipDefinition}>
             Skip
           </button>
+          {renderWord()}
         </div>
       );
     } else {
