@@ -11,12 +11,23 @@ const Welcome = (props) => {
     const inputName = document.getElementById("submitNameFormInput");
     const name = inputName.value;
     user.onSetName(name);
+    props.history.push("/galaxy/earth");
   };
 
   return (
     <div id="welcome">
       <h1>Rocket English</h1>
       <h2>Solar System Edition</h2>
+      <p>
+        Explore the solar system with a rocket and learn English.
+        <br />
+        There are interesting challenges on every planet.
+        <br />
+        Upgrade your rocket, gain experience, visit shops, casinos, galactic
+        universities and more.
+        <br />
+        Learn about the universe.
+      </p>
       <p>Nickname:</p>
       <form id="submitNameForm" onSubmit={handleSubmitUserData}>
         <input
