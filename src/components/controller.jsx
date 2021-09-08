@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
 import Summary from "./quizSummary";
 import getRandomWords from "../utils/wordsList";
-import Emitter from "../utils/emitter";
+import UserContext from "../contexts/userContext";
+import InventoryContext from "../contexts/inventoryContext";
 import "./controller.css";
 
 const Controller = (props) => {
@@ -17,6 +18,9 @@ const Controller = (props) => {
   let counter = useRef(1);
   let quizPoints = useRef(0);
   const [key, setKey] = useState(Math.random());
+
+  const user = useContext(UserContext);
+  const inventory = useContext(InventoryContext);
 
   const handleShowMenu = () => {
     setShowMenu((showMenu) => !showMenu);
@@ -98,7 +102,8 @@ const Controller = (props) => {
       return total + current.points;
     }, 0);
     quizPoints.current = rawPoints;
-    Emitter.emit("SEND_SCORE", quizPoints.current);
+    inventory.addCredits(quizPoints.current / 2);
+    user.onAddExp(quizPoints.current);
     counter.current = 1;
     currentIndex.current = 0;
     currentWord.current = "";
@@ -123,6 +128,7 @@ const Controller = (props) => {
           word={currentWord.current}
           submitAnswer={handleSubmitAnswer}
           skipDefinition={handleSkipDefinition}
+          fillTheWord={inputValidation}
         />
       )}
       {showSummary && (
