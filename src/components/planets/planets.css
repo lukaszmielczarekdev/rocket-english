@@ -22,11 +22,15 @@ h4 {
   margin-inline: auto;
   width: min(100%, 70rem);
 }
+.planet-container article article {
+  text-align: center;
+}
 
 @media screen and (min-width: 1280px) {
   .planet-container {
     margin-inline: auto;
     width: min(50%, 70rem);
+    align-items: flex-start;
   }
 }
 
@@ -43,6 +47,14 @@ h4 {
   .planet-split > * {
     flex-basis: 100%;
   }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.planet-description {
+  display: flex;
 }
 
 /* backgrounds */
