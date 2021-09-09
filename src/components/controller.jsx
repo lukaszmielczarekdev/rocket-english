@@ -1,13 +1,23 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
 import Summary from "./quizSummary";
 import getRandomWords from "../utils/wordsList";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import getTheme from "../utils/themes";
 import "./controller.css";
 
 const Controller = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   const [showMenu, setShowMenu] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
@@ -19,7 +29,6 @@ const Controller = (props) => {
   let quizPoints = useRef(0);
   const [key, setKey] = useState(Math.random());
 
-  const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
 
   const handleShowMenu = () => {
@@ -111,6 +120,10 @@ const Controller = (props) => {
     handleShowQuiz();
   };
 
+  const back = () => {
+    props.history.goBack();
+  };
+
   return (
     <div id="main">
       {showMenu && (
@@ -139,6 +152,7 @@ const Controller = (props) => {
           showSummary={handleShowSummary}
         />
       )}
+      {showSummary && <button onClick={back}>x</button>}
     </div>
   );
 };

@@ -1,12 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import getTheme from "../utils/themes";
 import "./factory.css";
 
 const Factory = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
+
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
 
   const [rocketUpgrades, setRocketUpgrades] = useState({
     lvl2: { steel: 5, credits: 1000 },

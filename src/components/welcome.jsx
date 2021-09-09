@@ -1,9 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
+import getTheme from "../utils/themes";
 import "./welcome.css";
 
 const Welcome = (props) => {
+  useEffect(() => {
+    const theme = getTheme("intro");
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, []);
+
   const user = useContext(UserContext);
 
   const handleSubmitUserData = (e) => {

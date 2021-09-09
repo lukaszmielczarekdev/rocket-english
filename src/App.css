@@ -153,8 +153,18 @@ ul {
   margin-inline: 0.5rem;
 }
 
-body {
-  background: url(../src/images/main_background.jpg) no-repeat center center
+body.intro-theme {
+  background: url(../src/images/main_background.png) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.earth-theme {
+  background: url(../src/images/earth-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.mars-theme {
+  background: url(../src/images/mars-background.png) no-repeat center center
     fixed;
   background-size: cover;
 }

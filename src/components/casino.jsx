@@ -1,8 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import InventoryContext from "../contexts/inventoryContext";
+import UserContext from "../contexts/userContext";
+import getTheme from "../utils/themes";
 import "./casino.css";
 
 const Casino = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   const inventory = useContext(InventoryContext);
 
   const gamble = (amount) => {

@@ -1,9 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./inventory.css";
 import UserInventory from "../contexts/inventoryContext";
+import UserContext from "../contexts/userContext";
+import getTheme from "../utils/themes";
 
 const Inventory = (props) => {
+  const user = useContext(UserContext);
   const inventory = useContext(UserInventory);
+
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
 
   const renderInventory = () => {
     const items = [];

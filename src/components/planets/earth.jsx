@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../contexts/userContext";
 import landing_pad from "../../images/landing_pad.svg";
 import earth from "../../images/earth.svg";
+import getTheme from "../../utils/themes";
 import "./planets.css";
 
 const Earth = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet("earth");
+    const theme = getTheme("earth");
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
@@ -67,13 +78,12 @@ const Earth = (props) => {
               />
             </Link>
           </p>
-          <p class="align-center">You can test yourself here.</p>
+          <p class="align-center">You can test yourself and gain exp here.</p>
         </article>
         <article className="padding-places border">
-          <h4>Landing Pad</h4>
+          <h4>Launch Pad</h4>
           <p class="arrow">
             <Link to="/galaxy/mars">
-              {/* Go to Mars... */}
               <img
                 src={landing_pad}
                 alt="arrow down"

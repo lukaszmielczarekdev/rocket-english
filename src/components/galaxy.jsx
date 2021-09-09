@@ -8,6 +8,8 @@ import Controller from "./controller";
 import Casino from "./casino";
 import Mine from "./mine";
 import Earth from "./planets/earth";
+import Mars from "./planets/mars";
+import Venus from "./planets/venus";
 import "./galaxy.css";
 
 const Galaxy = (props) => {
@@ -20,6 +22,8 @@ const Galaxy = (props) => {
         <Route path="/galaxy/university" component={Controller} />
         <Route path="/galaxy/shop" component={Shop} />
         <Route path="/galaxy/earth" component={Earth} />
+        <Route path="/galaxy/venus" component={Venus} />
+        <Route path="/galaxy/mars" component={Mars} />
         <Route path="/galaxy/mine" component={Mine} />
         <Route path="/galaxy/inventory" component={Inventory} />
       </Switch>

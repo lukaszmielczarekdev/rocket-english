@@ -1,9 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
+import UserContext from "../contexts/userContext";
+import getTheme from "../utils/themes";
 import "./shop.css";
 
 const Shop = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   const inventory = useContext(UserInventory);
   const shop = useContext(ShopInventory);
 
