@@ -154,7 +154,7 @@ ul {
 }
 
 body.intro-theme {
-  background: url(../src/images/main_background.png) no-repeat center center
+  background: url(../src/images/main_background.jpg) no-repeat center center
     fixed;
   background-size: cover;
 }
@@ -164,7 +164,43 @@ body.earth-theme {
   background-size: cover;
 }
 body.mars-theme {
-  background: url(../src/images/mars-background.png) no-repeat center center
+  background: url(../src/images/mars-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.jupiter-theme {
+  background: url(../src/images/jupiter-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.saturn-theme {
+  background: url(../src/images/saturn-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.uranus-theme {
+  background: url(../src/images/uranus-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.mercury-theme {
+  background: url(../src/images/mercury-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+
+body.neptune-theme {
+  background: url(../src/images/neptune-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.pluto-theme {
+  background: url(../src/images/pluto-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
+}
+body.venus-theme {
+  background: url(../src/images/venus-background.jpg) no-repeat center center
     fixed;
   background-size: cover;
 }

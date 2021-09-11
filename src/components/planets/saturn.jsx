@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import landing_pad from "../../images/landing_pad.svg";
-import mars from "../../images/mars.svg";
+import saturn from "../../images/saturn.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
 
@@ -21,7 +21,7 @@ const Saturn = (props) => {
       <div className="padding border planet-split">
         <div>
           <img
-            src={mars}
+            src={saturn}
             alt="planet saturn logo"
             width="100em"
             height="auto"
@@ -29,10 +29,9 @@ const Saturn = (props) => {
           <h3>Saturn</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          Saturn, like Jupiter, consists mainly of hydrogen and helium, the same
+          two main elements that make up our sun. Storm winds blow around the
+          atmosphere at a speed of 800 km/h.
         </p>
       </div>
       <article className="planet-split planet-container">

@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import landing_pad from "../../images/landing_pad.svg";
-import mars from "../../images/mars.svg";
+import uranus from "../../images/uranus.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
 
@@ -21,7 +21,7 @@ const Uranus = (props) => {
       <div className="padding border planet-split">
         <div>
           <img
-            src={mars}
+            src={uranus}
             alt="planet uranus logo"
             width="100em"
             height="auto"
