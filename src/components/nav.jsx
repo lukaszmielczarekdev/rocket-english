@@ -17,9 +17,8 @@ const Nav = (props) => {
         <li>
           <Link to="/galaxy/inventory">Inventory</Link>
         </li>
-        <li>Planet: {user.user.currentPlanet}</li>
-        <li>Credits: {inventory.inventory.credits}</li>
         <li>Name: {user.user.name}</li>
+        <li>Credits: {inventory.inventory.credits}</li>
         <li>Exp: {user.user.exp}</li>
         <li>Lvl: {user.user.lvl}</li>
       </ul>
