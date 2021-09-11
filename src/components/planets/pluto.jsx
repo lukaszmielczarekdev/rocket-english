@@ -6,11 +6,11 @@ import mars from "../../images/mars.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
 
-const Mars = (props) => {
+const Pluto = (props) => {
   const user = useContext(UserContext);
   useEffect(() => {
-    user.onSetPlanet("mars");
-    const theme = getTheme("mars");
+    user.onSetPlanet("pluto");
+    const theme = getTheme("pluto");
     theme.setTheme();
 
     return () => theme.clearTheme();
@@ -20,8 +20,8 @@ const Mars = (props) => {
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
         <div>
-          <img src={mars} alt="planet mars logo" width="100em" height="auto" />
-          <h3>Mars</h3>
+          <img src={mars} alt="planet pluto logo" width="100em" height="auto" />
+          <h3>Pluto</h3>
         </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
@@ -76,7 +76,7 @@ const Mars = (props) => {
         <article className="padding-places border">
           <h4>Launch Pad</h4>
           <p class="arrow">
-            <Link to="/galaxy/jupyter">
+            <Link to="/galaxy/mercury">
               <img
                 src={landing_pad}
                 alt="arrow down"
@@ -85,11 +85,11 @@ const Mars = (props) => {
               />
             </Link>
           </p>
-          <p class="align-center">Go to Jupyter...</p>
+          <p class="align-center">Go to Mercury...</p>
         </article>
       </article>
     </section>
   );
 };
 
-export default Mars;
+export default Pluto;

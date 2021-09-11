@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router";
 import Welcome from "./components/welcome";
 import Galaxy from "./components/galaxy";
 import Footer from "./components/footer";
-// import Controller from "./components/controller";
 import UserContext from "./contexts/userContext";
 import "./App.css";
 import InventoryContext from "./contexts/inventoryContext";

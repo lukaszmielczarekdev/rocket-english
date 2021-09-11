@@ -1,79 +1,96 @@
-import React from "react";
-import "./planets.css";
+import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import UserContext from "../../contexts/userContext";
 import landing_pad from "../../images/landing_pad.svg";
+import mars from "../../images/mars.svg";
+import getTheme from "../../utils/themes";
+import "./planets.css";
 
 const Mercury = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet("mercury");
+    const theme = getTheme("mercury");
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   return (
     <section className="planet-container main-background border padding">
-      <h3 className="padding border">Mercury</h3>
+      <div className="padding border planet-split">
+        <div>
+          <img
+            src={mars}
+            alt="planet mercury logo"
+            width="100em"
+            height="auto"
+          />
+          <h3>Mercury</h3>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
+          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
+          voluptatum qui a quam, error, recusandae velit alias. A, culpa
+          consectetur.
+        </p>
+      </div>
       <article className="planet-split planet-container">
-        <article className="padding-places border">
-          <h4>Landing Pad</h4>
-          <p class="arrow">
-            <a href="#nav">
-              <img
-                src={landing_pad}
-                alt="arrow down"
-                width="100em"
-                height="auto"
-              />
-            </a>
-          </p>
-          <p class="align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-            blanditiis.
-          </p>
-        </article>
         <article className="padding-places border">
           <h4>Shop</h4>
           <p class="arrow">
-            <a href="#nav">
+            <Link to="/galaxy/shop">
               <img
                 src={landing_pad}
-                alt="arrow down"
+                alt="launch pad"
                 width="100em"
                 height="auto"
               />
-            </a>
+            </Link>
           </p>{" "}
-          <p class="align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-            blanditiis.
-          </p>
+          <p class="align-center">You can buy a lot of useful things here.</p>
         </article>
         <article className="padding-places border">
-          <h4>Bank</h4>
+          <h4>Casino</h4>
           <p class="arrow">
-            <a href="#nav">
+            <Link to="/galaxy/casino">
               <img
                 src={landing_pad}
                 alt="arrow down"
                 width="100em"
                 height="auto"
               />
-            </a>
+            </Link>
           </p>{" "}
-          <p class="align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-            blanditiis.
-          </p>
+          <p class="align-center">Be careful. Gambling is addictive.</p>
         </article>
         <article className="padding-places border">
           <h4>University</h4>
           <p class="arrow">
-            <a href="#nav">
+            <Link to="/galaxy/university">
               <img
                 src={landing_pad}
                 alt="arrow down"
                 width="100em"
                 height="auto"
               />
-            </a>
+            </Link>
           </p>
-          <p class="align-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
-            blanditiis.
+          <p class="align-center">You can test yourself and gain exp here.</p>
+        </article>
+        <article className="padding-places border">
+          <h4>Launch Pad</h4>
+          <p class="arrow">
+            <Link to="/galaxy/venus">
+              <img
+                src={landing_pad}
+                alt="arrow down"
+                width="100em"
+                height="auto"
+              />
+            </Link>
           </p>
+          <p class="align-center">Go to Venus...</p>
         </article>
       </article>
     </section>
