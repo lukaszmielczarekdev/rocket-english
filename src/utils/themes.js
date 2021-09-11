@@ -14,9 +14,9 @@ const themes = {
     clearTheme: () => document.body.classList.remove("mars-theme"),
   },
 
-  jupyter: {
-    setTheme: () => document.body.classList.add("jupyter-theme"),
-    clearTheme: () => document.body.classList.remove("jupyter-theme"),
+  jupiter: {
+    setTheme: () => document.body.classList.add("jupiter-theme"),
+    clearTheme: () => document.body.classList.remove("jupiter-theme"),
   },
 
   saturn: {

@@ -77,7 +77,7 @@ const Mars = (props) => {
         <article className="padding-places border">
           <h4>Launch Pad</h4>
           <p class="arrow">
-            <Link to="/galaxy/jupyter">
+            <Link to="/galaxy/jupiter">
               <img
                 src={landing_pad}
                 alt="arrow down"
@@ -86,7 +86,7 @@ const Mars = (props) => {
               />
             </Link>
           </p>
-          <p class="align-center">Go to Jupyter...</p>
+          <p class="align-center">Go to Jupiter...</p>
         </article>
       </article>
     </section>

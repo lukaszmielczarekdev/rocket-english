@@ -6,11 +6,11 @@ import mars from "../../images/mars.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
 
-const Jupyter = (props) => {
+const Jupiter = (props) => {
   const user = useContext(UserContext);
   useEffect(() => {
-    user.onSetPlanet("jupyter");
-    const theme = getTheme("jupyter");
+    user.onSetPlanet("jupiter");
+    const theme = getTheme("jupiter");
     theme.setTheme();
 
     return () => theme.clearTheme();
@@ -22,11 +22,11 @@ const Jupyter = (props) => {
         <div>
           <img
             src={mars}
-            alt="planet jupyter logo"
+            alt="planet jupiter logo"
             width="100em"
             height="auto"
           />
-          <h3>Jupyter</h3>
+          <h3>Jupiter</h3>
         </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
@@ -97,4 +97,4 @@ const Jupyter = (props) => {
   );
 };
 
-export default Jupyter;
+export default Jupiter;
