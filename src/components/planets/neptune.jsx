@@ -29,10 +29,10 @@ const Neptune = (props) => {
           <h3>Neptune</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          Neptune's atmosphere consists mainly of hydrogen and helium, although
+          it also contains more atmospheric aerosols than Jupiter and Saturn,
+          such as ammonia and ammonium bisulfide. For this reason, along with
+          Uranus, it is classified as one of the ice giants.
         </p>
       </div>
       <article className="planet-split planet-container">

@@ -29,10 +29,9 @@ const Uranus = (props) => {
           <h3>Uranus</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          Uranus is a gas giant, but due to its structure and chemical
+          composition different from Jupiter and Saturn, it is classified as ice
+          giants. Winds in Uranus reach 900 km/h.
         </p>
       </div>
       <article className="planet-split planet-container">

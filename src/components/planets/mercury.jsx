@@ -29,10 +29,10 @@ const Mercury = (props) => {
           <h3>Mercury</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          Mercury's surface temperatures are extreme. During the day,
+          temperatures can reach 430oC there. Due to the fact that Mercury does
+          not have an atmosphere that would help it retain heat, it is very cold
+          there at night - 180oC.
         </p>
       </div>
       <article className="planet-split planet-container">

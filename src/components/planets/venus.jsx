@@ -29,10 +29,10 @@ const Venus = (props) => {
           <h3>Venus</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          About 50 km above Venus' surface, the atmospheric pressure and
+          temperature are similar to those on the surface of the Earth. There
+          are plans to send specially designed aircraft into this region of the
+          atmosphere that could be the nucleus of the "flying city".
         </p>
       </div>
       <article className="planet-split planet-container">

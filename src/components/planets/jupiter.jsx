@@ -28,7 +28,12 @@ const Jupiter = (props) => {
           />
           <h3>Jupiter</h3>
         </div>
-        <p>Gas..</p>
+        <p>
+          Jupiter has no surface. The planet is mainly composed of gases and
+          liquids. If we wanted to go deep into Jupiter by any spacecraft, it
+          would be crushed by the harsh conditions and enormous pressure that
+          prevail there.
+        </p>
       </div>
       <article className="planet-split planet-container">
         <article className="padding-places border">

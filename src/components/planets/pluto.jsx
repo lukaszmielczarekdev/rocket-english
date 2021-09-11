@@ -29,10 +29,10 @@ const Pluto = (props) => {
           <h3>Pluto</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          In Pluto's atmosphere there is a multilayered fog that covers the
+          entire area of ​​the celestial body and extends up to a height of 200
+          kilometers. According to measurements, the fog consists of about 20
+          layers.
         </p>
       </div>
       <article className="planet-split planet-container">
