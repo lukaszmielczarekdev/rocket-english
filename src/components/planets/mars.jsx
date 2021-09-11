@@ -24,17 +24,16 @@ const Mars = (props) => {
           <h3>Mars</h3>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere
-          blanditiis natus porro quisquam similique magnam, ad ipsa minus hic
-          voluptatum qui a quam, error, recusandae velit alias. A, culpa
-          consectetur.
+          The temperature amplitude on the surface of Mars is much greater than
+          on Earth. Temperatures on the red globe range between -143 ° C and 35
+          ° C.
         </p>
       </div>
       <article className="planet-split planet-container">
         <article className="padding-places border">
-          <h4>Shop</h4>
+          <h4>Mine</h4>
           <p class="arrow">
-            <Link to="/galaxy/shop">
+            <Link to="/galaxy/mine">
               <img
                 src={landing_pad}
                 alt="launch pad"
@@ -43,7 +42,9 @@ const Mars = (props) => {
               />
             </Link>
           </p>{" "}
-          <p class="align-center">You can buy a lot of useful things here.</p>
+          <p class="align-center">
+            Here you can get parts to upgrade your rocket.
+          </p>
         </article>
         <article className="padding-places border">
           <h4>Casino</h4>

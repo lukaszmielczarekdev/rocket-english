@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import getTheme from "../utils/themes";
 import Modal from "react-modal";
 import "./mine.css";
 
@@ -19,10 +20,18 @@ const modalStyle = {
 };
 
 const Mine = (props) => {
+  const user = useContext(UserContext);
+  useEffect(() => {
+    user.onSetPlanet(user.user.currentPlanet);
+    const theme = getTheme(user.user.currentPlanet);
+    theme.setTheme();
+
+    return () => theme.clearTheme();
+  }, [user]);
+
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
 
-  const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
 
   const toggleModal = () => {
@@ -30,7 +39,7 @@ const Mine = (props) => {
   };
 
   const mine = () => {
-    if (inventory.inventory.credits >= 550) {
+    if (inventory.inventory.credits >= 500) {
       const founds = {};
 
       // rate
@@ -82,7 +91,7 @@ const Mine = (props) => {
         }
       }
 
-      inventory.subtractCredits(550);
+      inventory.subtractCredits(500);
       mineSummary(founds);
       toggleModal();
     } else {
@@ -102,7 +111,7 @@ const Mine = (props) => {
     if (summary.length !== 0) {
       return summary.map((element) => (
         <li id={element[0]}>
-          {element[0]} - amount: {element[1]}{" "}
+          + {element[1]} {element[0]}{" "}
         </li>
       ));
     } else {
@@ -115,10 +124,10 @@ const Mine = (props) => {
   };
 
   const renderMineButton = () => {
-    if (inventory.inventory.credits >= 550) {
-      return <button onClick={mine}>mine - 550[!]</button>;
+    if (inventory.inventory.credits >= 500) {
+      return <button onClick={mine}>mine - 500[!]</button>;
     } else {
-      return <button>grey button</button>;
+      return <button>Not enough credits[!]</button>;
     }
   };
 
