@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
-import landing_pad from "../../images/landing_pad.svg";
+import pad from "../../images/launch.png";
+import quiz from "../../images/quiz.png";
 import jupiter from "../../images/jupiter.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
@@ -37,15 +38,19 @@ const Jupiter = (props) => {
       </div>
       <article className="planet-split planet-container">
         <article className="padding-places border">
+          <h4>Quiz</h4>
+          <p class="arrow">
+            <Link to="/galaxy/university">
+              <img src={quiz} alt="quiz" width="100em" height="auto" />
+            </Link>
+          </p>
+          <p class="align-center">You can test yourself and gain exp here.</p>
+        </article>
+        <article className="padding-places border">
           <h4>Gas cloud</h4>
           <p class="arrow">
             <Link to="/galaxy/saturn">
-              <img
-                src={landing_pad}
-                alt="arrow down"
-                width="100em"
-                height="auto"
-              />
+              <img src={pad} alt="gas cloud" width="100em" height="auto" />
             </Link>
           </p>
           <p class="align-center">Go to Saturn...</p>
