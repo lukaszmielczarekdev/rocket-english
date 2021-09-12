@@ -23,7 +23,7 @@ const Mercury = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img
             src={mercury}
             alt="planet mercury logo"
@@ -32,7 +32,7 @@ const Mercury = (props) => {
           />
           <h3>Mercury</h3>
         </div>
-        <p>
+        <p className="planet-description">
           Mercury's surface temperatures are extreme. During the day,
           temperatures can reach 430oC there. Due to the fact that Mercury does
           not have an atmosphere that would help it retain heat, it is very cold
@@ -42,7 +42,7 @@ const Mercury = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Shop</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/shop">
               <img src={shop} alt="shop" width="100em" height="auto" />
             </Link>
@@ -53,7 +53,7 @@ const Mercury = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Mine</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/mine">
               <img src={mine} alt="galactic mine" width="100em" height="auto" />
             </Link>
@@ -64,7 +64,7 @@ const Mercury = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -75,7 +75,7 @@ const Mercury = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Launch Pad</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/venus">
               <img src={pad} alt="launch pad" width="100em" height="auto" />
             </Link>

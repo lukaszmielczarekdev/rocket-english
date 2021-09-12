@@ -23,11 +23,11 @@ const Mars = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img src={mars} alt="planet mars logo" width="100em" height="auto" />
           <h3>Mars</h3>
         </div>
-        <p>
+        <p className="planet-description">
           The temperature amplitude on the surface of Mars is much greater than
           on Earth. Temperatures on the red globe range between -143 ° C and 35
           ° C.
@@ -36,7 +36,7 @@ const Mars = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Mine</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/mine">
               <img src={mine} alt="galactic mine" width="100em" height="auto" />
             </Link>
@@ -47,7 +47,7 @@ const Mars = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Casino</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/casino">
               <img src={casino} alt="casino" width="100em" height="auto" />
             </Link>
@@ -56,7 +56,7 @@ const Mars = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -67,7 +67,7 @@ const Mars = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Launch Pad</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/jupiter">
               <img src={pad} alt="launch pad" width="100em" height="auto" />
             </Link>

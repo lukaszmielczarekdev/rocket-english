@@ -23,7 +23,7 @@ const Pluto = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img
             src={pluto}
             alt="planet pluto logo"
@@ -32,7 +32,7 @@ const Pluto = (props) => {
           />
           <h3>Pluto</h3>
         </div>
-        <p>
+        <p className="planet-description">
           In Pluto's atmosphere there is a multilayered fog that covers the
           entire area of ​​the celestial body and extends up to a height of 200
           kilometers. According to measurements, the fog consists of about 20
@@ -42,9 +42,9 @@ const Pluto = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Shop</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/shop">
-              <img src={shop} alt="shop" width="100em" height="auto" />
+              <img src={shop} alt="galactic shop" width="100em" height="auto" />
             </Link>
           </p>{" "}
           <p className="align-center">
@@ -53,7 +53,7 @@ const Pluto = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Casino</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/casino">
               <img src={casino} alt="casino" width="100em" height="auto" />
             </Link>
@@ -62,7 +62,7 @@ const Pluto = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -73,7 +73,7 @@ const Pluto = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Fog</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/mercury">
               <img src={pad} alt="Fog" width="100em" height="auto" />
             </Link>

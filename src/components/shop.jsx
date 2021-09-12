@@ -46,7 +46,7 @@ const Shop = (props) => {
 
   return (
     <div id="shop">
-      <section className="planet-container main-background border padding">
+      <section className="planet-container main-background border border-radius padding">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
@@ -56,7 +56,7 @@ const Shop = (props) => {
             <p>Available credits: {inventory.inventory.credits}</p>
             <ul>{shopInv()}</ul>
             <button className="button small" onClick={back}>
-              X
+              Go Back
             </button>
           </article>
         </div>

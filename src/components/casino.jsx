@@ -52,7 +52,7 @@ const Casino = (props) => {
 
   return (
     <div id="casino">
-      <section className="planet-container main-background border padding">
+      <section className="planet-container main-background border border-radius padding">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
@@ -75,7 +75,7 @@ const Casino = (props) => {
               Good Luck
             </button>
             <button className="button small" onClick={back}>
-              X
+              Go Back
             </button>
           </article>
         </div>

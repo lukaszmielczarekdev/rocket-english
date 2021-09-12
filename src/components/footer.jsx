@@ -4,7 +4,7 @@ import "./footer.css";
 const Footer = (props) => {
   return (
     <div id="footer">
-      <h3>© 2021 Lukasz Mielczarek</h3>
+      <h3>Lukasz Mielczarek © 2021</h3>
     </div>
   );
 };

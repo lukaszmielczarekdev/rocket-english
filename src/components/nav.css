@@ -1,16 +1,16 @@
-/* :root {
+:root {
   --clr-primary-000: transparent;
   --clr-primary-100: #ffffffc2;
   --clr-primary-200: #0e5b70;
   --clr-primary-500: #8e959c;
   --clr-primary-900: black;
 
-  --clr-nautral-100: white;
-  --clr-nautral-200: #d8d3d3;
+  --clr-neutral-100: white;
+  --clr-neutral-200: #d8d3d3;
 
   --ff-primary: "Futura", sans-serif;
   --ff-secondary: "Source Sans Pro", Arial, sans-serif;
-} */
+}
 
 /* typography */
 
@@ -30,7 +30,7 @@
 }
 
 #nav {
-  color: var(--clr-nautral-100);
+  color: var(--clr-neutral-100);
   position: relative;
   cursor: default;
   border-bottom-color: inherit;
@@ -44,7 +44,7 @@
 
 #nav a:hover {
   text-decoration: none;
-  color: var(--clr-nautral-100) !important;
+  color: var(--clr-neutral-100) !important;
   color: inherit;
 }
 

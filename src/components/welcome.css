@@ -74,7 +74,7 @@
 
 #welcome a:hover {
   text-decoration: none;
-  color: var(--clr-nautral-100) !important;
+  color: var(--clr-neutral-100) !important;
   color: inherit;
 }
 
@@ -91,7 +91,7 @@
   border: 1px solid var(--clr-primary-100);
 }
 #welcome button:hover {
-  border: 1px solid var(--clr-nautral-100);
+  border: 1px solid var(--clr-neutral-100);
 }
 
 #welcome button a {

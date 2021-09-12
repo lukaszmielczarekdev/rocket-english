@@ -21,7 +21,7 @@ const Neptune = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img
             src={neptune}
             alt="planet neptune logo"
@@ -30,7 +30,7 @@ const Neptune = (props) => {
           />
           <h3>Neptune</h3>
         </div>
-        <p>
+        <p className="planet-description">
           Neptune's atmosphere consists mainly of hydrogen and helium, although
           it also contains more atmospheric aerosols than Jupiter and Saturn,
           such as ammonia and ammonium bisulfide. For this reason, along with
@@ -40,7 +40,7 @@ const Neptune = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -51,7 +51,7 @@ const Neptune = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Gas cloud</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/pluto">
               <img src={pad} alt="gas cloud" width="100em" height="auto" />
             </Link>

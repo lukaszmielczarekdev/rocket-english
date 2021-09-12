@@ -21,7 +21,7 @@ const Uranus = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img
             src={uranus}
             alt="planet uranus logo"
@@ -30,7 +30,7 @@ const Uranus = (props) => {
           />
           <h3>Uranus</h3>
         </div>
-        <p>
+        <p className="planet-description">
           Uranus is a gas giant, but due to its structure and chemical
           composition different from Jupiter and Saturn, it is classified as ice
           giants. Winds in Uranus reach 900 km/h.
@@ -39,7 +39,7 @@ const Uranus = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -50,7 +50,7 @@ const Uranus = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Gas cloud</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/neptune">
               <img src={pad} alt="gas cloud" width="100em" height="auto" />
             </Link>
