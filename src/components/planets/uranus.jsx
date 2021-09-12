@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
@@ -15,7 +16,7 @@ const Uranus = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   return (
     <section className="planet-container main-background border padding">
@@ -38,21 +39,23 @@ const Uranus = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
           </p>
-          <p class="align-center">You can test yourself and gain exp here.</p>
+          <p className="align-center">
+            You can test yourself and gain exp here.
+          </p>
         </article>
         <article className="padding-places border">
           <h4>Gas cloud</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/neptune">
               <img src={pad} alt="gas cloud" width="100em" height="auto" />
             </Link>
           </p>
-          <p class="align-center">Go to Neptune...</p>
+          <p className="align-center">Go to Neptune...</p>
         </article>
       </article>
     </section>

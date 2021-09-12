@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
+import shop_logo from "../images/shop.png";
 import getTheme from "../utils/themes";
 import "./shop.css";
 
@@ -13,7 +15,7 @@ const Shop = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const inventory = useContext(UserInventory);
   const shop = useContext(ShopInventory);
@@ -27,6 +29,7 @@ const Shop = (props) => {
       <li>
         {element[0]} - {element[1]}[!]{" "}
         <button
+          className="button small"
           onClick={() => {
             shop.buyItem(element[0], 1, element[1], 1);
           }}
@@ -43,10 +46,21 @@ const Shop = (props) => {
 
   return (
     <div id="shop">
-      <h3>Shop</h3>
-      <p>Available credits: {inventory.inventory.credits}</p>
-      <div>{shopInv()}</div>
-      <button onClick={back}>X</button>
+      <section className="planet-container main-background border padding">
+        <div className="padding border planet-split">
+          <div>
+            <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
+            <h3>Shop</h3>
+          </div>
+          <article>
+            <p>Available credits: {inventory.inventory.credits}</p>
+            <ul>{shopInv()}</ul>
+            <button className="button small" onClick={back}>
+              X
+            </button>
+          </article>
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
@@ -15,7 +16,7 @@ const Factory = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const [rocketUpgrades, setRocketUpgrades] = useState({
     lvl2: { steel: 5, credits: 1000 },

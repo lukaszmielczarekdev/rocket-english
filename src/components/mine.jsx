@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
@@ -27,7 +28,7 @@ const Mine = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
@@ -125,9 +126,13 @@ const Mine = (props) => {
 
   const renderMineButton = () => {
     if (inventory.inventory.credits >= 500) {
-      return <button onClick={mine}>mine - 500[!]</button>;
+      return (
+        <button className="button small" onClick={mine}>
+          mine - 500[!]
+        </button>
+      );
     } else {
-      return <button>Not enough credits[!]</button>;
+      return <button className="button small">Not enough credits[!]</button>;
     }
   };
 
@@ -137,7 +142,9 @@ const Mine = (props) => {
     <div id="factory">
       <h3>Mine</h3>
       {renderMineButton()}
-      <button onClick={back}>X</button>
+      <button className="button small" onClick={back}>
+        X
+      </button>
 
       <Modal
         style={modalStyle}
@@ -145,7 +152,9 @@ const Mine = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Mine summary modal"
       >
-        <button onClick={toggleModal}>x</button>
+        <button className="button small" onClick={toggleModal}>
+          x
+        </button>
         <ul>{renderSummary()}</ul>
       </Modal>
     </div>

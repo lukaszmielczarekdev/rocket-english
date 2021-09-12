@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import "./inventory.css";
 import UserInventory from "../contexts/inventoryContext";
@@ -14,7 +15,7 @@ const Inventory = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const renderInventory = () => {
     const items = [];
@@ -23,7 +24,7 @@ const Inventory = (props) => {
     }
     return items.map((element) => (
       <li>
-        {element[0]} - amount: {element[1]}{" "}
+        {element[0]} - {element[1]}{" "}
       </li>
     ));
   };
@@ -34,9 +35,17 @@ const Inventory = (props) => {
 
   return (
     <div id="inventory">
-      <h3>Inventory</h3>
-      <p>{renderInventory()}</p>
-      <button onClick={back}>X</button>
+      <section className="planet-container main-background border padding">
+        <div className="padding border">
+          <h3>Inventory</h3>
+          <article>
+            <ul>{renderInventory()}</ul>
+            <button className="button small" onClick={back}>
+              X
+            </button>
+          </article>
+        </div>
+      </section>
     </div>
   );
 };

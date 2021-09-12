@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useContext, useEffect } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
@@ -16,7 +17,7 @@ const Controller = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const [showMenu, setShowMenu] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);

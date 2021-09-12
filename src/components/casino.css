@@ -1,98 +1,33 @@
-/* general */
 #casino {
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  -moz-flex-direction: column;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -moz-justify-content: -moz-flex-start;
-  -webkit-justify-content: -webkit-flex-start;
-  -ms-justify-content: -ms-flex-start;
-  justify-content: flex-start;
-  position: relative;
-  cursor: default;
+  font-family: var(--ff-primary);
+  color: var(--clr-nautral-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   text-align: center;
-  z-index: 1;
-  min-height: 90vh;
-  padding: 4rem 2rem 0 2rem;
+  padding: 2rem;
 }
 
-#casino > h2 {
-  padding-bottom: 2rem;
-}
-
-#casino p {
-  margin: 0;
-}
-
-#casino > a {
-  color: inherit;
-}
-
-#casino > form {
+#casino form {
   padding: 1rem;
 }
 
-@media screen and (min-width: 420px) {
-  #casino {
-    padding: 3rem;
+/* .casino-background {
+  background-color: rgba(255, 0, 0, 0.363);
+} */
+
+/* layout */
+
+#casino .split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  #casino .split {
+    flex-direction: row;
   }
-}
-
-/* typography */
-
-#casino {
-  font-family: var(--ff-primary);
-  font-size: 0.5rem;
-  color: var(--clr-primary-100);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  text-align: center;
-}
-
-#casino > p {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-#casino > h1 {
-  font-size: 3rem;
-}
-
-#casino > h2 {
-  font-size: 1rem;
-  padding-bottom: 2rem;
-}
-
-#casino a:hover {
-  text-decoration: none;
-  color: var(--clr-nautral-100) !important;
-  color: inherit;
-}
-
-/* buttons */
-
-#casino button {
-  font-family: var(--ff-primary);
-  color: var(--clr-primary-100);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  background-color: var(--clr-primary-000);
-  padding-inline: 0.5rem;
-  text-transform: uppercase;
-  border: 1px solid var(--clr-primary-100);
-}
-#casino button:hover {
-  border: 1px solid var(--clr-nautral-100);
-}
-
-#casino button a {
-  text-decoration: none;
+  #casino .split > * {
+    flex-basis: 100%;
+  }
 }

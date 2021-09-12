@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import getTheme from "../utils/themes";
+import casino from "../images/casino.png";
 import "./casino.css";
 
 const Casino = (props) => {
@@ -12,7 +14,7 @@ const Casino = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   const inventory = useContext(InventoryContext);
 
@@ -50,20 +52,34 @@ const Casino = (props) => {
 
   return (
     <div id="casino">
-      <h2>Casino</h2>
-      <p>Deposit amount</p>
-      <form id="submitDepositForm" onSubmit={setUpGamble}>
-        <input
-          autoFocus
-          type="number"
-          min="1"
-          max="1000000"
-          required
-          id="submitDepositFormInput"
-        />
-      </form>
-      <button onClick={setUpGamble}>Good Luck</button>
-      <button onClick={back}>X</button>
+      <section className="planet-container main-background border padding">
+        <div className="padding border planet-split">
+          <div>
+            <img src={casino} alt="casino logo" width="100em" height="auto" />
+            <h3>Casino</h3>
+          </div>
+          <article>
+            <p>Available credits: {inventory.inventory.credits}</p>
+            <p>Deposit amount</p>
+            <form id="submitDepositForm" onSubmit={setUpGamble}>
+              <input
+                autoFocus
+                type="number"
+                min="1"
+                max="1000000"
+                required
+                id="submitDepositFormInput"
+              />
+            </form>
+            <button className="button small" onClick={setUpGamble}>
+              Good Luck
+            </button>
+            <button className="button small" onClick={back}>
+              X
+            </button>
+          </article>
+        </div>
+      </section>
     </div>
   );
 };

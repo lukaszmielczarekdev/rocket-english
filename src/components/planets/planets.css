@@ -21,15 +21,23 @@ h4 {
   align-items: center;
   margin-inline: auto;
   width: min(100%, 70rem);
+  border-radius: 10px;
+  text-align: center;
 }
 .planet-container article article {
   text-align: center;
 }
 
-@media screen and (min-width: 1280px) {
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 960px) {
   .planet-container {
     margin-inline: auto;
-    width: min(50%, 70rem);
+    width: min(70%, 70rem);
     align-items: flex-start;
   }
 }
@@ -40,7 +48,7 @@ h4 {
   width: 100%;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 960px) {
   .planet-split {
     flex-direction: row;
   }

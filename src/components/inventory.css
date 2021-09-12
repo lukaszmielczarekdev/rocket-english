@@ -7,9 +7,14 @@
   padding: 2rem;
 }
 
+/* .inventory-background {
+  background-color: rgba(255, 0, 0, 0.363);
+} */
+
 #inventory ul {
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 #inventory ul li {
@@ -17,4 +22,22 @@
   margin: 1rem 0 0 0;
   padding-left: 0;
   display: block;
+  list-style: none;
+}
+
+/* layout */
+
+#inventory .split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  #inventory .split {
+    flex-direction: row;
+  }
+  #inventory .split > * {
+    flex-basis: 100%;
+  }
 }

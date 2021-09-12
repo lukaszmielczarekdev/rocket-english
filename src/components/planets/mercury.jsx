@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
@@ -17,7 +18,7 @@ const Mercury = (props) => {
     theme.setTheme();
 
     return () => theme.clearTheme();
-  }, [user]);
+  }, []);
 
   return (
     <section className="planet-container main-background border padding">
@@ -41,41 +42,45 @@ const Mercury = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Shop</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/shop">
               <img src={shop} alt="shop" width="100em" height="auto" />
             </Link>
           </p>{" "}
-          <p class="align-center">You can buy a lot of useful things here.</p>
+          <p className="align-center">
+            You can buy a lot of useful things here.
+          </p>
         </article>
         <article className="padding-places border">
           <h4>Mine</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/mine">
               <img src={mine} alt="galactic mine" width="100em" height="auto" />
             </Link>
           </p>{" "}
-          <p class="align-center">
+          <p className="align-center">
             Here you can get credits and parts to upgrade your rocket.
           </p>
         </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
           </p>
-          <p class="align-center">You can test yourself and gain exp here.</p>
+          <p className="align-center">
+            You can test yourself and gain exp here.
+          </p>
         </article>
         <article className="padding-places border">
           <h4>Launch Pad</h4>
-          <p class="arrow">
+          <p className="arrow">
             <Link to="/galaxy/venus">
               <img src={pad} alt="launch pad" width="100em" height="auto" />
             </Link>
           </p>
-          <p class="align-center">Go to Venus...</p>
+          <p className="align-center">Go to Venus...</p>
         </article>
       </article>
     </section>
