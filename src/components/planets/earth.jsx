@@ -23,7 +23,7 @@ const Earth = (props) => {
   return (
     <section className="planet-container main-background border padding">
       <div className="padding border planet-split">
-        <div>
+        <div className="image fit logo padding-inline-1">
           <img
             src={earth}
             alt="planet earth logo"
@@ -32,7 +32,7 @@ const Earth = (props) => {
           />
           <h3>Earth</h3>
         </div>
-        <p>
+        <p className="planet-description">
           Earth is the only planet that is not named after a deity. The other
           seven planets in our solar system are named after the Roman gods and
           goddesses. However, only Mercury, Venus, Mars, Jupiter and Saturn were
@@ -44,7 +44,7 @@ const Earth = (props) => {
       <article className="planet-split planet-container">
         <article className="padding-places border">
           <h4>Shop</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/shop">
               <img src={shop} alt="launch pad" width="100em" height="auto" />
             </Link>
@@ -55,7 +55,7 @@ const Earth = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Casino</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/casino">
               <img src={casino} alt="casino" width="100em" height="auto" />
             </Link>
@@ -64,7 +64,7 @@ const Earth = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/university">
               <img src={quiz} alt="quiz" width="100em" height="auto" />
             </Link>
@@ -75,7 +75,7 @@ const Earth = (props) => {
         </article>
         <article className="padding-places border">
           <h4>Launch Pad</h4>
-          <p className="arrow">
+          <p className="image fit padding-inline-1">
             <Link to="/galaxy/mars">
               <img src={pad} alt="launch pad" width="100em" height="auto" />
             </Link>

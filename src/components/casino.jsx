@@ -54,7 +54,7 @@ const Casino = (props) => {
     <div id="casino">
       <section className="planet-container main-background border padding">
         <div className="padding border planet-split">
-          <div>
+          <div className="logo image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
             <h3>Casino</h3>
           </div>

@@ -2,6 +2,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import mine_logo from "../images/mine.png";
 import getTheme from "../utils/themes";
 import Modal from "react-modal";
 import "./mine.css";
@@ -139,12 +140,22 @@ const Mine = (props) => {
   //   render mine button if sufficient credits
 
   return (
-    <div id="factory">
-      <h3>Mine</h3>
-      {renderMineButton()}
-      <button className="button small" onClick={back}>
-        X
-      </button>
+    <div id="mine">
+      <section className="planet-container main-background border padding">
+        <div className="padding border planet-split">
+          <div className="logo image fit">
+            <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
+            <h3>Mine</h3>
+          </div>
+          <article>
+            <p>Available credits: {inventory.inventory.credits}</p>
+            <ul>{renderMineButton()}</ul>
+            <button className="button small" onClick={back}>
+              X
+            </button>
+          </article>
+        </div>
+      </section>
 
       <Modal
         style={modalStyle}
