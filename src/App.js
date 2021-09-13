@@ -16,6 +16,12 @@ export default function App() {
     rocketLvl: 1,
     exp: 0,
     currentPlanet: "Earth",
+    ifUfoDefeated: {
+      Jupiter: false,
+      Saturn: false,
+      Uranus: false,
+      Neptune: false,
+    },
   });
 
   const [userInventory, setUserInventory] = useState({
@@ -24,6 +30,7 @@ export default function App() {
     stardust: 0,
     steel: 0,
     aluminum: 0,
+    crystal: 0,
   });
 
   const [shop] = useState({
@@ -79,7 +86,7 @@ export default function App() {
   // lvl
   const handleCalcLvl = () => {
     const userDataDummy = { ...userInfo };
-    userDataDummy.lvl = userInfo.exp / 1000;
+    userDataDummy.lvl = Math.floor(userInfo.exp / 1000) + 1;
     setUserInfo(userDataDummy);
   };
 
@@ -104,12 +111,30 @@ export default function App() {
     setUserInfo(userDataDummy);
   };
 
+  // reset inventory
+  const resetInventory = () => {
+    const userInventoryDummy = { ...userInventory };
+    for (let [item] of Object.entries(userInventory)) {
+      userInventoryDummy[item] = 0;
+    }
+    setUserInventory(userInventoryDummy);
+  };
+
+  // set ufo defeated
+
+  const setUfoDefeated = (planet) => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.ifUfoDefeated[planet] = true;
+    setUserInfo(userDataDummy);
+  };
+
   return (
     <ShopContext.Provider
       value={{ shopInventory: shop, buyItem: handleBuyItem }}
     >
       <InventoryContext.Provider
         value={{
+          resetInventory: resetInventory,
           inventory: userInventory,
           addItem: handleAddItem,
           subtractItem: handleSubtractItem,
@@ -123,6 +148,7 @@ export default function App() {
             onAddExp: handleAddExp,
             onSetPlanet: handleSetPlanet,
             onSetName: handleSetName,
+            onSetUfo: setUfoDefeated,
           }}
         >
           <Switch>

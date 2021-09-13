@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import pad from "../../images/launch.png";
 import quiz from "../../images/quiz.png";
+import ufo_logo from "../../images/ufo.png";
 import neptune from "../../images/neptune.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
@@ -38,6 +39,17 @@ const Neptune = (props) => {
         </p>
       </div>
       <article className="planet-split planet-container">
+        <article className="padding-places border">
+          <h4>Ufo</h4>
+          <p className="image fit padding-inline-1">
+            <Link to="/galaxy/ufo">
+              <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+            </Link>
+          </p>
+          <p className="align-center">
+            You can attack and win or lose everything.
+          </p>
+        </article>
         <article className="padding-places border">
           <h4>Quiz</h4>
           <p className="image fit padding-inline-1">

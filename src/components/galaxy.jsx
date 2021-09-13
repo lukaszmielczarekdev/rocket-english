@@ -7,6 +7,7 @@ import Inventory from "./inventory";
 import Controller from "./controller";
 import Casino from "./casino";
 import Mine from "./mine";
+import Ufo from "./ufo";
 import Mercury from "./planets/mercury";
 import Venus from "./planets/venus";
 import Earth from "./planets/earth";
@@ -23,6 +24,7 @@ const Galaxy = (props) => {
     <React.Fragment>
       <Nav />
       <Switch>
+        <Route path="/galaxy/ufo" component={Ufo} />
         <Route path="/galaxy/factory" component={Factory} />
         <Route path="/galaxy/casino" component={Casino} />
         <Route path="/galaxy/university" component={Controller} />

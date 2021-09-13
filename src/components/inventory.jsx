@@ -23,7 +23,7 @@ const Inventory = (props) => {
       items.push([item, amount]);
     }
     return items.map((element) => (
-      <li>
+      <li key={element[0]}>
         {element[0]} - {element[1]}{" "}
       </li>
     ));

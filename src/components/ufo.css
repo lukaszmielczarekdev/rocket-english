@@ -1,0 +1,43 @@
+#ufo {
+  font-family: var(--ff-primary);
+  color: var(--clr-neutral-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* .ufo-background {
+    background-color: rgba(255, 0, 0, 0.363);
+  } */
+
+#ufo ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#ufo ul li {
+  border-left: 0;
+  margin: 1rem 0 0 0;
+  padding-left: 0;
+  display: block;
+  list-style: none;
+}
+
+/* layout */
+
+#ufo .split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  #ufo .split {
+    flex-direction: row;
+  }
+  #ufo .split > * {
+    flex-basis: 100%;
+  }
+}
