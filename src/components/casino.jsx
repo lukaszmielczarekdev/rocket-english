@@ -52,13 +52,13 @@ const Casino = (props) => {
 
   return (
     <div id="casino">
-      <section className="planet-container main-background border border-radius padding">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
             <h3>Casino</h3>
           </div>
-          <article>
+          <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
             <p>Deposit amount</p>
             <form id="submitDepositForm" onSubmit={setUpGamble}>

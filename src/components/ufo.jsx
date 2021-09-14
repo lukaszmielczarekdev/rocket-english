@@ -36,7 +36,6 @@ export const Ufo = (props) => {
       inventory.resetInventory();
       alert(`Lose`);
     } else {
-      // work in progress... hardcoded planet name - blocked by some other task
       user.onSetUfo("Jupiter");
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
       const credits = base * rate * 2000;
@@ -63,13 +62,13 @@ export const Ufo = (props) => {
 
   return (
     <div id="ufo">
-      <section className="planet-container main-background border border-radius padding">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
             <h3>Ufo</h3>
           </div>
-          <article>
+          <article className="padding-places">
             {renderFightButton()}
             <button className="button small" onClick={back}>
               Go Back

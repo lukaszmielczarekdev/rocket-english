@@ -46,7 +46,7 @@ const Shop = (props) => {
 
   return (
     <div id="shop">
-      <section className="planet-container main-background border border-radius padding">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={shop_logo} alt="shop logo" width="100em" height="auto" />

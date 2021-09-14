@@ -20,7 +20,7 @@ const Neptune = (props) => {
   }, []);
 
   return (
-    <section className="planet-container main-background border padding">
+    <section className="planet-container main-background border padding margin-block-planet-container">
       <div className="padding border planet-split">
         <div className="image fit logo padding-inline-1">
           <img

@@ -128,7 +128,6 @@ p {
 }
 
 img {
-  display: block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -254,6 +253,7 @@ a {
   height: 1.5rem;
   line-height: 1.5rem;
   padding: 0 0.5rem;
+  margin-top: 2rem;
 }
 
 .button.large {
@@ -261,4 +261,5 @@ a {
   height: 2.5rem;
   line-height: 2.5rem;
   padding: 0 1.5rem;
+  margin-top: 2rem;
 }

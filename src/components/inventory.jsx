@@ -35,12 +35,12 @@ const Inventory = (props) => {
 
   return (
     <div id="inventory">
-      <section className="planet-container main-background border border-radius padding">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
           <h3>Inventory</h3>
           <article>
             <ul>{renderInventory()}</ul>
-            <button className="button small" onClick={back}>
+            <button className="button small margin-top-2rem" onClick={back}>
               Go Back
             </button>
           </article>

@@ -141,13 +141,13 @@ const Mine = (props) => {
 
   return (
     <div id="mine">
-      <section className="planet-container main-background border border-radius padding">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo image fit">
             <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Mine</h3>
           </div>
-          <article>
+          <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
             <ul>{renderMineButton()}</ul>
             <button className="button small" onClick={back}>
