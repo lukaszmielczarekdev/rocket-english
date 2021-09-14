@@ -10,7 +10,19 @@ import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 
 export default function App() {
-  const [userInfo, setUserInfo] = useState({
+  const getData = (localStorageData, initialData) => {
+    let data = localStorage.getItem(localStorageData);
+    if (data === null) {
+      data = JSON.stringify(initialData);
+    }
+    console.log(data);
+    return data !== JSON.stringify(initialData)
+      ? JSON.parse(data)
+      : initialData;
+  };
+
+  // user data
+  const initialUserInfo = {
     name: "Guest",
     lvl: 1,
     rocketLvl: 1,
@@ -22,23 +34,49 @@ export default function App() {
       Uranus: false,
       Neptune: false,
     },
-  });
+  };
 
-  const [userInventory, setUserInventory] = useState({
+  const [userInfo, setUserInfo] = useState(
+    getData("userInfo", initialUserInfo)
+  );
+
+  // user inventory
+  const initialUserInventory = {
     credits: 500,
     word: 0,
     stardust: 0,
     steel: 0,
     aluminum: 0,
     crystal: 0,
-  });
+  };
 
-  const [shop] = useState({
+  const [userInventory, setUserInventory] = useState(
+    getData("userInventory", initialUserInventory)
+  );
+
+  // shop
+  const initialShop = {
     word: 450,
     stardust: 5000,
     steel: 3500,
     aluminum: 4000,
-  });
+  };
+
+  const [shop] = useState(getData("shop", initialShop));
+  //
+
+  useEffect(() => {
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    console.log("effect user data");
+  }, [userInfo]);
+
+  useEffect(() => {
+    localStorage.setItem("userInventory", JSON.stringify(userInventory));
+  }, [userInventory]);
+
+  useEffect(() => {
+    localStorage.setItem("shop", JSON.stringify(shop));
+  }, [shop]);
 
   useEffect(() => {
     handleCalcLvl();
