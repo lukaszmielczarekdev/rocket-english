@@ -10,12 +10,12 @@ import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 
 export default function App() {
+  // checks if any data exists in the localStorage and replaces the null object if needed
   const getData = (localStorageData, initialData) => {
     let data = localStorage.getItem(localStorageData);
     if (data === null) {
       data = JSON.stringify(initialData);
     }
-    console.log(data);
     return data !== JSON.stringify(initialData)
       ? JSON.parse(data)
       : initialData;
@@ -67,7 +67,6 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    console.log("effect user data");
   }, [userInfo]);
 
   useEffect(() => {
@@ -106,6 +105,15 @@ export default function App() {
   const handleAddItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
     userInventoryDummy[item] = userInventory[item] + amount;
+    setUserInventory(userInventoryDummy);
+  };
+
+  // free multiple items
+  const handleAddItems = (items) => {
+    const userInventoryDummy = { ...userInventory };
+    for (const [key, value] of Object.entries(items)) {
+      userInventoryDummy[key] = userInventory[key] + value;
+    }
     setUserInventory(userInventoryDummy);
   };
 
@@ -175,6 +183,7 @@ export default function App() {
           resetInventory: resetInventory,
           inventory: userInventory,
           addItem: handleAddItem,
+          addItems: handleAddItems,
           subtractItem: handleSubtractItem,
           addCredits: handleAddCredits,
           subtractCredits: handleSubtractCredits,

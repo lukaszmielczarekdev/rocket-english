@@ -45,10 +45,12 @@ export const Ufo = (props) => {
       const aluminum = Math.floor(base * rate * 5) + 1;
       const crystal = Math.floor(base * rate * 1) + 1;
       user.onAddExp(exp);
-      inventory.addCredits(credits);
-      inventory.addItem("steel", steel);
-      inventory.addItem("aluminum", aluminum);
-      inventory.addItem("crystal", crystal);
+      inventory.addItems({
+        credits: credits,
+        steel: steel,
+        aluminum: aluminum,
+        crystal: crystal,
+      });
       alert(
         `Win! +exp ${exp} +${credits}[!], +steel ${steel}, +aluminum ${aluminum}, +crystal ${crystal}`
       );

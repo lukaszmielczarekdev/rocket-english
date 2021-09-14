@@ -26,7 +26,7 @@ const Shop = (props) => {
       items.push([item, price]);
     }
     return items.map((element) => (
-      <li>
+      <li key={element[0]}>
         {element[0]} - {element[1]}[!]{" "}
         <button
           className="button small"
