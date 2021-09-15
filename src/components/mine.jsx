@@ -128,12 +128,12 @@ const Mine = (props) => {
   const renderMineButton = () => {
     if (inventory.inventory.credits >= 500) {
       return (
-        <button className="button small" onClick={mine}>
+        <button className="button large" onClick={mine}>
           mine - 500[!]
         </button>
       );
     } else {
-      return <button className="button small">Not enough credits[!]</button>;
+      return <button className="button large">Not enough credits[!]</button>;
     }
   };
 
@@ -143,14 +143,14 @@ const Mine = (props) => {
     <div id="mine">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
-          <div className="logo image fit">
+          <div className="logo logo-place image fit">
             <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Mine</h3>
           </div>
           <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
             <ul>{renderMineButton()}</ul>
-            <button className="button small" onClick={back}>
+            <button className="button large" onClick={back}>
               Go Back
             </button>
           </article>
@@ -163,7 +163,7 @@ const Mine = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Mine summary modal"
       >
-        <button className="button small" onClick={toggleModal}>
+        <button className="button large" onClick={toggleModal}>
           x
         </button>
         <ul>{renderSummary()}</ul>

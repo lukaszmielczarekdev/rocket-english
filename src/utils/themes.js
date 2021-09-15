@@ -1,7 +1,7 @@
 const themes = {
-  intro: {
-    setTheme: () => document.body.classList.add("intro-theme"),
-    clearTheme: () => document.body.classList.remove("intro-theme"),
+  welcome: {
+    setTheme: () => document.body.classList.add("welcome-theme"),
+    clearTheme: () => document.body.classList.remove("welcome-theme"),
   },
 
   earth: {

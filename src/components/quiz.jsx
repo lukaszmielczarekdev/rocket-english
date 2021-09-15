@@ -29,15 +29,15 @@ const Quiz = (props) => {
   };
 
   const useWord = () => {
-    inventory.subtractItem("word", 1);
     props.fillTheWord(props.word);
+    inventory.subtractItem("word", 1);
   };
 
   const renderWord = () => {
     if (inventory.inventory.word > 0) {
       return (
-        <button className="button" onClick={useWord}>
-          word
+        <button className="button large" onClick={useWord}>
+          Reveal the word
         </button>
       );
     }
@@ -58,7 +58,7 @@ const Quiz = (props) => {
               id="submitAnswerFormInput"
             />
           </form>
-          <button className="button" onClick={props.skipDefinition}>
+          <button className="button large" onClick={props.skipDefinition}>
             Skip
           </button>
           {renderWord()}
@@ -68,7 +68,7 @@ const Quiz = (props) => {
       return (
         <div>
           <p>{errorMessage}</p>
-          <button className="button" onClick={getDefinition}>
+          <button className="button large" onClick={getDefinition}>
             Try again
           </button>
         </div>
@@ -76,7 +76,15 @@ const Quiz = (props) => {
     }
   };
 
-  return <div>{renderContentOrError()}</div>;
+  return (
+    <div>
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
+        <div className="padding border planet-split">
+          <article className="padding-places">{renderContentOrError()}</article>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Quiz;

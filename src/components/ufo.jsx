@@ -21,7 +21,7 @@ export const Ufo = (props) => {
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated["Jupiter"]) {
       return (
-        <button className="button small" onClick={() => fight(1)}>
+        <button className="button large" onClick={() => fight(1)}>
           Fight
         </button>
       );
@@ -64,13 +64,13 @@ export const Ufo = (props) => {
     <div id="ufo">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
-          <div className="logo image fit">
+          <div className="logo logo-place image fit">
             <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
             <h3>Ufo</h3>
           </div>
           <article className="padding-places">
             {renderFightButton()}
-            <button className="button small" onClick={back}>
+            <button className="button large" onClick={back}>
               Go Back
             </button>
           </article>

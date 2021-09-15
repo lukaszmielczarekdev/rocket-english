@@ -1,4 +1,4 @@
-#inventory {
+#quiz-summary {
   font-family: var(--ff-primary);
   color: var(--clr-neutral-100);
   font-weight: 700;
@@ -7,13 +7,13 @@
   padding: 2rem;
 }
 
-#inventory ul {
+#quiz-summary ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-#inventory ul li {
+#quiz-summary ul li {
   border-left: 0;
   margin: 1rem 0 0 0;
   padding-left: 0;
@@ -23,17 +23,17 @@
 
 /* layout */
 
-#inventory .split {
+#quiz-summary .split {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 @media (min-width: 1400px) {
-  #inventory .split {
+  #quiz-summary .split {
     flex-direction: row;
   }
-  #inventory .split > * {
+  #quiz-summary .split > * {
     flex-basis: 100%;
   }
 }

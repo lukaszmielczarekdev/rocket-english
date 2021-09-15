@@ -40,7 +40,7 @@ const Inventory = (props) => {
           <h3>Inventory</h3>
           <article>
             <ul>{renderInventory()}</ul>
-            <button className="button small margin-top-2rem" onClick={back}>
+            <button className="button large margin-top-2rem" onClick={back}>
               Go Back
             </button>
           </article>

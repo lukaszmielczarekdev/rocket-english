@@ -1,19 +1,6 @@
-:root {
-  --clr-primary-000: transparent;
-  --clr-primary-100: #ffffffc2;
-  --clr-primary-200: #163761be;
-  --clr-primary-500: #58a7f7;
-  --clr-primary-900: black;
-
-  --clr-neutral-100: white;
-  --clr-neutral-200: #929191;
-
-  --ff-primary: "Futura", sans-serif;
-  --ff-secondary: "Source Sans Pro", Arial, sans-serif;
-}
-
 #footer {
   padding: 1rem;
+  margin-top: auto;
 }
 
 #footer > h3 {

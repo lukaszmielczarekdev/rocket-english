@@ -19,7 +19,6 @@ h4 {
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  margin-inline: auto;
   width: min(100%, 70rem);
   text-align: center;
 }
@@ -100,17 +99,22 @@ h4 {
 }
 
 .margin-block-planet-container {
-  margin-block: 3rem;
+  margin: 3rem auto 3rem auto;
 }
 
 .logo img {
   /* display: block; */
-  width: 70% !important;
+  width: 35% !important;
 }
 
 @media screen and (min-width: 420px) {
   .logo img {
     width: 20% !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo img {
+    width: 70% !important;
   }
 }
 

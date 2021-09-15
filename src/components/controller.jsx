@@ -121,10 +121,6 @@ const Controller = (props) => {
     handleShowQuiz();
   };
 
-  const back = () => {
-    props.history.goBack();
-  };
-
   return (
     <div id="main">
       {showMenu && (
@@ -153,7 +149,6 @@ const Controller = (props) => {
           showSummary={handleShowSummary}
         />
       )}
-      {showSummary && <button onClick={back}>x</button>}
     </div>
   );
 };

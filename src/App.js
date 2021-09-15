@@ -27,7 +27,7 @@ export default function App() {
     lvl: 1,
     rocketLvl: 1,
     exp: 0,
-    currentPlanet: "Earth",
+    currentPlanet: "welcome",
     ifUfoDefeated: {
       Jupiter: false,
       Saturn: false,

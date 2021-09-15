@@ -31,3 +31,9 @@
     flex-basis: 100%;
   }
 }
+
+@media screen and (min-width: 420px) {
+  .logo-place img {
+    width: 40% !important;
+  }
+}

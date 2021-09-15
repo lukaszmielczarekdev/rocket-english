@@ -27,14 +27,14 @@ const Shop = (props) => {
     }
     return items.map((element) => (
       <li key={element[0]}>
-        {element[0]} - {element[1]}[!]{" "}
+        {element[0]}{" "}
         <button
-          className="button small"
+          className="button large"
           onClick={() => {
             shop.buyItem(element[0], 1, element[1], 1);
           }}
         >
-          Buy
+          {element[1]}[!]
         </button>
       </li>
     ));
@@ -48,7 +48,7 @@ const Shop = (props) => {
     <div id="shop">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
-          <div className="logo image fit">
+          <div className="logo logo-place image fit">
             <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Shop</h3>
           </div>

@@ -54,7 +54,7 @@ const Casino = (props) => {
     <div id="casino">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
-          <div className="logo image fit">
+          <div className="logo logo-place image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
             <h3>Casino</h3>
           </div>
@@ -71,10 +71,10 @@ const Casino = (props) => {
                 id="submitDepositFormInput"
               />
             </form>
-            <button className="button small" onClick={setUpGamble}>
+            <button className="button large" onClick={setUpGamble}>
               Good Luck
             </button>
-            <button className="button small" onClick={back}>
+            <button className="button large" onClick={back}>
               Go Back
             </button>
           </article>

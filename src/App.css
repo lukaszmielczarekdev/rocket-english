@@ -2,6 +2,7 @@
   --clr-primary-000: transparent;
   --clr-primary-100: #ffffffc2;
   --clr-primary-200: #163761be;
+  --clr-primary-300: #236f8a;
   --clr-primary-500: #58a7f7;
   --clr-primary-900: black;
 
@@ -28,7 +29,8 @@ body {
   font-size: 1rem;
   font-weight: 300;
   font-family: var(--ff-primary);
-  color: var(--clr-neutral-100);
+  /* color: var(--clr-neutral-100); */
+  color: var(--clr-primary-100);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
@@ -110,6 +112,17 @@ button {
   }
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 body,
 h1,
 h2,
@@ -154,7 +167,7 @@ ul {
   margin-inline: 0.5rem;
 }
 
-body.intro-theme {
+body.welcome-theme {
   background: url(../src/images/main_background.jpg) no-repeat center center
     fixed;
   background-size: cover;
@@ -206,14 +219,13 @@ body.venus-theme {
   background-size: cover;
 }
 
-.container {
+#container {
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
   margin-inline: auto;
 }
-
 a {
   color: inherit;
 }
@@ -257,9 +269,9 @@ a {
 }
 
 .button.large {
-  font-size: 0.8rem;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  padding: 0 1.5rem;
-  margin-top: 2rem;
+  font-size: 0.6rem;
+  height: 1.8rem;
+  line-height: 1.5rem;
+  padding: 0 0.8rem;
+  margin-top: 1.5rem;
 }
