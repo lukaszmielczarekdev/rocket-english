@@ -21,73 +21,85 @@ const Mars = (props) => {
   }, []);
 
   return (
-    <section
-      id="planet"
-      className="planet-container main-background border padding margin-block-planet-container"
-    >
-      <div className="padding border planet-split">
-        <div className="image fit logo padding-inline-1">
-          <img src={mars} alt="planet mars logo" width="100em" height="auto" />
-          <h3>Mars</h3>
+    <div id="planet-wrapper">
+      <section
+        id="planet"
+        className="planet-container main-background border padding margin-block-planet-container"
+      >
+        <div className="padding border planet-split">
+          <div className="image fit logo padding-inline-1">
+            <img
+              src={mars}
+              alt="planet mars logo"
+              width="100em"
+              height="auto"
+            />
+            <h3>Mars</h3>
+          </div>
+          <p className="planet-description">
+            The temperature amplitude on the surface of Mars is much greater
+            than on Earth. Temperatures on the red globe range between -143 ° C
+            and 35 ° C.
+          </p>
         </div>
-        <p className="planet-description">
-          The temperature amplitude on the surface of Mars is much greater than
-          on Earth. Temperatures on the red globe range between -143 ° C and 35
-          ° C.
-        </p>
-      </div>
-      <article className="planet-split planet-container">
-        <article className="padding-places border">
-          <h4>Mine</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/mine">
-              <img src={mine} alt="galactic mine" width="100em" height="auto" />
-            </Link>
-          </p>{" "}
-          <p className="align-center">
-            Here you can get credits and parts to upgrade your rocket.
-          </p>
+        <article className="planet-split planet-container">
+          <article className="padding-places border">
+            <h4>Mine</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/mine">
+                <img
+                  src={mine}
+                  alt="galactic mine"
+                  width="100em"
+                  height="auto"
+                />
+              </Link>
+            </p>{" "}
+            <p className="align-center">
+              Here you can get credits and parts to upgrade your rocket.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Casino</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/casino">
+                <img src={casino} alt="casino" width="100em" height="auto" />
+              </Link>
+            </p>{" "}
+            <p className="align-center">Be careful. Gambling is addictive.</p>
+          </article>
+          <article className="padding-places border">
+            <h4>Quiz</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/university">
+                <img src={quiz} alt="quiz" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">
+              You can test yourself and gain exp here.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Launch Pad</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/jupiter">
+                <img src={pad} alt="launch pad" width="100em" height="auto" />
+              </Link>
+            </p>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
+                Back to Earth
+              </Link>
+            </button>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/jupiter"} style={{ textDecoration: "none" }}>
+                Go to Jupiter
+              </Link>
+            </button>
+          </article>
         </article>
-        <article className="padding-places border">
-          <h4>Casino</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/casino">
-              <img src={casino} alt="casino" width="100em" height="auto" />
-            </Link>
-          </p>{" "}
-          <p className="align-center">Be careful. Gambling is addictive.</p>
-        </article>
-        <article className="padding-places border">
-          <h4>Quiz</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/university">
-              <img src={quiz} alt="quiz" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">
-            You can test yourself and gain exp here.
-          </p>
-        </article>
-        <article className="padding-places border">
-          <h4>Launch Pad</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/jupiter">
-              <img src={pad} alt="launch pad" width="100em" height="auto" />
-            </Link>
-          </p>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
-              Back to Earth
-            </Link>
-          </button>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/jupiter"} style={{ textDecoration: "none" }}>
-              Go to Jupiter
-            </Link>
-          </button>
-        </article>
-      </article>
-    </section>
+      </section>
+    </div>
   );
 };
 

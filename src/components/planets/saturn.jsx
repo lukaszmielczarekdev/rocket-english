@@ -20,69 +20,71 @@ const Saturn = (props) => {
   }, []);
 
   return (
-    <section
-      id="planet"
-      className="planet-container main-background border padding margin-block-planet-container"
-    >
-      <div className="padding border planet-split">
-        <div className="image fit logo padding-inline-1">
-          <img
-            src={saturn}
-            alt="planet saturn logo"
-            width="100em"
-            height="auto"
-          />
-          <h3>Saturn</h3>
+    <div id="planet-wrapper">
+      <section
+        id="planet"
+        className="planet-container main-background border padding margin-block-planet-container"
+      >
+        <div className="padding border planet-split">
+          <div className="image fit logo padding-inline-1">
+            <img
+              src={saturn}
+              alt="planet saturn logo"
+              width="100em"
+              height="auto"
+            />
+            <h3>Saturn</h3>
+          </div>
+          <p className="planet-description">
+            Saturn, like Jupiter, consists mainly of hydrogen and helium, the
+            same two main elements that make up our sun. Storm winds blow around
+            the atmosphere at a speed of 800 km/h.
+          </p>
         </div>
-        <p className="planet-description">
-          Saturn, like Jupiter, consists mainly of hydrogen and helium, the same
-          two main elements that make up our sun. Storm winds blow around the
-          atmosphere at a speed of 800 km/h.
-        </p>
-      </div>
-      <article className="planet-split planet-container">
-        <article className="padding-places border">
-          <h4>Ufo</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/ufo">
-              <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">
-            You can attack and win or lose everything.
-          </p>
+        <article className="planet-split planet-container">
+          <article className="padding-places border">
+            <h4>Ufo</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/ufo">
+                <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">
+              You can attack and win or lose everything.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Quiz</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/university">
+                <img src={quiz} alt="quiz" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">
+              You can test yourself and gain exp here.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Gas cloud</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/uranus">
+                <img src={pad} alt="gas cloud" width="100em" height="auto" />
+              </Link>
+            </p>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/jupiter"} style={{ textDecoration: "none" }}>
+                Back to Jupiter
+              </Link>
+            </button>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/uranus"} style={{ textDecoration: "none" }}>
+                Go to Uranus
+              </Link>
+            </button>
+          </article>
         </article>
-        <article className="padding-places border">
-          <h4>Quiz</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/university">
-              <img src={quiz} alt="quiz" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">
-            You can test yourself and gain exp here.
-          </p>
-        </article>
-        <article className="padding-places border">
-          <h4>Gas cloud</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/uranus">
-              <img src={pad} alt="gas cloud" width="100em" height="auto" />
-            </Link>
-          </p>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/jupiter"} style={{ textDecoration: "none" }}>
-              Back to Jupiter
-            </Link>
-          </button>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/uranus"} style={{ textDecoration: "none" }}>
-              Go to Uranus
-            </Link>
-          </button>
-        </article>
-      </article>
-    </section>
+      </section>
+    </div>
   );
 };
 

@@ -21,79 +21,86 @@ const Venus = (props) => {
   }, []);
 
   return (
-    <section
-      id="planet"
-      className="planet-container main-background border padding margin-block-planet-container"
-    >
-      <div className="padding border planet-split">
-        <div className="image fit logo padding-inline-1">
-          <img
-            src={venus}
-            alt="planet venus logo"
-            width="100em"
-            height="auto"
-          />
-          <h3>Venus</h3>
+    <div id="planet-wrapper">
+      <section
+        id="planet"
+        className="planet-container main-background border padding margin-block-planet-container"
+      >
+        <div className="padding border planet-split">
+          <div className="image fit logo padding-inline-1">
+            <img
+              src={venus}
+              alt="planet venus logo"
+              width="100em"
+              height="auto"
+            />
+            <h3>Venus</h3>
+          </div>
+          <p className="planet-description">
+            About 50 km above Venus' surface, the atmospheric pressure and
+            temperature are similar to those on the surface of the Earth. There
+            are plans to send specially designed aircraft into this region of
+            the atmosphere that could be the nucleus of the "flying city".
+          </p>
         </div>
-        <p className="planet-description">
-          About 50 km above Venus' surface, the atmospheric pressure and
-          temperature are similar to those on the surface of the Earth. There
-          are plans to send specially designed aircraft into this region of the
-          atmosphere that could be the nucleus of the "flying city".
-        </p>
-      </div>
-      <article className="planet-split planet-container">
-        <article className="padding-places border">
-          <h4>Shop</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/shop">
-              <img src={shop} alt="galactic shop" width="100em" height="auto" />
-            </Link>
-          </p>{" "}
-          <p className="align-center">
-            You can buy a lot of useful things here.
-          </p>
+        <article className="planet-split planet-container">
+          <article className="padding-places border">
+            <h4>Shop</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/shop">
+                <img
+                  src={shop}
+                  alt="galactic shop"
+                  width="100em"
+                  height="auto"
+                />
+              </Link>
+            </p>{" "}
+            <p className="align-center">
+              You can buy a lot of useful things here.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Casino</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/casino">
+                <img src={casino} alt="casino" width="100em" height="auto" />
+              </Link>
+            </p>{" "}
+            <p className="align-center">Be careful. Gambling is addictive.</p>
+          </article>
+          <article className="padding-places border">
+            <h4>Quiz</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/university">
+                <img src={quiz} alt="quiz" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">
+              You can test yourself and gain exp here.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Launch Pad</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/earth">
+                <img src={pad} alt="launch pad" width="100em" height="auto" />
+              </Link>
+            </p>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/mercury"} style={{ textDecoration: "none" }}>
+                Back to Mercury
+              </Link>
+            </button>
+            <button className="button small button-margin">
+              <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
+                Go to Earth
+              </Link>
+            </button>
+          </article>
         </article>
-        <article className="padding-places border">
-          <h4>Casino</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/casino">
-              <img src={casino} alt="casino" width="100em" height="auto" />
-            </Link>
-          </p>{" "}
-          <p className="align-center">Be careful. Gambling is addictive.</p>
-        </article>
-        <article className="padding-places border">
-          <h4>Quiz</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/university">
-              <img src={quiz} alt="quiz" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">
-            You can test yourself and gain exp here.
-          </p>
-        </article>
-        <article className="padding-places border">
-          <h4>Launch Pad</h4>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/earth">
-              <img src={pad} alt="launch pad" width="100em" height="auto" />
-            </Link>
-          </p>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/mercury"} style={{ textDecoration: "none" }}>
-              Back to Mercury
-            </Link>
-          </button>
-          <button className="button small button-margin">
-            <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
-              Go to Earth
-            </Link>
-          </button>
-        </article>
-      </article>
-    </section>
+      </section>
+    </div>
   );
 };
 
