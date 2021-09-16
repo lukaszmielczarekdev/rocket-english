@@ -63,17 +63,15 @@ export const Ufo = (props) => {
   return (
     <div id="ufo">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
             <h3>Ufo</h3>
           </div>
-          <article className="padding-places">
-            {renderFightButton()}
-            <button className="button large" onClick={back}>
-              Go Back
-            </button>
-          </article>
+          {renderFightButton()}
+          <button className="button large" onClick={back}>
+            Go Back
+          </button>
         </div>
       </section>
     </div>

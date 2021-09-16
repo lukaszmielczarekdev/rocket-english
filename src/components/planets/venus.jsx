@@ -21,7 +21,10 @@ const Venus = (props) => {
   }, []);
 
   return (
-    <section className="planet-container main-background border padding margin-block-planet-container">
+    <section
+      id="planet"
+      className="planet-container main-background border padding margin-block-planet-container"
+    >
       <div className="padding border planet-split">
         <div className="image fit logo padding-inline-1">
           <img
@@ -78,7 +81,16 @@ const Venus = (props) => {
               <img src={pad} alt="launch pad" width="100em" height="auto" />
             </Link>
           </p>
-          <p className="align-center">To Earth...</p>
+          <button className="button small button-margin">
+            <Link to={"/galaxy/mercury"} style={{ textDecoration: "none" }}>
+              Back to Mercury
+            </Link>
+          </button>
+          <button className="button small button-margin">
+            <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
+              Go to Earth
+            </Link>
+          </button>
         </article>
       </article>
     </section>

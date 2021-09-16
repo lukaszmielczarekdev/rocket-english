@@ -273,5 +273,11 @@ a {
   height: 1.8rem;
   line-height: 1.5rem;
   padding: 0 0.8rem;
-  margin-top: 1.5rem;
+}
+
+.button:hover {
+  border: none;
+}
+.button a {
+  display: block;
 }

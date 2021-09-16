@@ -1,6 +1,6 @@
 #inventory {
   font-family: var(--ff-primary);
-  color: var(--clr-neutral-100);
+  color: var(--clr-primary-100);
   font-weight: 700;
   letter-spacing: 0.1rem;
   text-align: center;
@@ -36,4 +36,16 @@
   #inventory .split > * {
     flex-basis: 100%;
   }
+}
+
+/* button */
+
+#inventory button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+  margin-top: 1rem;
+}
+
+#inventory button:hover {
+  border: none;
 }

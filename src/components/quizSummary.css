@@ -1,6 +1,6 @@
 #quiz-summary {
   font-family: var(--ff-primary);
-  color: var(--clr-neutral-100);
+  color: var(--clr-primary-100);
   font-weight: 700;
   letter-spacing: 0.1rem;
   text-align: center;
@@ -36,4 +36,15 @@
   #quiz-summary .split > * {
     flex-basis: 100%;
   }
+}
+
+/* button */
+
+#quiz-summary button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+}
+
+#quiz-summary button:hover {
+  border: none;
 }

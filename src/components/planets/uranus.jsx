@@ -20,7 +20,10 @@ const Uranus = (props) => {
   }, []);
 
   return (
-    <section className="planet-container main-background border padding margin-block-planet-container">
+    <section
+      id="planet"
+      className="planet-container main-background border padding margin-block-planet-container"
+    >
       <div className="padding border planet-split">
         <div className="image fit logo padding-inline-1">
           <img
@@ -67,7 +70,16 @@ const Uranus = (props) => {
               <img src={pad} alt="gas cloud" width="100em" height="auto" />
             </Link>
           </p>
-          <p className="align-center">Go to Neptune...</p>
+          <button className="button small button-margin">
+            <Link to={"/galaxy/saturn"} style={{ textDecoration: "none" }}>
+              Back to Saturn
+            </Link>
+          </button>
+          <button className="button small button-margin">
+            <Link to={"/galaxy/neptune"} style={{ textDecoration: "none" }}>
+              Go to Neptune
+            </Link>
+          </button>
         </article>
       </article>
     </section>
