@@ -68,8 +68,8 @@
 }
 
 #nav > ul > li {
-  float: left;
   margin: 1rem;
+  display: inline-block;
 }
 
 .container {
