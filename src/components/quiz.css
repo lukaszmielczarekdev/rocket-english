@@ -23,3 +23,10 @@
   text-decoration: none;
   display: block;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

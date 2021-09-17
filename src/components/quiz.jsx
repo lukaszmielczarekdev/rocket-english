@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import InventoryContext from "../contexts/inventoryContext";
 import { useForm } from "react-hook-form";
+import PuffLoader from "react-spinners/PuffLoader";
 import api from "../utils/api";
 import "./quiz.css";
 
@@ -9,6 +10,7 @@ const Quiz = (props) => {
   const inventory = useContext(InventoryContext);
   const [definition, setDefinition] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getDefinition();
@@ -24,10 +26,10 @@ const Quiz = (props) => {
   console.log(errors);
 
   const getDefinition = async () => {
-    console.log(props.word);
     try {
       setErrorMessage(false);
       const def = await api.getWordData(props.word);
+      console.log(props.word);
       setDefinition(def);
     } catch (err) {
       console.error(err.message);
@@ -36,6 +38,8 @@ const Quiz = (props) => {
       } else {
         setErrorMessage(err.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -57,7 +61,7 @@ const Quiz = (props) => {
   const renderContentOrError = () => {
     if (!errorMessage) {
       return (
-        <div>
+        <>
           <p>{`${props.count} / ${props.len}`}</p>
           <p>{definition}</p>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -79,25 +83,38 @@ const Quiz = (props) => {
             Skip
           </button>
           {renderWord()}
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <p>{errorMessage}</p>
           <button className="button large" onClick={getDefinition}>
             Try again
           </button>
-        </div>
+        </>
       );
     }
+  };
+  const renderSpinner = (size) => {
+    return (
+      <PuffLoader
+        loading={loading}
+        size={size}
+        color={"white"}
+        speedMultiplier={0.8}
+      />
+    );
   };
 
   return (
     <div>
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
-          <article className="padding-places">{renderContentOrError()}</article>
+        <div className="padding border">
+          <article className="padding-places">
+            <div className="loader">{loading && renderSpinner("10rem")}</div>
+            {!loading && renderContentOrError()}
+          </article>
         </div>
       </section>
     </div>

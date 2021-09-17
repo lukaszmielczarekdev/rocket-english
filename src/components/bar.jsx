@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/userContext";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import PuffLoader from "react-spinners/PuffLoader";
 import bar from "../images/bar.png";
 import getTheme from "../utils/themes";
 import api from "../utils/api";
@@ -12,6 +13,7 @@ export const Bar = (props) => {
   let [errorMessage, setErrorMessage] = useState(false);
   const [definition, setDefinition] = useState("");
   let [word, setWord] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const user = useContext(UserContext);
   useEffect(() => {
@@ -32,6 +34,7 @@ export const Bar = (props) => {
   console.log(errors);
 
   const getDefinition = async (input) => {
+    setLoading(true);
     setDefinition(false);
     setErrorMessage((errorMessage = false));
     try {
@@ -43,6 +46,8 @@ export const Bar = (props) => {
       if (err.message === "Network Error") {
         setErrorMessage((errorMessage = "I don't know this word..."));
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,6 +102,19 @@ export const Bar = (props) => {
     }
   };
 
+  const renderSpinner = (size) => {
+    return (
+      <div className="loader">
+        <PuffLoader
+          loading={loading}
+          size={size}
+          color={"white"}
+          speedMultiplier={0.8}
+        />
+      </div>
+    );
+  };
+
   return (
     <div id="bar">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
@@ -110,7 +128,10 @@ export const Bar = (props) => {
             />
             <h3>Bar</h3>
           </div>
-          <article className="padding-places">{renderContentOrError()}</article>
+          <article className="padding-places">
+            {loading && renderSpinner("10rem")}
+            {!loading && renderContentOrError()}
+          </article>
         </div>
       </section>
     </div>
