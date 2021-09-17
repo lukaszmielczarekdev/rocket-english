@@ -2,12 +2,14 @@ import axios from "axios";
 
 const api = {
   getWordData: async (word) => {
-    const endpoint = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
-    const response = await axios(endpoint);
-    throwOnErrorStatusCode(response.status);
-    const definition = getSingleWordDefinition(response.data);
-    console.log(response);
-    return definition;
+    if (word) {
+      const endpoint = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
+      const response = await axios(endpoint);
+      throwOnErrorStatusCode(response.status);
+      const definition = getSingleWordDefinition(response.data);
+      console.log(response);
+      return definition;
+    }
   },
 };
 

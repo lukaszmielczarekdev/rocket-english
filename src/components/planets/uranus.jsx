@@ -5,6 +5,7 @@ import UserContext from "../../contexts/userContext";
 import pad from "../../images/launch.png";
 import ufo_logo from "../../images/ufo.png";
 import quiz from "../../images/quiz.png";
+import bar from "../../images/bar.png";
 import uranus from "../../images/uranus.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
@@ -43,15 +44,13 @@ const Uranus = (props) => {
         </div>
         <article className="planet-split planet-container">
           <article className="padding-places border">
-            <h4>Ufo</h4>
+            <h4>Bar</h4>
             <p className="image fit padding-inline-1">
-              <Link to="/galaxy/ufo">
-                <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+              <Link to="/galaxy/bar">
+                <img src={bar} alt="bar" width="100em" height="auto" />
               </Link>
             </p>
-            <p className="align-center">
-              You can attack and win or lose everything.
-            </p>
+            <p className="align-center">A place for gossip and meetings.</p>
           </article>
           <article className="padding-places border">
             <h4>Quiz</h4>
@@ -62,6 +61,17 @@ const Uranus = (props) => {
             </p>
             <p className="align-center">
               You can test yourself and gain exp here.
+            </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Ufo</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/ufo">
+                <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">
+              You can attack and win or lose everything.
             </p>
           </article>
           <article className="padding-places border">

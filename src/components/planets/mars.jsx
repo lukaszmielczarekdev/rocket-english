@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import pad from "../../images/launch.png";
-import casino from "../../images/casino.png";
+import bar from "../../images/bar.png";
 import mars from "../../images/mars.svg";
 import mine from "../../images/mine.png";
 import quiz from "../../images/quiz.png";
@@ -60,15 +60,6 @@ const Mars = (props) => {
             </p>
           </article>
           <article className="padding-places border">
-            <h4>Casino</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/casino">
-                <img src={casino} alt="casino" width="100em" height="auto" />
-              </Link>
-            </p>{" "}
-            <p className="align-center">Be careful. Gambling is addictive.</p>
-          </article>
-          <article className="padding-places border">
             <h4>Quiz</h4>
             <p className="image fit padding-inline-1">
               <Link to="/galaxy/university">
@@ -78,6 +69,15 @@ const Mars = (props) => {
             <p className="align-center">
               You can test yourself and gain exp here.
             </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Bar</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/bar">
+                <img src={bar} alt="bar" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">A place for gossip and meetings.</p>
           </article>
           <article className="padding-places border">
             <h4>Launch Pad</h4>

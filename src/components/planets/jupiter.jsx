@@ -5,6 +5,7 @@ import UserContext from "../../contexts/userContext";
 import pad from "../../images/launch.png";
 import ufo_logo from "../../images/ufo.png";
 import quiz from "../../images/quiz.png";
+import bar from "../../images/bar.png";
 import jupiter from "../../images/jupiter.svg";
 import getTheme from "../../utils/themes";
 import "./planets.css";
@@ -85,6 +86,15 @@ const Jupiter = (props) => {
             <p className="align-center">
               You can test yourself and gain exp here.
             </p>
+          </article>
+          <article className="padding-places border">
+            <h4>Bar</h4>
+            <p className="image fit padding-inline-1">
+              <Link to="/galaxy/bar">
+                <img src={bar} alt="bar" width="100em" height="auto" />
+              </Link>
+            </p>
+            <p className="align-center">A place for gossip and meetings.</p>
           </article>
           <article className="padding-places border">
             <h4>Gas cloud</h4>
