@@ -1,17 +1,25 @@
 import React, { useContext } from "react";
 import quiz from "../images/quiz.png";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 
 const Menu = (props) => {
   const user = useContext(UserContext);
 
-  const handleSubmitNumber = (e) => {
-    e.preventDefault();
-    const inputName = document.getElementById("submitQuizLengthFormInput");
-    const name = inputName.value;
-    if (name) {
-      props.setUpQuiz();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => handleSubmitNumber(data["length"]);
+
+  console.log(errors);
+
+  const handleSubmitNumber = (number) => {
+    const num = number;
+    if (num) {
+      props.setUpQuiz(num);
       props.showMenu();
     }
   };
@@ -27,26 +35,23 @@ const Menu = (props) => {
             <h3>Quiz</h3>
           </div>
           <article className="padding-places">
-            <p>How many words do you want?</p>
-            <form
-              id="submitQuizLengthForm"
-              onSubmit={() => {
-                props.setUpQuiz();
-                props.showMenu();
-              }}
-            >
+            <p>Quiz length:</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <input
-                required
-                autoFocus
                 type="number"
-                min="1"
-                max="50"
-                id="submitQuizLengthFormInput"
+                {...register("length", {
+                  required: true,
+                  minLength: 1,
+                  maxLength: 10,
+                  min: 1,
+                  max: 50,
+                  pattern: /\d/i,
+                })}
               />
+              <button type="submit" className="button large">
+                Start
+              </button>
             </form>
-            <button className="button large" onClick={handleSubmitNumber}>
-              Start
-            </button>
             <button className="button large">
               <Link to={path} style={{ textDecoration: "none" }}>
                 Go Back

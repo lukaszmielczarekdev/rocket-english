@@ -45,7 +45,7 @@
   margin: 0.5rem auto;
 }
 #welcome button:hover {
-  border: 1px solid var(--clr-neutral-300);
+  border: none;
 }
 
 #welcome button a {

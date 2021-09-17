@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
 import InventoryContext from "../contexts/inventoryContext";
+import { useForm } from "react-hook-form";
 import api from "../utils/api";
 import "./quiz.css";
 
@@ -13,7 +14,17 @@ const Quiz = (props) => {
     getDefinition();
   }, []);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => props.submitAnswer(data["answer"]);
+
+  console.log(errors);
+
   const getDefinition = async () => {
+    console.log(props.word);
     try {
       setErrorMessage(false);
       const def = await api.getWordData(props.word);
@@ -49,15 +60,21 @@ const Quiz = (props) => {
         <div>
           <p>{`${props.count} / ${props.len}`}</p>
           <p>{definition}</p>
-          <form id="submitAnswerForm" onSubmit={props.submitAnswer}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              autoFocus
               type="text"
-              max="15"
-              required
-              id="submitAnswerFormInput"
+              {...register("answer", {
+                required: true,
+                minLength: 3,
+                maxLength: 15,
+                pattern: /^[A-Za-z]+$/i,
+              })}
             />
+            <button type="submit" className="button large">
+              Answer
+            </button>
           </form>
+
           <button className="button large" onClick={props.skipDefinition}>
             Skip
           </button>

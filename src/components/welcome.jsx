@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
 import getTheme from "../utils/themes";
+import { useForm } from "react-hook-form";
 import "./welcome.css";
 
 const Welcome = (props) => {
@@ -15,12 +16,18 @@ const Welcome = (props) => {
 
   const user = useContext(UserContext);
 
-  const handleSubmitUserData = (e) => {
-    e.preventDefault();
-    const inputName = document.getElementById("submitNameFormInput");
-    const name = inputName.value;
-    if (name) {
-      user.onSetName(name);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => handleSubmitUserData(data["username"]);
+
+  console.log(errors);
+
+  const handleSubmitUserData = (data) => {
+    if (data) {
+      user.onSetName(data);
       props.history.push("/galaxy/earth");
     }
   };
@@ -43,18 +50,20 @@ const Welcome = (props) => {
               Learn about the universe.
             </p>
             <p>What's your name?</p>
-            <form id="submitNameForm" onSubmit={handleSubmitUserData}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <input
-                autoFocus
                 type="text"
-                max="10"
-                required
-                id="submitNameFormInput"
+                {...register("username", {
+                  required: true,
+                  minLength: 3,
+                  maxLength: 15,
+                  pattern: /^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/i,
+                })}
               />
+              <button type="submit" className="button large">
+                Start
+              </button>
             </form>
-            <button className="button large" onClick={handleSubmitUserData}>
-              Start
-            </button>
           </article>
         </div>
       </section>

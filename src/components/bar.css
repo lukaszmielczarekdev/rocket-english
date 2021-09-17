@@ -21,8 +21,8 @@
   list-style: none;
 }
 
-#bar form {
-  padding: 1rem;
+#bar form input {
+  margin: 1rem;
 }
 
 /* layout */
@@ -45,10 +45,22 @@
 /* button */
 
 #bar button {
+  font-family: var(--ff-primary);
   color: var(--clr-primary-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: var(--clr-primary-000);
+  padding-inline: 0.5rem;
+  text-transform: uppercase;
   border: 1px solid var(--clr-primary-100);
+  display: block;
+  margin: 0.5rem auto;
 }
-
 #bar button:hover {
   border: none;
+}
+
+#bar button a {
+  text-decoration: none;
+  display: block;
 }

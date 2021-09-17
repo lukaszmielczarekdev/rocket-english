@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/userContext";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import bar from "../images/bar.png";
 import getTheme from "../utils/themes";
 import api from "../utils/api";
@@ -21,13 +22,21 @@ export const Bar = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const getDefinition = async (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => getDefinition(data["def"]);
+
+  console.log(errors);
+
+  const getDefinition = async (input) => {
     setDefinition(false);
     setErrorMessage((errorMessage = false));
     try {
-      setWord((word = document.getElementById("submitBarFormInput").value));
-      const def = await api.getWordData(word);
+      setWord((word = input));
+      const def = await api.getWordData(input);
       setDefinition(def);
     } catch (err) {
       setErrorMessage((errorMessage = true));
@@ -52,18 +61,20 @@ export const Bar = (props) => {
       return (
         <div>
           <p>{renderDefinition()}</p>
-          <form id="submitBarForm" onSubmit={getDefinition}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              autoFocus
-              type="text"
-              max="10"
-              required
-              id="submitBarFormInput"
+              type="search"
+              {...register("def", {
+                required: true,
+                minLength: 3,
+                maxLength: 15,
+                pattern: /^[A-Za-z]+$/i,
+              })}
             />
+            <button type="submit" className="button large">
+              Ask the Bartender
+            </button>
           </form>
-          <button className="button large" onClick={getDefinition}>
-            Ask the Bartender
-          </button>
           <button className="button large">
             <Link
               to={`/galaxy/${user.user.currentPlanet}`}

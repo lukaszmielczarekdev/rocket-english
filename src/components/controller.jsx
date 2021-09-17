@@ -43,9 +43,8 @@ const Controller = (props) => {
     setShowSummary((showSummary) => !showSummary);
   };
 
-  const handleSetUpQuiz = () => {
-    const inputElement = document.getElementById("submitQuizLengthFormInput");
-    const inputValue = inputElement.value ? inputElement.value : 1;
+  const handleSetUpQuiz = (num) => {
+    const inputValue = num;
     quizLength.current = inputValue;
     makeWordsList(quizLength.current);
   };
@@ -67,10 +66,8 @@ const Controller = (props) => {
     handleShowQuiz();
   };
 
-  const handleSubmitAnswer = (e) => {
-    e.preventDefault();
-    const inputAnswer = document.getElementById("submitAnswerFormInput");
-    const answer = inputAnswer.value;
+  const handleSubmitAnswer = (data) => {
+    const answer = data;
     inputValidation(answer);
   };
 
