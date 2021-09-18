@@ -2,6 +2,8 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import { Redirect } from "react-router-dom";
 import pad from "../../images/launch.png";
 import bar from "../../images/bar.png";
 import mars from "../../images/mars.svg";
@@ -12,6 +14,7 @@ import "./planets.css";
 
 const Mars = (props) => {
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
   useEffect(() => {
     user.onSetPlanet("mars");
     const theme = getTheme("mars");
@@ -20,8 +23,15 @@ const Mars = (props) => {
     return () => theme.clearTheme();
   }, []);
 
+  const renderOrRedirect = (planet) => {
+    if (!general.general.availablePlanets[planet].available) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
     <div id="planet-wrapper">
+      {renderOrRedirect("mars")}
       <section
         id="planet"
         className="planet-container main-background border padding margin-block-planet-container"
@@ -82,17 +92,28 @@ const Mars = (props) => {
           <article className="padding-places border">
             <h4>Launch Pad</h4>
             <p className="image fit padding-inline-1">
-              <Link to="/galaxy/jupiter">
+              <Link
+                onClick={() => general.setAvailablePlanet("jupiter")}
+                to="/galaxy/jupiter"
+              >
                 <img src={pad} alt="launch pad" width="100em" height="auto" />
               </Link>
             </p>
             <button className="button small button-margin">
-              <Link to={"/galaxy/earth"} style={{ textDecoration: "none" }}>
+              <Link
+                onClick={() => general.setAvailablePlanet("earth")}
+                to={"/galaxy/earth"}
+                style={{ textDecoration: "none" }}
+              >
                 Back to Earth
               </Link>
             </button>
             <button className="button small button-margin">
-              <Link to={"/galaxy/jupiter"} style={{ textDecoration: "none" }}>
+              <Link
+                onClick={() => general.setAvailablePlanet("jupiter")}
+                to={"/galaxy/jupiter"}
+                style={{ textDecoration: "none" }}
+              >
                 Go to Jupiter
               </Link>
             </button>

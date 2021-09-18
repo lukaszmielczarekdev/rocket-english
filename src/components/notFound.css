@@ -1,0 +1,41 @@
+#notFound {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* layout */
+
+#notFound .split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1400px) {
+  #notFound .split {
+    flex-direction: row;
+  }
+  #notFound .split > * {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 420px) {
+  #notFound {
+    padding: 3rem;
+  }
+}
+
+/* button */
+
+#notFound button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+}
+
+#notFound button:hover {
+  border: none;
+}

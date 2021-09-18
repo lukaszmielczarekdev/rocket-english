@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import ufo_logo from "../images/ufo.png";
@@ -56,10 +57,6 @@ export const Ufo = (props) => {
     }
   };
 
-  const back = () => {
-    props.history.goBack();
-  };
-
   return (
     <div id="ufo">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
@@ -69,8 +66,13 @@ export const Ufo = (props) => {
             <h3>Ufo</h3>
           </div>
           {renderFightButton()}
-          <button className="button large" onClick={back}>
-            Go Back
+          <button className="button large">
+            <Link
+              to={`/galaxy/${user.user.currentPlanet}`}
+              style={{ textDecoration: "none" }}
+            >
+              Go Back
+            </Link>
           </button>
         </div>
       </section>

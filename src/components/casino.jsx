@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import getTheme from "../utils/themes";
@@ -46,10 +47,6 @@ const Casino = (props) => {
     }
   };
 
-  const back = () => {
-    props.history.goBack();
-  };
-
   return (
     <div id="casino">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
@@ -74,8 +71,13 @@ const Casino = (props) => {
             <button className="button large" onClick={setUpGamble}>
               Good Luck
             </button>
-            <button className="button large" onClick={back}>
-              Go Back
+            <button className="button large">
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
             </button>
           </article>
         </div>

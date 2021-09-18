@@ -1,5 +1,5 @@
 const themes = {
-  welcome: {
+  menu: {
     setTheme: () => document.body.classList.add("welcome-theme"),
     clearTheme: () => document.body.classList.remove("welcome-theme"),
   },
@@ -47,6 +47,11 @@ const themes = {
   venus: {
     setTheme: () => document.body.classList.add("venus-theme"),
     clearTheme: () => document.body.classList.remove("venus-theme"),
+  },
+
+  notFound: {
+    setTheme: () => document.body.classList.add("not-found-theme"),
+    clearTheme: () => document.body.classList.remove("not-found-theme"),
   },
 };
 

@@ -7,14 +7,8 @@ import UserContext from "../contexts/userContext";
 const Menu = (props) => {
   const user = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => handleSubmitNumber(data["length"]);
-
-  console.log(errors);
 
   const handleSubmitNumber = (number) => {
     const num = number;
@@ -23,8 +17,6 @@ const Menu = (props) => {
       props.showMenu();
     }
   };
-
-  const path = `/galaxy/${user.user.currentPlanet}`;
 
   return (
     <div>
@@ -53,7 +45,10 @@ const Menu = (props) => {
               </button>
             </form>
             <button className="button large">
-              <Link to={path} style={{ textDecoration: "none" }}>
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
                 Go Back
               </Link>
             </button>

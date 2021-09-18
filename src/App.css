@@ -220,6 +220,12 @@ body.venus-theme {
   background-size: cover;
 }
 
+body.not-found-theme {
+  background: url(../src/images/not-found-background.jpg) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
 #container {
   -moz-align-items: center;
   -webkit-align-items: center;

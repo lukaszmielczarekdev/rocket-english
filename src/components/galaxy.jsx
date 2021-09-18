@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 import Nav from "./nav";
 import Factory from "./factory";
 import Shop from "./shop";
@@ -18,6 +18,7 @@ import Saturn from "./planets/saturn";
 import Uranus from "./planets/uranus";
 import Neptune from "./planets/neptune";
 import Pluto from "./planets/pluto";
+import NotFound from "./notFound";
 import "./galaxy.css";
 
 const Galaxy = (props) => {
@@ -42,6 +43,8 @@ const Galaxy = (props) => {
         <Route path="/galaxy/uranus" component={Uranus} />
         <Route path="/galaxy/neptune" component={Neptune} />
         <Route path="/galaxy/pluto" component={Pluto} />
+        <Route path="/space" component={NotFound} />
+        <Redirect to="/space" />
       </Switch>
     </React.Fragment>
   );

@@ -1,39 +1,43 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
+import { Redirect } from "react-router-dom";
 import getTheme from "../utils/themes";
 import { useForm } from "react-hook-form";
 import "./welcome.css";
 
 const Welcome = (props) => {
   useEffect(() => {
-    user.onSetPlanet("welcome");
-    const theme = getTheme("welcome");
+    user.onSetPlanet("menu");
+    const theme = getTheme("menu");
     theme.setTheme();
 
     return () => theme.clearTheme();
   }, []);
 
   const user = useContext(UserContext);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const general = useContext(GeneralContext);
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => handleSubmitUserData(data["username"]);
 
-  console.log(errors);
+  const renderOrRedirect = (planet) => {
+    if (!general.general.availablePlanets[planet].available) {
+      return <Redirect to="/space" />;
+    }
+  };
 
   const handleSubmitUserData = (data) => {
     if (data) {
       user.onSetName(data);
+      general.setAvailablePlanet("earth");
       props.history.push("/galaxy/earth");
     }
   };
 
   return (
     <div id="welcome">
+      {renderOrRedirect("menu")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <article className="padding-places">

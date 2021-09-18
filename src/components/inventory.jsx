@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./inventory.css";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
@@ -29,10 +30,6 @@ const Inventory = (props) => {
     ));
   };
 
-  const back = () => {
-    props.history.goBack();
-  };
-
   return (
     <div id="inventory">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
@@ -40,8 +37,13 @@ const Inventory = (props) => {
           <h3>Inventory</h3>
           <article>
             <ul>{renderInventory()}</ul>
-            <button className="button large margin-top-2rem" onClick={back}>
-              Go Back
+            <button className="button large">
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
             </button>
           </article>
         </div>

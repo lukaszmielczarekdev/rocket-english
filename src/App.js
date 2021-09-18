@@ -1,13 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 import Welcome from "./components/welcome";
 import Galaxy from "./components/galaxy";
 import Footer from "./components/footer";
+import NotFound from "./components/notFound";
 import UserContext from "./contexts/userContext";
-import "./App.css";
 import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
+import GeneralContext from "./contexts/generalContext";
+import "./App.css";
 
 export default function App() {
   // checks if any data exists in the localStorage and replaces the null object if needed
@@ -21,13 +23,45 @@ export default function App() {
       : initialData;
   };
 
+  // general data
+  const initialGeneralData = {
+    availablePlanets: {
+      menu: { available: true, places: [] },
+      earth: { available: false, places: ["shop", "casino", "quiz", "pad"] },
+      mars: { available: false, places: ["mine", "bar", "quiz", "pad"] },
+      jupiter: { available: false, places: ["ufo", "bar", "quiz", "pad"] },
+      saturn: { available: false, places: ["shop", "casino", "quiz", "pad"] },
+      uranus: { available: false, places: ["ufo", "bar", "quiz", "pad"] },
+      neptune: { available: false, places: ["ufo", "quiz", "pad"] },
+      pluto: { available: false, places: ["shop", "casino", "quiz", "pad"] },
+      mercury: { available: false, places: ["shop", "mine", "quiz", "pad"] },
+      venus: { available: false, places: ["shop", "casino", "quiz", "pad"] },
+    },
+  };
+
+  const handleSetAvailablePlanet = (planet) => {
+    const generalDataDummy = { ...generalData };
+    for (const [key] of Object.entries(generalData.availablePlanets)) {
+      if (key === planet) {
+        generalDataDummy.availablePlanets[key].available = true;
+      } else {
+        generalDataDummy.availablePlanets[key].available = false;
+      }
+    }
+    setGeneralData(generalDataDummy);
+  };
+
+  const [generalData, setGeneralData] = useState(
+    getData("generalData", initialGeneralData)
+  );
+
   // user data
   const initialUserInfo = {
     name: "Guest",
     lvl: 1,
     rocketLvl: 1,
     exp: 0,
-    currentPlanet: "welcome",
+    currentPlanet: "menu",
     ifUfoDefeated: {
       Jupiter: false,
       Saturn: false,
@@ -76,6 +110,10 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("shop", JSON.stringify(shop));
   }, [shop]);
+
+  useEffect(() => {
+    localStorage.setItem("generalData", JSON.stringify(generalData));
+  }, [generalData]);
 
   useEffect(() => {
     handleCalcLvl();
@@ -175,36 +213,46 @@ export default function App() {
   };
 
   return (
-    <ShopContext.Provider
-      value={{ shopInventory: shop, buyItem: handleBuyItem }}
+    <GeneralContext.Provider
+      value={{
+        general: generalData,
+        planets: generalData.availablePlanets,
+        setAvailablePlanet: handleSetAvailablePlanet,
+      }}
     >
-      <InventoryContext.Provider
-        value={{
-          resetInventory: resetInventory,
-          inventory: userInventory,
-          addItem: handleAddItem,
-          addItems: handleAddItems,
-          subtractItem: handleSubtractItem,
-          addCredits: handleAddCredits,
-          subtractCredits: handleSubtractCredits,
-        }}
+      <ShopContext.Provider
+        value={{ shopInventory: shop, buyItem: handleBuyItem }}
       >
-        <UserContext.Provider
+        <InventoryContext.Provider
           value={{
-            user: userInfo,
-            onAddExp: handleAddExp,
-            onSetPlanet: handleSetPlanet,
-            onSetName: handleSetName,
-            onSetUfo: setUfoDefeated,
+            resetInventory: resetInventory,
+            inventory: userInventory,
+            addItem: handleAddItem,
+            addItems: handleAddItems,
+            subtractItem: handleSubtractItem,
+            addCredits: handleAddCredits,
+            subtractCredits: handleSubtractCredits,
           }}
         >
-          <Switch>
-            <Route path="/galaxy" component={Galaxy} />
-            <Route path="/" exact component={Welcome} />
-          </Switch>
-          <Footer />
-        </UserContext.Provider>
-      </InventoryContext.Provider>
-    </ShopContext.Provider>
+          <UserContext.Provider
+            value={{
+              user: userInfo,
+              onAddExp: handleAddExp,
+              onSetPlanet: handleSetPlanet,
+              onSetName: handleSetName,
+              onSetUfo: setUfoDefeated,
+            }}
+          >
+            <Switch>
+              <Route path="/galaxy" component={Galaxy} />
+              <Route path="/space" exact component={NotFound} />
+              <Route path="/" exact component={Welcome} />
+              <Redirect to="/space" />
+            </Switch>
+            <Footer />
+          </UserContext.Provider>
+        </InventoryContext.Provider>
+      </ShopContext.Provider>
+    </GeneralContext.Provider>
   );
 }

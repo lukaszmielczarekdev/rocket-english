@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import "./nav.css";
 
 const Nav = (props) => {
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
   const brightBackgrounds = ["jupiter", "mercury", "saturn"];
   const setColor = () => {
     if (brightBackgrounds.includes(user.user.currentPlanet)) {
@@ -12,9 +14,13 @@ const Nav = (props) => {
     }
   };
 
+  const handleOpenMenu = () => {
+    general.setAvailablePlanet("menu");
+  };
+
   return (
     <nav id="nav" style={setColor()} className="text-center split container">
-      <Link to="/">
+      <Link onClick={handleOpenMenu} to="/">
         <h1>ROCKET ENGLISH</h1>
       </Link>
       <ul>

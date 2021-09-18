@@ -16,14 +16,8 @@ const Quiz = (props) => {
     getDefinition();
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => props.submitAnswer(data["answer"]);
-
-  console.log(errors);
 
   const getDefinition = async () => {
     try {

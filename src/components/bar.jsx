@@ -24,14 +24,8 @@ export const Bar = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => getDefinition(data["def"]);
-
-  console.log(errors);
 
   const getDefinition = async (input) => {
     setLoading(true);
