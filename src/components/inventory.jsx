@@ -1,14 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./inventory.css";
+import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import getTheme from "../utils/themes";
+import "./inventory.css";
 
 const Inventory = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(UserInventory);
+  const general = useContext(GeneralContext);
 
   useEffect(() => {
     user.onSetPlanet(user.user.currentPlanet);
@@ -30,8 +32,19 @@ const Inventory = (props) => {
     ));
   };
 
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
     <div id="inventory">
+      {renderOrRedirect("inventory")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
           <h3>Inventory</h3>

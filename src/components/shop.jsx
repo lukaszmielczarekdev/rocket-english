@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import shop_logo from "../images/shop.png";
 import getTheme from "../utils/themes";
 import "./shop.css";
@@ -20,6 +21,7 @@ const Shop = (props) => {
 
   const inventory = useContext(UserInventory);
   const shop = useContext(ShopInventory);
+  const general = useContext(GeneralContext);
 
   const shopInv = () => {
     const items = [];
@@ -41,8 +43,19 @@ const Shop = (props) => {
     ));
   };
 
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
     <div id="shop">
+      {renderOrRedirect("shop")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo logo-place image fit">

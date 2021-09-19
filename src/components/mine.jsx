@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import GeneralContext from "../contexts/generalContext";
 import mine_logo from "../images/mine.png";
 import getTheme from "../utils/themes";
 import Modal from "react-modal";
@@ -35,6 +37,7 @@ const Mine = (props) => {
   const [summary, setSummary] = useState([]);
 
   const inventory = useContext(InventoryContext);
+  const general = useContext(GeneralContext);
 
   const toggleModal = () => {
     setModalTrigger(!modalTrigger);
@@ -121,10 +124,7 @@ const Mine = (props) => {
     }
   };
 
-  const back = () => {
-    props.history.goBack();
-  };
-
+  //   render mine button if sufficient credits
   const renderMineButton = () => {
     if (inventory.inventory.credits >= 500) {
       return (
@@ -137,10 +137,19 @@ const Mine = (props) => {
     }
   };
 
-  //   render mine button if sufficient credits
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
 
   return (
     <div id="mine">
+      {renderOrRedirect("mine")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo logo-place image fit">
@@ -150,8 +159,13 @@ const Mine = (props) => {
           <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
             <ul>{renderMineButton()}</ul>
-            <button className="button large" onClick={back}>
-              Go Back
+            <button className="button large">
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
             </button>
           </article>
         </div>

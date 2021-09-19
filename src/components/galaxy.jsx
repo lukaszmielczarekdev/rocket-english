@@ -29,7 +29,7 @@ const Galaxy = (props) => {
         <Route path="/galaxy/ufo" component={Ufo} />
         <Route path="/galaxy/factory" component={Factory} />
         <Route path="/galaxy/casino" component={Casino} />
-        <Route path="/galaxy/university" component={Controller} />
+        <Route path="/galaxy/quiz" component={Controller} />
         <Route path="/galaxy/shop" component={Shop} />
         <Route path="/galaxy/bar" component={Bar} />
         <Route path="/galaxy/mine" component={Mine} />

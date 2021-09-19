@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import ufo_cow from "../images/ufo-cow.png";
 import getTheme from "../utils/themes";
@@ -14,8 +15,28 @@ export const NotFound = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const back = () => {
-    props.history.goBack();
+  const renderBackButton = () => {
+    console.log(user.user.currentPlanet);
+    if (user.user.currentPlanet === "menu") {
+      return (
+        <button className="button large">
+          <Link to={`/`} style={{ textDecoration: "none" }}>
+            {`Go back to ${user.user.currentPlanet}`}
+          </Link>
+        </button>
+      );
+    } else {
+      return (
+        <button className="button large">
+          <Link
+            to={`/galaxy/${user.user.currentPlanet}`}
+            style={{ textDecoration: "none" }}
+          >
+            {`Go back to ${user.user.currentPlanet}`}
+          </Link>
+        </button>
+      );
+    }
   };
 
   return (
@@ -27,9 +48,7 @@ export const NotFound = (props) => {
               <img src={ufo_cow} alt="space logo" width="100em" height="auto" />
             </div>
             <p>It's easy to get lost in space and get kidnapped by UFO...</p>
-            <button className="button large" onClick={back}>
-              {`Go back to ${user.user.currentPlanet}`}
-            </button>
+            {renderBackButton()}
           </article>
         </div>
       </section>

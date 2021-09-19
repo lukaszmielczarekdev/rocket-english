@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import getTheme from "../utils/themes";
 import casino from "../images/casino.png";
 import "./casino.css";
@@ -18,6 +19,7 @@ const Casino = (props) => {
   }, []);
 
   const inventory = useContext(InventoryContext);
+  const general = useContext(GeneralContext);
 
   const gamble = (amount) => {
     const winRate = [1, 1.25, 1.75];
@@ -47,8 +49,19 @@ const Casino = (props) => {
     }
   };
 
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
     <div id="casino">
+      {renderOrRedirect("casino")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo logo-place image fit">

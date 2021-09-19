@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import UserContext from "../contexts/userContext";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
 import bar from "../images/bar.png";
 import getTheme from "../utils/themes";
@@ -16,6 +17,8 @@ export const Bar = (props) => {
   const [loading, setLoading] = useState(false);
 
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
+
   useEffect(() => {
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
@@ -53,6 +56,16 @@ export const Bar = (props) => {
 
   const formToggle = () => {
     setErrorMessage((errorMessage = !errorMessage));
+  };
+
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
   };
 
   const renderContentOrError = () => {
@@ -111,6 +124,7 @@ export const Bar = (props) => {
 
   return (
     <div id="bar">
+      {renderOrRedirect("bar")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo logo-place image fit">

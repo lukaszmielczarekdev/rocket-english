@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import ufo_logo from "../images/ufo.png";
 import getTheme from "../utils/themes";
 import "./ufo.css";
@@ -18,6 +19,7 @@ export const Ufo = (props) => {
   }, []);
 
   const inventory = useContext(UserInventory);
+  const general = useContext(GeneralContext);
 
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated["Jupiter"]) {
@@ -57,8 +59,19 @@ export const Ufo = (props) => {
     }
   };
 
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
     <div id="ufo">
+      {renderOrRedirect("ufo")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
           <div className="logo logo-place image fit">

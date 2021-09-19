@@ -67,7 +67,7 @@ const Neptune = (props) => {
           <article className="padding-places border">
             <h4>Quiz</h4>
             <p className="image fit padding-inline-1">
-              <Link to="/galaxy/university">
+              <Link to="/galaxy/quiz">
                 <img src={quiz} alt="quiz" width="100em" height="auto" />
               </Link>
             </p>

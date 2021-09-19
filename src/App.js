@@ -27,15 +27,42 @@ export default function App() {
   const initialGeneralData = {
     availablePlanets: {
       menu: { available: true, places: [] },
-      earth: { available: false, places: ["shop", "casino", "quiz", "pad"] },
-      mars: { available: false, places: ["mine", "bar", "quiz", "pad"] },
-      jupiter: { available: false, places: ["ufo", "bar", "quiz", "pad"] },
-      saturn: { available: false, places: ["shop", "casino", "quiz", "pad"] },
-      uranus: { available: false, places: ["ufo", "bar", "quiz", "pad"] },
-      neptune: { available: false, places: ["ufo", "quiz", "pad"] },
-      pluto: { available: false, places: ["shop", "casino", "quiz", "pad"] },
-      mercury: { available: false, places: ["shop", "mine", "quiz", "pad"] },
-      venus: { available: false, places: ["shop", "casino", "quiz", "pad"] },
+      earth: {
+        available: false,
+        places: ["shop", "casino", "quiz", "pad", "inventory"],
+      },
+      mars: {
+        available: false,
+        places: ["mine", "bar", "quiz", "pad", "inventory"],
+      },
+      jupiter: {
+        available: false,
+        places: ["ufo", "bar", "quiz", "pad", "inventory"],
+      },
+      saturn: {
+        available: false,
+        places: ["shop", "casino", "quiz", "pad", "inventory"],
+      },
+      uranus: {
+        available: false,
+        places: ["ufo", "bar", "quiz", "pad", "inventory"],
+      },
+      neptune: {
+        available: false,
+        places: ["ufo", "quiz", "pad", "inventory"],
+      },
+      pluto: {
+        available: false,
+        places: ["shop", "casino", "quiz", "pad", "inventory"],
+      },
+      mercury: {
+        available: false,
+        places: ["shop", "mine", "quiz", "pad", "inventory"],
+      },
+      venus: {
+        available: false,
+        places: ["shop", "casino", "quiz", "pad", "inventory"],
+      },
     },
   };
 
