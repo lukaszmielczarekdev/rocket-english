@@ -25,7 +25,10 @@ const modalStyle = {
 
 const Mine = (props) => {
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
+  const inventory = useContext(InventoryContext);
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();
@@ -35,9 +38,6 @@ const Mine = (props) => {
 
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
-
-  const inventory = useContext(InventoryContext);
-  const general = useContext(GeneralContext);
 
   const toggleModal = () => {
     setModalTrigger(!modalTrigger);

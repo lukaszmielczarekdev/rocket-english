@@ -10,16 +10,16 @@ import "./ufo.css";
 
 export const Ufo = (props) => {
   const user = useContext(UserContext);
+  const inventory = useContext(UserInventory);
+  const general = useContext(GeneralContext);
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();
 
     return () => theme.clearTheme();
   }, []);
-
-  const inventory = useContext(UserInventory);
-  const general = useContext(GeneralContext);
 
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated["Jupiter"]) {

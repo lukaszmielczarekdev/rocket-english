@@ -13,6 +13,7 @@ const Inventory = (props) => {
   const general = useContext(GeneralContext);
 
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();

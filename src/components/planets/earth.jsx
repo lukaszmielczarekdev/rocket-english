@@ -16,6 +16,7 @@ const Earth = (props) => {
   const general = useContext(GeneralContext);
 
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet("earth");
     const theme = getTheme("earth");
     theme.setTheme();
@@ -29,7 +30,46 @@ const Earth = (props) => {
     }
   };
 
-  // alert(general.general.availablePlanets["earth"].available);
+  const renderTravelButton = (planet, label) => {
+    if (general.general.availablePlanets[planet].discovered) {
+      return (
+        <button className="button small button-margin">
+          <Link
+            onClick={() => general.setAvailablePlanet(planet)}
+            to={`/galaxy/${planet}`}
+            style={{ textDecoration: "none" }}
+          >
+            {label}
+          </Link>
+        </button>
+      );
+    }
+  };
+
+  const renderLockedButton = (planet, lvl) => {
+    if (!general.general.availablePlanets[planet].discovered) {
+      return (
+        <button className="button small button-margin">
+          Required level: {lvl}
+        </button>
+      );
+    }
+  };
+
+  const renderLaunchPadImage = () => {
+    if (general.general.availablePlanets["mars"].discovered) {
+      return (
+        <Link
+          onClick={() => general.setAvailablePlanet("mars")}
+          to="/galaxy/mars"
+        >
+          <img src={pad} alt="launch pad" width="100em" height="auto" />
+        </Link>
+      );
+    } else {
+      return <img src={pad} alt="launch pad" width="100em" height="auto" />;
+    }
+  };
 
   return (
     <div id="planet-wrapper">
@@ -92,31 +132,12 @@ const Earth = (props) => {
           <article className="padding-places border">
             <h4>Launch Pad</h4>
             <p className="image fit padding-inline-1">
-              <Link
-                onClick={() => general.setAvailablePlanet("mars")}
-                to="/galaxy/mars"
-              >
-                <img src={pad} alt="launch pad" width="100em" height="auto" />
-              </Link>
+              {renderLaunchPadImage()}
             </p>
-            <button className="button small button-margin">
-              <Link
-                onClick={() => general.setAvailablePlanet("venus")}
-                to={"/galaxy/venus"}
-                style={{ textDecoration: "none" }}
-              >
-                Back to Venus
-              </Link>
-            </button>
-            <button className="button small button-margin">
-              <Link
-                onClick={() => general.setAvailablePlanet("mars")}
-                to={"/galaxy/mars"}
-                style={{ textDecoration: "none" }}
-              >
-                Go to Mars
-              </Link>
-            </button>
+            {renderTravelButton("venus", "Back to Venus")}
+            {renderTravelButton("mars", "Go to Mars")}
+            {renderLockedButton("venus", 100)}
+            {renderLockedButton("mars", 5)}
           </article>
         </article>
       </section>

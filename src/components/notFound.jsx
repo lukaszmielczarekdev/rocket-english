@@ -2,13 +2,16 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import ufo_cow from "../images/ufo-cow.png";
 import getTheme from "../utils/themes";
 import "./notFound.css";
 
 export const NotFound = (props) => {
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
   useEffect(() => {
+    general.setGamePaused(true);
     const theme = getTheme("notFound");
     theme.setTheme();
 

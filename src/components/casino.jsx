@@ -9,17 +9,17 @@ import casino from "../images/casino.png";
 import "./casino.css";
 
 const Casino = (props) => {
+  const inventory = useContext(InventoryContext);
+  const general = useContext(GeneralContext);
   const user = useContext(UserContext);
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();
 
     return () => theme.clearTheme();
   }, []);
-
-  const inventory = useContext(InventoryContext);
-  const general = useContext(GeneralContext);
 
   const gamble = (amount) => {
     const winRate = [1, 1.25, 1.75];

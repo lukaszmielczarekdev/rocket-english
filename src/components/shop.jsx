@@ -11,17 +11,17 @@ import "./shop.css";
 
 const Shop = (props) => {
   const user = useContext(UserContext);
+  const inventory = useContext(UserInventory);
+  const shop = useContext(ShopInventory);
+  const general = useContext(GeneralContext);
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();
 
     return () => theme.clearTheme();
   }, []);
-
-  const inventory = useContext(UserInventory);
-  const shop = useContext(ShopInventory);
-  const general = useContext(GeneralContext);
 
   const shopInv = () => {
     const items = [];

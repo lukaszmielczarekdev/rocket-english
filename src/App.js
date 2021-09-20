@@ -24,51 +24,98 @@ export default function App() {
       : initialData;
   };
 
+  // user data
+  const initialUserInfo = {
+    name: "Guest",
+    lvl: 1,
+    rocketLvl: 1,
+    exp: 0,
+    currentPlanet: "menu",
+    tour: true,
+    ifUfoDefeated: {
+      Jupiter: false,
+      Saturn: false,
+      Uranus: false,
+      Neptune: false,
+    },
+  };
+
+  const [userInfo, setUserInfo] = useState(
+    getData("userInfo", initialUserInfo)
+  );
+
+  const isDiscovered = (requiredPlayerLevel, requiredRocketLevel = 1) => {
+    if (
+      (userInfo.lvl >= requiredPlayerLevel &&
+        userInfo.rocketLvl >= requiredRocketLevel) ||
+      userInfo.tour
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   // general data
   const initialGeneralData = {
+    gamePaused: true,
     availablePlanets: {
-      menu: { available: true, places: [] },
+      menu: { available: true, discovered: true, places: [] },
       earth: {
         available: false,
+        discovered: false,
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
       mars: {
         available: false,
+        discovered: isDiscovered(5),
         places: ["mine", "bar", "quiz", "pad", "inventory"],
       },
       jupiter: {
         available: false,
+        discovered: isDiscovered(10),
         places: ["ufo", "bar", "quiz", "pad", "inventory"],
       },
       saturn: {
         available: false,
+        discovered: isDiscovered(20),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
       uranus: {
         available: false,
+        discovered: isDiscovered(35),
         places: ["ufo", "bar", "quiz", "pad", "inventory"],
       },
       neptune: {
         available: false,
+        discovered: isDiscovered(50),
         places: ["ufo", "quiz", "pad", "inventory"],
       },
       pluto: {
         available: false,
+        discovered: isDiscovered(65),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
       mercury: {
         available: false,
+        discovered: isDiscovered(80),
         places: ["shop", "mine", "quiz", "pad", "inventory"],
       },
       venus: {
         available: false,
+        discovered: isDiscovered(100),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
     },
   };
 
+  const handleSetGamePaused = (state) => {
+    const generalDataDummy = { ...generalData };
+    generalDataDummy.gamePaused = state;
+    setGeneralData(generalDataDummy);
+  };
+
   const renderNav = () => {
-    if (userInfo.currentPlanet !== "menu") {
+    if (generalData.gamePaused === false) {
       return <Nav />;
     }
   };
@@ -87,25 +134,6 @@ export default function App() {
 
   const [generalData, setGeneralData] = useState(
     getData("generalData", initialGeneralData)
-  );
-
-  // user data
-  const initialUserInfo = {
-    name: "Guest",
-    lvl: 1,
-    rocketLvl: 1,
-    exp: 0,
-    currentPlanet: "menu",
-    ifUfoDefeated: {
-      Jupiter: false,
-      Saturn: false,
-      Uranus: false,
-      Neptune: false,
-    },
-  };
-
-  const [userInfo, setUserInfo] = useState(
-    getData("userInfo", initialUserInfo)
   );
 
   // user inventory
@@ -249,6 +277,7 @@ export default function App() {
   return (
     <GeneralContext.Provider
       value={{
+        setGamePaused: handleSetGamePaused,
         general: generalData,
         planets: generalData.availablePlanets,
         setAvailablePlanet: handleSetAvailablePlanet,
