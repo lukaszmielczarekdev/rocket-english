@@ -50,7 +50,7 @@ const Earth = (props) => {
           </div>
           <p className="planet-description">
             Earth is the only planet that is not named after a deity. The other
-            seven planets in our solar system are named after the Roman gods and
+            planets in our solar system are named after the Roman gods and
             goddesses. However, only Mercury, Venus, Mars, Jupiter and Saturn
             were named in ancient times as they were visible to the naked eye.
             The Roman method of naming planets was halted after the discovery of

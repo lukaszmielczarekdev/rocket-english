@@ -6,7 +6,7 @@ const Footer = (props) => {
   const user = useContext(UserContext);
 
   const brightBackgrounds = [
-    "welcome",
+    "menu",
     "jupiter",
     "uranus",
     "mercury",
