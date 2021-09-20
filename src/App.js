@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import Welcome from "./components/welcome";
 import Galaxy from "./components/galaxy";
+import Nav from "./components/nav";
 import Footer from "./components/footer";
 import NotFound from "./components/notFound";
 import UserContext from "./contexts/userContext";
@@ -64,6 +65,12 @@ export default function App() {
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
     },
+  };
+
+  const renderNav = () => {
+    if (userInfo.currentPlanet !== "menu") {
+      return <Nav />;
+    }
   };
 
   const handleSetAvailablePlanet = (planet) => {
@@ -270,6 +277,7 @@ export default function App() {
               onSetUfo: setUfoDefeated,
             }}
           >
+            {renderNav()}
             <Switch>
               <Route path="/galaxy" component={Galaxy} />
               <Route path="/space" exact component={NotFound} />

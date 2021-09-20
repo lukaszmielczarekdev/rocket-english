@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router";
-import Nav from "./nav";
 import Factory from "./factory";
 import Shop from "./shop";
 import Inventory from "./inventory";
@@ -24,7 +23,6 @@ import "./galaxy.css";
 const Galaxy = (props) => {
   return (
     <React.Fragment>
-      <Nav />
       <Switch>
         <Route path="/galaxy/ufo" component={Ufo} />
         <Route path="/galaxy/factory" component={Factory} />
