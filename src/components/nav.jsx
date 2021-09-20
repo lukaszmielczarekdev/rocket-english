@@ -19,19 +19,21 @@ const Nav = (props) => {
   };
 
   return (
-    <nav id="nav" style={setColor()} className="text-center split container">
-      <Link onClick={handleOpenMenu} to="/">
-        <h1>ROCKET ENGLISH</h1>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/galaxy/inventory">Inventory</Link>
-        </li>
-        <li>Name: {user.user.name}</li>
-        <li>Exp: {user.user.exp}</li>
-        <li>Lvl: {user.user.lvl}</li>
-      </ul>
-    </nav>
+    <div>
+      <nav id="nav" style={setColor()} className="text-center split container">
+        <Link onClick={handleOpenMenu} to="/">
+          <h1>ROCKET ENGLISH</h1>
+        </Link>
+        <ul>
+          <li>
+            <Link to="/galaxy/inventory">Inventory</Link>
+          </li>
+          <li>Name: {user.user.name}</li>
+          <li>Exp: {user.user.exp}</li>
+          <li>Lvl: {user.user.lvl}</li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 
