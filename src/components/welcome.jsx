@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import InventoryContext from "../contexts/inventoryContext";
+import TourContext from "../contexts/tourContext";
 import { Redirect } from "react-router-dom";
+import Modal from "react-modal";
 import getTheme from "../utils/themes";
 import { useForm } from "react-hook-form";
 import "./welcome.css";
@@ -11,6 +14,10 @@ import "./welcome.css";
 const Welcome = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
+  const tour = useContext(TourContext);
+  const inventory = useContext(InventoryContext);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     general.setGamePaused(true);
     if (!general.general.availablePlanets["earth"].discovered) {
@@ -34,14 +41,35 @@ const Welcome = (props) => {
   const handleSubmitUserData = (data) => {
     if (data) {
       user.onSetName(data);
+      general.setNewGame(false);
       general.setAvailablePlanet("earth");
       general.general.availablePlanets["earth"].discovered = true;
       props.history.push("/galaxy/earth");
     }
   };
 
-  const renderNewGame = () => {
-    if (!general.general.availablePlanets["earth"].discovered) {
+  const renderResetProgress = () => {
+    if (general.general.availablePlanets["earth"].discovered) {
+      return (
+        <button onClick={toggleModal} className="button large button-margin">
+          New game
+        </button>
+      );
+    }
+  };
+
+  const resetProgress = () => {
+    localStorage.clear();
+    window.location.reload();
+    toggleModal();
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const renderLogin = () => {
+    if (general.general.login) {
       return (
         <>
           <p>What's your name?</p>
@@ -61,19 +89,62 @@ const Welcome = (props) => {
           </form>
         </>
       );
+    } else {
+      return renderNewGame();
     }
   };
 
-  const makeAvailable = () => {
+  const renderNewGame = () => {
+    return (
+      <>
+        <button
+          onClick={() => {
+            general.setNewGame(false);
+            general.setLogin(true);
+          }}
+          style={{ textDecoration: "none" }}
+          className="button large button-margin"
+        >
+          I want to play
+        </button>
+        <button
+          onClick={() => {
+            inventory.addItems({
+              credits: 9500,
+              steel: 500,
+              word: 50,
+              stardust: 500,
+              aluminum: 500,
+              crystal: 500,
+            });
+            startTour();
+            tour.setTour(true);
+            props.history.push("/galaxy/earth");
+          }}
+          style={{ textDecoration: "none" }}
+          className="button large button-margin"
+        >
+          I'm just a tourist
+        </button>
+      </>
+    );
+  };
+  const startTour = () => {
+    general.setAvailablePlanet("earth");
+    general.general.availablePlanets["earth"].discovered = true;
+    general.setNewGame(false);
+  };
+
+  const makeCurrentPlanetAvailableAgain = () => {
     general.general.availablePlanets[user.user.currentPlanet].available = true;
   };
 
   const renderContinueGame = () => {
     if (general.general.availablePlanets["earth"].discovered) {
       return (
-        <button className="button small button-margin">
+        <button className="button large button-margin">
           <Link
-            onClick={makeAvailable()}
+            onClick={makeCurrentPlanetAvailableAgain()}
             to={`/galaxy/${user.user.currentPlanet}`}
             style={{ textDecoration: "none" }}
           >
@@ -82,6 +153,18 @@ const Welcome = (props) => {
         </button>
       );
     }
+  };
+
+  const modalStyle = {
+    content: {
+      textAlign: "center",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
   };
 
   return (
@@ -102,8 +185,33 @@ const Welcome = (props) => {
               <br />
               Learn about the universe.
             </p>
-            {renderContinueGame()}
-            {renderNewGame()}
+
+            {general.general.newGame && renderLogin()}
+            {!general.general.newGame && renderResetProgress()}
+            {!general.general.newGame && renderContinueGame()}
+
+            <Modal
+              id="modal"
+              style={modalStyle}
+              isOpen={showModal}
+              onRequestClose={toggleModal}
+              contentLabel="New game confirmation modal"
+            >
+              <p>Are you sure?</p>
+              <p>All progress will be lost...</p>
+              <button
+                className="button large button-margin"
+                onClick={toggleModal}
+              >
+                No
+              </button>
+              <button
+                className="button large button-margin"
+                onClick={resetProgress}
+              >
+                Yes
+              </button>
+            </Modal>
           </article>
         </div>
       </section>

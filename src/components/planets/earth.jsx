@@ -2,6 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
+import TourContext from "../../contexts/tourContext";
 import GeneralContext from "../../contexts/generalContext";
 import pad from "../../images/launch.png";
 import casino from "../../images/casino.png";
@@ -13,6 +14,7 @@ import "./planets.css";
 
 const Earth = (props) => {
   const user = useContext(UserContext);
+  const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Earth = (props) => {
   };
 
   const renderTravelButton = (planet, label) => {
-    if (general.general.availablePlanets[planet].discovered) {
+    if (general.general.availablePlanets[planet].discovered || tour.tour) {
       return (
         <button className="button small button-margin">
           <Link
@@ -47,7 +49,7 @@ const Earth = (props) => {
   };
 
   const renderLockedButton = (planet, lvl) => {
-    if (!general.general.availablePlanets[planet].discovered) {
+    if (!general.general.availablePlanets[planet].discovered && !tour.tour) {
       return (
         <button className="button small button-margin">
           Required level: {lvl}
@@ -57,7 +59,7 @@ const Earth = (props) => {
   };
 
   const renderLaunchPadImage = () => {
-    if (general.general.availablePlanets["mars"].discovered) {
+    if (general.general.availablePlanets["mars"].discovered || tour.tour) {
       return (
         <Link
           onClick={() => general.setAvailablePlanet("mars")}

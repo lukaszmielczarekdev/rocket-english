@@ -10,6 +10,7 @@ import UserContext from "./contexts/userContext";
 import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 import GeneralContext from "./contexts/generalContext";
+import TourContext from "./contexts/tourContext";
 import "./App.css";
 
 export default function App() {
@@ -24,6 +25,15 @@ export default function App() {
       : initialData;
   };
 
+  // tour data
+  const initialTourData = {
+    tour: false,
+  };
+
+  const [tourData, setTourData] = useState(
+    getData("tourData", initialTourData)
+  );
+
   // user data
   const initialUserInfo = {
     name: "Guest",
@@ -31,7 +41,6 @@ export default function App() {
     rocketLvl: 1,
     exp: 0,
     currentPlanet: "menu",
-    tour: true,
     ifUfoDefeated: {
       Jupiter: false,
       Saturn: false,
@@ -46,9 +55,8 @@ export default function App() {
 
   const isDiscovered = (requiredPlayerLevel, requiredRocketLevel = 1) => {
     if (
-      (userInfo.lvl >= requiredPlayerLevel &&
-        userInfo.rocketLvl >= requiredRocketLevel) ||
-      userInfo.tour
+      userInfo.lvl >= requiredPlayerLevel &&
+      userInfo.rocketLvl >= requiredRocketLevel
     ) {
       return true;
     }
@@ -57,7 +65,9 @@ export default function App() {
 
   // general data
   const initialGeneralData = {
-    gamePaused: true,
+    newGame: true,
+    login: false,
+    gamePaused: false,
     availablePlanets: {
       menu: { available: true, discovered: true, places: [] },
       earth: {
@@ -111,6 +121,24 @@ export default function App() {
   const handleSetGamePaused = (state) => {
     const generalDataDummy = { ...generalData };
     generalDataDummy.gamePaused = state;
+    setGeneralData(generalDataDummy);
+  };
+
+  const handleSetNewGame = (state) => {
+    const generalDataDummy = { ...generalData };
+    generalDataDummy.newGame = state;
+    setGeneralData(generalDataDummy);
+  };
+
+  const handleSetTour = (state) => {
+    const tourDataDummy = { ...tourData };
+    tourDataDummy.tour = state;
+    setTourData(tourDataDummy);
+  };
+
+  const handleSetLogin = (state) => {
+    const generalDataDummy = { ...generalData };
+    generalDataDummy.login = state;
     setGeneralData(generalDataDummy);
   };
 
@@ -176,6 +204,10 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("generalData", JSON.stringify(generalData));
   }, [generalData]);
+
+  useEffect(() => {
+    localStorage.setItem("tourData", JSON.stringify(tourData));
+  }, [tourData]);
 
   useEffect(() => {
     handleCalcLvl();
@@ -275,48 +307,54 @@ export default function App() {
   };
 
   return (
-    <GeneralContext.Provider
-      value={{
-        setGamePaused: handleSetGamePaused,
-        general: generalData,
-        planets: generalData.availablePlanets,
-        setAvailablePlanet: handleSetAvailablePlanet,
-      }}
+    <TourContext.Provider
+      value={{ tour: tourData.tour, setTour: handleSetTour }}
     >
-      <ShopContext.Provider
-        value={{ shopInventory: shop, buyItem: handleBuyItem }}
+      <GeneralContext.Provider
+        value={{
+          setGamePaused: handleSetGamePaused,
+          setNewGame: handleSetNewGame,
+          setLogin: handleSetLogin,
+          general: generalData,
+          planets: generalData.availablePlanets,
+          setAvailablePlanet: handleSetAvailablePlanet,
+        }}
       >
-        <InventoryContext.Provider
-          value={{
-            resetInventory: resetInventory,
-            inventory: userInventory,
-            addItem: handleAddItem,
-            addItems: handleAddItems,
-            subtractItem: handleSubtractItem,
-            addCredits: handleAddCredits,
-            subtractCredits: handleSubtractCredits,
-          }}
+        <ShopContext.Provider
+          value={{ shopInventory: shop, buyItem: handleBuyItem }}
         >
-          <UserContext.Provider
+          <InventoryContext.Provider
             value={{
-              user: userInfo,
-              onAddExp: handleAddExp,
-              onSetPlanet: handleSetPlanet,
-              onSetName: handleSetName,
-              onSetUfo: setUfoDefeated,
+              resetInventory: resetInventory,
+              inventory: userInventory,
+              addItem: handleAddItem,
+              addItems: handleAddItems,
+              subtractItem: handleSubtractItem,
+              addCredits: handleAddCredits,
+              subtractCredits: handleSubtractCredits,
             }}
           >
-            {renderNav()}
-            <Switch>
-              <Route path="/galaxy" component={Galaxy} />
-              <Route path="/space" exact component={NotFound} />
-              <Route path="/" exact component={Welcome} />
-              <Redirect to="/space" />
-            </Switch>
-            <Footer />
-          </UserContext.Provider>
-        </InventoryContext.Provider>
-      </ShopContext.Provider>
-    </GeneralContext.Provider>
+            <UserContext.Provider
+              value={{
+                user: userInfo,
+                onAddExp: handleAddExp,
+                onSetPlanet: handleSetPlanet,
+                onSetName: handleSetName,
+                onSetUfo: setUfoDefeated,
+              }}
+            >
+              {renderNav()}
+              <Switch>
+                <Route path="/galaxy" component={Galaxy} />
+                <Route path="/space" exact component={NotFound} />
+                <Route path="/" exact component={Welcome} />
+                <Redirect to="/space" />
+              </Switch>
+              <Footer />
+            </UserContext.Provider>
+          </InventoryContext.Provider>
+        </ShopContext.Provider>
+      </GeneralContext.Provider>
+    </TourContext.Provider>
   );
 }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
+import TourContext from "../../contexts/tourContext";
 import pad from "../../images/launch.png";
 import ufo_logo from "../../images/ufo.png";
 import quiz from "../../images/quiz.png";
@@ -14,6 +15,7 @@ import "./planets.css";
 
 const Jupiter = (props) => {
   const user = useContext(UserContext);
+  const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
     general.setGamePaused(false);
@@ -59,7 +61,7 @@ const Jupiter = (props) => {
   };
 
   const renderTravelButton = (planet, label) => {
-    if (general.general.availablePlanets[planet].discovered) {
+    if (general.general.availablePlanets[planet].discovered || tour.tour) {
       return (
         <button className="button small button-margin">
           <Link
@@ -75,7 +77,7 @@ const Jupiter = (props) => {
   };
 
   const renderLockedButton = (planet, lvl) => {
-    if (!general.general.availablePlanets[planet].discovered) {
+    if (!general.general.availablePlanets[planet].discovered && !tour.tour) {
       return (
         <button className="button small button-margin">
           Required level: {lvl}
@@ -85,7 +87,7 @@ const Jupiter = (props) => {
   };
 
   const renderLaunchPadImage = () => {
-    if (general.general.availablePlanets["saturn"].discovered) {
+    if (general.general.availablePlanets["saturn"].discovered || tour.tour) {
       return (
         <Link
           onClick={() => general.setAvailablePlanet("saturn")}

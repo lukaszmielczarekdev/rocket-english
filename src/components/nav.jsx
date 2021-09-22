@@ -21,7 +21,13 @@ const Nav = (props) => {
   return (
     <div>
       <nav id="nav" style={setColor()} className="text-center split container">
-        <Link onClick={handleOpenMenu} to="/">
+        <Link
+          onClick={() => {
+            handleOpenMenu();
+            general.setNewGame(false);
+          }}
+          to="/"
+        >
           <h1>ROCKET ENGLISH</h1>
         </Link>
         <ul>

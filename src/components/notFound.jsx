@@ -19,7 +19,6 @@ export const NotFound = (props) => {
   }, []);
 
   const renderBackButton = () => {
-    console.log(user.user.currentPlanet);
     if (user.user.currentPlanet === "menu") {
       return (
         <button className="button large">
