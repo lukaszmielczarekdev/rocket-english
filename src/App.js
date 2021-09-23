@@ -53,16 +53,6 @@ export default function App() {
     getData("userInfo", initialUserInfo)
   );
 
-  const isDiscovered = (requiredPlayerLevel, requiredRocketLevel = 1) => {
-    if (
-      userInfo.lvl >= requiredPlayerLevel &&
-      userInfo.rocketLvl >= requiredRocketLevel
-    ) {
-      return true;
-    }
-    return false;
-  };
-
   // general data
   const initialGeneralData = {
     newGame: true,
@@ -77,42 +67,33 @@ export default function App() {
       },
       mars: {
         available: false,
-        discovered: isDiscovered(5),
         places: ["mine", "bar", "quiz", "pad", "inventory"],
       },
       jupiter: {
         available: false,
-        discovered: isDiscovered(10),
         places: ["ufo", "bar", "quiz", "pad", "inventory"],
       },
       saturn: {
         available: false,
-        discovered: isDiscovered(20),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
       uranus: {
         available: false,
-        discovered: isDiscovered(35),
         places: ["ufo", "bar", "quiz", "pad", "inventory"],
       },
       neptune: {
         available: false,
-        discovered: isDiscovered(50),
         places: ["ufo", "quiz", "pad", "inventory"],
       },
       pluto: {
-        available: false,
-        discovered: isDiscovered(65),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
       mercury: {
         available: false,
-        discovered: isDiscovered(80),
         places: ["shop", "mine", "quiz", "pad", "inventory"],
       },
       venus: {
         available: false,
-        discovered: isDiscovered(100),
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
     },
@@ -257,7 +238,7 @@ export default function App() {
       userInventoryDummy.credits = userInventory.credits - price * multiplier;
       setUserInventory(userInventoryDummy);
     } else {
-      alert("Not enaugh credits!");
+      alert("Not enough credits!");
     }
   };
 

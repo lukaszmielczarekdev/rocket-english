@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import TourContext from "../../contexts/tourContext";
 import GeneralContext from "../../contexts/generalContext";
@@ -10,6 +10,7 @@ import quiz from "../../images/quiz.png";
 import shop from "../../images/shop.png";
 import earth_logo from "../../images/earth.svg";
 import getTheme from "../../utils/themes";
+import planetAccess from "../../utils/planetAccess";
 import "./planets.css";
 
 const Earth = (props) => {
@@ -26,56 +27,12 @@ const Earth = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const renderOrRedirect = (planet) => {
-    if (!general.general.availablePlanets[planet].available) {
-      return <Redirect to="/space" />;
-    }
-  };
-
-  const renderTravelButton = (planet, label) => {
-    if (general.general.availablePlanets[planet].discovered || tour.tour) {
-      return (
-        <button className="button small button-margin">
-          <Link
-            onClick={() => general.setAvailablePlanet(planet)}
-            to={`/galaxy/${planet}`}
-            style={{ textDecoration: "none" }}
-          >
-            {label}
-          </Link>
-        </button>
-      );
-    }
-  };
-
-  const renderLockedButton = (planet, lvl) => {
-    if (!general.general.availablePlanets[planet].discovered && !tour.tour) {
-      return (
-        <button className="button small button-margin">
-          Required level: {lvl}
-        </button>
-      );
-    }
-  };
-
-  const renderLaunchPadImage = () => {
-    if (general.general.availablePlanets["mars"].discovered || tour.tour) {
-      return (
-        <Link
-          onClick={() => general.setAvailablePlanet("mars")}
-          to="/galaxy/mars"
-        >
-          <img src={pad} alt="launch pad" width="100em" height="auto" />
-        </Link>
-      );
-    } else {
-      return <img src={pad} alt="launch pad" width="100em" height="auto" />;
-    }
-  };
-
   return (
     <div id="planet-wrapper">
-      {renderOrRedirect("earth")}
+      {planetAccess.renderPlanetOrRedirect(
+        general.general.availablePlanets,
+        "earth"
+      )}
       <section
         id="planet"
         className="planet-container main-background border padding margin-block-planet-container"
@@ -134,12 +91,37 @@ const Earth = (props) => {
           <article className="padding-places border">
             <h4>Launch Pad</h4>
             <p className="image fit padding-inline-1">
-              {renderLaunchPadImage()}
+              {planetAccess.renderLaunchPadImage(
+                "mars",
+                user.user.lvl,
+                user.user.rocketLvl,
+                5,
+                1,
+                tour.tour,
+                general.setAvailablePlanet,
+                pad
+              )}
             </p>
-            {renderTravelButton("venus", "Back to Venus")}
-            {renderTravelButton("mars", "Go to Mars")}
-            {renderLockedButton("venus", 100)}
-            {renderLockedButton("mars", 5)}
+            {planetAccess.renderTravelButton(
+              "venus",
+              "Back to Venus",
+              user.user.lvl,
+              user.user.rocketLvl,
+              100,
+              1,
+              tour.tour,
+              general.setAvailablePlanet
+            )}
+            {planetAccess.renderTravelButton(
+              "mars",
+              "Go to Mars",
+              user.user.lvl,
+              user.user.rocketLvl,
+              5,
+              1,
+              tour.tour,
+              general.setAvailablePlanet
+            )}
           </article>
         </article>
       </section>

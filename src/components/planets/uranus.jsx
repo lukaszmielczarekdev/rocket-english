@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import TourContext from "../../contexts/tourContext";
-import { Redirect } from "react-router-dom";
 import pad from "../../images/launch.png";
 import ufo_logo from "../../images/ufo.png";
 import quiz from "../../images/quiz.png";
 import bar from "../../images/bar.png";
 import uranus from "../../images/uranus.svg";
 import getTheme from "../../utils/themes";
+import planetAccess from "../../utils/planetAccess";
 import "./planets.css";
 
 const Uranus = (props) => {
@@ -26,56 +26,12 @@ const Uranus = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const renderOrRedirect = (planet) => {
-    if (!general.general.availablePlanets[planet].available) {
-      return <Redirect to="/space" />;
-    }
-  };
-
-  const renderTravelButton = (planet, label) => {
-    if (general.general.availablePlanets[planet].discovered || tour.tour) {
-      return (
-        <button className="button small button-margin">
-          <Link
-            onClick={() => general.setAvailablePlanet(planet)}
-            to={`/galaxy/${planet}`}
-            style={{ textDecoration: "none" }}
-          >
-            {label}
-          </Link>
-        </button>
-      );
-    }
-  };
-
-  const renderLockedButton = (planet, lvl) => {
-    if (!general.general.availablePlanets[planet].discovered && !tour.tour) {
-      return (
-        <button className="button small button-margin">
-          Required level: {lvl}
-        </button>
-      );
-    }
-  };
-
-  const renderLaunchPadImage = () => {
-    if (general.general.availablePlanets["neptune"].discovered || tour.tour) {
-      return (
-        <Link
-          onClick={() => general.setAvailablePlanet("neptune")}
-          to="/galaxy/neptune"
-        >
-          <img src={pad} alt="launch pad" width="100em" height="auto" />
-        </Link>
-      );
-    } else {
-      return <img src={pad} alt="launch pad" width="100em" height="auto" />;
-    }
-  };
-
   return (
     <div id="planet-wrapper">
-      {renderOrRedirect("uranus")}
+      {planetAccess.renderPlanetOrRedirect(
+        general.general.availablePlanets,
+        "uranus"
+      )}
       <section
         id="planet"
         className="planet-container main-background border padding margin-block-planet-container"
@@ -131,11 +87,37 @@ const Uranus = (props) => {
           <article className="padding-places border">
             <h4>Gas cloud</h4>
             <p className="image fit padding-inline-1">
-              {renderLaunchPadImage()}
+              {planetAccess.renderLaunchPadImage(
+                "neptune",
+                user.user.lvl,
+                user.user.rocketLvl,
+                50,
+                1,
+                tour.tour,
+                general.setAvailablePlanet,
+                pad
+              )}
             </p>
-            {renderTravelButton("saturn", "Back to Saturn")}
-            {renderTravelButton("neptune", "Go to Neptune")}
-            {renderLockedButton("neptune", 50)}
+            {planetAccess.renderTravelButton(
+              "saturn",
+              "Back to Saturn",
+              user.user.lvl,
+              user.user.rocketLvl,
+              20,
+              1,
+              tour.tour,
+              general.setAvailablePlanet
+            )}
+            {planetAccess.renderTravelButton(
+              "neptune",
+              "Go to Neptune",
+              user.user.lvl,
+              user.user.rocketLvl,
+              50,
+              1,
+              tour.tour,
+              general.setAvailablePlanet
+            )}
           </article>
         </article>
       </section>
