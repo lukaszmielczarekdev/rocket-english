@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
-import bar from "../images/bar.png";
 import getTheme from "../utils/themes";
+import bar_webp from "../images/bar.webp";
+import bar_png from "../images/bar.png";
 import api from "../utils/api";
 import "./bar.css";
 
@@ -129,12 +130,17 @@ export const Bar = (props) => {
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border planet-split">
           <div className="logo logo-place image fit">
-            <img
-              src={bar}
-              alt="bar logo - coctail"
-              width="100em"
-              height="auto"
-            />
+            <picture>
+              <source srcset={bar_webp} type="image/webp" />
+              <source srcset={bar_png} type="image/png" />
+              <img
+                src={bar_png}
+                type="image/png"
+                width="100em"
+                height="auto"
+                alt="bar logo - coctail"
+              />
+            </picture>
             <h3>Bar</h3>
           </div>
           <article className="padding-places">

@@ -19,12 +19,12 @@ const Welcome = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    const theme = getTheme("menu");
+    theme.setTheme();
     general.setGamePaused(true);
     if (!general.general.availablePlanets["earth"].discovered) {
       user.onSetPlanet("menu");
     }
-    const theme = getTheme("menu");
-    theme.setTheme();
 
     return () => theme.clearTheme();
   }, []);

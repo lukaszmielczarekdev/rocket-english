@@ -1,13 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import PlaceBasic from "../universal/placeBasic";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import TourContext from "../../contexts/tourContext";
-import pad from "../../images/launch.png";
+import pad_png from "../../images/launch.png";
+import pad_webp from "../../images/launch.webp";
 import ufo_logo from "../../images/ufo.png";
-import quiz from "../../images/quiz.png";
-import bar from "../../images/bar.png";
+import quiz_png from "../../images/quiz.png";
+import quiz_webp from "../../images/quiz.webp";
+import bar_png from "../../images/bar.png";
+import bar_webp from "../../images/bar.webp";
 import uranus from "../../images/uranus.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -18,10 +22,10 @@ const Uranus = (props) => {
   const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("uranus");
     const theme = getTheme("uranus");
     theme.setTheme();
+    general.setGamePaused(false);
+    user.onSetPlanet("uranus");
 
     return () => theme.clearTheme();
   }, []);
@@ -53,26 +57,22 @@ const Uranus = (props) => {
           </p>
         </div>
         <article className="planet-split planet-container">
-          <article className="padding-places border">
-            <h4>Bar</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/bar">
-                <img src={bar} alt="bar" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">A place for gossip and meetings.</p>
-          </article>
-          <article className="padding-places border">
-            <h4>Quiz</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/quiz">
-                <img src={quiz} alt="quiz" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">
-              You can test yourself and gain exp here.
-            </p>
-          </article>
+          <PlaceBasic
+            title={"Bar"}
+            link={"bar"}
+            img_webp={bar_webp}
+            img_png={bar_png}
+            alt={"glowing neon sign says the bar is open"}
+            description={"A place for gossip and meetings."}
+          />
+          <PlaceBasic
+            title={"Quiz"}
+            link={"quiz"}
+            img_webp={quiz_webp}
+            img_png={quiz_png}
+            alt={"giant letter q made of tiny stars"}
+            description={"You can test yourself and gain exp here."}
+          />
           <article className="padding-places border">
             <h4>Ufo</h4>
             <p className="image fit padding-inline-1">
@@ -86,18 +86,17 @@ const Uranus = (props) => {
           </article>
           <article className="padding-places border">
             <h4>Gas cloud</h4>
-            <p className="image fit padding-inline-1">
-              {planetAccess.renderLaunchPadImage(
-                "neptune",
-                user.user.lvl,
-                user.user.rocketLvl,
-                50,
-                1,
-                tour.tour,
-                general.setAvailablePlanet,
-                pad
-              )}
-            </p>
+            {planetAccess.renderLaunchPadImage(
+              "neptune",
+              user.user.lvl,
+              user.user.rocketLvl,
+              50,
+              1,
+              tour.tour,
+              general.setAvailablePlanet,
+              pad_webp,
+              pad_png
+            )}
             {planetAccess.renderTravelButton(
               "saturn",
               "Back to Saturn",

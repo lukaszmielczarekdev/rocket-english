@@ -1,14 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import PlaceBasic from "../universal/placeBasic";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import TourContext from "../../contexts/tourContext";
-import pad from "../../images/launch.png";
-import shop from "../../images/shop.png";
-import casino from "../../images/casino.png";
+import pad_png from "../../images/launch.png";
+import pad_webp from "../../images/launch.webp";
+import casino_webp from "../../images/casino.webp";
+import casino_png from "../../images/casino.png";
+import quiz_png from "../../images/quiz.png";
+import quiz_webp from "../../images/quiz.webp";
+import shop_webp from "../../images/shop.webp";
+import shop_png from "../../images/shop.png";
 import saturn from "../../images/saturn.svg";
-import quiz from "../../images/quiz.png";
+
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
 import "./planets.css";
@@ -18,10 +23,10 @@ const Saturn = (props) => {
   const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("saturn");
     const theme = getTheme("saturn");
     theme.setTheme();
+    general.setGamePaused(false);
+    user.onSetPlanet("saturn");
 
     return () => theme.clearTheme();
   }, []);
@@ -53,51 +58,43 @@ const Saturn = (props) => {
           </p>
         </div>
         <article className="planet-split planet-container">
-          <article className="padding-places border">
-            <h4>Casino</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/casino">
-                <img src={casino} alt="casino" width="100em" height="auto" />
-              </Link>
-            </p>{" "}
-            <p className="align-center">Be careful. Gambling is addictive.</p>
-          </article>
-          <article className="padding-places border">
-            <h4>Shop</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/shop">
-                <img src={shop} alt="launch pad" width="100em" height="auto" />
-              </Link>
-            </p>{" "}
-            <p className="align-center">
-              You can buy a lot of useful things here.
-            </p>
-          </article>
-          <article className="padding-places border">
-            <h4>Quiz</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/quiz">
-                <img src={quiz} alt="quiz" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">
-              You can test yourself and gain exp here.
-            </p>
-          </article>
+          <PlaceBasic
+            title={"Casino"}
+            link={"casino"}
+            img_webp={casino_webp}
+            img_png={casino_png}
+            alt={"casino machine"}
+            description={"Be careful. Gambling is addictive."}
+          />
+          <PlaceBasic
+            title={"Shop"}
+            link={"shop"}
+            img_webp={shop_webp}
+            img_png={shop_png}
+            alt={"glowing neon says open"}
+            description={"You can buy a lot of useful things here."}
+          />
+          <PlaceBasic
+            title={"Quiz"}
+            link={"quiz"}
+            img_webp={quiz_webp}
+            img_png={quiz_png}
+            alt={"giant letter q made of tiny stars"}
+            description={"You can test yourself and gain exp here."}
+          />
           <article className="padding-places border">
             <h4>Gas cloud</h4>
-            <p className="image fit padding-inline-1">
-              {planetAccess.renderLaunchPadImage(
-                "uranus",
-                user.user.lvl,
-                user.user.rocketLvl,
-                35,
-                1,
-                tour.tour,
-                general.setAvailablePlanet,
-                pad
-              )}
-            </p>
+            {planetAccess.renderLaunchPadImage(
+              "uranus",
+              user.user.lvl,
+              user.user.rocketLvl,
+              35,
+              1,
+              tour.tour,
+              general.setAvailablePlanet,
+              pad_webp,
+              pad_png
+            )}
             {planetAccess.renderTravelButton(
               "jupiter",
               "Back to Jupiter",

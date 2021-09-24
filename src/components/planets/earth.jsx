@@ -1,15 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import PlaceBasic from "../universal/placeBasic";
 import UserContext from "../../contexts/userContext";
 import TourContext from "../../contexts/tourContext";
 import GeneralContext from "../../contexts/generalContext";
-import pad from "../../images/launch.png";
-import casino from "../../images/casino.png";
-import quiz from "../../images/quiz.png";
-import shop from "../../images/shop.png";
-import earth_logo from "../../images/earth.svg";
+import pad_png from "../../images/launch.png";
+import pad_webp from "../../images/launch.webp";
+import casino_webp from "../../images/casino.webp";
+import casino_png from "../../images/casino.png";
+import quiz_png from "../../images/quiz.png";
+import quiz_webp from "../../images/quiz.webp";
+import shop_webp from "../../images/shop.webp";
+import shop_png from "../../images/shop.png";
+import earth_png from "../../images/earth.png";
+import earth_webp from "../../images/earth.webp";
 import getTheme from "../../utils/themes";
+import renders from "../../utils/renders";
 import planetAccess from "../../utils/planetAccess";
 import "./planets.css";
 
@@ -19,10 +25,10 @@ const Earth = (props) => {
   const general = useContext(GeneralContext);
 
   useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("earth");
     const theme = getTheme("earth");
     theme.setTheme();
+    general.setGamePaused(false);
+    user.onSetPlanet("earth");
 
     return () => theme.clearTheme();
   }, []);
@@ -39,12 +45,12 @@ const Earth = (props) => {
       >
         <div className="padding border planet-split">
           <div className="image fit logo padding-inline-1">
-            <img
-              src={earth_logo}
-              alt="planet earth logo"
-              width="100em"
-              height="auto"
-            />
+            {renders.logo(
+              earth_webp,
+              earth_png,
+              earth_png,
+              "globe - planet earth"
+            )}
             <h3>Earth</h3>
           </div>
           <p className="planet-description">
@@ -57,51 +63,43 @@ const Earth = (props) => {
           </p>
         </div>
         <article className="planet-split planet-container">
-          <article className="padding-places border">
-            <h4>Shop</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/shop">
-                <img src={shop} alt="launch pad" width="100em" height="auto" />
-              </Link>
-            </p>{" "}
-            <p className="align-center">
-              You can buy a lot of useful things here.
-            </p>
-          </article>
-          <article className="padding-places border">
-            <h4>Casino</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/casino">
-                <img src={casino} alt="casino" width="100em" height="auto" />
-              </Link>
-            </p>{" "}
-            <p className="align-center">Be careful. Gambling is addictive.</p>
-          </article>
-          <article className="padding-places border">
-            <h4>Quiz</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/quiz">
-                <img src={quiz} alt="quiz" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">
-              You can test yourself and gain exp here.
-            </p>
-          </article>
+          <PlaceBasic
+            title={"Shop"}
+            link={"shop"}
+            img_webp={shop_webp}
+            img_png={shop_png}
+            alt={"glowing neon says open"}
+            description={"You can buy a lot of useful things here."}
+          />
+          <PlaceBasic
+            title={"Casino"}
+            link={"casino"}
+            img_webp={casino_webp}
+            img_png={casino_png}
+            alt={"casino machine"}
+            description={"Be careful. Gambling is addictive."}
+          />
+          <PlaceBasic
+            title={"Quiz"}
+            link={"quiz"}
+            img_webp={quiz_webp}
+            img_png={quiz_png}
+            alt={"giant letter q made of tiny stars"}
+            description={"You can test yourself and gain exp here."}
+          />
           <article className="padding-places border">
             <h4>Launch Pad</h4>
-            <p className="image fit padding-inline-1">
-              {planetAccess.renderLaunchPadImage(
-                "mars",
-                user.user.lvl,
-                user.user.rocketLvl,
-                5,
-                1,
-                tour.tour,
-                general.setAvailablePlanet,
-                pad
-              )}
-            </p>
+            {planetAccess.renderLaunchPadImage(
+              "mars",
+              user.user.lvl,
+              user.user.rocketLvl,
+              5,
+              1,
+              tour.tour,
+              general.setAvailablePlanet,
+              pad_webp,
+              pad_png
+            )}
             {planetAccess.renderTravelButton(
               "venus",
               "Back to Venus",

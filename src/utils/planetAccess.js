@@ -63,7 +63,8 @@ const planetAccess = {
     requiredRocketLvl,
     tourFlag,
     onClickCallback,
-    image
+    image_webp,
+    image_png
   ) => {
     if (
       planetAccess.checkIfPlanetDiscovered(
@@ -71,17 +72,40 @@ const planetAccess = {
         rocketLvl,
         requiredPlayerLvl,
         requiredRocketLvl,
-        image
+        image_webp,
+        image_png
       ) ||
       tourFlag
     ) {
       return (
         <Link onClick={() => onClickCallback(planet)} to={`/galaxy/${planet}`}>
-          <img src={image} alt="launch pad" width="100em" height="auto" />
+          <picture className="image fit padding-inline-1">
+            <source srcSet={image_webp} type="image/webp" />
+            <source srcSet={image_png} type="image/png" />
+            <img
+              src={image_png}
+              type="image/png"
+              width="100em"
+              height="auto"
+              alt="giant flying rocket"
+            />
+          </picture>
         </Link>
       );
     } else {
-      return <img src={image} alt="launch pad" width="100em" height="auto" />;
+      return (
+        <picture className="image fit padding-inline-1">
+          <source srcSet={image_webp} type="image/webp" />
+          <source srcSet={image_png} type="image/png" />
+          <img
+            src={image_png}
+            type="image/png"
+            width="100em"
+            height="auto"
+            alt="giant flying rocket"
+          />
+        </picture>
+      );
     }
   },
 
