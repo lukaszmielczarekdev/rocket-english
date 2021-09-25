@@ -13,6 +13,8 @@ import ufo_logo from "../../images/ufo.png";
 import neptune from "../../images/neptune.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
 const Neptune = (props) => {
@@ -26,6 +28,51 @@ const Neptune = (props) => {
 
     return () => theme.clearTheme();
   }, []);
+
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <div onDragStart={handleDragStart}>
+      <h4>Ufo</h4>
+      <p className="image fit padding-inline-1">
+        <Link to="/galaxy/ufo">
+          <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+        </Link>
+      </p>
+      <p className="align-center">You can attack and win or lose everything.</p>
+    </div>,
+
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Quiz"}
+      link={"quiz"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={"You can test yourself and gain exp here."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Casino"}
+      link={"casino"}
+      img_webp={casino_webp}
+      img_png={casino_png}
+      alt={"casino machine"}
+      description={"Be careful. Gambling is addictive."}
+    />,
+    <PlaceLaunchPad
+      onDragStart={handleDragStart}
+      title={"Gas cloud"}
+      prevPlanet={"uranus"}
+      nextPlanet={"pluto"}
+      prevLabel={"Back to Uranus"}
+      nextLabel={"Go to Pluto"}
+      reqUserLvlNext={65}
+      reqRocketLvlNext={1}
+      reqUserLvlPrev={35}
+      reqRocketLvlPrev={1}
+    />,
+  ];
 
   return (
     <div id="planet-wrapper">
@@ -54,46 +101,26 @@ const Neptune = (props) => {
             along with Uranus, it is classified as one of the ice giants.
           </p>
         </div>
-        <article className="planet-split planet-container">
-          <article className="padding-places border">
-            <h4>Ufo</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/ufo">
-                <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">
-              You can attack and win or lose everything.
-            </p>
-          </article>
-          <PlaceBasic
-            title={"Quiz"}
-            link={"quiz"}
-            img_webp={quiz_webp}
-            img_png={quiz_png}
-            alt={"giant letter q made of tiny stars"}
-            description={"You can test yourself and gain exp here."}
-          />
-          <PlaceBasic
-            title={"Casino"}
-            link={"casino"}
-            img_webp={casino_webp}
-            img_png={casino_png}
-            alt={"casino machine"}
-            description={"Be careful. Gambling is addictive."}
-          />
-          <PlaceLaunchPad
-            title={"Gas cloud"}
-            prevPlanet={"uranus"}
-            nextPlanet={"pluto"}
-            prevLabel={"Back to Uranus"}
-            nextLabel={"Go to Pluto"}
-            reqUserLvlNext={65}
-            reqRocketLvlNext={1}
-            reqUserLvlPrev={35}
-            reqRocketLvlPrev={1}
-          />
-        </article>
+        <AliceCarousel
+          controlsStrategy={"responsive"}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            760: {
+              items: 3,
+            },
+            1400: {
+              items: 4,
+            },
+            2200: {
+              items: 5,
+            },
+          }}
+          keyboardNavigation
+          infinite
+          items={items}
+        />
       </section>
     </div>
   );

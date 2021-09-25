@@ -13,6 +13,8 @@ import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
 const Mars = (props) => {
@@ -26,6 +28,50 @@ const Mars = (props) => {
 
     return () => theme.clearTheme();
   }, []);
+
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Mine"}
+      link={"mine"}
+      img_webp={mine_webp}
+      img_png={mine_png}
+      alt={"a few pink crystals protruding from a brown rock"}
+      description={"Here you can get credits and parts to upgrade your rocket."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Quiz"}
+      link={"quiz"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={"You can test yourself and gain exp here."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Bar"}
+      link={"bar"}
+      img_webp={bar_webp}
+      img_png={bar_png}
+      alt={"glowing neon sign says the bar is open"}
+      description={"A place for gossip and meetings."}
+    />,
+    <PlaceLaunchPad
+      onDragStart={handleDragStart}
+      title={"Launch Pad"}
+      prevPlanet={"earth"}
+      nextPlanet={"jupiter"}
+      prevLabel={"Back to Earth"}
+      nextLabel={"Go to Jupiter"}
+      reqUserLvlNext={10}
+      reqRocketLvlNext={1}
+      reqUserLvlPrev={1}
+      reqRocketLvlPrev={1}
+    />,
+  ];
 
   return (
     <div id="planet-wrapper">
@@ -53,45 +99,26 @@ const Mars = (props) => {
             and 35 ° C.
           </p>
         </div>
-        <article className="planet-split planet-container">
-          <PlaceBasic
-            title={"Mine"}
-            link={"mine"}
-            img_webp={mine_webp}
-            img_png={mine_png}
-            alt={"a few pink crystals protruding from a brown rock"}
-            description={
-              "Here you can get credits and parts to upgrade your rocket."
-            }
-          />
-          <PlaceBasic
-            title={"Quiz"}
-            link={"quiz"}
-            img_webp={quiz_webp}
-            img_png={quiz_png}
-            alt={"giant letter q made of tiny stars"}
-            description={"You can test yourself and gain exp here."}
-          />
-          <PlaceBasic
-            title={"Bar"}
-            link={"bar"}
-            img_webp={bar_webp}
-            img_png={bar_png}
-            alt={"glowing neon sign says the bar is open"}
-            description={"A place for gossip and meetings."}
-          />
-          <PlaceLaunchPad
-            title={"Launch Pad"}
-            prevPlanet={"earth"}
-            nextPlanet={"jupiter"}
-            prevLabel={"Back to Earth"}
-            nextLabel={"Go to Jupiter"}
-            reqUserLvlNext={10}
-            reqRocketLvlNext={1}
-            reqUserLvlPrev={1}
-            reqRocketLvlPrev={1}
-          />
-        </article>
+        <AliceCarousel
+          controlsStrategy={"responsive"}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            760: {
+              items: 3,
+            },
+            1400: {
+              items: 4,
+            },
+            2200: {
+              items: 5,
+            },
+          }}
+          keyboardNavigation
+          infinite
+          items={items}
+        />
       </section>
     </div>
   );

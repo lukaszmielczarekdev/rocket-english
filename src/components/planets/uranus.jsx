@@ -13,6 +13,8 @@ import bar_webp from "../../images/bar.webp";
 import uranus from "../../images/uranus.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
 const Uranus = (props) => {
@@ -26,6 +28,50 @@ const Uranus = (props) => {
 
     return () => theme.clearTheme();
   }, []);
+
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Bar"}
+      link={"bar"}
+      img_webp={bar_webp}
+      img_png={bar_png}
+      alt={"glowing neon sign says the bar is open"}
+      description={"A place for gossip and meetings."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Quiz"}
+      link={"quiz"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={"You can test yourself and gain exp here."}
+    />,
+    <div onDragStart={handleDragStart}>
+      <h4>Ufo</h4>
+      <p className="image fit padding-inline-1">
+        <Link to="/galaxy/ufo">
+          <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
+        </Link>
+      </p>
+      <p className="align-center">You can attack and win or lose everything.</p>
+    </div>,
+    <PlaceLaunchPad
+      onDragStart={handleDragStart}
+      title={"Gas cloud"}
+      prevPlanet={"saturn"}
+      nextPlanet={"neptune"}
+      prevLabel={"Back to Saturn"}
+      nextLabel={"Go to Neptune"}
+      reqUserLvlNext={50}
+      reqRocketLvlNext={1}
+      reqUserLvlPrev={20}
+      reqRocketLvlPrev={1}
+    />,
+  ];
 
   return (
     <div id="planet-wrapper">
@@ -53,46 +99,26 @@ const Uranus = (props) => {
             ice giants. Winds in Uranus reach 900 km/h.
           </p>
         </div>
-        <article className="planet-split planet-container">
-          <PlaceBasic
-            title={"Bar"}
-            link={"bar"}
-            img_webp={bar_webp}
-            img_png={bar_png}
-            alt={"glowing neon sign says the bar is open"}
-            description={"A place for gossip and meetings."}
-          />
-          <PlaceBasic
-            title={"Quiz"}
-            link={"quiz"}
-            img_webp={quiz_webp}
-            img_png={quiz_png}
-            alt={"giant letter q made of tiny stars"}
-            description={"You can test yourself and gain exp here."}
-          />
-          <article className="padding-places border">
-            <h4>Ufo</h4>
-            <p className="image fit padding-inline-1">
-              <Link to="/galaxy/ufo">
-                <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-              </Link>
-            </p>
-            <p className="align-center">
-              You can attack and win or lose everything.
-            </p>
-          </article>
-          <PlaceLaunchPad
-            title={"Gas cloud"}
-            prevPlanet={"saturn"}
-            nextPlanet={"neptune"}
-            prevLabel={"Back to Saturn"}
-            nextLabel={"Go to Neptune"}
-            reqUserLvlNext={50}
-            reqRocketLvlNext={1}
-            reqUserLvlPrev={20}
-            reqRocketLvlPrev={1}
-          />
-        </article>
+        <AliceCarousel
+          controlsStrategy={"responsive"}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            760: {
+              items: 3,
+            },
+            1400: {
+              items: 4,
+            },
+            2200: {
+              items: 5,
+            },
+          }}
+          keyboardNavigation
+          infinite
+          items={items}
+        />
       </section>
     </div>
   );

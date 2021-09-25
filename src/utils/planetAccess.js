@@ -35,15 +35,13 @@ const planetAccess = {
       tourFlag
     ) {
       return (
-        <button className="button small button-margin">
-          <Link
-            onClick={() => onClickCallback(planet)}
-            to={`/galaxy/${planet}`}
-            style={{ textDecoration: "none" }}
-          >
-            {label}
-          </Link>
-        </button>
+        <Link
+          onClick={() => onClickCallback(planet)}
+          to={`/galaxy/${planet}`}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="button small button-margin">{label}</button>
+        </Link>
       );
     } else {
       return (

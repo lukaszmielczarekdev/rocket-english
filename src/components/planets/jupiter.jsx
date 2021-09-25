@@ -13,6 +13,8 @@ import bar_webp from "../../images/bar.webp";
 import jupiter from "../../images/jupiter.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
 const Jupiter = (props) => {
@@ -55,6 +57,45 @@ const Jupiter = (props) => {
     }
   };
 
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <div onDragStart={handleDragStart}>
+      <h4>Ufo</h4>
+      {renderUfo()}
+    </div>,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Quiz"}
+      link={"quiz"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={"You can test yourself and gain exp here."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Bar"}
+      link={"bar"}
+      img_webp={bar_webp}
+      img_png={bar_png}
+      alt={"glowing neon sign says the bar is open"}
+      description={"A place for gossip and meetings."}
+    />,
+    <PlaceLaunchPad
+      onDragStart={handleDragStart}
+      title={"Gas cloud"}
+      prevPlanet={"mars"}
+      nextPlanet={"saturn"}
+      prevLabel={"Back to Mars"}
+      nextLabel={"Go to Saturn"}
+      reqUserLvlNext={20}
+      reqRocketLvlNext={1}
+      reqUserLvlPrev={5}
+      reqRocketLvlPrev={1}
+    />,
+  ];
+
   return (
     <div id="planet-wrapper">
       {planetAccess.renderPlanetOrRedirect(
@@ -82,39 +123,26 @@ const Jupiter = (props) => {
             prevail there.
           </p>
         </div>
-        <article className="planet-split planet-container">
-          <article className="padding-places border">
-            <h4>Ufo</h4>
-            {renderUfo()}
-          </article>
-          <PlaceBasic
-            title={"Quiz"}
-            link={"quiz"}
-            img_webp={quiz_webp}
-            img_png={quiz_png}
-            alt={"giant letter q made of tiny stars"}
-            description={"You can test yourself and gain exp here."}
-          />
-          <PlaceBasic
-            title={"Bar"}
-            link={"bar"}
-            img_webp={bar_webp}
-            img_png={bar_png}
-            alt={"glowing neon sign says the bar is open"}
-            description={"A place for gossip and meetings."}
-          />
-          <PlaceLaunchPad
-            title={"Gas cloud"}
-            prevPlanet={"mars"}
-            nextPlanet={"saturn"}
-            prevLabel={"Back to Mars"}
-            nextLabel={"Go to Saturn"}
-            reqUserLvlNext={20}
-            reqRocketLvlNext={1}
-            reqUserLvlPrev={5}
-            reqRocketLvlPrev={1}
-          />
-        </article>
+        <AliceCarousel
+          controlsStrategy={"responsive"}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            760: {
+              items: 3,
+            },
+            1400: {
+              items: 4,
+            },
+            2200: {
+              items: 5,
+            },
+          }}
+          keyboardNavigation
+          infinite
+          items={items}
+        />
       </section>
     </div>
   );

@@ -13,6 +13,8 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
 const Venus = (props) => {
@@ -26,6 +28,50 @@ const Venus = (props) => {
 
     return () => theme.clearTheme();
   }, []);
+
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Shop"}
+      link={"shop"}
+      img_webp={shop_webp}
+      img_png={shop_png}
+      alt={"glowing neon says open"}
+      description={"You can buy a lot of useful things here."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Casino"}
+      link={"casino"}
+      img_webp={casino_webp}
+      img_png={casino_png}
+      alt={"casino machine"}
+      description={"Be careful. Gambling is addictive."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Quiz"}
+      link={"quiz"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={"You can test yourself and gain exp here."}
+    />,
+    <PlaceLaunchPad
+      onDragStart={handleDragStart}
+      title={"Launch Pad"}
+      prevPlanet={"mercury"}
+      nextPlanet={"earth"}
+      prevLabel={"Back to Mercury"}
+      nextLabel={"Go Home"}
+      reqUserLvlNext={1}
+      reqRocketLvlNext={1}
+      reqUserLvlPrev={80}
+      reqRocketLvlPrev={1}
+    />,
+  ];
 
   return (
     <div id="planet-wrapper">
@@ -54,43 +100,26 @@ const Venus = (props) => {
             the atmosphere that could be the nucleus of the "flying city".
           </p>
         </div>
-        <article className="planet-split planet-container">
-          <PlaceBasic
-            title={"Shop"}
-            link={"shop"}
-            img_webp={shop_webp}
-            img_png={shop_png}
-            alt={"glowing neon says open"}
-            description={"You can buy a lot of useful things here."}
-          />
-          <PlaceBasic
-            title={"Casino"}
-            link={"casino"}
-            img_webp={casino_webp}
-            img_png={casino_png}
-            alt={"casino machine"}
-            description={"Be careful. Gambling is addictive."}
-          />
-          <PlaceBasic
-            title={"Quiz"}
-            link={"quiz"}
-            img_webp={quiz_webp}
-            img_png={quiz_png}
-            alt={"giant letter q made of tiny stars"}
-            description={"You can test yourself and gain exp here."}
-          />
-          <PlaceLaunchPad
-            title={"Launch Pad"}
-            prevPlanet={"mercury"}
-            nextPlanet={"earth"}
-            prevLabel={"Back to Mercury"}
-            nextLabel={"Go Home"}
-            reqUserLvlNext={1}
-            reqRocketLvlNext={1}
-            reqUserLvlPrev={80}
-            reqRocketLvlPrev={1}
-          />
-        </article>
+        <AliceCarousel
+          controlsStrategy={"responsive"}
+          responsive={{
+            0: {
+              items: 1,
+            },
+            760: {
+              items: 3,
+            },
+            1400: {
+              items: 4,
+            },
+            2200: {
+              items: 5,
+            },
+          }}
+          keyboardNavigation
+          infinite
+          items={items}
+        />
       </section>
     </div>
   );
