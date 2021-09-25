@@ -2,11 +2,9 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PlaceBasic from "../universal/placeBasic";
+import PlaceLaunchPad from "../universal/placeLaunchPad";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import TourContext from "../../contexts/tourContext";
-import pad_png from "../../images/launch.png";
-import pad_webp from "../../images/launch.webp";
 import ufo_logo from "../../images/ufo.png";
 import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
@@ -19,7 +17,6 @@ import "./planets.css";
 
 const Jupiter = (props) => {
   const user = useContext(UserContext);
-  const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
     const theme = getTheme("jupiter");
@@ -106,40 +103,17 @@ const Jupiter = (props) => {
             alt={"glowing neon sign says the bar is open"}
             description={"A place for gossip and meetings."}
           />
-          <article className="padding-places border">
-            <h4>Gas cloud</h4>
-            {planetAccess.renderLaunchPadImage(
-              "saturn",
-              user.user.lvl,
-              user.user.rocketLvl,
-              20,
-              1,
-              tour.tour,
-              general.setAvailablePlanet,
-              pad_webp,
-              pad_png
-            )}
-            {planetAccess.renderTravelButton(
-              "mars",
-              "Back to Mars",
-              user.user.lvl,
-              user.user.rocketLvl,
-              5,
-              1,
-              tour.tour,
-              general.setAvailablePlanet
-            )}
-            {planetAccess.renderTravelButton(
-              "saturn",
-              "Go to Saturn",
-              user.user.lvl,
-              user.user.rocketLvl,
-              20,
-              1,
-              tour.tour,
-              general.setAvailablePlanet
-            )}
-          </article>
+          <PlaceLaunchPad
+            title={"Gas cloud"}
+            prevPlanet={"mars"}
+            nextPlanet={"saturn"}
+            prevLabel={"Back to Mars"}
+            nextLabel={"Go to Saturn"}
+            reqUserLvlNext={20}
+            reqRocketLvlNext={1}
+            reqUserLvlPrev={5}
+            reqRocketLvlPrev={1}
+          />
         </article>
       </section>
     </div>

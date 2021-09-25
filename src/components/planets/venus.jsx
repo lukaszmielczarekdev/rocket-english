@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
 import PlaceBasic from "../universal/placeBasic";
+import PlaceLaunchPad from "../universal/placeLaunchPad";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import TourContext from "../../contexts/tourContext";
 import venus from "../../images/venus.svg";
-import pad_png from "../../images/launch.png";
-import pad_webp from "../../images/launch.webp";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -19,7 +17,6 @@ import "./planets.css";
 
 const Venus = (props) => {
   const user = useContext(UserContext);
-  const tour = useContext(TourContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
     const theme = getTheme("venus");
@@ -82,40 +79,17 @@ const Venus = (props) => {
             alt={"giant letter q made of tiny stars"}
             description={"You can test yourself and gain exp here."}
           />
-          <article className="padding-places border">
-            <h4>Launch Pad</h4>
-            {planetAccess.renderLaunchPadImage(
-              "earth",
-              user.user.lvl,
-              user.user.rocketLvl,
-              1,
-              1,
-              tour.tour,
-              general.setAvailablePlanet,
-              pad_webp,
-              pad_png
-            )}
-            {planetAccess.renderTravelButton(
-              "mercury",
-              "Back to Mercury",
-              user.user.lvl,
-              user.user.rocketLvl,
-              80,
-              1,
-              tour.tour,
-              general.setAvailablePlanet
-            )}
-            {planetAccess.renderTravelButton(
-              "earth",
-              "Go to Earth",
-              user.user.lvl,
-              user.user.rocketLvl,
-              1,
-              1,
-              tour.tour,
-              general.setAvailablePlanet
-            )}
-          </article>
+          <PlaceLaunchPad
+            title={"Launch Pad"}
+            prevPlanet={"mercury"}
+            nextPlanet={"earth"}
+            prevLabel={"Back to Mercury"}
+            nextLabel={"Go Home"}
+            reqUserLvlNext={1}
+            reqRocketLvlNext={1}
+            reqUserLvlPrev={80}
+            reqRocketLvlPrev={1}
+          />
         </article>
       </section>
     </div>
