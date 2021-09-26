@@ -14,6 +14,7 @@ import neptune from "../../images/neptune.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
 import AliceCarousel from "react-alice-carousel";
+import renders from "../../utils/renders";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./planets.css";
 
@@ -103,20 +104,7 @@ const Neptune = (props) => {
         </div>
         <AliceCarousel
           controlsStrategy={"responsive"}
-          responsive={{
-            0: {
-              items: 1,
-            },
-            760: {
-              items: 3,
-            },
-            1400: {
-              items: 4,
-            },
-            2200: {
-              items: 5,
-            },
-          }}
+          responsive={renders.carousel}
           keyboardNavigation
           infinite
           items={items}

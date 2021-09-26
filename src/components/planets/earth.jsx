@@ -107,20 +107,7 @@ const Earth = (props) => {
         </div>
         <AliceCarousel
           controlsStrategy={"responsive"}
-          responsive={{
-            0: {
-              items: 1,
-            },
-            760: {
-              items: 3,
-            },
-            1400: {
-              items: 4,
-            },
-            2200: {
-              items: 5,
-            },
-          }}
+          responsive={renders.carousel}
           keyboardNavigation
           infinite
           items={items}
