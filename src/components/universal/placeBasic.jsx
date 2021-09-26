@@ -7,8 +7,8 @@ const PlaceBasic = (props) => {
       <h4>{props.title}</h4>
       <Link to={`/galaxy/${props.link}`}>
         <picture className="image fit padding-inline-1">
-          <source srcset={props.img_webp} type="image/webp" />
-          <source srcset={props.img_png} type="image/png" />
+          <source srcSet={props.img_webp} type="image/webp" />
+          <source srcSet={props.img_png} type="image/png" />
           <img
             src={props.img_png}
             type="image/png"

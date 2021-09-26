@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
+import PlaceUfo from "../universal/placeUfo";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import ufo_logo from "../../images/ufo.png";
 import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
+import ufo_png from "../../images/ufo.png";
+import ufo_webp from "../../images/ufo.webp";
 import jupiter from "../../images/jupiter.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -30,41 +31,15 @@ const Jupiter = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const renderUfo = () => {
-    if (!user.user.ifUfoDefeated["Jupiter"]) {
-      return (
-        <>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/ufo">
-              <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">
-            You can attack and win or lose everything.
-          </p>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <p className="image fit padding-inline-1">
-            <Link to="/galaxy/jupiter">
-              <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-            </Link>
-          </p>
-          <p className="align-center">UFO is already defeated.</p>
-        </>
-      );
-    }
-  };
-
   const handleDragStart = (e) => e.preventDefault();
-
+  console.log(user.user.currentPlanet);
   const items = [
-    <div onDragStart={handleDragStart}>
-      <h4>Ufo</h4>
-      {renderUfo()}
-    </div>,
+    <PlaceUfo
+      onDragStart={handleDragStart}
+      title={"Ufo"}
+      img_webp={ufo_webp}
+      img_png={ufo_png}
+    />,
     <PlaceBasic
       onDragStart={handleDragStart}
       title={"Quiz"}

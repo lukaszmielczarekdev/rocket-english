@@ -43,9 +43,9 @@ export default function App() {
     currentPlanet: "menu",
     ifUfoDefeated: {
       Jupiter: false,
-      Saturn: false,
       Uranus: false,
       Neptune: false,
+      Pluto: false,
     },
   };
 
@@ -58,6 +58,7 @@ export default function App() {
     newGame: true,
     login: false,
     gamePaused: false,
+    // if a place is not on the planet it will not be rendered
     availablePlanets: {
       menu: { available: true, discovered: true, places: [] },
       earth: {
@@ -83,10 +84,10 @@ export default function App() {
       },
       neptune: {
         available: false,
-        places: ["ufo", "quiz", "pad", "inventory"],
+        places: ["ufo", "quiz", "pad", "casino", "inventory"],
       },
       pluto: {
-        places: ["shop", "casino", "quiz", "pad", "inventory"],
+        places: ["shop", "casino", "quiz", "pad", "ufo", "inventory"],
       },
       mercury: {
         available: false,

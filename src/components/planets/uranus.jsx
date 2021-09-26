@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
+import PlaceUfo from "../universal/placeUfo";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import ufo_logo from "../../images/ufo.png";
+import ufo_png from "../../images/ufo.png";
+import ufo_webp from "../../images/ufo.webp";
 import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
@@ -51,15 +52,12 @@ const Uranus = (props) => {
       alt={"giant letter q made of tiny stars"}
       description={"You can test yourself and gain exp here."}
     />,
-    <div onDragStart={handleDragStart}>
-      <h4>Ufo</h4>
-      <p className="image fit padding-inline-1">
-        <Link to="/galaxy/ufo">
-          <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-        </Link>
-      </p>
-      <p className="align-center">You can attack and win or lose everything.</p>
-    </div>,
+    <PlaceUfo
+      onDragStart={handleDragStart}
+      title={"Ufo"}
+      img_webp={ufo_webp}
+      img_png={ufo_png}
+    />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
       title={"Gas cloud"}

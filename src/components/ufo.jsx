@@ -22,7 +22,7 @@ export const Ufo = (props) => {
   }, []);
 
   const renderFightButton = () => {
-    if (!user.user.ifUfoDefeated["Jupiter"]) {
+    if (!user.user.ifUfoDefeated[user.user.currentPlanet]) {
       return (
         <button className="button large" onClick={() => fight(1)}>
           Fight
@@ -39,7 +39,7 @@ export const Ufo = (props) => {
       inventory.resetInventory();
       alert(`Lose`);
     } else {
-      user.onSetUfo("Jupiter");
+      user.onSetUfo(user.user.currentPlanet);
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
       const credits = base * rate * 2000;
       const exp = Math.floor(base * rate * 1300);

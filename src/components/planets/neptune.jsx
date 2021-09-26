@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
+import PlaceUfo from "../universal/placeUfo";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
-import ufo_logo from "../../images/ufo.png";
+import ufo_png from "../../images/ufo.png";
+import ufo_webp from "../../images/ufo.webp";
 import neptune from "../../images/neptune.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -33,16 +34,12 @@ const Neptune = (props) => {
   const handleDragStart = (e) => e.preventDefault();
 
   const items = [
-    <div onDragStart={handleDragStart}>
-      <h4>Ufo</h4>
-      <p className="image fit padding-inline-1">
-        <Link to="/galaxy/ufo">
-          <img src={ufo_logo} alt="ufo" width="100em" height="auto" />
-        </Link>
-      </p>
-      <p className="align-center">You can attack and win or lose everything.</p>
-    </div>,
-
+    <PlaceUfo
+      onDragStart={handleDragStart}
+      title={"Ufo"}
+      img_webp={ufo_webp}
+      img_png={ufo_png}
+    />,
     <PlaceBasic
       onDragStart={handleDragStart}
       title={"Quiz"}

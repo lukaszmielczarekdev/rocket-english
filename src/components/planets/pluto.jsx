@@ -2,6 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
+import PlaceUfo from "../universal/placeUfo";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import pluto from "../../images/pluto.svg";
@@ -11,6 +12,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
+import ufo_png from "../../images/ufo.png";
+import ufo_webp from "../../images/ufo.webp";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
 import AliceCarousel from "react-alice-carousel";
@@ -41,6 +44,12 @@ const Pluto = (props) => {
       img_png={shop_png}
       alt={"glowing neon says open"}
       description={"You can buy a lot of useful things here."}
+    />,
+    <PlaceUfo
+      onDragStart={handleDragStart}
+      title={"Ufo"}
+      img_webp={ufo_webp}
+      img_png={ufo_png}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
