@@ -198,27 +198,27 @@ export default function App() {
   // credits
   const handleAddCredits = (amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy.credits = userInventory.credits + amount;
+    userInventoryDummy.credits = userInventoryDummy.credits + amount;
     setUserInventory(userInventoryDummy);
   };
 
   const handleSubtractCredits = (amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy.credits = userInventory.credits - amount;
+    userInventoryDummy.credits = userInventoryDummy.credits - amount;
     setUserInventory(userInventoryDummy);
   };
 
   // subtract item
   const handleSubtractItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy[item] = userInventory[item] - amount;
+    userInventoryDummy[item] = userInventoryDummy[item] - amount;
     setUserInventory(userInventoryDummy);
   };
 
   // free item
   const handleAddItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy[item] = userInventory[item] + amount;
+    userInventoryDummy[item] = userInventoryDummy[item] + amount;
     setUserInventory(userInventoryDummy);
   };
 
@@ -226,7 +226,7 @@ export default function App() {
   const handleAddItems = (items) => {
     const userInventoryDummy = { ...userInventory };
     for (const [key, value] of Object.entries(items)) {
-      userInventoryDummy[key] = userInventory[key] + value;
+      userInventoryDummy[key] = userInventoryDummy[key] + value;
     }
     setUserInventory(userInventoryDummy);
   };
@@ -235,10 +235,10 @@ export default function App() {
   const handleExchange = (giveItems, getItems) => {
     const userInventoryDummy = { ...userInventory };
     for (const [item, amount] of Object.entries(giveItems)) {
-      userInventoryDummy[item] = userInventory[item] - amount;
+      userInventoryDummy[item] = userInventoryDummy[item] - amount;
     }
     for (const [item, amount] of Object.entries(getItems)) {
-      userInventoryDummy[item] = userInventory[item] + amount;
+      userInventoryDummy[item] = userInventoryDummy[item] + amount;
     }
     setUserInventory(userInventoryDummy);
   };
@@ -248,7 +248,7 @@ export default function App() {
   const handleUpgradeRocket = (giveItems) => {
     const userInventoryDummy = { ...userInventory };
     for (const [item, amount] of Object.entries(giveItems)) {
-      userInventoryDummy[item] = userInventory[item] - amount;
+      userInventoryDummy[item] = userInventoryDummy[item] - amount;
     }
     setUserInventory(userInventoryDummy);
 

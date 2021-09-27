@@ -19,7 +19,15 @@ export const NotFound = (props) => {
   }, []);
 
   const renderBackButton = () => {
-    if (user.user.currentPlanet === "menu") {
+    if (general.general.availablePlanets["menu"].available) {
+      return (
+        <button className="button large">
+          <Link to={`/`} style={{ textDecoration: "none" }}>
+            {`Go back to Menu`}
+          </Link>
+        </button>
+      );
+    } else if (user.user.currentPlanet === "menu") {
       return (
         <button className="button large">
           <Link to={`/`} style={{ textDecoration: "none" }}>

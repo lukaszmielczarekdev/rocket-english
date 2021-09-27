@@ -48,55 +48,64 @@ const Mine = (props) => {
       const founds = {};
 
       // rate
+      const rate = {
+        creditsRate: 0,
+        steelRate: 0,
+        aluminumRate: 0,
+        stardustRate: 0,
+      };
+
+      // if found
       const ifCredits = [0, 0, 0, 1];
       const ifSteel = [0, 0, 1];
       const ifAluminum = [0, 0, 0, 1];
       const ifStardust = [0, 0, 0, 0, 0, 0, 1];
 
       // checks if something is found
-      const credits = ifCredits[Math.floor(Math.random() * ifCredits.length)];
-      const steel = ifSteel[Math.floor(Math.random() * ifSteel.length)];
-      const aluminum =
+      const foundCredits =
+        ifCredits[Math.floor(Math.random() * ifCredits.length)];
+      const foundSteel = ifSteel[Math.floor(Math.random() * ifSteel.length)];
+      const foundAluminum =
         ifAluminum[Math.floor(Math.random() * ifAluminum.length)];
-      const stardust =
+      const foundStardust =
         ifStardust[Math.floor(Math.random() * ifStardust.length)];
 
-      if (credits) {
-        const creditsRate = Math.floor(Math.random() * 1000) + 1;
-        inventory.addCredits(creditsRate);
-        founds["credits"] = creditsRate;
-        console.log("credits" + creditsRate);
+      if (foundCredits) {
+        rate.creditsRate = Math.floor(Math.random() * 1000) + 1;
+        founds["credits"] = rate.creditsRate;
       }
-      if (steel) {
-        const steelRate = Math.floor(Math.random() * 15) + 1;
-        inventory.addItem("steel", steelRate);
-        founds["steel"] = steelRate;
-        console.log("steel" + steelRate);
+      if (foundSteel) {
+        rate.steelRate = Math.floor(Math.random() * 15) + 1;
+        founds["steel"] = rate.steelRate;
       }
-      if (aluminum) {
-        const aluminumRate = Math.floor(Math.random() * 5) + 1;
-        inventory.addItem("aluminum", aluminumRate);
-        founds["aluminum"] = aluminumRate;
-        console.log("aluminum" + aluminumRate);
+      if (foundAluminum) {
+        rate.aluminumRate = Math.floor(Math.random() * 5) + 1;
+        founds["aluminum"] = rate.aluminumRate;
       }
-      if (stardust) {
-        const stardustRate = Math.floor(Math.random() * 5) + 1;
-        inventory.addItem("stardust", stardustRate);
-        founds["stardust"] = stardustRate;
-        console.log("stardust" + stardustRate);
+      if (foundStardust) {
+        rate.stardustRate = Math.floor(Math.random() * 5) + 1;
+        founds["stardust"] = rate.stardustRate;
       }
+
+      inventory.exchangeItems(
+        { credits: 500 },
+        {
+          credits: rate.creditsRate,
+          steel: rate.steelRate,
+          aluminum: rate.aluminumRate,
+          stardust: rate.stardustRate,
+        }
+      );
 
       // give exp if something is found
       if (founds) {
         const len = Object.keys(founds).length;
-        console.log(len);
         if (len > 0) {
           const exp = 1000 * len;
           user.onAddExp(exp);
         }
       }
 
-      inventory.subtractCredits(500);
       mineSummary(founds);
       toggleModal();
     } else {
@@ -115,7 +124,7 @@ const Mine = (props) => {
   const renderSummary = () => {
     if (summary.length !== 0) {
       return summary.map((element) => (
-        <li id={element[0]}>
+        <li key={element[0]}>
           + {element[1]} {element[0]}{" "}
         </li>
       ));

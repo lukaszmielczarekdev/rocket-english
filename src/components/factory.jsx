@@ -62,7 +62,6 @@ export const Factory = (props) => {
       all.push(item);
       all.push(amount);
     }
-    console.log(all);
     return all.join(" ");
   };
 
