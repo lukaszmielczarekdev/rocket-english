@@ -110,9 +110,9 @@ const Welcome = (props) => {
         <button
           onClick={() => {
             inventory.addItems({
-              credits: 9500,
+              credits: 44500,
               steel: 500,
-              word: 50,
+              word: 100,
               stardust: 500,
               aluminum: 500,
               crystal: 500,
