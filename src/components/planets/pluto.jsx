@@ -77,7 +77,7 @@ const Pluto = (props) => {
       prevLabel={"Back to Neptune"}
       nextLabel={"Go to Mercury"}
       reqUserLvlNext={80}
-      reqRocketLvlNext={1}
+      reqRocketLvlNext={4}
       reqUserLvlPrev={50}
       reqRocketLvlPrev={1}
     />,

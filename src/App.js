@@ -64,7 +64,7 @@ export default function App() {
       earth: {
         available: false,
         discovered: false,
-        places: ["shop", "casino", "quiz", "pad", "inventory"],
+        places: ["shop", "casino", "quiz", "factory", "pad", "inventory"],
       },
       mars: {
         available: false,
@@ -72,7 +72,7 @@ export default function App() {
       },
       jupiter: {
         available: false,
-        places: ["ufo", "bar", "quiz", "pad", "inventory"],
+        places: ["ufo", "bar", "quiz", "factory", "pad", "inventory"],
       },
       saturn: {
         available: false,
@@ -84,14 +84,14 @@ export default function App() {
       },
       neptune: {
         available: false,
-        places: ["ufo", "quiz", "pad", "casino", "inventory"],
+        places: ["ufo", "quiz", "pad", "casino", "factory", "inventory"],
       },
       pluto: {
         places: ["shop", "casino", "quiz", "pad", "ufo", "inventory"],
       },
       mercury: {
         available: false,
-        places: ["shop", "mine", "quiz", "pad", "inventory"],
+        places: ["shop", "mine", "quiz", "factory", "pad", "inventory"],
       },
       venus: {
         available: false,
@@ -231,6 +231,33 @@ export default function App() {
     setUserInventory(userInventoryDummy);
   };
 
+  // exchange multiple items
+  const handleExchange = (giveItems, getItems) => {
+    const userInventoryDummy = { ...userInventory };
+    for (const [item, amount] of Object.entries(giveItems)) {
+      userInventoryDummy[item] = userInventory[item] - amount;
+    }
+    for (const [item, amount] of Object.entries(getItems)) {
+      userInventoryDummy[item] = userInventory[item] + amount;
+    }
+    setUserInventory(userInventoryDummy);
+  };
+
+  // upgrade the rocket
+
+  const handleUpgradeRocket = (giveItems) => {
+    const userInventoryDummy = { ...userInventory };
+    for (const [item, amount] of Object.entries(giveItems)) {
+      userInventoryDummy[item] = userInventory[item] - amount;
+    }
+    setUserInventory(userInventoryDummy);
+
+    const userDataDummy = { ...userInfo };
+    userDataDummy.rocketLvl = userDataDummy.rocketLvl + 1;
+    userDataDummy.exp = userDataDummy.exp + 1500;
+    setUserInfo(userDataDummy);
+  };
+
   // shop
   const handleBuyItem = (item, amount, price, multiplier) => {
     if (userInventory.credits >= price * multiplier) {
@@ -311,6 +338,8 @@ export default function App() {
               inventory: userInventory,
               addItem: handleAddItem,
               addItems: handleAddItems,
+              upgradeRocket: handleUpgradeRocket,
+              exchangeItems: handleExchange,
               subtractItem: handleSubtractItem,
               addCredits: handleAddCredits,
               subtractCredits: handleSubtractCredits,

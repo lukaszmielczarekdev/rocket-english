@@ -68,7 +68,7 @@ const Venus = (props) => {
       prevLabel={"Back to Mercury"}
       nextLabel={"Go Home"}
       reqUserLvlNext={1}
-      reqRocketLvlNext={1}
+      reqRocketLvlNext={5}
       reqUserLvlPrev={80}
       reqRocketLvlPrev={1}
     />,

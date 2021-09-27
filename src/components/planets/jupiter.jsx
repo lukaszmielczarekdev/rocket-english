@@ -11,6 +11,8 @@ import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
 import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
+import rocket_png from "../../images/rocket.png";
+import rocket_webp from "../../images/rocket.webp";
 import jupiter from "../../images/jupiter.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -42,6 +44,15 @@ const Jupiter = (props) => {
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
+      title={"Factory"}
+      link={"factory"}
+      img_webp={rocket_webp}
+      img_png={rocket_png}
+      alt={"a giant rocket factory"}
+      description={"Here you can upgrade your rocket."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
       title={"Quiz"}
       link={"quiz"}
       img_webp={quiz_webp}
@@ -66,7 +77,7 @@ const Jupiter = (props) => {
       prevLabel={"Back to Mars"}
       nextLabel={"Go to Saturn"}
       reqUserLvlNext={20}
-      reqRocketLvlNext={1}
+      reqRocketLvlNext={3}
       reqUserLvlPrev={5}
       reqRocketLvlPrev={1}
     />,

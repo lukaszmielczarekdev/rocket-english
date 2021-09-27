@@ -11,6 +11,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
+import rocket_png from "../../images/rocket.png";
+import rocket_webp from "../../images/rocket.webp";
 import neptune from "../../images/neptune.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -57,6 +59,15 @@ const Neptune = (props) => {
       img_png={casino_png}
       alt={"casino machine"}
       description={"Be careful. Gambling is addictive."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Factory"}
+      link={"factory"}
+      img_webp={rocket_webp}
+      img_png={rocket_png}
+      alt={"a giant rocket factory"}
+      description={"Here you can upgrade your rocket."}
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}

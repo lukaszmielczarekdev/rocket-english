@@ -10,6 +10,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
+import rocket_png from "../../images/rocket.png";
+import rocket_webp from "../../images/rocket.webp";
 import mercury from "../../images/mercury.svg";
 import getTheme from "../../utils/themes";
 import planetAccess from "../../utils/planetAccess";
@@ -50,6 +52,15 @@ const Mercury = (props) => {
       img_png={mine_png}
       alt={"a few pink crystals protruding from a brown rock"}
       description={"Here you can get credits and parts to upgrade your rocket."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Factory"}
+      link={"factory"}
+      img_webp={rocket_webp}
+      img_png={rocket_png}
+      alt={"a giant rocket factory"}
+      description={"Here you can upgrade your rocket."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}

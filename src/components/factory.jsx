@@ -1,16 +1,20 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
+import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
-import InventoryContext from "../contexts/inventoryContext";
+import GeneralContext from "../contexts/generalContext";
+import rocket from "../images/rocket.png";
 import getTheme from "../utils/themes";
+import upgrades from "../utils/rocket";
 import "./factory.css";
 
-const Factory = (props) => {
+export const Factory = (props) => {
   const user = useContext(UserContext);
-  const inventory = useContext(InventoryContext);
-
+  const inventory = useContext(UserInventory);
+  const general = useContext(GeneralContext);
   useEffect(() => {
+    general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
     const theme = getTheme(user.user.currentPlanet);
     theme.setTheme();
@@ -18,35 +22,83 @@ const Factory = (props) => {
     return () => theme.clearTheme();
   }, []);
 
-  const [rocketUpgrades, setRocketUpgrades] = useState({
-    lvl2: { steel: 5, credits: 1000 },
-    lvl3: { steel: 25, aluminium: 15, credits: 3500 },
-    lvl4: { steel: 55, aluminium: 35, stardust: 5, credits: 6500 },
-    lvl5: { steel: 90, aluminium: 85, stardust: 10, credits: 15000 },
-  });
+  const renderUpgradeButton = (requirements) => {
+    for (let [item, amount] of Object.entries(requirements)) {
+      if (amount > inventory.inventory[item]) {
+        return (
+          <button style={{ textDecoration: "none" }} className="button large">
+            Not enough items
+          </button>
+        );
+      }
+    }
 
-  const renderFactory = (props) => {
     return (
-      // <button onClick={upgradeRocket}>Upgrade</button>
-      <button>{rocketUpgrades.lvl2.steel}</button>
+      <button
+        onClick={() => inventory.upgradeRocket(requirements)}
+        style={{ textDecoration: "none" }}
+        className="button large"
+      >
+        Upgrade to level {user.user.rocketLvl + 1}
+      </button>
     );
   };
 
-  const back = () => {
-    props.history.goBack();
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
   };
 
-  // const upgradeRocket = (lvl) =>{
+  const renderRequirements = () => {
+    const nextLvl = upgrades[user.user.rocketLvl + 1];
+    const all = [];
 
-  // }
+    for (let [item, amount] of Object.entries(nextLvl)) {
+      all.push(item);
+      all.push(amount);
+    }
+    console.log(all);
+    return all.join(" ");
+  };
 
   return (
     <div id="factory">
-      <h3>Factory</h3>
-      {renderFactory()}
-      <button onClick={back}>X</button>
+      {renderOrRedirect("factory")}
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
+        <div className="padding border">
+          <div className="logo logo-place image fit">
+            <img src={rocket} alt="factory logo" width="100em" height="auto" />
+            <h3>Factory</h3>
+          </div>
+          {user.user.rocketLvl === 5 && (
+            <p>
+              The rocket is now at its maximum level - {user.user.rocketLvl}
+            </p>
+          )}
+          {user.user.rocketLvl < 5 && (
+            <p>Current rocket level - {user.user.rocketLvl}</p>
+          )}
+          {user.user.rocketLvl < 5 && (
+            <p>Next level cost - {renderRequirements()}</p>
+          )}
+          {user.user.rocketLvl < 5 &&
+            renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
+          <button className="button large">
+            <Link
+              to={`/galaxy/${user.user.currentPlanet}`}
+              style={{ textDecoration: "none" }}
+            >
+              Go Back
+            </Link>
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
-
 export default Factory;

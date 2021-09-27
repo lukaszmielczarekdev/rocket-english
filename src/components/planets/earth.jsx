@@ -12,6 +12,8 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import earth_png from "../../images/earth.png";
 import earth_webp from "../../images/earth.webp";
+import rocket_png from "../../images/rocket.png";
+import rocket_webp from "../../images/rocket.webp";
 import getTheme from "../../utils/themes";
 import renders from "../../utils/renders";
 import planetAccess from "../../utils/planetAccess";
@@ -62,6 +64,15 @@ const Earth = (props) => {
       alt={"giant letter q made of tiny stars"}
       description={"You can test yourself and gain exp here."}
     />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Factory"}
+      link={"factory"}
+      img_webp={rocket_webp}
+      img_png={rocket_png}
+      alt={"a giant rocket factory"}
+      description={"Here you can upgrade your rocket."}
+    />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
       title={"Launch Pad"}
@@ -70,9 +81,9 @@ const Earth = (props) => {
       prevLabel={"Back to Venus"}
       nextLabel={"Go to Mars"}
       reqUserLvlNext={5}
-      reqRocketLvlNext={1}
+      reqRocketLvlNext={2}
       reqUserLvlPrev={100}
-      reqRocketLvlPrev={1}
+      reqRocketLvlPrev={5}
     />,
   ];
 

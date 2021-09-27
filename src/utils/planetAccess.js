@@ -14,6 +14,21 @@ const planetAccess = {
       : false;
   },
 
+  lockedButtonLabel: (
+    userLvl,
+    requiredPlayerLvl,
+    rocketLvl,
+    requiredRocketLvl
+  ) => {
+    if (userLvl < requiredPlayerLvl && rocketLvl < requiredRocketLvl) {
+      return `REQUIRED LEVEL: ${requiredPlayerLvl}, ROCKET: ${requiredRocketLvl}`;
+    } else if (userLvl < requiredPlayerLvl) {
+      return `REQUIRED LEVEL: ${requiredPlayerLvl}`;
+    } else if (rocketLvl < requiredRocketLvl) {
+      return `REQUIRED ROCKET: ${requiredRocketLvl}`;
+    }
+  },
+
   // checks conditions and returns the proper button
   renderTravelButton: (
     planet,
@@ -46,7 +61,12 @@ const planetAccess = {
     } else {
       return (
         <button className="button small button-margin">
-          Required level: {requiredPlayerLvl}
+          {planetAccess.lockedButtonLabel(
+            userLvl,
+            requiredPlayerLvl,
+            rocketLvl,
+            requiredRocketLvl
+          )}
         </button>
       );
     }
