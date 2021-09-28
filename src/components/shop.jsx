@@ -53,27 +53,45 @@ const Shop = (props) => {
     }
   };
 
+  const renderUserInventory = () => {
+    const items = [];
+    for (let [item, amount] of Object.entries(inventory.inventory)) {
+      items.push([item, amount]);
+    }
+    return items.map((element) => (
+      <li key={element[0]} style={{ padding: "0.8rem" }}>
+        {element[0]} - {element[1]}{" "}
+      </li>
+    ));
+  };
+
   return (
     <div id="shop">
       {renderOrRedirect("shop")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Shop</h3>
           </div>
-          <article>
-            <p>Available credits: {inventory.inventory.credits}</p>
-            <ul>{shopInv()}</ul>
-            <button className="button large">
-              <Link
-                to={`/galaxy/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
-          </article>
+          <div className="padding-border planet-split">
+            <article>
+              <p className="padding">Inventory</p>
+              <ul>{renderUserInventory()}</ul>
+            </article>
+            <article>
+              <p className="padding">Buy</p>
+              <ul>{shopInv()}</ul>
+              <button className="button large">
+                <Link
+                  to={`/galaxy/${user.user.currentPlanet}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  Go Back
+                </Link>
+              </button>
+            </article>
+          </div>
         </div>
       </section>
     </div>

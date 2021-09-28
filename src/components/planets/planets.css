@@ -182,6 +182,11 @@ a.image {
     width: 50%;
   }
 }
+@media screen and (min-width: 960px) {
+  .logo-place img {
+    width: 10% !important;
+  }
+}
 
 /*button */
 

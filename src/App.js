@@ -262,11 +262,10 @@ export default function App() {
   const handleBuyItem = (item, amount, price, multiplier) => {
     if (userInventory.credits >= price * multiplier) {
       const userInventoryDummy = { ...userInventory };
-      userInventoryDummy[item] = userInventory[item] + amount;
-      userInventoryDummy.credits = userInventory.credits - price * multiplier;
+      userInventoryDummy[item] = userInventoryDummy[item] + amount;
+      userInventoryDummy.credits =
+        userInventoryDummy.credits - price * multiplier;
       setUserInventory(userInventoryDummy);
-    } else {
-      alert("Not enough credits!");
     }
   };
 

@@ -133,7 +133,7 @@ const Mine = (props) => {
     }
   };
 
-  //   render mine button if sufficient credits
+  //   render the mine button if sufficient credits
   const renderMineButton = () => {
     if (inventory.inventory.credits >= 500) {
       return (
