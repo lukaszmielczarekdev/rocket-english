@@ -128,11 +128,11 @@ export const Bar = (props) => {
     <div id="bar">
       {renderOrRedirect("bar")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <picture>
-              <source srcset={bar_webp} type="image/webp" />
-              <source srcset={bar_png} type="image/png" />
+              <source srcSet={bar_webp} type="image/webp" />
+              <source srcSet={bar_png} type="image/png" />
               <img
                 src={bar_png}
                 type="image/png"

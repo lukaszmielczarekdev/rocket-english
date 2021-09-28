@@ -142,7 +142,9 @@ const Mine = (props) => {
         </button>
       );
     } else {
-      return <button className="button large">Not enough credits[!]</button>;
+      return (
+        <button className="button large">Not enough credits - 500[!]</button>
+      );
     }
   };
 
@@ -160,7 +162,7 @@ const Mine = (props) => {
     <div id="mine">
       {renderOrRedirect("mine")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Mine</h3>

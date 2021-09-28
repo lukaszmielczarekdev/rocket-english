@@ -63,7 +63,7 @@ const Casino = (props) => {
     <div id="casino">
       {renderOrRedirect("casino")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
             <h3>Casino</h3>

@@ -21,7 +21,7 @@ const Menu = (props) => {
   return (
     <div>
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+        <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={quiz} alt="quiz logo" width="100em" height="auto" />
             <h3>Quiz</h3>
