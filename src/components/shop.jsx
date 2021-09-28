@@ -82,16 +82,16 @@ const Shop = (props) => {
             <article>
               <p className="padding">Buy</p>
               <ul>{shopInv()}</ul>
-              <button className="button large">
-                <Link
-                  to={`/galaxy/${user.user.currentPlanet}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  Go Back
-                </Link>
-              </button>
             </article>
           </div>
+          <button className="button large">
+            <Link
+              to={`/galaxy/${user.user.currentPlanet}`}
+              style={{ textDecoration: "none" }}
+            >
+              Go Back
+            </Link>
+          </button>
         </div>
       </section>
     </div>
