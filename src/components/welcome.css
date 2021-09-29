@@ -23,7 +23,7 @@
 }
 
 #welcome {
-  color: #236f8a;
+  color: var(--clr-neutral-100);
 }
 
 #welcome .border {
@@ -37,60 +37,20 @@
   color: var(--clr-primary-300);
   font-weight: 700;
   letter-spacing: 0.1rem;
-  background-color: var(--clr-primary-000);
-  padding-inline: 0.5rem;
+  background-color: var(--clr-neutral-100);
+  padding-inline: 1rem;
   text-transform: uppercase;
-  border: 1px solid var(--clr-primary-300);
-  display: block;
-  margin: 0.5rem auto;
+  border-radius: 15px;
+  margin: 1rem;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
 }
 #welcome button:hover {
   border: none;
 }
 
 #welcome button a {
-  text-decoration: none;
-  display: block;
-}
-
-/* background */
-
-#welcome .main-background {
-  background-color: #e1f5fce1;
-}
-
-#welcome {
-  color: #236f8a;
-}
-
-#welcome .border {
-  border: 1px solid #e1f5fce1 !important;
-}
-
-/* modal */
-
-#modal {
-  color: var(--clr-primary-300);
-  background-color: #e1f5fce1;
-}
-
-#modal button {
-  font-family: var(--ff-primary);
-  color: var(--clr-primary-300);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  background-color: var(--clr-primary-000);
-  padding-inline: 0.5rem;
-  text-transform: uppercase;
-  border: 1px solid var(--clr-primary-300);
-  display: block;
-  margin: 0.5rem auto;
-}
-#modal button:hover {
-  border: none;
-}
-
-#modal button a {
   text-decoration: none;
   display: block;
 }

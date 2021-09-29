@@ -102,10 +102,9 @@ const Welcome = (props) => {
             general.setNewGame(false);
             general.setLogin(true);
           }}
-          style={{ textDecoration: "none" }}
           className="button large button-margin"
         >
-          I want to play
+          I want a challenge
         </button>
         <button
           onClick={() => {
@@ -121,7 +120,6 @@ const Welcome = (props) => {
             tour.setTour(true);
             props.history.push("/galaxy/earth");
           }}
-          style={{ textDecoration: "none" }}
           className="button large button-margin"
         >
           I'm just a tourist
@@ -170,10 +168,11 @@ const Welcome = (props) => {
   return (
     <div id="welcome">
       {renderOrRedirect("menu")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
+      <section className="planet-container padding">
+        {/* <section className="planet-container main-background border border-radius padding margin-block-planet-container"> */}
+        {/* <div className="padding border planet-split"> */}
+        <div>
           <article className="padding-places">
-            <h1>Rocket English</h1>
             <h2>Solar System Edition</h2>
             <p>
               Explore the solar system with a rocket and learn English.
@@ -186,9 +185,11 @@ const Welcome = (props) => {
               Learn about the universe.
             </p>
 
-            {general.general.newGame && renderLogin()}
-            {!general.general.newGame && renderResetProgress()}
-            {!general.general.newGame && renderContinueGame()}
+            <nav>
+              {general.general.newGame && renderLogin()}
+              {!general.general.newGame && renderResetProgress()}
+              {!general.general.newGame && renderContinueGame()}
+            </nav>
 
             <Modal
               id="modal"

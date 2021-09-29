@@ -5,14 +5,7 @@ import "./footer.css";
 const Footer = (props) => {
   const user = useContext(UserContext);
 
-  const brightBackgrounds = [
-    "menu",
-    "jupiter",
-    "uranus",
-    "mercury",
-    "saturn",
-    "mars",
-  ];
+  const brightBackgrounds = ["jupiter", "uranus", "mercury", "saturn", "mars"];
   const setColor = () => {
     if (brightBackgrounds.includes(user.user.currentPlanet)) {
       return { color: "var(--clr-primary-300)" };

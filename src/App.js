@@ -124,11 +124,11 @@ export default function App() {
     setGeneralData(generalDataDummy);
   };
 
-  const renderNav = () => {
-    if (generalData.gamePaused === false) {
-      return <Nav />;
-    }
-  };
+  // const renderNav = () => {
+  //   if (generalData.gamePaused === false) {
+  //     return <Nav />;
+  //   }
+  // };
 
   const handleSetAvailablePlanet = (planet) => {
     const generalDataDummy = { ...generalData };
@@ -353,7 +353,8 @@ export default function App() {
                 onSetUfo: setUfoDefeated,
               }}
             >
-              {renderNav()}
+              {/* {renderNav()} */}
+              <Nav />
               <Switch>
                 <Route path="/galaxy" component={Galaxy} />
                 <Route path="/space" exact component={NotFound} />

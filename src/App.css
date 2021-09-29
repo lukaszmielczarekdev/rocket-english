@@ -36,22 +36,6 @@ body {
   line-height: 1.5;
 }
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  font-family: var(--ff-primary);
-  text-transform: uppercase;
-}
-
-#nav {
-  font-family: var(--ff-primary);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1rem;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 h3 {
   font-size: 1rem;
   font-weight: 700;
@@ -124,15 +108,10 @@ body,
 }
 
 body,
-h1,
 h2,
 h3,
 p {
   margin: 0;
-}
-
-h1 {
-  display: inline-block;
 }
 
 h2,
