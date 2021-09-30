@@ -20,15 +20,19 @@ const Nav = (props) => {
     <div id="navbar-items" className="text-center">
       <i className="fas fa-rocket rocket-icon"></i>
       <div className="nav-logo">
-        <NavLink
-          onClick={() => {
-            handleOpenMenu();
-            general.setNewGame(false);
-          }}
-          to="/"
-        >
+        {general.general.newGame ? (
           <h1>ROCKET ENGLISH</h1>
-        </NavLink>
+        ) : (
+          <NavLink
+            onClick={() => {
+              handleOpenMenu();
+              general.setNewGame(false);
+            }}
+            to="/"
+          >
+            <h1>ROCKET ENGLISH</h1>
+          </NavLink>
+        )}
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>
           <li
             className={user.user.currentPlanet === "menu" ? "nav-hidden" : "#"}

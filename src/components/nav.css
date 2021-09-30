@@ -5,10 +5,17 @@
 }
 
 #navbar-items h1 {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
   font-family: var(--ff-primary);
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 1024px) {
+  #navbar-items h1 {
+    font-size: 1.5rem;
+    align-self: center;
+  }
 }
 
 #navbar-items {
@@ -26,6 +33,19 @@
   color: var(--clr-neutral-100) !important;
   color: inherit;
 }
+
+.menu-icon,
+.rocket-icon {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-icon,
+  .rocket-icon {
+    font-size: 2rem;
+  }
+}
+
 /* layout */
 
 #navbar-items {
@@ -57,7 +77,7 @@
   justify-content: center;
   align-items: center;
   list-style: none;
-  padding: 1rem;
+  padding: 0.5rem;
   cursor: default;
 }
 
@@ -89,7 +109,6 @@
 .rocket-icon {
   padding: 0.5rem;
   display: block;
-  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -115,6 +134,10 @@ h1 {
     width: 100%;
   }
 
+  #navbar-items ul {
+    padding: 0.5rem;
+  }
+
   .nav-links:hover {
     background-color: transparent;
   }
@@ -130,6 +153,11 @@ h1 {
 
   .nav-logo {
     display: flex;
+    white-space: nowrap;
+  }
+
+  .nav-logo a {
+    align-self: center;
   }
 
   h1 {
@@ -139,9 +167,5 @@ h1 {
 
   .nav-player-info {
     white-space: nowrap;
-  }
-
-  .rocket-icon {
-    font-size: 3rem;
   }
 }
