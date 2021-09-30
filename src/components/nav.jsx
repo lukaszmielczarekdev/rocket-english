@@ -34,27 +34,25 @@ const Nav = (props) => {
           </NavLink>
         )}
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-          <li
+          {/* <li
             className={user.user.currentPlanet === "menu" ? "nav-hidden" : "#"}
           >
             Welcome {user.user.name}
-          </li>
+          </li> */}
           <li className="nav-links menu">
             <NavLink className="navbar-navlink" to="#">
               How to Play
             </NavLink>
           </li>
-          <li
+          {/* <li
             className={
-              user.user.currentPlanet === "menu"
-                ? "nav-links"
-                : "nav-links nav-hidden"
+              user.user.currentPlanet === "menu" ? "nav-links" : "nav-hidden"
             }
           >
             <NavLink className="navbar-navlink" to="#">
               Contact Me
             </NavLink>
-          </li>
+          </li> */}
           <li
             className={
               user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
