@@ -28,7 +28,7 @@ const Earth = (props) => {
   useEffect(() => {
     const theme = getTheme("earth");
     theme.setTheme();
-    general.setGamePaused(false);
+    general.changeMultiple("gamePaused", false, "newGame", false);
     user.onSetPlanet("earth");
 
     return () => theme.clearTheme();

@@ -17,6 +17,7 @@ const Welcome = (props) => {
   const tour = useContext(TourContext);
   const inventory = useContext(InventoryContext);
   const [showModal, setShowModal] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     const theme = getTheme("menu");
@@ -39,13 +40,11 @@ const Welcome = (props) => {
   };
 
   const handleSubmitUserData = (data) => {
-    if (data) {
-      user.onSetName(data);
-      general.setNewGame(false);
-      general.setAvailablePlanet("earth");
-      general.general.availablePlanets["earth"].discovered = true;
-      props.history.push("/galaxy/earth");
-    }
+    user.onSetName(data);
+    general.setAvailablePlanet("earth");
+    general.general.availablePlanets["earth"].discovered = true;
+    tour.setTour(false);
+    props.history.push("/galaxy/earth");
   };
 
   const renderResetProgress = () => {
@@ -69,11 +68,11 @@ const Welcome = (props) => {
   };
 
   const renderLogin = () => {
-    if (general.general.login) {
+    if (showLogin) {
       return (
         <>
           <p>What's your name?</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="welcome-form" onSubmit={handleSubmit(onSubmit)}>
             <input
               type="text"
               {...register("username", {
@@ -99,8 +98,7 @@ const Welcome = (props) => {
       <>
         <button
           onClick={() => {
-            general.setNewGame(false);
-            general.setLogin(true);
+            setShowLogin(true);
           }}
           className="button large button-margin"
         >
@@ -116,7 +114,7 @@ const Welcome = (props) => {
               aluminum: 500,
               crystal: 500,
             });
-            startTour();
+            startGame();
             tour.setTour(true);
             props.history.push("/galaxy/earth");
           }}
@@ -127,7 +125,7 @@ const Welcome = (props) => {
       </>
     );
   };
-  const startTour = () => {
+  const startGame = () => {
     general.setAvailablePlanet("earth");
     general.general.availablePlanets["earth"].discovered = true;
     general.setNewGame(false);
@@ -169,20 +167,19 @@ const Welcome = (props) => {
     <div id="welcome">
       {renderOrRedirect("menu")}
       <section className="planet-container padding">
-        {/* <section className="planet-container main-background border border-radius padding margin-block-planet-container"> */}
-        {/* <div className="padding border planet-split"> */}
         <div>
           <article className="padding-places">
             <h2>Solar System Edition</h2>
             <p>
-              Explore the solar system with a rocket and learn English.
+              Learn English by exploring the solar system and taking part in
+              missions.
               <br />
-              There are interesting challenges on every planet.
+              Travel between planets learning interesting facts about them.
               <br />
-              Upgrade your rocket, gain experience, visit shops, casinos,
-              galactic universities and more.
+              Visit numerous interesting places on planets, gain experience and
+              materials.
               <br />
-              Learn about the universe.
+              Upgrade your rocket to discover new planets and surprises.
             </p>
 
             <nav>

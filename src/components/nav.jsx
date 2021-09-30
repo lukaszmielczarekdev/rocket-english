@@ -44,20 +44,14 @@ const Nav = (props) => {
               How to Play
             </NavLink>
           </li>
-          <li
-            className={
-              user.user.currentPlanet === "menu"
-                ? "nav-links"
-                : "nav-links nav-hidden"
-            }
-          >
+          <li className={"nav-links"}>
             <NavLink className="navbar-navlink" to="#">
               Contact Me
             </NavLink>
           </li>
           <li
             className={
-              user.user.currentPlanet === "menu"
+              user.user.currentPlanet !== "menu"
                 ? "nav-links"
                 : "nav-links nav-hidden"
             }

@@ -1,3 +1,13 @@
+/* typography */
+
+#welcome h2 {
+  font-size: 1.5rem;
+}
+
+#welcome p {
+  font-size: 1rem;
+}
+
 /* general */
 
 #welcome > h2 {
@@ -24,8 +34,8 @@
 
 #welcome {
   color: var(--clr-neutral-100);
+  margin-block: auto;
 }
-
 #welcome .border {
   border: 1px solid #e1f5fce1 !important;
 }
@@ -48,9 +58,18 @@
 }
 #welcome button:hover {
   border: none;
+  text-decoration: none;
+  color: rgb(1, 9, 27) !important;
+  background-color: yellow !important;
 }
 
 #welcome button a {
   text-decoration: none;
   display: block;
+}
+
+#welcome .welcome-form {
+  align-content: center;
+  justify-content: center;
+  display: grid;
 }

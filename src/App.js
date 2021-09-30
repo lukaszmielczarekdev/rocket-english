@@ -56,7 +56,6 @@ export default function App() {
   // general data
   const initialGeneralData = {
     newGame: true,
-    login: false,
     gamePaused: false,
     // if a place is not on the planet it will not be rendered
     availablePlanets: {
@@ -112,6 +111,13 @@ export default function App() {
     setGeneralData(generalDataDummy);
   };
 
+  const handleMultipleChanges = (param1, value1, param2, value2) => {
+    const generalDataDummy = { ...generalData };
+    generalDataDummy[param1] = value1;
+    generalDataDummy[param2] = value2;
+    setGeneralData(generalDataDummy);
+  };
+
   const handleSetTour = (state) => {
     const tourDataDummy = { ...tourData };
     tourDataDummy.tour = state;
@@ -123,12 +129,6 @@ export default function App() {
     generalDataDummy.login = state;
     setGeneralData(generalDataDummy);
   };
-
-  // const renderNav = () => {
-  //   if (generalData.gamePaused === false) {
-  //     return <Nav />;
-  //   }
-  // };
 
   const handleSetAvailablePlanet = (planet) => {
     const generalDataDummy = { ...generalData };
@@ -326,6 +326,7 @@ export default function App() {
           general: generalData,
           planets: generalData.availablePlanets,
           setAvailablePlanet: handleSetAvailablePlanet,
+          changeMultiple: handleMultipleChanges,
         }}
       >
         <ShopContext.Provider
