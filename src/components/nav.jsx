@@ -44,16 +44,20 @@ const Nav = (props) => {
               How to Play
             </NavLink>
           </li>
-          <li className={"nav-links"}>
+          <li
+            className={
+              user.user.currentPlanet === "menu"
+                ? "nav-links"
+                : "nav-links nav-hidden"
+            }
+          >
             <NavLink className="navbar-navlink" to="#">
               Contact Me
             </NavLink>
           </li>
           <li
             className={
-              user.user.currentPlanet !== "menu"
-                ? "nav-links"
-                : "nav-links nav-hidden"
+              user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
             }
           >
             <NavLink className="navbar-navlink" to="#">
@@ -62,9 +66,7 @@ const Nav = (props) => {
           </li>
           <li
             className={
-              user.user.currentPlanet === "menu"
-                ? "nav-links nav-hidden"
-                : "nav-links"
+              user.user.currentPlanet === "menu" ? "nav-hidden" : "nav-links"
             }
           >
             <NavLink className="navbar-navlink" to="/galaxy/inventory">
@@ -72,11 +74,7 @@ const Nav = (props) => {
             </NavLink>
           </li>
           <li
-            className={
-              user.user.currentPlanet === "menu"
-                ? "nav-player-info nav-hidden"
-                : "nav-player-info"
-            }
+            className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
           >
             Exp: {user.user.exp} Level: {user.user.lvl}
           </li>

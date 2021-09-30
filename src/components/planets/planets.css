@@ -29,6 +29,8 @@ h4 {
 @media screen and (min-width: 960px) {
   .planet-container {
     margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
     width: min(90%, 70rem);
     align-items: flex-start;
     border-radius: 10px;

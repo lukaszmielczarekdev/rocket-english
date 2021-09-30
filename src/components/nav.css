@@ -55,7 +55,7 @@
 #navbar-items li {
   text-align: center;
   padding: 1rem;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .nav-menu {
@@ -138,6 +138,14 @@ h1 {
     padding: 0.5rem;
   }
 
+  .nav-links {
+    text-align: center;
+    padding: 1rem;
+    width: auto;
+    display: table;
+    cursor: pointer;
+  }
+
   .nav-links:hover {
     background-color: transparent;
   }
@@ -145,7 +153,7 @@ h1 {
   .nav-menu {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /* width: 100%; */
     position: initial;
     opacity: 1;
     transition: all 0.5s ease;
@@ -165,7 +173,7 @@ h1 {
     text-align: center;
   }
 
-  .nav-player-info {
-    white-space: nowrap;
-  }
+  /* .nav-player-info { */
+  /* white-space: nowrap; */
+  /* } */
 }
