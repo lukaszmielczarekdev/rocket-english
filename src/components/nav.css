@@ -130,9 +130,15 @@ h1 {
     display: none;
   }
 
+  .nav-logo {
+    justify-self: center;
+  }
+
   #navbar-items {
     background: transparent;
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 10fr;
     width: 100%;
   }
 
