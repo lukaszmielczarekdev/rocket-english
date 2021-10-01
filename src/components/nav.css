@@ -62,7 +62,6 @@
 #navbar-items li {
   text-align: center;
   padding: 1rem;
-  /* width: 100%; */
 }
 
 .nav-menu {
@@ -71,7 +70,7 @@
   width: 100%;
   position: absolute;
   left: -100%;
-  top: 56px;
+  top: 48px;
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -93,7 +92,7 @@
   background: rgb(1, 9, 27);
   left: 0;
   position: absolute;
-  top: 56px;
+  top: 48px;
   opacity: 1;
   transition: all 0.5s ease;
   z-index: 1;
