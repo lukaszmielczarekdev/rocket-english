@@ -13,7 +13,7 @@
 
 @media screen and (min-width: 1024px) {
   #navbar-items h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     align-self: center;
   }
 }
@@ -21,7 +21,7 @@
 #navbar-items {
   color: var(--clr-neutral-100);
   font-family: var(--ff-primary);
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-align: center;
@@ -42,7 +42,14 @@
 @media screen and (min-width: 1024px) {
   .menu-icon,
   .rocket-icon {
-    font-size: 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .menu-icon,
+  .rocket-icon {
+    font-size: 1.5rem;
   }
 }
 
@@ -64,7 +71,7 @@
   width: 100%;
   position: absolute;
   left: -100%;
-  top: 50px;
+  top: 56px;
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -85,7 +92,8 @@
 .nav-menu.active {
   background: rgb(1, 9, 27);
   left: 0;
-  top: 50px;
+  position: absolute;
+  top: 56px;
   opacity: 1;
   transition: all 0.5s ease;
   z-index: 1;
@@ -130,15 +138,9 @@ h1 {
     display: none;
   }
 
-  .nav-logo {
-    justify-self: center;
-  }
-
   #navbar-items {
     background: transparent;
-    /* display: flex; */
-    display: grid;
-    grid-template-columns: 1fr 10fr;
+    display: flex;
     width: 100%;
   }
 

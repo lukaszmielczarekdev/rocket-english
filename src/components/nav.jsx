@@ -17,71 +17,75 @@ const Nav = (props) => {
   };
 
   return (
-    <div id="navbar-items" className="text-center">
-      <i className="fas fa-rocket rocket-icon"></i>
-      <div className="nav-logo">
-        {general.general.newGame ? (
-          <h1>ROCKET ENGLISH</h1>
-        ) : (
-          <NavLink
-            onClick={() => {
-              handleOpenMenu();
-              general.setNewGame(false);
-            }}
-            to="/"
-          >
+    <div>
+      <div id="navbar-items" className="text-center">
+        <i className="fas fa-rocket rocket-icon"></i>
+        <div className="nav-logo">
+          {general.general.newGame ? (
             <h1>ROCKET ENGLISH</h1>
-          </NavLink>
-        )}
-        <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-          {/* <li
-            className={user.user.currentPlanet === "menu" ? "nav-hidden" : "#"}
-          >
-            Welcome {user.user.name}
-          </li> */}
-          <li className="nav-links menu">
-            <NavLink className="navbar-navlink" to="#">
-              How to Play
+          ) : (
+            <NavLink
+              onClick={() => {
+                handleOpenMenu();
+                general.setNewGame(false);
+              }}
+              to="/"
+            >
+              <h1>ROCKET ENGLISH</h1>
             </NavLink>
-          </li>
-          {/* <li
-            className={
-              user.user.currentPlanet === "menu" ? "nav-links" : "nav-hidden"
-            }
-          >
-            <NavLink className="navbar-navlink" to="#">
-              Contact Me
-            </NavLink>
-          </li> */}
-          <li
-            className={
-              user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
-            }
-          >
-            <NavLink className="navbar-navlink" to="#">
-              Favorites
-            </NavLink>
-          </li>
-          <li
-            className={
-              user.user.currentPlanet === "menu" ? "nav-hidden" : "nav-links"
-            }
-          >
-            <NavLink className="navbar-navlink" to="/galaxy/inventory">
-              Inventory
-            </NavLink>
-          </li>
-          <li
-            className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
-          >
-            Exp: {user.user.exp} Level: {user.user.lvl}
-          </li>
-        </ul>
+          )}
+          <ul className={clicked ? "nav-menu active" : "nav-menu"}>
+            {/* <li
+              className={user.user.currentPlanet === "menu" ? "nav-hidden" : "#"}
+            >
+              Welcome {user.user.name}
+            </li> */}
+            <li className="nav-links menu">
+              <NavLink className="navbar-navlink" to="#">
+                How to Play
+              </NavLink>
+            </li>
+            {/* <li
+              className={
+                user.user.currentPlanet === "menu" ? "nav-links" : "nav-hidden"
+              }
+            >
+              <NavLink className="navbar-navlink" to="#">
+                Contact Me
+              </NavLink>
+            </li> */}
+            <li
+              className={
+                user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
+              }
+            >
+              <NavLink className="navbar-navlink" to="#">
+                Favorites
+              </NavLink>
+            </li>
+            <li
+              className={
+                user.user.currentPlanet === "menu" ? "nav-hidden" : "nav-links"
+              }
+            >
+              <NavLink className="navbar-navlink" to="/galaxy/inventory">
+                Inventory
+              </NavLink>
+            </li>
+            <li
+              className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
+            >
+              Exp: {user.user.exp} Level: {user.user.lvl}
+            </li>
+          </ul>
+        </div>
+        <i
+          onClick={handleClick}
+          className={
+            clicked ? "menu-icon fas fa-times" : "menu-icon fas fa-bars"
+          }
+        ></i>
       </div>
-      <i
-        onClick={handleClick}
-        className={clicked ? "menu-icon fas fa-times" : "menu-icon fas fa-bars"}
-      ></i>
     </div>
   );
 };
