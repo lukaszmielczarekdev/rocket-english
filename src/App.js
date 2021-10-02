@@ -63,7 +63,15 @@ export default function App() {
       earth: {
         available: false,
         discovered: false,
-        places: ["shop", "casino", "quiz", "factory", "pad", "inventory"],
+        places: [
+          "shop",
+          "casino",
+          "quiz",
+          "factory",
+          "pad",
+          "bar",
+          "inventory",
+        ],
       },
       mars: {
         available: false,

@@ -1,6 +1,6 @@
 :root {
   --clr-primary-000: transparent;
-  --clr-primary-100: #ffffffc2;
+  --clr-primary-100: #ffff;
   --clr-primary-200: #163761be;
   --clr-primary-300: #236f8a;
   --clr-primary-500: #58a7f7;
@@ -149,6 +149,12 @@ ul {
 
 .margin-inline-1rem {
   margin-inline: 0.5rem;
+}
+
+.bg {
+  background: url(../src/images/earth-background.jpg) no-repeat center center
+    fixed;
+  background-size: cover;
 }
 
 body.welcome-theme {

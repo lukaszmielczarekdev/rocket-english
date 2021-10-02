@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
+import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
@@ -11,25 +12,20 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
-import uranus from "../../images/uranus.svg";
-import getTheme from "../../utils/themes";
-import planetAccess from "../../utils/planetAccess";
-import AliceCarousel from "react-alice-carousel";
-import renders from "../../utils/renders";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "./planets.css";
+import uranus from "../../images/uranus-background.jpg";
 
 const Uranus = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    const theme = getTheme("uranus");
-    theme.setTheme();
     general.setGamePaused(false);
     user.onSetPlanet("uranus");
-
-    return () => theme.clearTheme();
   }, []);
+
+  const description =
+    "Uranus is a gas giant, but due to its structure and chemical composition different from Jupiter and Saturn, it is classified as ice giants. Winds in Uranus reach 900 km/h.";
+  const imgAlt =
+    "The wolf standing on the rock looks out over the valley with trees and waterfalls.";
 
   const handleDragStart = (e) => e.preventDefault();
 
@@ -73,40 +69,14 @@ const Uranus = (props) => {
   ];
 
   return (
-    <div id="planet-wrapper">
-      {planetAccess.renderPlanetOrRedirect(
-        general.general.availablePlanets,
-        "uranus"
-      )}
-      <section
-        id="planet"
-        className="planet-container main-background border padding margin-block-planet-container"
-      >
-        <div className="padding border planet-split">
-          <div className="image fit logo padding-inline-1">
-            <img
-              src={uranus}
-              alt="planet uranus logo"
-              width="100em"
-              height="auto"
-            />
-            <h3>Uranus</h3>
-          </div>
-          <p className="planet-description">
-            Uranus is a gas giant, but due to its structure and chemical
-            composition different from Jupiter and Saturn, it is classified as
-            ice giants. Winds in Uranus reach 900 km/h.
-          </p>
-        </div>
-        <AliceCarousel
-          controlsStrategy={"responsive"}
-          responsive={renders.carousel}
-          keyboardNavigation
-          infinite
-          items={items}
-        />
-      </section>
-    </div>
+    <Planet
+      bgColor={"uranus"}
+      planet={"uranus"}
+      planetDescription={description}
+      planetImg={uranus}
+      imgAlt={imgAlt}
+      places={items}
+    />
   );
 };
 

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
+import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
@@ -13,28 +14,23 @@ import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
-import jupiter from "../../images/jupiter.svg";
-import getTheme from "../../utils/themes";
-import planetAccess from "../../utils/planetAccess";
-import AliceCarousel from "react-alice-carousel";
-import renders from "../../utils/renders";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "./planets.css";
+import jupiter from "../../images/jupiter-background.jpg";
 
 const Jupiter = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    const theme = getTheme("jupiter");
-    theme.setTheme();
     general.setGamePaused(false);
     user.onSetPlanet("jupiter");
-
-    return () => theme.clearTheme();
   }, []);
 
+  const description =
+    "Jupiter has no surface. The planet is mainly composed of gases and liquids. If we wanted to go deep into Jupiter by any spacecraft, it would be crushed by the harsh conditions and enormous pressure that prevail there.";
+  const imgAlt =
+    "The wolf standing on the rock looks out over the valley with trees and waterfalls.";
+
   const handleDragStart = (e) => e.preventDefault();
-  console.log(user.user.currentPlanet);
+
   const items = [
     <PlaceUfo
       onDragStart={handleDragStart}
@@ -84,41 +80,14 @@ const Jupiter = (props) => {
   ];
 
   return (
-    <div id="planet-wrapper">
-      {planetAccess.renderPlanetOrRedirect(
-        general.general.availablePlanets,
-        "jupiter"
-      )}
-      <section
-        id="planet"
-        className="planet-container main-background border padding margin-block-planet-container"
-      >
-        <div className="padding border planet-split">
-          <div className="image fit logo padding-inline-1">
-            <img
-              src={jupiter}
-              alt="planet jupiter logo"
-              width="100em"
-              height="auto"
-            />
-            <h3>Jupiter</h3>
-          </div>
-          <p className="planet-description">
-            Jupiter has no surface. The planet is mainly composed of gases and
-            liquids. If we wanted to go deep into Jupiter by any spacecraft, it
-            would be crushed by the harsh conditions and enormous pressure that
-            prevail there.
-          </p>
-        </div>
-        <AliceCarousel
-          controlsStrategy={"responsive"}
-          responsive={renders.carousel}
-          keyboardNavigation
-          infinite
-          items={items}
-        />
-      </section>
-    </div>
+    <Planet
+      bgColor={"jupiter"}
+      planet={"jupiter"}
+      planetDescription={description}
+      planetImg={jupiter}
+      imgAlt={imgAlt}
+      places={items}
+    />
   );
 };
 

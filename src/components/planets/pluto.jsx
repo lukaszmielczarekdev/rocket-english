@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
+import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import pluto from "../../images/pluto.svg";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -14,24 +14,20 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
-import getTheme from "../../utils/themes";
-import planetAccess from "../../utils/planetAccess";
-import AliceCarousel from "react-alice-carousel";
-import renders from "../../utils/renders";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "./planets.css";
+import pluto from "../../images/pluto-background.jpg";
 
 const Pluto = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    const theme = getTheme("pluto");
-    theme.setTheme();
     general.setGamePaused(false);
     user.onSetPlanet("pluto");
-
-    return () => theme.clearTheme();
   }, []);
+
+  const description =
+    "The temperature amplitude on the surface of Mars is much greater than on Earth. Temperatures on the red globe range between -143 ° C and 35 ° C.";
+  const imgAlt =
+    "The wolf standing on the rock looks out over the valley with trees and waterfalls.";
 
   const handleDragStart = (e) => e.preventDefault();
 
@@ -84,41 +80,13 @@ const Pluto = (props) => {
   ];
 
   return (
-    <div id="planet-wrapper">
-      {planetAccess.renderPlanetOrRedirect(
-        general.general.availablePlanets,
-        "pluto"
-      )}
-      <section
-        id="planet"
-        className="planet-container main-background border padding margin-block-planet-container"
-      >
-        <div className="padding border planet-split">
-          <div className="image fit logo padding-inline-1">
-            <img
-              src={pluto}
-              alt="planet pluto logo"
-              width="100em"
-              height="auto"
-            />
-            <h3>Pluto</h3>
-          </div>
-          <p className="planet-description">
-            In Pluto's atmosphere there is a multilayered fog that covers the
-            entire area of ​​the celestial body and extends up to a height of
-            200 kilometers. According to measurements, the fog consists of about
-            20 layers.
-          </p>
-        </div>
-        <AliceCarousel
-          controlsStrategy={"responsive"}
-          responsive={renders.carousel}
-          keyboardNavigation
-          infinite
-          items={items}
-        />
-      </section>
-    </div>
+    <Planet
+      planet={"pluto"}
+      planetDescription={description}
+      planetImg={pluto}
+      imgAlt={imgAlt}
+      places={items}
+    />
   );
 };
 

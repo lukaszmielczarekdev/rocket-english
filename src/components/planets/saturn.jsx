@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
+import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import UserContext from "../../contexts/userContext";
@@ -10,25 +11,20 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
-import saturn from "../../images/saturn.svg";
-import getTheme from "../../utils/themes";
-import planetAccess from "../../utils/planetAccess";
-import AliceCarousel from "react-alice-carousel";
-import renders from "../../utils/renders";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "./planets.css";
+import saturn from "../../images/saturn-background.jpg";
 
 const Saturn = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
-    const theme = getTheme("saturn");
-    theme.setTheme();
     general.setGamePaused(false);
     user.onSetPlanet("saturn");
-
-    return () => theme.clearTheme();
   }, []);
+
+  const description =
+    "Saturn, like Jupiter, consists mainly of hydrogen and helium, the same two main elements that make up our sun. Storm winds blow around the atmosphere at a speed of 800 km/h.";
+  const imgAlt =
+    "The wolf standing on the rock looks out over the valley with trees and waterfalls.";
 
   const handleDragStart = (e) => e.preventDefault();
 
@@ -75,40 +71,14 @@ const Saturn = (props) => {
   ];
 
   return (
-    <div id="planet-wrapper">
-      {planetAccess.renderPlanetOrRedirect(
-        general.general.availablePlanets,
-        "saturn"
-      )}
-      <section
-        id="planet"
-        className="planet-container main-background border padding margin-block-planet-container"
-      >
-        <div className="padding border planet-split">
-          <div className="image fit logo padding-inline-1">
-            <img
-              src={saturn}
-              alt="planet saturn logo"
-              width="100em"
-              height="auto"
-            />
-            <h3>Saturn</h3>
-          </div>
-          <p className="planet-description">
-            Saturn, like Jupiter, consists mainly of hydrogen and helium, the
-            same two main elements that make up our sun. Storm winds blow around
-            the atmosphere at a speed of 800 km/h.
-          </p>
-        </div>
-        <AliceCarousel
-          controlsStrategy={"responsive"}
-          responsive={renders.carousel}
-          keyboardNavigation
-          infinite
-          items={items}
-        />
-      </section>
-    </div>
+    <Planet
+      bgColor={"saturn"}
+      planet={"saturn"}
+      planetDescription={description}
+      planetImg={saturn}
+      imgAlt={imgAlt}
+      places={items}
+    />
   );
 };
 

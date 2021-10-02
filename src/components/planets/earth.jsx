@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useContext } from "react";
+import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import UserContext from "../../contexts/userContext";
@@ -10,29 +11,23 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
-import earth_png from "../../images/earth.png";
-import earth_webp from "../../images/earth.webp";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
-import getTheme from "../../utils/themes";
-import renders from "../../utils/renders";
-import planetAccess from "../../utils/planetAccess";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "./planets.css";
+import earth from "../../images/earth-background.jpg";
 
 const Earth = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
 
   useEffect(() => {
-    const theme = getTheme("earth");
-    theme.setTheme();
     general.changeMultiple("gamePaused", false, "newGame", false);
     user.onSetPlanet("earth");
-
-    return () => theme.clearTheme();
   }, []);
+
+  const description =
+    "Earth is the only planet that is not named after a deity. The other planets in our solar system are named after the Roman gods and goddesses. However, only Mercury, Venus, Mars, Jupiter and Saturn were named in ancient times as they were visible to the naked eye. The Roman method of naming planets was halted after the discovery of Uranus and Neptune.";
+  const imgAlt =
+    "The wolf standing on the rock looks out over the valley with trees and waterfalls.";
 
   const handleDragStart = (e) => e.preventDefault();
 
@@ -88,43 +83,14 @@ const Earth = (props) => {
   ];
 
   return (
-    <div id="planet-wrapper">
-      {planetAccess.renderPlanetOrRedirect(
-        general.general.availablePlanets,
-        "earth"
-      )}
-      <section
-        id="planet"
-        className="planet-container main-background border padding margin-block-planet-container"
-      >
-        <div className="padding border planet-split">
-          <div className="image fit logo padding-inline-1">
-            {renders.logo(
-              earth_webp,
-              earth_png,
-              earth_png,
-              "globe - planet earth"
-            )}
-            <h3>Earth</h3>
-          </div>
-          <p className="planet-description">
-            Earth is the only planet that is not named after a deity. The other
-            planets in our solar system are named after the Roman gods and
-            goddesses. However, only Mercury, Venus, Mars, Jupiter and Saturn
-            were named in ancient times as they were visible to the naked eye.
-            The Roman method of naming planets was halted after the discovery of
-            Uranus and Neptune.
-          </p>
-        </div>
-        <AliceCarousel
-          controlsStrategy={"responsive"}
-          responsive={renders.carousel}
-          keyboardNavigation
-          infinite
-          items={items}
-        />
-      </section>
-    </div>
+    <Planet
+      bgColor={"earth"}
+      planet={"earth"}
+      planetDescription={description}
+      planetImg={earth}
+      imgAlt={imgAlt}
+      places={items}
+    />
   );
 };
 

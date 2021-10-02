@@ -3,25 +3,22 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import ufo_cow from "../images/ufo-cow.png";
-import getTheme from "../utils/themes";
-import "./notFound.css";
+import ufo from "../images/not-found-background.jpg";
+import ufo_kidnap from "../images/ufo-kidnap.png";
+import "./planets/planet.css";
+import "../components/notFound.css";
 
 export const NotFound = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
     general.setGamePaused(true);
-    const theme = getTheme("notFound");
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const renderBackButton = () => {
     if (general.general.availablePlanets["menu"].available) {
       return (
-        <button className="button large">
+        <button className="button small button-margin">
           <Link to={`/`} style={{ textDecoration: "none" }}>
             {`Go back to Menu`}
           </Link>
@@ -29,7 +26,7 @@ export const NotFound = (props) => {
       );
     } else if (user.user.currentPlanet === "menu") {
       return (
-        <button className="button large">
+        <button className="button small button-margin">
           <Link to={`/`} style={{ textDecoration: "none" }}>
             {`Go back to ${user.user.currentPlanet}`}
           </Link>
@@ -37,7 +34,7 @@ export const NotFound = (props) => {
       );
     } else {
       return (
-        <button className="button large">
+        <button className="button small button-margin">
           <Link
             to={`/galaxy/${user.user.currentPlanet}`}
             style={{ textDecoration: "none" }}
@@ -50,17 +47,34 @@ export const NotFound = (props) => {
   };
 
   return (
-    <div id="notFound">
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
-          <article className="padding-places">
-            <div className="logo logo-place image fit">
-              <img src={ufo_cow} alt="space logo" width="100em" height="auto" />
-            </div>
-            <p>It's easy to get lost in space and get kidnapped by UFO...</p>
-            {renderBackButton()}
-          </article>
+    <div id="planet" className="main-background not-found">
+      <section
+        className={`planet-container border padding-botton-3rem margin-block-planet-container ${props.bgColor}`}
+      >
+        <img src={ufo} alt="space logo" className="image-planet" />
+        <p className="padding-1rem">
+          It's easy to get lost in space and get kidnapped by UFO...
+        </p>
+        {renderBackButton()}
+        <div id="ufo-kidnap" className="ufo-container">
+          <img
+            src={ufo_kidnap}
+            alt="space logo"
+            className="ufo logo logo-place padding-3rem not-found-logo"
+          />
         </div>
+        <p className="padding-1rem not-found-">
+          Or maybe take a chance - maybe you will find something interesting in
+          space ?
+        </p>
+        <button className="button small button-margin">
+          <Link
+            to={`/galaxy/${user.user.currentPlanet}`}
+            style={{ textDecoration: "none" }}
+          >
+            Take a chance
+          </Link>
+        </button>
       </section>
     </div>
   );

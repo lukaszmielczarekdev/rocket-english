@@ -138,7 +138,7 @@ h1 {
   }
 
   #navbar-items {
-    background: transparent;
+    /* background: transparent; */
     display: flex;
     width: 100%;
   }
