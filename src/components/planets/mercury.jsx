@@ -13,7 +13,6 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
-import mercury from "../../images/mercury-background.jpg";
 
 const Mercury = (props) => {
   const user = useContext(UserContext);
@@ -85,7 +84,7 @@ const Mercury = (props) => {
     <Planet
       planet={"mercury"}
       planetDescription={description}
-      planetImg={mercury}
+      planetImg={"mercury"}
       imgAlt={imgAlt}
       places={items}
     />

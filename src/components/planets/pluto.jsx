@@ -14,7 +14,6 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
-import pluto from "../../images/pluto-background.jpg";
 
 const Pluto = (props) => {
   const user = useContext(UserContext);
@@ -83,7 +82,7 @@ const Pluto = (props) => {
     <Planet
       planet={"pluto"}
       planetDescription={description}
-      planetImg={pluto}
+      planetImg={"pluto"}
       imgAlt={imgAlt}
       places={items}
     />

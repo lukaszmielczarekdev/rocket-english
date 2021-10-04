@@ -13,7 +13,6 @@ import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
-import earth from "../../images/earth-background.jpg";
 
 const Earth = (props) => {
   const user = useContext(UserContext);
@@ -87,7 +86,7 @@ const Earth = (props) => {
       bgColor={"earth"}
       planet={"earth"}
       planetDescription={description}
-      planetImg={earth}
+      planetImg={"earth"}
       imgAlt={imgAlt}
       places={items}
     />

@@ -11,7 +11,6 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
-import mars from "../../images/mars-background.jpg";
 
 const Mars = (props) => {
   const user = useContext(UserContext);
@@ -75,7 +74,7 @@ const Mars = (props) => {
       bgColor={"mars"}
       planet={"mars"}
       planetDescription={description}
-      planetImg={mars}
+      planetImg={"mars"}
       imgAlt={imgAlt}
       places={items}
     />

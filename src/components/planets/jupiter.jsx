@@ -14,7 +14,6 @@ import ufo_png from "../../images/ufo.png";
 import ufo_webp from "../../images/ufo.webp";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
-import jupiter from "../../images/jupiter-background.jpg";
 
 const Jupiter = (props) => {
   const user = useContext(UserContext);
@@ -84,7 +83,7 @@ const Jupiter = (props) => {
       bgColor={"jupiter"}
       planet={"jupiter"}
       planetDescription={description}
-      planetImg={jupiter}
+      planetImg={"jupiter"}
       imgAlt={imgAlt}
       places={items}
     />

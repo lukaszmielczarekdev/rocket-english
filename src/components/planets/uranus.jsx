@@ -12,7 +12,6 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
-import uranus from "../../images/uranus-background.jpg";
 
 const Uranus = (props) => {
   const user = useContext(UserContext);
@@ -73,7 +72,7 @@ const Uranus = (props) => {
       bgColor={"uranus"}
       planet={"uranus"}
       planetDescription={description}
-      planetImg={uranus}
+      planetImg={"uranus"}
       imgAlt={imgAlt}
       places={items}
     />

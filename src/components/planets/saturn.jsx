@@ -11,7 +11,6 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
-import saturn from "../../images/saturn-background.jpg";
 
 const Saturn = (props) => {
   const user = useContext(UserContext);
@@ -75,7 +74,7 @@ const Saturn = (props) => {
       bgColor={"saturn"}
       planet={"saturn"}
       planetDescription={description}
-      planetImg={saturn}
+      planetImg={"saturn"}
       imgAlt={imgAlt}
       places={items}
     />
