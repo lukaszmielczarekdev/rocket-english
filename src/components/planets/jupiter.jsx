@@ -83,7 +83,7 @@ const Jupiter = (props) => {
       bgColor={"jupiter"}
       planet={"jupiter"}
       planetDescription={description}
-      planetImg={"jupiter"}
+      planetImg={"jupiter-background"}
       imgAlt={imgAlt}
       places={items}
     />

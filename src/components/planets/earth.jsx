@@ -86,7 +86,7 @@ const Earth = (props) => {
       bgColor={"earth"}
       planet={"earth"}
       planetDescription={description}
-      planetImg={"earth"}
+      planetImg={"earth-background"}
       imgAlt={imgAlt}
       places={items}
     />

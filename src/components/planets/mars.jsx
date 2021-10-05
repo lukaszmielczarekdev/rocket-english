@@ -74,7 +74,7 @@ const Mars = (props) => {
       bgColor={"mars"}
       planet={"mars"}
       planetDescription={description}
-      planetImg={"mars"}
+      planetImg={"mars-background"}
       imgAlt={imgAlt}
       places={items}
     />

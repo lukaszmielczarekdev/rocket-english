@@ -74,7 +74,7 @@ const Venus = (props) => {
       bgColor={"venus"}
       planet={"venus"}
       planetDescription={description}
-      planetImg={"venus"}
+      planetImg={"venus-background"}
       imgAlt={imgAlt}
       places={items}
     />

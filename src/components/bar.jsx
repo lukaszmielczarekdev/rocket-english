@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
-import getTheme from "../utils/themes";
 import bar_webp from "../images/bar.webp";
 import bar_png from "../images/bar.png";
 import api from "../utils/api";
@@ -23,10 +22,6 @@ export const Bar = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const { register, handleSubmit } = useForm();

@@ -8,6 +8,14 @@
   font-size: 0.8rem;
 }
 
+/* layout */
+
+#welcome {
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+
 /* general */
 
 #welcome > h2 {
@@ -72,4 +80,36 @@
   align-content: center;
   justify-content: center;
   display: grid;
+}
+
+/* background */
+
+@media screen and (max-width: 640px) {
+  #welcome {
+    background: url(../images/planet-images/960/main_background.jpg) no-repeat
+      center center fixed;
+    background: url(../images/planet-images/960/main_background.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #welcome {
+    background: url(../images/planet-images/1280/main_background.jpg) no-repeat
+      center center fixed;
+    background: url(../images/planet-images/1280/main_background.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  #welcome {
+    background: url(../images/planet-images/1920/main_background.jpg) no-repeat
+      center center fixed;
+    background: url(../images/planet-images/1920/main_background.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
 }

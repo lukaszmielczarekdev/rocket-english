@@ -3,8 +3,8 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import ufo from "../images/not-found-background.jpg";
 import ufo_kidnap from "../images/ufo-kidnap.png";
+import { responsiveImage } from "../utils/renders";
 import "./planets/planet.css";
 import "../components/notFound.css";
 
@@ -51,7 +51,12 @@ export const NotFound = (props) => {
       <section
         className={`planet-container border padding-botton-3rem margin-block-planet-container ${props.bgColor}`}
       >
-        <img src={ufo} alt="space logo" className="image-planet" />
+        {responsiveImage(
+          "planet-images",
+          "not-found-background",
+          "A few mysterious flying objects hovering in the background of a dark sky. In the background you can see the moon and comets.",
+          "image-planet"
+        )}
         <p className="padding-1rem">
           It's easy to get lost in space and get kidnapped by UFO...
         </p>

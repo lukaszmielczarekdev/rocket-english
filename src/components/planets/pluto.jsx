@@ -82,7 +82,7 @@ const Pluto = (props) => {
     <Planet
       planet={"pluto"}
       planetDescription={description}
-      planetImg={"pluto"}
+      planetImg={"pluto-background"}
       imgAlt={imgAlt}
       places={items}
     />

@@ -80,9 +80,10 @@ const Neptune = (props) => {
 
   return (
     <Planet
+      bgColor={"neptune"}
       planet={"neptune"}
       planetDescription={description}
-      planetImg={"neptune"}
+      planetImg={"neptune-background"}
       imgAlt={imgAlt}
       places={items}
     />

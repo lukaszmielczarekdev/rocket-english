@@ -5,7 +5,6 @@ import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import ufo_logo from "../images/ufo.png";
-import getTheme from "../utils/themes";
 import "./ufo.css";
 
 export const Ufo = (props) => {
@@ -15,10 +14,6 @@ export const Ufo = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const renderFightButton = () => {

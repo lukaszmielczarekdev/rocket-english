@@ -5,7 +5,6 @@ import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
 import GeneralContext from "../contexts/generalContext";
 import mine_logo from "../images/mine.png";
-import getTheme from "../utils/themes";
 import Modal from "react-modal";
 import "./mine.css";
 
@@ -30,10 +29,6 @@ const Mine = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const [modalTrigger, setModalTrigger] = useState(false);

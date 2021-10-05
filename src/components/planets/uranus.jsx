@@ -72,7 +72,7 @@ const Uranus = (props) => {
       bgColor={"uranus"}
       planet={"uranus"}
       planetDescription={description}
-      planetImg={"uranus"}
+      planetImg={"uranus-background"}
       imgAlt={imgAlt}
       places={items}
     />

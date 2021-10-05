@@ -103,6 +103,10 @@ h4 {
   color: rgb(1, 9, 27) !important;
 }
 
+.neptune {
+  background-color: rgb(11, 34, 107);
+}
+
 @media screen and (min-width: 960px) {
   .border {
     border-bottom: none;

@@ -84,7 +84,7 @@ const Mercury = (props) => {
     <Planet
       planet={"mercury"}
       planetDescription={description}
-      planetImg={"mercury"}
+      planetImg={"mercury-background"}
       imgAlt={imgAlt}
       places={items}
     />

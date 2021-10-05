@@ -6,17 +6,12 @@ import Summary from "./quizSummary";
 import getRandomWords from "../utils/wordsList";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
-import getTheme from "../utils/themes";
 import "./controller.css";
 
 const Controller = (props) => {
   const user = useContext(UserContext);
   useEffect(() => {
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const [showMenu, setShowMenu] = useState(true);

@@ -7,7 +7,6 @@ import InventoryContext from "../contexts/inventoryContext";
 import TourContext from "../contexts/tourContext";
 import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
-import getTheme from "../utils/themes";
 import { useForm } from "react-hook-form";
 import "./welcome.css";
 
@@ -20,14 +19,10 @@ const Welcome = (props) => {
   const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
-    const theme = getTheme("menu");
-    theme.setTheme();
     general.setGamePaused(true);
     if (!general.general.availablePlanets["earth"].discovered) {
       user.onSetPlanet("menu");
     }
-
-    return () => theme.clearTheme();
   }, []);
 
   const { register, handleSubmit } = useForm();

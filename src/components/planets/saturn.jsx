@@ -74,7 +74,7 @@ const Saturn = (props) => {
       bgColor={"saturn"}
       planet={"saturn"}
       planetDescription={description}
-      planetImg={"saturn"}
+      planetImg={"saturn-background"}
       imgAlt={imgAlt}
       places={items}
     />

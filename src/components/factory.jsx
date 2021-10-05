@@ -5,7 +5,6 @@ import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import rocket from "../images/rocket.png";
-import getTheme from "../utils/themes";
 import upgrades from "../utils/rocket";
 import "./factory.css";
 
@@ -16,10 +15,6 @@ export const Factory = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const renderUpgradeButton = (requirements) => {

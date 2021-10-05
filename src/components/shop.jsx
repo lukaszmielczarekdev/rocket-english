@@ -6,7 +6,6 @@ import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import shop_logo from "../images/shop.png";
-import getTheme from "../utils/themes";
 import "./shop.css";
 
 const Shop = (props) => {
@@ -17,10 +16,6 @@ const Shop = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const shopInv = () => {

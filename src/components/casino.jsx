@@ -4,7 +4,6 @@ import { Link, Redirect } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import getTheme from "../utils/themes";
 import casino from "../images/casino.png";
 import "./casino.css";
 
@@ -15,10 +14,6 @@ const Casino = (props) => {
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
-    const theme = getTheme(user.user.currentPlanet);
-    theme.setTheme();
-
-    return () => theme.clearTheme();
   }, []);
 
   const gamble = (amount) => {
