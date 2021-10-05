@@ -137,6 +137,10 @@ h4 {
   padding: 3rem;
 }
 
+.margin-1rem {
+  margin: 1rem;
+}
+
 @media screen and (min-width: 420px) {
   .padding-places {
     padding: 2rem;

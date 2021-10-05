@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
+import "react-alice-carousel/lib/alice-carousel.css";
 import bar_webp from "../images/bar.webp";
 import bar_png from "../images/bar.png";
 import api from "../utils/api";
-import "./bar.css";
+import "./places.css";
 
 export const Bar = (props) => {
   let [errorMessage, setErrorMessage] = useState(false);
@@ -70,7 +71,7 @@ export const Bar = (props) => {
       return (
         <div>
           <p>{renderDefinition()}</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="place-form" onSubmit={handleSubmit(onSubmit)}>
             <input
               type="search"
               {...register("def", {
@@ -80,11 +81,11 @@ export const Bar = (props) => {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            <button type="submit" className="button large">
+            <button type="submit" className="button small">
               Ask the Bartender
             </button>
           </form>
-          <button className="button large">
+          <button className="button small">
             <Link
               to={`/galaxy/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
@@ -98,7 +99,7 @@ export const Bar = (props) => {
       return (
         <div>
           <p>{errorMessage}</p>
-          <button className="button large" onClick={formToggle}>
+          <button className="button small" onClick={formToggle}>
             Try again
           </button>
         </div>
@@ -108,7 +109,7 @@ export const Bar = (props) => {
 
   const renderSpinner = (size) => {
     return (
-      <div className="loader">
+      <div className="loader place-form">
         <PuffLoader
           loading={loading}
           size={size}
@@ -120,29 +121,25 @@ export const Bar = (props) => {
   };
 
   return (
-    <div id="bar">
+    <div id="place" className="main-background">
       {renderOrRedirect("bar")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <picture>
-              <source srcSet={bar_webp} type="image/webp" />
-              <source srcSet={bar_png} type="image/png" />
-              <img
-                src={bar_png}
-                type="image/png"
-                width="100em"
-                height="auto"
-                alt="bar logo - coctail"
-              />
-            </picture>
-            <h3>Bar</h3>
-          </div>
-          <article className="padding-places">
-            {loading && renderSpinner("10rem")}
-            {!loading && renderContentOrError()}
-          </article>
-        </div>
+      <section className="place-container">
+        <picture className="fit margin-1rem">
+          <source srcSet={bar_webp} type="image/webp" />
+          <source srcSet={bar_png} type="image/png" />
+          <img
+            src={bar_png}
+            type="image/png"
+            width="100em"
+            height="auto"
+            alt="bar logo - coctail"
+          />
+        </picture>
+        <h3>Bar</h3>
+        <article>
+          {loading && renderSpinner("10rem")}
+          {!loading && renderContentOrError()}
+        </article>
       </section>
     </div>
   );
