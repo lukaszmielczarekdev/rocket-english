@@ -1,3 +1,4 @@
+/* typography */
 #casino {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
@@ -20,11 +21,15 @@
   padding: 1rem;
 }
 
-/* .casino-background {
-  background-color: rgba(255, 0, 0, 0.363);
-} */
-
 /* layout */
+#casino {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
 
 #casino .split {
   display: flex;
@@ -44,5 +49,29 @@
 @media screen and (min-width: 420px) {
   .logo-place img {
     width: 40% !important;
+  }
+}
+/* background */
+@media screen and (max-width: 640px) {
+  .casino-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .casino-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .casino-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
   }
 }

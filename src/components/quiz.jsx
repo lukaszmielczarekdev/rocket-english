@@ -126,7 +126,7 @@ const Quiz = (props) => {
   };
 
   return (
-    <div>
+    <>
       {renderOrRedirect("quiz")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
@@ -136,7 +136,7 @@ const Quiz = (props) => {
           </article>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

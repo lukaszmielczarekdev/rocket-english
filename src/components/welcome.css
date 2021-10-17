@@ -1,19 +1,53 @@
 /* typography */
 
-#welcome h2 {
-  font-size: 1.5rem;
+#welcome {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+  font-size: smaller;
 }
 
-#welcome p {
-  font-size: 0.8rem;
+#welcome h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#welcome h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+#welcome h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
 }
 
 /* layout */
 
 #welcome {
   align-items: center;
-  height: 100%;
-  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
+.menu-navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 /* general */
@@ -34,12 +68,6 @@
   padding: 1rem;
 }
 
-@media screen and (min-width: 420px) {
-  #welcome {
-    padding: 3rem;
-  }
-}
-
 #welcome {
   color: var(--clr-neutral-100);
   margin-block: auto;
@@ -49,7 +77,7 @@
 }
 
 /* buttons */
-
+/* 
 #welcome button {
   font-family: var(--ff-primary);
   color: var(--clr-primary-300);
@@ -74,7 +102,7 @@
 #welcome button a {
   text-decoration: none;
   display: block;
-}
+} */
 
 #welcome .welcome-form {
   align-content: center;
@@ -83,33 +111,26 @@
 }
 
 /* background */
-
 @media screen and (max-width: 640px) {
-  #welcome {
-    background: url(../images/planet-images/960/main_background.jpg) no-repeat
-      center center fixed;
-    background: url(../images/planet-images/960/main_background.webp) no-repeat
-      center center fixed;
+  .welcome-wrapper {
+    background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }
-
 @media screen and (max-width: 1280px) {
-  #welcome {
-    background: url(../images/planet-images/1280/main_background.jpg) no-repeat
-      center center fixed;
-    background: url(../images/planet-images/1280/main_background.webp) no-repeat
-      center center fixed;
+  .welcome-wrapper {
+    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
+      center fixed;
     background-size: cover;
   }
 }
-
 @media screen and (min-width: 1281px) {
-  #welcome {
-    background: url(../images/planet-images/1920/main_background.jpg) no-repeat
-      center center fixed;
-    background: url(../images/planet-images/1920/main_background.webp) no-repeat
-      center center fixed;
+  .welcome-wrapper {
+    background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }

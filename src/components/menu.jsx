@@ -3,6 +3,7 @@ import quiz from "../images/quiz.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
+import "./quiz.css";
 
 const Menu = (props) => {
   const user = useContext(UserContext);
@@ -19,7 +20,7 @@ const Menu = (props) => {
   };
 
   return (
-    <div>
+    <div id="quiz">
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
           <div className="logo logo-place image fit">

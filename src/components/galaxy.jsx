@@ -8,15 +8,15 @@ import Casino from "./casino";
 import Mine from "./mine";
 import Ufo from "./ufo";
 import Bar from "./bar";
-import Mercury from "./planets/mercury";
-import Venus from "./planets/venus";
-import Earth from "./planets/earth";
-import Mars from "./planets/mars";
-import Jupiter from "./planets/jupiter";
-import Saturn from "./planets/saturn";
-import Uranus from "./planets/uranus";
-import Neptune from "./planets/neptune";
-import Pluto from "./planets/pluto";
+import Xillon from "./planets/xillon";
+import Centuria from "./planets/centuria";
+import Crion from "./planets/crion";
+import Therion from "./planets/therion";
+import Crystalia from "./planets/crystalia";
+import Thalia from "./planets/thalia";
+import Bathea from "./planets/bathea";
+import Axios from "./planets/axios";
+import Desertia from "./planets/desertia";
 import NotFound from "./notFound";
 import "./galaxy.css";
 
@@ -32,15 +32,15 @@ const Galaxy = (props) => {
         <Route path="/galaxy/bar" component={Bar} />
         <Route path="/galaxy/mine" component={Mine} />
         <Route path="/galaxy/inventory" component={Inventory} />
-        <Route path="/galaxy/mercury" component={Mercury} />
-        <Route path="/galaxy/venus" component={Venus} />
-        <Route path="/galaxy/earth" component={Earth} />
-        <Route path="/galaxy/mars" component={Mars} />
-        <Route path="/galaxy/jupiter" component={Jupiter} />
-        <Route path="/galaxy/saturn" component={Saturn} />
-        <Route path="/galaxy/uranus" component={Uranus} />
-        <Route path="/galaxy/neptune" component={Neptune} />
-        <Route path="/galaxy/pluto" component={Pluto} />
+        <Route path="/galaxy/xillon" component={Xillon} />
+        <Route path="/galaxy/centuria" component={Centuria} />
+        <Route path="/galaxy/crion" component={Crion} />
+        <Route path="/galaxy/therion" component={Therion} />
+        <Route path="/galaxy/crystalia" component={Crystalia} />
+        <Route path="/galaxy/thalia" component={Thalia} />
+        <Route path="/galaxy/bathea" component={Bathea} />
+        <Route path="/galaxy/axios" component={Axios} />
+        <Route path="/galaxy/desertia" component={Desertia} />
         <Route path="/space" component={NotFound} />
         <Redirect to="/space" />
       </Switch>

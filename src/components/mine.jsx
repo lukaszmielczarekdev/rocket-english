@@ -12,13 +12,15 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
     top: "50%",
     left: "50%",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    color: "black",
   },
 };
 
@@ -154,7 +156,7 @@ const Mine = (props) => {
   };
 
   return (
-    <div id="mine">
+    <div id="mine" className="mine-wrapper">
       {renderOrRedirect("mine")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">

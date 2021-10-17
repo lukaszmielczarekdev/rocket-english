@@ -1,3 +1,4 @@
+/* typography */
 #main {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
@@ -5,6 +6,16 @@
   letter-spacing: 0.1rem;
   text-align: center;
   padding: 2rem;
+}
+
+/* layout */
+#main {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
 }
 
 /* button */
@@ -16,4 +27,29 @@
 
 #main button:hover {
   border: none;
+}
+
+/* background */
+@media screen and (max-width: 640px) {
+  .main-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .main-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .main-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
 }

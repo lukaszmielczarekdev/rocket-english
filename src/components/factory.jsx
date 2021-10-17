@@ -61,7 +61,7 @@ export const Factory = (props) => {
   };
 
   return (
-    <div id="factory">
+    <div id="factory" className="factory-wrapper">
       {renderOrRedirect("factory")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
@@ -69,19 +69,21 @@ export const Factory = (props) => {
             <img src={rocket} alt="factory logo" width="100em" height="auto" />
             <h3>Factory</h3>
           </div>
-          {user.user.rocketLvl === 5 && (
-            <p>
-              The rocket is now at its maximum level - {user.user.rocketLvl}
-            </p>
-          )}
-          {user.user.rocketLvl < 5 && (
-            <p>Current rocket level - {user.user.rocketLvl}</p>
-          )}
-          {user.user.rocketLvl < 5 && (
-            <p>Next level cost - {renderRequirements()}</p>
-          )}
-          {user.user.rocketLvl < 5 &&
-            renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
+          <div>
+            {user.user.rocketLvl === 5 && (
+              <p>
+                The rocket is now at its maximum level - {user.user.rocketLvl}
+              </p>
+            )}
+            {user.user.rocketLvl < 5 && (
+              <p>Current rocket level - {user.user.rocketLvl}</p>
+            )}
+            {user.user.rocketLvl < 5 && (
+              <p>Next level cost - {renderRequirements()}</p>
+            )}
+            {user.user.rocketLvl < 5 &&
+              renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
+          </div>
           <button className="button large">
             <Link
               to={`/galaxy/${user.user.currentPlanet}`}

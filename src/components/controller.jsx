@@ -114,7 +114,7 @@ const Controller = (props) => {
   };
 
   return (
-    <div id="main">
+    <div id="main" className="main-wrapper">
       {showMenu && (
         <Menu
           showMenu={handleShowMenu}

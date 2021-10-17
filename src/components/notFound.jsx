@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import ufo_kidnap from "../images/ufo-kidnap.png";
-import { responsiveImage } from "../utils/renders";
 import "./planets/planet.css";
 import "../components/notFound.css";
 
@@ -47,40 +46,34 @@ export const NotFound = (props) => {
   };
 
   return (
-    <div id="planet" className="main-background not-found">
-      <section
-        className={`planet-container border padding-botton-3rem margin-block-planet-container ${props.bgColor}`}
-      >
-        {responsiveImage(
-          "planet-images",
-          "not-found-background",
-          "A few mysterious flying objects hovering in the background of a dark sky. In the background you can see the moon and comets.",
-          "image-planet"
-        )}
-        <p className="padding-1rem">
-          It's easy to get lost in space and get kidnapped by UFO...
-        </p>
-        {renderBackButton()}
-        <div id="ufo-kidnap" className="ufo-container">
-          <img
-            src={ufo_kidnap}
-            alt="space logo"
-            className="ufo logo logo-place padding-3rem not-found-logo"
-          />
-        </div>
-        <p className="padding-1rem not-found-">
-          Or maybe take a chance - maybe you will find something interesting in
-          space ?
-        </p>
-        <button className="button small button-margin">
-          <Link
-            to={`/galaxy/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            Take a chance
-          </Link>
-        </button>
-      </section>
+    <div className="ufo-wrapper flex-auto">
+      <div id="ufo" className="main-background not-found">
+        <section className="ufo-container border padding-botton-3rem">
+          <p className="padding-1rem">
+            It's easy to get lost in space and get kidnapped by UFO...
+          </p>
+          {renderBackButton()}
+          <div id="ufo-kidnap" className="ufo-container">
+            <img
+              src={ufo_kidnap}
+              alt="space logo"
+              className="ufo logo logo-place padding-3rem not-found-logo"
+            />
+          </div>
+          <p className="padding-1rem not-found-">
+            Or maybe take a chance - maybe you will find something interesting
+            in space ?
+          </p>
+          <button className="button small button-margin">
+            <Link
+              to={`/galaxy/${user.user.currentPlanet}`}
+              style={{ textDecoration: "none" }}
+            >
+              Take a chance
+            </Link>
+          </button>
+        </section>
+      </div>
     </div>
   );
 };

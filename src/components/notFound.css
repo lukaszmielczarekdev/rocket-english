@@ -1,3 +1,68 @@
+/* typography */
+
+.ufo-container h3 {
+  color: var(--clr-primary-100);
+}
+#ufo {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
+}
+
+#ufo h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#ufo h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+#ufo h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+
+/* layout */
+.ufo-wrapper {
+  align-content: center;
+  justify-content: center;
+  display: grid;
+}
+
+#ufo {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+#ufo-kidnap {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* image */
 .not-found-logo {
   width: 80% !important;
 }
@@ -19,6 +84,10 @@
   opacity: 0;
   transition: opacity 0.5s, visibility 0.5s;
 }
+/* .ufo-container {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+} */
 
 .ufo-container:hover .ufo {
   visibility: visible;

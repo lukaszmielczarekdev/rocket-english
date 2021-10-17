@@ -1,11 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import ufo_logo from "../images/ufo.png";
+import Modal from "react-modal";
 import "./ufo.css";
+
+Modal.setAppElement(document.getElementById("root"));
+
+const modalStyle = {
+  content: {
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 export const Ufo = (props) => {
   const user = useContext(UserContext);
@@ -15,6 +32,12 @@ export const Ufo = (props) => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const [modalTrigger, setModalTrigger] = useState(false);
+  const [summary, setSummary] = useState([]);
+  const toggleModal = () => {
+    setModalTrigger(!modalTrigger);
+  };
 
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated[user.user.currentPlanet]) {
@@ -27,6 +50,7 @@ export const Ufo = (props) => {
   };
 
   const fight = (base) => {
+    const founds = {};
     const winRate = [1.5, 2.5, 3.5];
     const loseOrWin = ["loser", "winner"];
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
@@ -41,6 +65,13 @@ export const Ufo = (props) => {
       const steel = Math.floor(base * rate * 10) + 1;
       const aluminum = Math.floor(base * rate * 5) + 1;
       const crystal = Math.floor(base * rate * 1) + 1;
+      founds["credits"] = credits;
+      founds["exp"] = exp;
+      founds["steel"] = steel;
+      founds["aluminum"] = aluminum;
+      founds["crystal"] = crystal;
+      ufoSummary(founds);
+
       user.onAddExp(exp);
       inventory.addItems({
         credits: credits,
@@ -48,9 +79,26 @@ export const Ufo = (props) => {
         aluminum: aluminum,
         crystal: crystal,
       });
-      alert(
-        `Win! +exp ${exp} +${credits}[!], +steel ${steel}, +aluminum ${aluminum}, +crystal ${crystal}`
-      );
+      toggleModal();
+    }
+  };
+  const ufoSummary = (object) => {
+    const items = [];
+    for (let [item, amount] of Object.entries(object)) {
+      items.push([item, amount]);
+    }
+    setSummary(items);
+  };
+
+  const renderSummary = () => {
+    if (summary.length !== 0) {
+      return summary.map((element) => (
+        <li key={element[0]}>
+          + {element[1]} {element[0]}{" "}
+        </li>
+      ));
+    } else {
+      return <p>Nothing found</p>;
     }
   };
 
@@ -65,7 +113,7 @@ export const Ufo = (props) => {
   };
 
   return (
-    <div id="ufo">
+    <div id="ufo-enemy" className="ufo-wrapper">
       {renderOrRedirect("ufo")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
@@ -84,6 +132,17 @@ export const Ufo = (props) => {
           </button>
         </div>
       </section>
+      <Modal
+        style={modalStyle}
+        isOpen={modalTrigger}
+        onRequestClose={toggleModal}
+        contentLabel="Mine summary modal"
+      >
+        <button className="button large" onClick={toggleModal}>
+          x
+        </button>
+        <ul>{renderSummary()}</ul>
+      </Modal>
     </div>
   );
 };

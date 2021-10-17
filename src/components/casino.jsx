@@ -55,7 +55,7 @@ const Casino = (props) => {
   };
 
   return (
-    <div id="casino">
+    <div id="casino" className="casino-wrapper">
       {renderOrRedirect("casino")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">

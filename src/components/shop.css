@@ -1,3 +1,4 @@
+/* typography */
 #shop {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
@@ -7,6 +8,30 @@
   padding: 2rem;
 }
 
+/* layout */
+#shop {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
+
+#shop h3 {
+  margin-bottom: 1rem;
+}
+
+#shop article ul {
+  margin: 1rem;
+  white-space: nowrap;
+}
+
+#shop .split {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 #shop ul {
   margin: 0;
   padding-left: 0;
@@ -20,20 +45,28 @@
   list-style: none;
 }
 
-/* layout */
-
-#shop .split {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 @media (min-width: 1400px) {
   #shop .split {
     flex-direction: row;
   }
   #shop .split > * {
     flex-basis: 100%;
+  }
+}
+
+/* general */
+@media (min-width: 1024px) {
+  .desktop-border-right {
+    border-right: 1px solid #ffff;
+  }
+}
+
+@media (max-width: 1020px) {
+  .mobile-border-bottom {
+    border-bottom: 1px solid #ffff;
+  }
+  .margin-bottom-1rem {
+    margin-bottom: 1rem;
   }
 }
 
@@ -45,4 +78,29 @@
 
 #shop button:hover {
   border: none;
+}
+
+/* background */
+@media screen and (max-width: 640px) {
+  .shop-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .shop-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .shop-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
 }

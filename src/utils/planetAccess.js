@@ -21,11 +21,11 @@ const planetAccess = {
     requiredRocketLvl
   ) => {
     if (userLvl < requiredPlayerLvl && rocketLvl < requiredRocketLvl) {
-      return `REQUIRED LEVEL: ${requiredPlayerLvl}, ROCKET: ${requiredRocketLvl}`;
+      return `LEVEL: ${requiredPlayerLvl}, ROCKET: ${requiredRocketLvl}`;
     } else if (userLvl < requiredPlayerLvl) {
-      return `REQUIRED LEVEL: ${requiredPlayerLvl}`;
+      return `LEVEL: ${requiredPlayerLvl}`;
     } else if (rocketLvl < requiredRocketLvl) {
-      return `REQUIRED ROCKET: ${requiredRocketLvl}`;
+      return `ROCKET: ${requiredRocketLvl}`;
     }
   },
 

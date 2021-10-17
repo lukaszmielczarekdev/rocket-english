@@ -1,3 +1,4 @@
+/* typography */
 #mine {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
@@ -19,6 +20,24 @@
   display: block;
 }
 
+.ReactModalPortal ul,
+.ReactModalPortal ul li {
+  border-left: 0;
+  margin: 1rem 0 0 0;
+  padding-left: 0;
+  display: block;
+}
+
+/* layout */
+#mine {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
+
 /* button */
 
 #mine button {
@@ -28,4 +47,29 @@
 
 #mine button:hover {
   border: none;
+}
+
+/* background */
+@media screen and (max-width: 640px) {
+  .mine-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .mine-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .mine-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
 }

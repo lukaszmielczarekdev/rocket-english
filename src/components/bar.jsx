@@ -9,7 +9,8 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import bar_webp from "../images/bar.webp";
 import bar_png from "../images/bar.png";
 import api from "../utils/api";
-import "./places.css";
+import "./bar.css";
+import "../components/planets/planet.css";
 
 export const Bar = (props) => {
   let [errorMessage, setErrorMessage] = useState(false);
@@ -71,7 +72,7 @@ export const Bar = (props) => {
       return (
         <div>
           <p>{renderDefinition()}</p>
-          <form className="place-form" onSubmit={handleSubmit(onSubmit)}>
+          <form className="bar-form" onSubmit={handleSubmit(onSubmit)}>
             <input
               type="search"
               {...register("def", {
@@ -109,7 +110,7 @@ export const Bar = (props) => {
 
   const renderSpinner = (size) => {
     return (
-      <div className="loader place-form">
+      <div className="loader bar-form">
         <PuffLoader
           loading={loading}
           size={size}
@@ -121,9 +122,9 @@ export const Bar = (props) => {
   };
 
   return (
-    <div id="place" className="main-background">
+    <div id="bar" className="bar-wrapper">
       {renderOrRedirect("bar")}
-      <section className="place-container">
+      <section className="bar-container">
         <picture className="fit margin-1rem">
           <source srcSet={bar_webp} type="image/webp" />
           <source srcSet={bar_png} type="image/png" />

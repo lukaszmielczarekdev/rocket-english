@@ -24,7 +24,7 @@ const PlaceUfo = (props) => {
   };
 
   return (
-    <article className="padding-places border">
+    <article className="padding-places border carousel-card">
       <h4>{props.title}</h4>
       <Link to={ufoLink(user.user.currentPlanet)}>
         <picture className="image fit padding-inline-1">

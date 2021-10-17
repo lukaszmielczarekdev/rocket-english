@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PlaceBasic = (props) => {
   return (
-    <article className="padding-places border">
+    <article className="padding-places border carousel-card">
       <h4>{props.title}</h4>
       <Link to={`/galaxy/${props.link}`}>
         <picture className="image fit padding-inline-1">

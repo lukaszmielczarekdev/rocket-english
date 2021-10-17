@@ -1,6 +1,15 @@
 #main form input {
   margin: 1rem;
 }
+/* layout */
+#quiz {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
 
 /* button */
 #main button {
@@ -13,7 +22,7 @@
   text-transform: uppercase;
   border: 1px solid var(--clr-primary-100);
   display: block;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 }
 #main button:hover {
   border: none;

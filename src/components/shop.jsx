@@ -61,7 +61,7 @@ const Shop = (props) => {
   };
 
   return (
-    <div id="shop">
+    <div id="shop" className="shop-wrapper">
       {renderOrRedirect("shop")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
@@ -70,12 +70,12 @@ const Shop = (props) => {
             <h3>Shop</h3>
           </div>
           <div className="padding-border planet-split">
-            <article>
-              <p className="padding">Inventory</p>
+            <article className="mobile-border-bottom margin-bottom-1rem desktop-border-right">
+              <h3 className="padding">Inventory</h3>
               <ul>{renderUserInventory()}</ul>
             </article>
             <article>
-              <p className="padding">Buy</p>
+              <h3 className="padding">Buy</h3>
               <ul>{shopInv()}</ul>
             </article>
           </div>

@@ -39,7 +39,7 @@ const Inventory = (props) => {
   };
 
   return (
-    <div id="inventory">
+    <div id="inventory" className="inventory-wrapper">
       {renderOrRedirect("inventory")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">

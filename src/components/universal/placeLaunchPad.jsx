@@ -5,6 +5,7 @@ import planetAccess from "../../utils/planetAccess";
 import UserContext from "../../contexts/userContext";
 import TourContext from "../../contexts/tourContext";
 import GeneralContext from "../../contexts/generalContext";
+import "../planets/planet.css";
 
 const PlaceLaunchPad = (props) => {
   const user = useContext(UserContext);
@@ -12,7 +13,7 @@ const PlaceLaunchPad = (props) => {
   const general = useContext(GeneralContext);
 
   return (
-    <article className="padding-places border">
+    <article className="padding-places border flex-centered carousel-card">
       <h4>{props.title}</h4>
       {planetAccess.renderLaunchPadImage(
         props.nextPlanet,

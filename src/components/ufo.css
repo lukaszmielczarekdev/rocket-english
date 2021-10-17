@@ -22,6 +22,14 @@
 }
 
 /* layout */
+#ufo-enemy {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: grid;
+  flex: auto;
+}
 
 #ufo .split {
   display: flex;
@@ -47,4 +55,28 @@
 
 #ufo button:hover {
   border: none;
+}
+/* background */
+@media screen and (max-width: 640px) {
+  .ufo-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .ufo-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .ufo-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
 }

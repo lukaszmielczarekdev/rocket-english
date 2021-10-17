@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import Welcome from "./components/welcome";
 import Galaxy from "./components/galaxy";
-import Nav from "./components/nav";
-import Footer from "./components/footer";
 import NotFound from "./components/notFound";
 import UserContext from "./contexts/userContext";
 import InventoryContext from "./contexts/inventoryContext";
@@ -42,10 +40,10 @@ export default function App() {
     exp: 0,
     currentPlanet: "menu",
     ifUfoDefeated: {
-      Jupiter: false,
-      Uranus: false,
-      Neptune: false,
-      Pluto: false,
+      Crystalia: false,
+      Bathea: false,
+      Axios: false,
+      Desertia: false,
     },
   };
 
@@ -60,7 +58,7 @@ export default function App() {
     // if a place is not on the planet it will not be rendered
     availablePlanets: {
       menu: { available: true, discovered: true, places: [] },
-      earth: {
+      crion: {
         available: false,
         discovered: false,
         places: [
@@ -73,34 +71,34 @@ export default function App() {
           "inventory",
         ],
       },
-      mars: {
+      therion: {
         available: false,
         places: ["mine", "bar", "quiz", "pad", "inventory"],
       },
-      jupiter: {
+      crystalia: {
         available: false,
         places: ["ufo", "bar", "quiz", "factory", "pad", "inventory"],
       },
-      saturn: {
+      thalia: {
         available: false,
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
-      uranus: {
+      bathea: {
         available: false,
         places: ["ufo", "bar", "quiz", "pad", "inventory"],
       },
-      neptune: {
+      axios: {
         available: false,
         places: ["ufo", "quiz", "pad", "casino", "factory", "inventory"],
       },
-      pluto: {
+      desertia: {
         places: ["shop", "casino", "quiz", "pad", "ufo", "inventory"],
       },
-      mercury: {
+      xillon: {
         available: false,
         places: ["shop", "mine", "quiz", "factory", "pad", "inventory"],
       },
-      venus: {
+      centuria: {
         available: false,
         places: ["shop", "casino", "quiz", "pad", "inventory"],
       },
@@ -362,15 +360,12 @@ export default function App() {
                 onSetUfo: setUfoDefeated,
               }}
             >
-              {/* {renderNav()} */}
-              <Nav />
               <Switch>
                 <Route path="/galaxy" component={Galaxy} />
                 <Route path="/space" exact component={NotFound} />
                 <Route path="/" exact component={Welcome} />
                 <Redirect to="/space" />
               </Switch>
-              <Footer />
             </UserContext.Provider>
           </InventoryContext.Provider>
         </ShopContext.Provider>

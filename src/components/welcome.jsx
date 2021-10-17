@@ -8,6 +8,7 @@ import TourContext from "../contexts/tourContext";
 import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
+import Nav from "./nav";
 import "./welcome.css";
 
 const Welcome = (props) => {
@@ -20,7 +21,7 @@ const Welcome = (props) => {
 
   useEffect(() => {
     general.setGamePaused(true);
-    if (!general.general.availablePlanets["earth"].discovered) {
+    if (!general.general.availablePlanets["crion"].discovered) {
       user.onSetPlanet("menu");
     }
   }, []);
@@ -36,14 +37,14 @@ const Welcome = (props) => {
 
   const handleSubmitUserData = (data) => {
     user.onSetName(data);
-    general.setAvailablePlanet("earth");
-    general.general.availablePlanets["earth"].discovered = true;
+    general.setAvailablePlanet("crion");
+    general.general.availablePlanets["crion"].discovered = true;
     tour.setTour(false);
-    props.history.push("/galaxy/earth");
+    props.history.push("/galaxy/crion");
   };
 
   const renderResetProgress = () => {
-    if (general.general.availablePlanets["earth"].discovered) {
+    if (general.general.availablePlanets["crion"].discovered) {
       return (
         <button onClick={toggleModal} className="button large button-margin">
           New game
@@ -111,7 +112,7 @@ const Welcome = (props) => {
             });
             startGame();
             tour.setTour(true);
-            props.history.push("/galaxy/earth");
+            props.history.push("/galaxy/crion");
           }}
           className="button large button-margin"
         >
@@ -121,8 +122,8 @@ const Welcome = (props) => {
     );
   };
   const startGame = () => {
-    general.setAvailablePlanet("earth");
-    general.general.availablePlanets["earth"].discovered = true;
+    general.setAvailablePlanet("crion");
+    general.general.availablePlanets["crion"].discovered = true;
     general.setNewGame(false);
   };
 
@@ -131,7 +132,7 @@ const Welcome = (props) => {
   };
 
   const renderContinueGame = () => {
-    if (general.general.availablePlanets["earth"].discovered) {
+    if (general.general.availablePlanets["crion"].discovered) {
       return (
         <button className="button large button-margin">
           <Link
@@ -149,6 +150,8 @@ const Welcome = (props) => {
   const modalStyle = {
     content: {
       textAlign: "center",
+      backgroundColor: "rgb(1, 9, 27)",
+      borderRadius: "15px",
       top: "50%",
       left: "50%",
       right: "auto",
@@ -159,12 +162,14 @@ const Welcome = (props) => {
   };
 
   return (
-    <div id="welcome">
+    <div id="welcome" className="welcome-wrapper">
+      <div className="menu-navbar">
+        <Nav />
+      </div>
       {renderOrRedirect("menu")}
       <section className="planet-container padding">
         <div>
           <article className="padding-places">
-            <h2>Solar System Edition</h2>
             <p>
               Learn English by exploring the solar system and taking part in
               missions.
