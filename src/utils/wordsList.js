@@ -1812,7 +1812,6 @@ const words = [
   "displacement",
   "display",
   "disposal",
-  "disposer",
   "disposition",
   "dispute",
   "disregard",

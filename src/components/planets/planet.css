@@ -155,12 +155,7 @@
     display: contents;
   }
 }
-/* 
-@media screen and (min-width: 1620px) {
-  .planet-container {
-    width: min(60%, 70rem);
-  }
-} */
+
 .planet-split {
   display: flex;
   flex-direction: column;

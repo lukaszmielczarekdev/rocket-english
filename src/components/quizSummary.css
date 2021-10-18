@@ -1,10 +1,38 @@
+/* typography */
 #quiz-summary {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
+}
+
+#quiz-summary h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#quiz-summary h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+#quiz-summary h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
 }
 
 #quiz-summary ul {

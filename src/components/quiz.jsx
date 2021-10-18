@@ -29,7 +29,7 @@ const Quiz = (props) => {
     try {
       setErrorMessage(false);
       const def = await api.getWordData(props.word);
-      console.log(props.word);
+      props.addAnswerToWord(props.word, def);
       setDefinition(def);
     } catch (err) {
       console.error(err.message);

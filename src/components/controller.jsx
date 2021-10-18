@@ -17,13 +17,15 @@ const Controller = (props) => {
   const [showMenu, setShowMenu] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [key, setKey] = useState(Math.random());
+
   let quizLength = useRef(0);
   let wordsList = useRef([]);
   let currentIndex = useRef(0);
   let currentWord = useRef("");
   let counter = useRef(1);
   let quizPoints = useRef(0);
-  const [key, setKey] = useState(Math.random());
+  let wordsWithAnswers = useRef({});
 
   const inventory = useContext(InventoryContext);
 
@@ -42,6 +44,10 @@ const Controller = (props) => {
     const inputValue = num;
     quizLength.current = inputValue;
     makeWordsList(quizLength.current);
+  };
+
+  const handleWordsWithAnswers = (word, definition) => {
+    wordsWithAnswers.current[word] = definition;
   };
 
   const makeWordsList = (quizLength) => {
@@ -67,7 +73,6 @@ const Controller = (props) => {
   };
 
   const inputValidation = (answer) => {
-    console.log(wordsList.current);
     if (answer === currentWord.current) {
       wordsList.current[currentIndex.current].guessed = true;
       wordsList.current[currentIndex.current].points = 100;
@@ -131,10 +136,12 @@ const Controller = (props) => {
           submitAnswer={handleSubmitAnswer}
           skipDefinition={handleSkipDefinition}
           fillTheWord={inputValidation}
+          addAnswerToWord={handleWordsWithAnswers}
         />
       )}
       {showSummary && (
         <Summary
+          wordsWithDefs={wordsWithAnswers.current}
           summary={quizPoints.current}
           showQuiz={handleShowQuiz}
           showMenu={handleShowMenu}

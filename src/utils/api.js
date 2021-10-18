@@ -6,7 +6,6 @@ const api = {
     const response = await axios(endpoint);
     throwOnErrorStatusCode(response.status);
     const definition = getSingleWordDefinition(response.data);
-    // console.log(response);
     return definition;
   },
 };
