@@ -10,7 +10,7 @@ const Summary = (props) => {
             <h3>Summary</h3>
             <ul>
               <li>+{props.summary} exp</li>
-              <li>+{props.summary / 2}[!]</li>
+              <li>+{props.summary / 2} [!]</li>
             </ul>
             <button
               className="button large"

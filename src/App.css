@@ -213,6 +213,13 @@ a {
   padding: 0 0.8rem;
 }
 
+.modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}
+
 .button:hover {
   border: none;
 }
@@ -221,4 +228,16 @@ a {
 }
 a {
   display: block;
+}
+
+/* modal */
+.ReactModalPortal ul,
+.ReactModalPortal ul li {
+  border-left: 0;
+  margin: 1rem 0 0 0;
+  padding-left: 0;
+  display: block;
+}
+.ReactModalPortal ul {
+  margin: 3rem;
 }

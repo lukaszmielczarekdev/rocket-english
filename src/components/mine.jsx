@@ -6,6 +6,7 @@ import InventoryContext from "../contexts/inventoryContext";
 import GeneralContext from "../contexts/generalContext";
 import mine_logo from "../images/mine.png";
 import Modal from "react-modal";
+import "../App.css";
 import "./mine.css";
 
 Modal.setAppElement(document.getElementById("root"));

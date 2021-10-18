@@ -20,14 +20,6 @@
   display: block;
 }
 
-.ReactModalPortal ul,
-.ReactModalPortal ul li {
-  border-left: 0;
-  margin: 1rem 0 0 0;
-  padding-left: 0;
-  display: block;
-}
-
 /* layout */
 #mine {
   align-items: center;

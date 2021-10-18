@@ -1,13 +1,38 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import casino from "../images/casino.png";
+import Modal from "react-modal";
+import "../App.css";
 import "./casino.css";
 
+Modal.setAppElement(document.getElementById("root"));
+
+const modalStyle = {
+  content: {
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
 const Casino = (props) => {
+  const [modalTrigger, setModalTrigger] = useState(false);
+  const [summary, setSummary] = useState([]);
+
+  const toggleModal = () => {
+    setModalTrigger(!modalTrigger);
+  };
+  const founds = {};
   const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
   const user = useContext(UserContext);
@@ -16,18 +41,50 @@ const Casino = (props) => {
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
 
+  const casinoSummary = (object) => {
+    if (typeof object === "object") {
+      const items = [];
+      for (let [item, amount] of Object.entries(object)) {
+        items.push([item, amount]);
+      }
+      setSummary(items);
+    } else {
+      setSummary(object);
+    }
+  };
+
+  const renderSummary = () => {
+    if (Array.isArray(summary)) {
+      if (summary.length !== 0) {
+        return summary.map((element) => (
+          <li key={element[0]}>
+            {element[1]} {"[!]"}{" "}
+          </li>
+        ));
+      } else {
+        return <p>Nothing found</p>;
+      }
+    } else {
+      return <p>{summary}</p>;
+    }
+  };
+
   const gamble = (amount) => {
     const winRate = [1, 1.25, 1.75];
     const loseOrWin = ["loser", "loser", "winner"];
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
     if (result === "loser") {
       inventory.subtractCredits(amount);
-      alert(`Lose: -${amount}`);
+      founds["credits"] = -amount;
+      casinoSummary(founds);
+      toggleModal();
     } else {
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
       const prize = amount * rate;
       inventory.addCredits(prize);
-      alert(`Win: +${prize}[!]`);
+      founds["credits"] = amount;
+      casinoSummary(founds);
+      toggleModal();
     }
   };
 
@@ -36,11 +93,13 @@ const Casino = (props) => {
     const inputElement = document.getElementById("submitDepositFormInput");
     const inputValue = inputElement.value;
     if (inputValue <= 0) {
-      alert("Give a positive number");
+      casinoSummary("Give a positive number");
+      toggleModal();
     } else if (inputValue <= inventory.inventory.credits) {
       gamble(inputValue);
     } else {
-      alert("not enaugh credits");
+      casinoSummary("not enaugh credits");
+      toggleModal();
     }
   };
 
@@ -90,6 +149,17 @@ const Casino = (props) => {
           </article>
         </div>
       </section>
+      <Modal
+        style={modalStyle}
+        isOpen={modalTrigger}
+        onRequestClose={toggleModal}
+        contentLabel="Casino summary modal"
+      >
+        <button className="button large modal-button" onClick={toggleModal}>
+          x
+        </button>
+        <ul>{renderSummary()}</ul>
+      </Modal>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import ufo_logo from "../images/ufo.png";
 import Modal from "react-modal";
+import "../App.css";
 import "./ufo.css";
 
 Modal.setAppElement(document.getElementById("root"));
@@ -136,7 +137,7 @@ export const Ufo = (props) => {
         style={modalStyle}
         isOpen={modalTrigger}
         onRequestClose={toggleModal}
-        contentLabel="Mine summary modal"
+        contentLabel="Ufo summary modal"
       >
         <button className="button large" onClick={toggleModal}>
           x
