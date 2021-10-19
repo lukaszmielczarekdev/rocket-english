@@ -69,38 +69,71 @@ export default function App() {
           "pad",
           "bar",
           "inventory",
+          "favorites",
         ],
       },
       therion: {
         available: false,
-        places: ["mine", "bar", "quiz", "pad", "inventory"],
+        places: ["mine", "bar", "quiz", "pad", "inventory", "favorites"],
       },
       crystalia: {
         available: false,
-        places: ["ufo", "bar", "quiz", "factory", "pad", "inventory"],
+        places: [
+          "ufo",
+          "bar",
+          "quiz",
+          "factory",
+          "pad",
+          "inventory",
+          "favorites",
+        ],
       },
       thalia: {
         available: false,
-        places: ["shop", "casino", "quiz", "pad", "inventory"],
+        places: ["shop", "casino", "quiz", "pad", "inventory", "favorites"],
       },
       bathea: {
         available: false,
-        places: ["ufo", "bar", "quiz", "pad", "inventory"],
+        places: ["ufo", "bar", "quiz", "pad", "inventory", "favorites"],
       },
       axios: {
         available: false,
-        places: ["ufo", "quiz", "pad", "casino", "factory", "inventory"],
+        places: [
+          "ufo",
+          "quiz",
+          "pad",
+          "casino",
+          "factory",
+          "inventory",
+          "favorites",
+        ],
       },
       desertia: {
-        places: ["shop", "casino", "quiz", "pad", "ufo", "inventory"],
+        places: [
+          "shop",
+          "casino",
+          "quiz",
+          "pad",
+          "ufo",
+          "inventory",
+          "favorites",
+        ],
       },
       xillon: {
         available: false,
-        places: ["shop", "mine", "quiz", "factory", "pad", "inventory"],
+        places: [
+          "shop",
+          "mine",
+          "quiz",
+          "factory",
+          "pad",
+          "inventory",
+          "favorites",
+        ],
       },
       centuria: {
         available: false,
-        places: ["shop", "casino", "quiz", "pad", "inventory"],
+        places: ["shop", "casino", "quiz", "pad", "inventory", "favorites"],
       },
     },
   };
@@ -160,6 +193,7 @@ export default function App() {
     steel: 0,
     aluminum: 0,
     crystal: 0,
+    favs: {},
   };
 
   const [userInventory, setUserInventory] = useState(
@@ -225,6 +259,18 @@ export default function App() {
   const handleAddItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
     userInventoryDummy[item] = userInventoryDummy[item] + amount;
+    setUserInventory(userInventoryDummy);
+  };
+
+  // add to favorite
+  const handleAddToFavorite = (word, def) => {
+    const userInventoryDummy = { ...userInventory };
+    userInventoryDummy.favs[word] = def;
+    setUserInventory(userInventoryDummy);
+  };
+  const handleRemoveFromFavorite = (word) => {
+    const userInventoryDummy = { ...userInventory };
+    delete userInventoryDummy.favs[word];
     setUserInventory(userInventoryDummy);
   };
 
@@ -349,6 +395,8 @@ export default function App() {
               subtractItem: handleSubtractItem,
               addCredits: handleAddCredits,
               subtractCredits: handleSubtractCredits,
+              addToFavorite: handleAddToFavorite,
+              removeFromFavorite: handleRemoveFromFavorite,
             }}
           >
             <UserContext.Provider

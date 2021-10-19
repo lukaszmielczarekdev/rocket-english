@@ -1,5 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import InventoryContext from "../contexts/inventoryContext";
+import UserContext from "../contexts/userContext";
 import "./quizSummary.css";
 
 const Summary = (props) => {
@@ -7,6 +10,9 @@ const Summary = (props) => {
   useEffect(() => {
     quizSummary(props.wordsWithDefs);
   }, []);
+
+  const inventory = useContext(InventoryContext);
+  const user = useContext(UserContext);
 
   const quizSummary = (object) => {
     const items = [];
@@ -16,13 +22,39 @@ const Summary = (props) => {
     setSummary(items);
   };
 
+  const renderAddOrRemoveButton = (word, def) => {
+    if (!inventory.inventory.favs[word]) {
+      return (
+        <button
+          className="button small"
+          onClick={() => {
+            inventory.addToFavorite(word, def);
+          }}
+        >
+          Add to Favorite
+        </button>
+      );
+    } else {
+      return (
+        <button
+          className="button small"
+          onClick={() => {
+            inventory.removeFromFavorite(word);
+          }}
+        >
+          Remove from Favorite
+        </button>
+      );
+    }
+  };
+
   const renderSummary = () => {
     if (summary.length !== 0) {
       return summary.map((element) => (
         <li key={element[0]}>
           {" "}
           {element[0]} - {element[1]}{" "}
-          {/* <button className="button small">Favorites</button> */}
+          {renderAddOrRemoveButton(element[0], element[1])}
         </li>
       ));
     } else {
@@ -40,7 +72,7 @@ const Summary = (props) => {
               <li>+{props.summary} exp</li>
               <li>+{props.summary / 2} [!]</li>
             </ul>
-            <button
+            {/* <button
               className="button large"
               onClick={() => {
                 props.showSummary();
@@ -48,6 +80,14 @@ const Summary = (props) => {
               }}
             >
               Go Back
+            </button> */}
+            <button className="button small">
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
             </button>
           </article>
         </div>

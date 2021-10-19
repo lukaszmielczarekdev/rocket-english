@@ -19,7 +19,9 @@ const Inventory = (props) => {
   const renderInventory = () => {
     const items = [];
     for (let [item, amount] of Object.entries(inventory.inventory)) {
-      items.push([item, amount]);
+      if (item !== "favs" && amount) {
+        items.push([item, amount]);
+      }
     }
     return items.map((element) => (
       <li key={element[0]}>

@@ -59,7 +59,7 @@ const Nav = (props) => {
                 user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
               }
             >
-              <NavLink className="navbar-navlink" to="#">
+              <NavLink className="navbar-navlink" to="/galaxy/favorites">
                 Favorites
               </NavLink>
             </li>

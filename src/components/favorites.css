@@ -1,0 +1,168 @@
+typography .favorites-container h3 {
+  color: var(--clr-primary-100);
+}
+#favorites {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
+}
+
+#favorites h2 {
+  font-size: 3rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#favorites h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+#favorites h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+
+#favorites ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#favorites ul li {
+  border-left: 0;
+  margin: 1rem 0 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* layout */
+#favorites {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: flex;
+  flex: auto;
+}
+
+.favorites-container {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: min(100%, 70rem);
+  padding-bottom: auto;
+  text-align: center;
+}
+.favorites-container article article {
+  text-align: center;
+}
+.margin-block-favorites-container {
+  margin: auto;
+}
+@media screen and (min-width: 1024px) {
+  .favorites-activities-container {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .favorites-activities-container {
+    margin-top: 2rem;
+    width: min(90%, 70rem);
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* button */
+
+#favorites button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+  margin-top: 1rem;
+}
+
+#favorites button:hover {
+  border: none;
+}
+/* background */
+@media screen and (max-width: 640px) {
+  .favorites-wrapper {
+    background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .favorites-wrapper {
+    background: url(/src/images/planet-images/1280/sky.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .favorites-wrapper {
+    background: url(/src/images/planet-images/1920/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+
+/* carousel customization */
+#favorites .carousel-card {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 0.5rem;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+#favorites .alice-carousel {
+  padding-bottom: 2rem;
+  color: inherit;
+}
+
+#favorites .alice-carousel__prev-btn {
+  text-align: center !important;
+}
+#favorites .alice-carousel__prev-btn,
+#favorites .alice-carousel__next-btn {
+  display: inline-block;
+  width: 5% !important;
+}
+
+#favorites .alice-carousel__prev-btn-item,
+#favorites .alice-carousel__next-btn-item {
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  #favorites .alice-carousel__prev-btn,
+  #favorites .alice-carousel__next-btn {
+    display: none !important;
+    width: 5% !important;
+  }
+}
+#favorites .alice-carousel__dots {
+  margin-top: 0;
+}
+#favorites .alice-carousel__dots {
+  display: none;
+}

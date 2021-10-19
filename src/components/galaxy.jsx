@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router";
 import Factory from "./factory";
 import Shop from "./shop";
 import Inventory from "./inventory";
+import Favorites from "./favorites";
 import Controller from "./controller";
 import Casino from "./casino";
 import Mine from "./mine";
@@ -31,6 +32,7 @@ const Galaxy = (props) => {
         <Route path="/galaxy/shop" component={Shop} />
         <Route path="/galaxy/bar" component={Bar} />
         <Route path="/galaxy/mine" component={Mine} />
+        <Route path="/galaxy/favorites" component={Favorites} />
         <Route path="/galaxy/inventory" component={Inventory} />
         <Route path="/galaxy/xillon" component={Xillon} />
         <Route path="/galaxy/centuria" component={Centuria} />
