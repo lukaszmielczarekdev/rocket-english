@@ -58,6 +58,9 @@
 }
 
 /* layout */
+#navbar-wrapper {
+  width: 100%;
+}
 
 #navbar-items {
   position: relative;

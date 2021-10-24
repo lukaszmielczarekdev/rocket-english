@@ -1,0 +1,43 @@
+#gapTest input {
+  max-width: 30px !important;
+  background-color: transparent;
+  color: #ffff;
+  border: none;
+  border-bottom: 1px solid #ffff;
+}
+
+/* button */
+
+#gapTest button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+  margin-top: 1rem;
+}
+
+#gapTest button:hover {
+  border: none;
+}
+/* background */
+@media screen and (max-width: 640px) {
+  .gapTest-wrapper {
+    background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .gapTest-wrapper {
+    background: url(/src/images/planet-images/1280/sky.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .gapTest-wrapper {
+    background: url(/src/images/planet-images/1920/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}

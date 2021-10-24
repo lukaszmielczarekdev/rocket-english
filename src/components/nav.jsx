@@ -17,7 +17,7 @@ const Nav = (props) => {
   };
 
   return (
-    <div>
+    <div id="navbar-wrapper">
       <div id="navbar-items" className="text-center">
         <i className="fas fa-rocket rocket-icon"></i>
         <div className="nav-logo">

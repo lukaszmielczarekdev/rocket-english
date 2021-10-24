@@ -43,6 +43,17 @@ const Therion = (props) => {
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
+      title={"University"}
+      link={"university"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={
+        "The challenge here is to fill in the gaps in the text. It can also be your own text."
+      }
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
       title={"Quiz"}
       link={"quiz"}
       img_webp={quiz_webp}

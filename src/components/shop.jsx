@@ -51,10 +51,12 @@ const Shop = (props) => {
   const renderUserInventory = () => {
     const items = [];
     for (let [item, amount] of Object.entries(inventory.inventory)) {
-      items.push([item, amount]);
+      if (item !== "favs" && amount) {
+        items.push([item, amount]);
+      }
     }
     return items.map((element) => (
-      <li key={element[0]} style={{ padding: "0.8rem" }}>
+      <li key={element[0]}>
         {element[0]} - {element[1]}{" "}
       </li>
     ));

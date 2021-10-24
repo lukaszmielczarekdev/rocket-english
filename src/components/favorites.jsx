@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-// import UserInventory from "../contexts/inventoryContext";
+import Nav from "../components/nav";
+import Footer from "../components/footer";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import InventoryContext from "../contexts/inventoryContext";
@@ -36,7 +37,6 @@ const Favorites = (props) => {
     for (let [word, def] of Object.entries(object)) {
       favorites.push([word, def]);
     }
-    console.log(favorites);
     return favorites;
   };
 
@@ -45,31 +45,35 @@ const Favorites = (props) => {
   ));
 
   return (
-    <div id="favorites" className="favorites-wrapper">
-      {renderOrRedirect("favorites")}
-      <section className="favorites-container main-background border border-radius padding margin-block-favorites-container">
-        <div className="padding border">
-          <h3>Favorites</h3>
-          <section className="favorites-activities-container">
-            <AliceCarousel
-              controlsStrategy={"responsive"}
-              responsive={renders.carousel}
-              keyboardNavigation
-              infinite
-              items={places}
-            />
-          </section>
-          <button className="button large">
-            <Link
-              to={`/galaxy/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
-          </button>
-        </div>
-      </section>
-    </div>
+    <section className="favorites-wrapper flex-auto">
+      <Nav />
+      <div id="favorites">
+        {renderOrRedirect("favorites")}
+        <section className="favorites-container main-background border border-radius padding margin-block-favorites-container">
+          <div className="padding border">
+            <h3>Favorites</h3>
+            <article className="favorites-activities-container">
+              <AliceCarousel
+                controlsStrategy={"responsive"}
+                responsive={renders.carousel}
+                keyboardNavigation
+                infinite
+                items={places}
+              />
+            </article>
+            <button className="button large">
+              <Link
+                to={`/galaxy/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
+            </button>
+          </div>
+        </section>
+      </div>
+      <Footer />
+    </section>
   );
 };
 

@@ -68,6 +68,17 @@ const Crystalia = (props) => {
       alt={"glowing neon sign says the bar is open"}
       description={"A place for gossip and meetings."}
     />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"University"}
+      link={"university"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={
+        "The challenge here is to fill in the gaps in the text. It can also be your own text."
+      }
+    />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
       title={"Gas cloud"}

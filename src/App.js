@@ -70,11 +70,20 @@ export default function App() {
           "bar",
           "inventory",
           "favorites",
+          "university",
         ],
       },
       therion: {
         available: false,
-        places: ["mine", "bar", "quiz", "pad", "inventory", "favorites"],
+        places: [
+          "mine",
+          "bar",
+          "quiz",
+          "pad",
+          "inventory",
+          "favorites",
+          "university",
+        ],
       },
       crystalia: {
         available: false,
@@ -86,11 +95,20 @@ export default function App() {
           "pad",
           "inventory",
           "favorites",
+          "university",
         ],
       },
       thalia: {
         available: false,
-        places: ["shop", "casino", "quiz", "pad", "inventory", "favorites"],
+        places: [
+          "shop",
+          "casino",
+          "quiz",
+          "pad",
+          "inventory",
+          "favorites",
+          "university",
+        ],
       },
       bathea: {
         available: false,
@@ -106,6 +124,7 @@ export default function App() {
           "factory",
           "inventory",
           "favorites",
+          "university",
         ],
       },
       desertia: {
@@ -117,6 +136,7 @@ export default function App() {
           "ufo",
           "inventory",
           "favorites",
+          "university",
         ],
       },
       xillon: {

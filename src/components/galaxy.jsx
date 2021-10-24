@@ -19,6 +19,7 @@ import Bathea from "./planets/bathea";
 import Axios from "./planets/axios";
 import Desertia from "./planets/desertia";
 import NotFound from "./notFound";
+import TestMenu from "./testMenu";
 import "./galaxy.css";
 
 const Galaxy = (props) => {
@@ -33,6 +34,7 @@ const Galaxy = (props) => {
         <Route path="/galaxy/bar" component={Bar} />
         <Route path="/galaxy/mine" component={Mine} />
         <Route path="/galaxy/favorites" component={Favorites} />
+        <Route path="/galaxy/university" component={TestMenu} />
         <Route path="/galaxy/inventory" component={Inventory} />
         <Route path="/galaxy/xillon" component={Xillon} />
         <Route path="/galaxy/centuria" component={Centuria} />

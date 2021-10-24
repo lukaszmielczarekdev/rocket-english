@@ -44,6 +44,17 @@ const Desertia = (props) => {
       alt={"glowing neon says open"}
       description={"You can buy a lot of useful things here."}
     />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"University"}
+      link={"university"}
+      img_webp={quiz_webp}
+      img_png={quiz_png}
+      alt={"giant letter q made of tiny stars"}
+      description={
+        "The challenge here is to fill in the gaps in the text. It can also be your own text."
+      }
+    />,
     <PlaceUfo
       onDragStart={handleDragStart}
       title={"Ufo"}
