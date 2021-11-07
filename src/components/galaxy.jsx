@@ -20,7 +20,6 @@ import Axios from "./planets/axios";
 import Desertia from "./planets/desertia";
 import NotFound from "./notFound";
 import TestMenu from "./testMenu";
-import "./galaxy.css";
 
 const Galaxy = (props) => {
   return (

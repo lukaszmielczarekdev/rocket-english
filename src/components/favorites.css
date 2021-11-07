@@ -110,25 +110,45 @@ typography .favorites-container h3 {
 #favorites button:hover {
   border: none;
 }
+
 /* background */
 @media screen and (max-width: 640px) {
-  .favorites-wrapper {
+  .no-webp .favorites-wrapper {
     background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .favorites-wrapper {
+    background: url(/src/images/planet-images/960/sky.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
 @media screen and (max-width: 1280px) {
-  .favorites-wrapper {
+  .no-webp .favorites-wrapper {
     background: url(/src/images/planet-images/1280/sky.jpg) no-repeat center
       center fixed;
+
+    background-size: cover;
+  }
+  .webp .favorites-wrapper {
+    background: url(/src/images/planet-images/1280/sky.webp) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }
 @media screen and (min-width: 1281px) {
-  .favorites-wrapper {
+  .no-webp .favorites-wrapper {
     background: url(/src/images/planet-images/1920/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .favorites-wrapper {
+    background: url(/src/images/planet-images/1920/sky.webp) no-repeat center
       center fixed;
 
     background-size: cover;

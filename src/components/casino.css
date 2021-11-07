@@ -51,25 +51,45 @@
     width: 40% !important;
   }
 }
+
 /* background */
 @media screen and (max-width: 640px) {
-  .casino-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .casino-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
 @media screen and (max-width: 1280px) {
-  .casino-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
       center fixed;
+
+    background-size: cover;
+  }
+  .webp .casino-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }
 @media screen and (min-width: 1281px) {
-  .casino-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .casino-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;

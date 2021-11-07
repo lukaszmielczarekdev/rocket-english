@@ -127,25 +127,45 @@
 #testMenu button:hover {
   border: none;
 }
+
 /* background */
 @media screen and (max-width: 640px) {
-  .testMenu-wrapper {
+  .no-webp .testMenu-wrapper {
     background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .testMenu-wrapper {
+    background: url(/src/images/planet-images/960/sky.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
 @media screen and (max-width: 1280px) {
-  .testMenu-wrapper {
+  .no-webp .testMenu-wrapper {
     background: url(/src/images/planet-images/1280/sky.jpg) no-repeat center
       center fixed;
+
+    background-size: cover;
+  }
+  .webp .testMenu-wrapper {
+    background: url(/src/images/planet-images/1280/sky.webp) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }
 @media screen and (min-width: 1281px) {
-  .testMenu-wrapper {
+  .no-webp .testMenu-wrapper {
     background: url(/src/images/planet-images/1920/sky.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .testMenu-wrapper {
+    background: url(/src/images/planet-images/1920/sky.webp) no-repeat center
       center fixed;
 
     background-size: cover;
