@@ -52,7 +52,7 @@ const planetAccess = {
       return (
         <Link
           onClick={() => onClickCallback(planet)}
-          to={`/galaxy/${planet}`}
+          to={`/${planet}`}
           style={{ textDecoration: "none" }}
         >
           <button className="button small button-margin">{label}</button>
@@ -96,7 +96,7 @@ const planetAccess = {
       tourFlag
     ) {
       return (
-        <Link onClick={() => onClickCallback(planet)} to={`/galaxy/${planet}`}>
+        <Link onClick={() => onClickCallback(planet)} to={`/${planet}`}>
           <picture className="image fit padding-inline-1">
             <source srcSet={image_webp} type="image/webp" />
             <source srcSet={image_png} type="image/png" />

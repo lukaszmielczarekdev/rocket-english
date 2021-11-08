@@ -5,7 +5,7 @@ const PlaceBasic = (props) => {
   return (
     <article className="padding-places border carousel-card">
       <h4>{props.title}</h4>
-      <Link to={`/galaxy/${props.link}`}>
+      <Link to={`/${props.link}`}>
         <picture className="image fit padding-inline-1">
           <source srcSet={props.img_webp} type="image/webp" />
           <source srcSet={props.img_png} type="image/png" />

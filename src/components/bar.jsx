@@ -88,7 +88,7 @@ export const Bar = (props) => {
           </form>
           <button className="button small">
             <Link
-              to={`/galaxy/${user.user.currentPlanet}`}
+              to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
             >
               Go Back

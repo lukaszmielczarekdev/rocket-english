@@ -83,7 +83,7 @@ const Summary = (props) => {
             </button> */}
             <button className="button small">
               <Link
-                to={`/galaxy/${user.user.currentPlanet}`}
+                to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}
               >
                 Go Back

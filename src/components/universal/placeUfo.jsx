@@ -7,8 +7,8 @@ const PlaceUfo = (props) => {
 
   const ufoLink = () => {
     return user.user.ifUfoDefeated[user.user.currentPlanet]
-      ? `/galaxy/${user.user.currentPlanet}`
-      : "/galaxy/ufo";
+      ? `/${user.user.currentPlanet}`
+      : "/ufo";
   };
 
   const ufoAlt = () => {

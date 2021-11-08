@@ -188,25 +188,45 @@
 a {
   display: block;
 } */
+
 /* background */
 @media screen and (max-width: 640px) {
-  .bar-wrapper {
+  .no-webp .bar-wrapper {
     background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .bar-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
 @media screen and (max-width: 1280px) {
-  .bar-wrapper {
+  .no-webp .bar-wrapper {
     background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
       center fixed;
+
+    background-size: cover;
+  }
+  .webp .bar-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
+      center fixed;
+
     background-size: cover;
   }
 }
 @media screen and (min-width: 1281px) {
-  .bar-wrapper {
+  .no-webp .bar-wrapper {
     background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .bar-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;

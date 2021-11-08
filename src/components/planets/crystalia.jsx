@@ -10,8 +10,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
-import ufo_png from "../../images/ufo.png";
-import ufo_webp from "../../images/ufo.webp";
+import ufo_png from "../../images/ufo-logo.png";
+import ufo_webp from "../../images/ufo-logo.webp";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
 

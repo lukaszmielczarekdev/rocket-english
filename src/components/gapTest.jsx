@@ -120,7 +120,7 @@ const GapTest = (props) => {
           }}
         >
           <Link
-            to={`/galaxy/${user.user.currentPlanet}`}
+            to={`/${user.user.currentPlanet}`}
             style={{ textDecoration: "none" }}
           >
             x

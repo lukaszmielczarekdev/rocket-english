@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import ufo_kidnap from "../images/ufo-kidnap.png";
-import "./planets/planet.css";
 import "../components/notFound.css";
+import "./planets/planet.css";
 
 export const NotFound = (props) => {
   const user = useContext(UserContext);
@@ -35,7 +35,7 @@ export const NotFound = (props) => {
       return (
         <button className="button small button-margin">
           <Link
-            to={`/galaxy/${user.user.currentPlanet}`}
+            to={`/${user.user.currentPlanet}`}
             style={{ textDecoration: "none" }}
           >
             {`Go back to ${user.user.currentPlanet}`}
@@ -46,7 +46,7 @@ export const NotFound = (props) => {
   };
 
   return (
-    <div className="ufo-wrapper flex-auto">
+    <div className="notFound-wrapper flex-auto">
       <div id="ufo" className="main-background not-found">
         <section className="ufo-container border padding-botton-3rem">
           <p className="padding-1rem">
@@ -66,7 +66,7 @@ export const NotFound = (props) => {
           </p>
           <button className="button small button-margin">
             <Link
-              to={`/galaxy/${user.user.currentPlanet}`}
+              to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
             >
               Take a chance

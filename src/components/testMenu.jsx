@@ -70,7 +70,7 @@ const TestMenu = (props) => {
             </button>
             <button className={ifVisible("game", "user", "button large")}>
               <Link
-                to={`/galaxy/${user.user.currentPlanet}`}
+                to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}
               >
                 Go Back
@@ -107,7 +107,7 @@ const TestMenu = (props) => {
               )}
               <button className="button large">
                 <Link
-                  to={`/galaxy/${user.user.currentPlanet}`}
+                  to={`/${user.user.currentPlanet}`}
                   style={{ textDecoration: "none" }}
                 >
                   Go Back

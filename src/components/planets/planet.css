@@ -613,7 +613,7 @@
   }
 }
 
-@media screen and (max-width: 1281px) {
+@media screen and (min-width: 1281px) {
   .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/1920/crion.jpg) no-repeat center
       center fixed;

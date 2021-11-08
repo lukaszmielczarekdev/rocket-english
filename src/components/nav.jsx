@@ -59,7 +59,7 @@ const Nav = (props) => {
                 user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
               }
             >
-              <NavLink className="navbar-navlink" to="/galaxy/favorites">
+              <NavLink className="navbar-navlink" to="/favorites">
                 Favorites
               </NavLink>
             </li>
@@ -68,7 +68,7 @@ const Nav = (props) => {
                 user.user.currentPlanet === "menu" ? "nav-hidden" : "nav-links"
               }
             >
-              <NavLink className="navbar-navlink" to="/galaxy/inventory">
+              <NavLink className="navbar-navlink" to="/inventory">
                 Inventory
               </NavLink>
             </li>

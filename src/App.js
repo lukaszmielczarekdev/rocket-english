@@ -2,13 +2,31 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import Welcome from "./components/welcome";
-import Galaxy from "./components/galaxy";
 import NotFound from "./components/notFound";
 import UserContext from "./contexts/userContext";
 import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 import GeneralContext from "./contexts/generalContext";
 import TourContext from "./contexts/tourContext";
+import Factory from "./components/factory";
+import Shop from "./components/shop";
+import Inventory from "./components/inventory";
+import Favorites from "./components/favorites";
+import Controller from "./components/controller";
+import Casino from "./components/casino";
+import Mine from "./components/mine";
+import Ufo from "./components/ufo";
+import Bar from "./components/bar";
+import Xillon from "./components/planets/xillon";
+import Centuria from "./components/planets/centuria";
+import Crion from "./components/planets/crion";
+import Therion from "./components/planets/therion";
+import Crystalia from "./components/planets/crystalia";
+import Thalia from "./components/planets/thalia";
+import Bathea from "./components/planets/bathea";
+import Axios from "./components/planets/axios";
+import Desertia from "./components/planets/desertia";
+import TestMenu from "./components/testMenu";
 import "./App.css";
 
 export default function App() {
@@ -429,8 +447,26 @@ export default function App() {
               }}
             >
               <Switch>
-                <Route path="/galaxy" component={Galaxy} />
                 <Route path="/space" exact component={NotFound} />
+                <Route path="/ufo" component={Ufo} />
+                <Route path="/factory" component={Factory} />
+                <Route path="/casino" component={Casino} />
+                <Route path="/quiz" component={Controller} />
+                <Route path="/shop" component={Shop} />
+                <Route path="/bar" component={Bar} />
+                <Route path="/mine" component={Mine} />
+                <Route path="/favorites" component={Favorites} />
+                <Route path="/university" component={TestMenu} />
+                <Route path="/inventory" component={Inventory} />
+                <Route path="/xillon" component={Xillon} />
+                <Route path="/centuria" component={Centuria} />
+                <Route path="/crion" component={Crion} />
+                <Route path="/therion" component={Therion} />
+                <Route path="/crystalia" component={Crystalia} />
+                <Route path="/thalia" component={Thalia} />
+                <Route path="/bathea" component={Bathea} />
+                <Route path="/axios" component={Axios} />
+                <Route path="/desertia" component={Desertia} />
                 <Route path="/" exact component={Welcome} />
                 <Redirect to="/space" />
               </Switch>

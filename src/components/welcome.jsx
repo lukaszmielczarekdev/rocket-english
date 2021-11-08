@@ -40,7 +40,7 @@ const Welcome = (props) => {
     general.setAvailablePlanet("crion");
     general.general.availablePlanets["crion"].discovered = true;
     tour.setTour(false);
-    props.history.push("/galaxy/crion");
+    props.history.push("/crion");
   };
 
   const renderResetProgress = () => {
@@ -112,7 +112,7 @@ const Welcome = (props) => {
             });
             startGame();
             tour.setTour(true);
-            props.history.push("/galaxy/crion");
+            props.history.push("/crion");
           }}
           className="button large button-margin"
         >
@@ -137,7 +137,7 @@ const Welcome = (props) => {
         <button className="button large button-margin">
           <Link
             onClick={makeCurrentPlanetAvailableAgain()}
-            to={`/galaxy/${user.user.currentPlanet}`}
+            to={`/${user.user.currentPlanet}`}
             style={{ textDecoration: "none" }}
           >
             Continue

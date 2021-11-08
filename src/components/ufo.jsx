@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import ufo_logo from "../images/ufo.png";
+import ufo_logo from "../images/ufo-logo.png";
 import Modal from "react-modal";
 import "../App.css";
 import "./ufo.css";
@@ -125,7 +125,7 @@ export const Ufo = (props) => {
           {renderFightButton()}
           <button className="button large">
             <Link
-              to={`/galaxy/${user.user.currentPlanet}`}
+              to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
             >
               Go Back

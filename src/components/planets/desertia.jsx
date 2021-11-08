@@ -12,8 +12,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
-import ufo_png from "../../images/ufo.png";
-import ufo_webp from "../../images/ufo.webp";
+import ufo_png from "../../images/ufo-logo.png";
+import ufo_webp from "../../images/ufo-logo.webp";
 
 const Desertia = (props) => {
   const user = useContext(UserContext);

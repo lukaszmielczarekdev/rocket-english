@@ -104,7 +104,7 @@ const Quiz = (props) => {
           </button>
           <button className="button large">
             <Link
-              to={`/galaxy/${user.user.currentPlanet}`}
+              to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
             >
               Go Back
