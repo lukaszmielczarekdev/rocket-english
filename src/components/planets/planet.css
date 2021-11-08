@@ -245,124 +245,127 @@
     align-content: right;
     align-self: center;
   }
-  @media screen and (max-width: 960px) {
-    .sidebar {
-      flex-direction: row;
-      border-right: none;
-      text-align: center;
-    }
+}
+@media screen and (max-width: 960px) {
+  .sidebar {
+    flex-direction: row;
+    border-right: none;
+    text-align: center;
   }
+}
 
-  @media screen and (max-width: 960px) {
-    .planet-description {
-      border-left: none;
-    }
-  }
-
-  .inline-block {
-    display: inline-block;
-  }
-
+@media screen and (max-width: 960px) {
   .planet-description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-left: none;
   }
+}
 
-  @media screen and (min-width: 960px) {
-    .border {
-      border-bottom: none;
-    }
+.inline-block {
+  display: inline-block;
+}
+
+.planet-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .border {
+    border-bottom: none;
   }
+}
 
-  .not-found p {
-    margin-bottom: 0;
-  }
+.not-found p {
+  margin-bottom: 0;
+}
 
-  .border-radius {
-    border-radius: 10px;
-  }
+.border-radius {
+  border-radius: 10px;
+}
 
-  .padding-places {
-    padding: 1rem;
-  }
+.padding-places {
+  padding: 1rem;
+}
 
-  .padding-botton-3rem {
-    padding-bottom: 3rem;
-  }
+.padding-botton-3rem {
+  padding-bottom: 3rem;
+}
 
-  .padding-1rem {
-    padding: 1rem;
-  }
+.padding-1rem {
+  padding: 1rem;
+}
 
-  .padding-3rem {
-    padding: 3rem;
-  }
+.padding-3rem {
+  padding: 3rem;
+}
 
-  .margin-1rem {
-    margin: 1rem;
-  }
+.margin-1rem {
+  margin: 1rem;
+}
 
-  #planet .button-margin {
-    margin: 0.5rem auto !important;
-  }
+#planet .button-margin {
+  margin: 0.5rem auto !important;
+}
 
-  .margin-block-planet-container {
-    margin: auto;
-  }
+.margin-block-planet-container {
+  margin: auto;
+}
 
+.logo img {
+  width: 35% !important;
+}
+
+@media screen and (min-width: 420px) {
   .logo img {
-    width: 35% !important;
+    /* width: 20% !important; */
+    width: 50% !important;
   }
+}
+@media screen and (max-width: 420px) {
+  .logo img {
+    width: 50% !important;
+  }
+}
 
-  @media screen and (min-width: 420px) {
-    .logo img {
-      /* width: 20% !important; */
-      width: 50% !important;
-    }
-  }
-  @media screen and (max-width: 420px) {
-    .logo img {
-      width: 50% !important;
-    }
-  }
+/* carousel customization */
+.carousel-card {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 0.5rem;
+  border-radius: 15px;
+}
 
-  /* carousel customization */
+.alice-carousel {
+  padding-bottom: 2rem;
+  color: inherit;
+}
+
+.alice-carousel__prev-btn {
+  text-align: center !important;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  display: inline-block;
+  width: 5% !important;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .planet-activities-container .alice-carousel__prev-btn,
+  .planet-activities-container .alice-carousel__next-btn {
+    display: none;
+  }
   .carousel-card {
-    background-color: rgba(0, 0, 0, 0.3);
-    margin: 0.5rem;
-    border-radius: 15px;
+    background-color: transparent;
   }
-
-  .alice-carousel {
-    padding-bottom: 2rem;
-    color: inherit;
-  }
-
-  .alice-carousel__prev-btn {
-    text-align: center !important;
-  }
-  .alice-carousel__prev-btn,
-  .alice-carousel__next-btn {
-    display: inline-block;
-    width: 5% !important;
-  }
-
-  .alice-carousel__prev-btn-item,
-  .alice-carousel__next-btn-item {
-    color: white;
-  }
-
-  @media screen and (max-width: 1024px) {
-    .alice-carousel__prev-btn,
-    .alice-carousel__next-btn {
-      display: none !important;
-      width: 5% !important;
-    }
-  }
-  .alice-carousel__dots {
-    margin-top: 0;
-  }
+}
+.alice-carousel__dots {
+  margin-top: 0;
 }
 
 /* background images */
