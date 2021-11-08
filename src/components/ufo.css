@@ -59,13 +59,13 @@
 /* background */
 @media screen and (max-width: 640px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/960/ufo.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/960/ufo.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -73,13 +73,13 @@
 }
 @media screen and (max-width: 1280px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -87,13 +87,13 @@
 }
 @media screen and (min-width: 1281px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/1920/ufo.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/1920/ufo.webp) no-repeat center
       center fixed;
 
     background-size: cover;

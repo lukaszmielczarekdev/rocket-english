@@ -368,259 +368,369 @@
 /* background images */
 
 @media screen and (max-width: 640px) {
-  .crion-wrapper {
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .therion-wrapper {
+  .webp .crion-wrapper {
+    background: url(/src/images/planet-images/960/crion.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .therion-wrapper {
     background: url(/src/images/planet-images/960/therion.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .crystalia-wrapper {
+  .webp .therion-wrapper {
+    background: url(/src/images/planet-images/960/therion.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .crystalia-wrapper {
     background: url(/src/images/planet-images/960/crystalia.jpg) no-repeat
       center center fixed;
-
     background-size: cover;
   }
-  .desertia-wrapper {
+  .webp .crystalia-wrapper {
+    background: url(/src/images/planet-images/960/crystalia.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .desertia-wrapper {
     background: url(/src/images/planet-images/960/desertia.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .xillon-wrapper {
+  .webp .desertia-wrapper {
+    background: url(/src/images/planet-images/960/desertia.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .xillon-wrapper {
     background: url(/src/images/planet-images/960/xillon.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .axios-wrapper {
+  .webp .xillon-wrapper {
+    background: url(/src/images/planet-images/960/xillon.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .axios-wrapper {
     background: url(/src/images/planet-images/960/axios.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .thalia-wrapper {
+  .webp .axios-wrapper {
+    background: url(/src/images/planet-images/960/axios.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .thalia-wrapper {
     background: url(/src/images/planet-images/960/thalia.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .bathea-wrapper {
+  .webp .thalia-wrapper {
+    background: url(/src/images/planet-images/960/thalia.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .bathea-wrapper {
     background: url(/src/images/planet-images/960/bathea.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .centuria-wrapper {
+  .webp .bathea-wrapper {
+    background: url(/src/images/planet-images/960/bathea.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .centuria-wrapper {
     background: url(/src/images/planet-images/960/centuria.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .menu-wrapper {
+  .webp .centuria-wrapper {
+    background: url(/src/images/planet-images/960/centuria.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .menu-wrapper {
     background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .ufo-wrapper {
+  .webp .menu-wrapper {
+    background: url(/src/images/planet-images/960/menu.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .ufo-wrapper {
     background: url(/src/images/planet-images/960/ufo.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+  .webp .ufo-wrapper {
+    background: url(/src/images/planet-images/960/ufo.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 }
 
 @media screen and (max-width: 1280px) {
-  .no-webp .crion-wrapper.flex-auto {
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/1280/crion.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .crion-wrapper.flex-auto {
+  .webp .crion-wrapper {
     background: url(/src/images/planet-images/1280/crion.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .therion-wrapper.flex-auto {
+  .no-webp .therion-wrapper {
     background: url(/src/images/planet-images/1280/therion.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .therion-wrapper.flex-auto {
+  .webp .therion-wrapper {
     background: url(/src/images/planet-images/1280/therion.webp) no-repeat
       center center fixed;
     background-size: cover;
   }
 
-  .no-webp .crystalia-wrapper.flex-auto {
+  .no-webp .crystalia-wrapper {
     background: url(/src/images/planet-images/1280/crystalia.jpg) no-repeat
       center center fixed;
     background-size: cover;
   }
-  .webp .crystalia-wrapper.flex-auto {
+  .webp .crystalia-wrapper {
     background: url(/src/images/planet-images/1280/crystalia.webp) no-repeat
       center center fixed;
     background-size: cover;
   }
 
-  .no-webp .desertia-wrapper.flex-auto {
+  .no-webp .desertia-wrapper {
     background: url(/src/images/planet-images/1280/desertia.jpg) no-repeat
       center center fixed;
     background-size: cover;
   }
-  .webp .desertia-wrapper.flex-auto {
+  .webp .desertia-wrapper {
     background: url(/src/images/planet-images/1280/desertia.webp) no-repeat
       center center fixed;
     background-size: cover;
   }
 
-  .no-webp .xillon-wrapper.flex-auto {
+  .no-webp .xillon-wrapper {
     background: url(/src/images/planet-images/1280/xillon.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .xillon-wrapper.flex-auto {
+  .webp .xillon-wrapper {
     background: url(/src/images/planet-images/1280/xillon.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .axios-wrapper.flex-auto {
+  .no-webp .axios-wrapper {
     background: url(/src/images/planet-images/1280/axios.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .axios-wrapper.flex-auto {
+  .webp .axios-wrapper {
     background: url(/src/images/planet-images/1280/axios.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .thalia-wrapper.flex-auto {
+  .no-webp .thalia-wrapper {
     background: url(/src/images/planet-images/1280/thalia.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .thalia-wrapper.flex-auto {
+  .webp .thalia-wrapper {
     background: url(/src/images/planet-images/1280/thalia.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .bathea-wrapper.flex-auto {
+  .no-webp .bathea-wrapper {
     background: url(/src/images/planet-images/1280/bathea.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .bathea-wrapper.flex-auto {
+  .webp .bathea-wrapper {
     background: url(/src/images/planet-images/1280/bathea.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .centuria-wrapper.flex-auto {
+  .no-webp .centuria-wrapper {
     background: url(/src/images/planet-images/1280/centuria.jpg) no-repeat
       center center fixed;
     background-size: cover;
   }
-  .webp .centuria-wrapper.flex-auto {
+  .webp .centuria-wrapper {
     background: url(/src/images/planet-images/1280/centuria.webp) no-repeat
       center center fixed;
     background-size: cover;
   }
 
-  .no-webp .menu-wrapper.flex-auto {
+  .no-webp .menu-wrapper {
     background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .menu-wrapper.flex-auto {
+  .webp .menu-wrapper {
     background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 
-  .no-webp .ufo-wrapper.flex-auto {
+  .no-webp .ufo-wrapper {
     background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .ufo-wrapper.flex-auto {
+  .webp .ufo-wrapper {
     background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
 }
 
-@media screen and (min-width: 1281px) {
-  .crion-wrapper {
+@media screen and (max-width: 1281px) {
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/1920/crion.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .therion-wrapper {
+  .webp .crion-wrapper {
+    background: url(/src/images/planet-images/1920/crion.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .therion-wrapper {
     background: url(/src/images/planet-images/1920/therion.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .crystalia-wrapper {
+  .webp .therion-wrapper {
+    background: url(/src/images/planet-images/1920/therion.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .crystalia-wrapper {
     background: url(/src/images/planet-images/1920/crystalia.jpg) no-repeat
       center center fixed;
-
     background-size: cover;
   }
-  .desertia-wrapper {
+  .webp .crystalia-wrapper {
+    background: url(/src/images/planet-images/1920/crystalia.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .desertia-wrapper {
     background: url(/src/images/planet-images/1920/desertia.jpg) no-repeat
       center center fixed;
-
     background-size: cover;
   }
-  .xillon-wrapper {
+  .webp .desertia-wrapper {
+    background: url(/src/images/planet-images/1920/desertia.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .xillon-wrapper {
     background: url(/src/images/planet-images/1920/xillon.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .axios-wrapper {
+  .webp .xillon-wrapper {
+    background: url(/src/images/planet-images/1920/xillon.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .axios-wrapper {
     background: url(/src/images/planet-images/1920/axios.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .thalia-wrapper {
+  .webp .axios-wrapper {
+    background: url(/src/images/planet-images/1920/axios.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .thalia-wrapper {
     background: url(/src/images/planet-images/1920/thalia.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .bathea-wrapper {
+  .webp .thalia-wrapper {
+    background: url(/src/images/planet-images/1920/thalia.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .bathea-wrapper {
     background: url(/src/images/planet-images/1920/bathea.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .centuria-wrapper {
+  .webp .bathea-wrapper {
+    background: url(/src/images/planet-images/1920/bathea.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .centuria-wrapper {
     background: url(/src/images/planet-images/1920/centuria.jpg) no-repeat
       center center fixed;
-
     background-size: cover;
   }
-  .menu-wrapper {
+  .webp .centuria-wrapper {
+    background: url(/src/images/planet-images/1920/centuria.webp) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .menu-wrapper {
     background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
       center fixed;
-
     background-size: cover;
   }
-  .ufo-wrapper {
+  .webp .menu-wrapper {
+    background: url(/src/images/planet-images/1920/menu.webp) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+
+  .no-webp .ufo-wrapper {
     background: url(/src/images/planet-images/1920/ufo.jpg) no-repeat center
+      center fixed;
+    background-size: cover;
+  }
+  .webp .ufo-wrapper {
+    background: url(/src/images/planet-images/1920/ufo.webp) no-repeat center
       center fixed;
     background-size: cover;
   }
