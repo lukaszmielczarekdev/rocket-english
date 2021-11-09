@@ -1,12 +1,11 @@
 /* typography */
-root {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  max-height: 100%;
+html {
+  overflow: hidden;
+}
+body {
+  height: 100%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .planet-container h3 {
@@ -383,26 +382,12 @@ root {
 /* background images */
 
 @media screen and (min-width: 1281px) {
-  .no-webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -5;
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/1920/crion.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    z-index: -5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .webp .crion-wrapper {
     background: url(/src/images/planet-images/1920/crion.webp) no-repeat center
       center fixed;
     background-size: cover;
@@ -520,26 +505,12 @@ root {
 }
 
 @media screen and (max-width: 1280px) {
-  .no-webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    z-index: -5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/1280/crion.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    z-index: -5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .webp .crion-wrapper {
     background: url(/src/images/planet-images/1280/crion.webp) no-repeat center
       center fixed;
     background-size: cover;
@@ -655,38 +626,14 @@ root {
     background-size: cover;
   }
 }
-/* .no-webp .crion-wrapper {
-  background: url(/src/images/planet-images/960/crion.jpg) no-repeat center
-    center fixed;
-  background-size: cover;
-}
-.webp .crion-wrapper {
-  background: url(/src/images/planet-images/960/crion.webp) no-repeat center
-    center fixed;
-  background-size: cover;
-} */
 
 @media screen and (max-width: 640px) {
-  .no-webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    z-index: -5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.jpg) no-repeat center
       center fixed;
     background-size: cover;
   }
-  .webp .crion-wrapper::before {
-    content: "";
-    position: fixed;
-    z-index: -5;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.webp) no-repeat center
       center fixed;
     background-size: cover;
