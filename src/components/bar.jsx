@@ -122,7 +122,7 @@ export const Bar = (props) => {
   };
 
   return (
-    <div id="bar" className="bar-wrapper">
+    <div id="bar" className="bar-wrapper flex-auto">
       {renderOrRedirect("bar")}
       <section className="bar-container">
         <picture className="fit margin-1rem">

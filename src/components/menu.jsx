@@ -28,6 +28,11 @@ const Menu = (props) => {
             <h3>Quiz</h3>
           </div>
           <article className="padding-places">
+            <p>
+              How many definitions do you want to draw?
+              <br />
+              The maximum amount is 50.
+            </p>
             <p>Quiz length:</p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
