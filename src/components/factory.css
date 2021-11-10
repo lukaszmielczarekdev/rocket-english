@@ -72,20 +72,21 @@
 }
 
 /* background */
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 1281px) {
   .no-webp .factory-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .factory-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
+
 @media screen and (max-width: 1280px) {
   .no-webp .factory-wrapper {
     background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
@@ -100,17 +101,18 @@
     background-size: cover;
   }
 }
-@media screen and (min-width: 1281px) {
+
+@media screen and (max-width: 640px) {
   .no-webp .factory-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
       center fixed;
 
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
   .webp .factory-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
       center fixed;
 
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
 }

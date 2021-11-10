@@ -111,15 +111,15 @@
 }
 
 /* background */
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 1281px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/960/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/1920/menu.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -139,17 +139,18 @@
     background-size: cover;
   }
 }
-@media screen and (min-width: 1281px) {
+
+@media screen and (max-width: 640px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
       center fixed;
 
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/960/menu.webp) no-repeat center
       center fixed;
 
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
 }
