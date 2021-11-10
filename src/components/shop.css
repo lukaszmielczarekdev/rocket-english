@@ -55,16 +55,11 @@
 }
 
 /* general */
-@media (min-width: 1024px) {
-  .desktop-border-right {
-    border-right: 1px solid #ffff;
-  }
+.border-bottom {
+  border-bottom: 1px solid #ffff;
 }
 
 @media (max-width: 1020px) {
-  .mobile-border-bottom {
-    border-bottom: 1px solid #ffff;
-  }
   .margin-bottom-1rem {
     margin-bottom: 1rem;
   }

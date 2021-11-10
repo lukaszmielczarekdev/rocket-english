@@ -69,10 +69,9 @@ const Shop = (props) => {
         <div className="padding border">
           <div className="logo logo-place image fit">
             <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
-            <h3>Shop</h3>
           </div>
-          <div className="padding-border planet-split">
-            <article className="mobile-border-bottom margin-bottom-1rem desktop-border-right">
+          <div className="padding-border">
+            <article className="border-bottom margin-bottom-1rem">
               <h3 className="padding">Inventory</h3>
               <ul>{renderUserInventory()}</ul>
             </article>
