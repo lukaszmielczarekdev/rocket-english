@@ -197,3 +197,8 @@ h1 {
     text-align: center;
   }
 }
+@media screen and (max-width: 360px) {
+  #navbar-items h1 {
+    font-size: 0.6rem;
+  }
+}

@@ -1,13 +1,4 @@
 /* typography */
-html {
-  overflow: hidden;
-}
-body {
-  height: 100%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
 .planet-container h3 {
   color: var(--clr-primary-100);
 }
@@ -631,12 +622,12 @@ body {
   .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.jpg) no-repeat center
       center fixed;
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
   .webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.webp) no-repeat center
       center fixed;
-    background-size: cover;
+    background-size: 200vh 120vh;
   }
 
   .no-webp .therion-wrapper {
