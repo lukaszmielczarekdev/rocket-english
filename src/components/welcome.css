@@ -145,12 +145,12 @@
     background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
   .webp .welcome-wrapper {
     background: url(/src/images/planet-images/960/menu.webp) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
 }

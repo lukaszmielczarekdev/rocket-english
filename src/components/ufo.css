@@ -92,12 +92,12 @@
     background: url(/src/images/planet-images/960/ufo.jpg) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
   .webp .ufo-wrapper {
     background: url(/src/images/planet-images/960/ufo.webp) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
 }

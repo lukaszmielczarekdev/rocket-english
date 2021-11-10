@@ -107,12 +107,12 @@
     background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
   .webp .factory-wrapper {
     background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
 }

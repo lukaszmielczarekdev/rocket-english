@@ -164,12 +164,12 @@
     background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
   .webp .testMenu-wrapper {
     background: url(/src/images/planet-images/960/sky.webp) no-repeat center
       center fixed;
 
-    background-size: 200vh 120vh;
+    background-size: cover;
   }
 }
