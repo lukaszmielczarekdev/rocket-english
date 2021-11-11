@@ -76,7 +76,7 @@ const GapTest = (props) => {
     const filtered = [];
 
     for (let [index, word] of splittedText.entries()) {
-      if (word === "the" || word === "a") {
+      if (word === "the" || word === "a" || word === "an") {
         filtered.push(
           <input
             type="text"
@@ -114,7 +114,7 @@ const GapTest = (props) => {
         contentLabel="Test summary modal"
       >
         <button
-          className="button large"
+          className="button large modal-button"
           onClick={() => {
             toggleModal();
           }}
@@ -127,7 +127,7 @@ const GapTest = (props) => {
           </Link>
         </button>
         {/* <ul>{renderSummary()}</ul> */}
-        <p>{props.text}</p>
+        <p className="modal-description">{props.text}</p>
       </Modal>
     </div>
   );

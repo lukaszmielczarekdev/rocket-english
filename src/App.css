@@ -223,6 +223,11 @@ a {
   top: 0;
   right: 0;
   margin: 1rem;
+  border-radius: 15px;
+}
+.modal-description {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .button:hover {

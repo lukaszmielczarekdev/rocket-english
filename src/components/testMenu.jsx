@@ -8,6 +8,7 @@ import GapTest from "./gapTest";
 import getRandomText from "../utils/texts";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import quiz from "../images/quiz.png";
 import "./testMenu.css";
 
 const TestMenu = (props) => {
@@ -51,8 +52,22 @@ const TestMenu = (props) => {
       <div id="testMenu">
         {renderOrRedirect("university")}
         <section className="testMenu-container main-background border border-radius padding margin-block-testMenu-container">
-          <h3>Fill the gaps</h3>
-          <div className="padding border">
+          <div
+            className={ifVisible("user", "game", "logo logo-place image fit")}
+          >
+            <img src={quiz} alt="casino logo" width="100em" height="auto" />
+            <h3>
+              Fill the gaps
+              <br />
+              (Articles)
+            </h3>
+            <p className="place-description">
+              Already at the entrance you can feel the atmosphere of
+              concentration. You can learn a lot here and test your knowledge,
+              the appropriate level of knowledge will be rewarded.
+            </p>
+          </div>
+          <div className="padding border centered">
             <button
               className={ifVisible("user", "game", "button large")}
               onClick={() => setMode("user")}

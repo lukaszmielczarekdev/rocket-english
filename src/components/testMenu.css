@@ -3,14 +3,22 @@
 .testMenu-container h3 {
   color: var(--clr-primary-100);
 }
+
+.centered {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 #testMenu {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  letter-spacing: 0.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   text-align: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: smaller;
+  padding: 2rem;
 }
 
 #testMenu input {
@@ -38,6 +46,7 @@
   text-transform: uppercase;
   color: inherit;
   letter-spacing: 0.3rem;
+  padding: 1rem;
 }
 #testMenu h4 {
   font-size: 1rem;

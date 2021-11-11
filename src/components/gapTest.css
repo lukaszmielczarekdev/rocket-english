@@ -1,3 +1,12 @@
+/* typography */
+#gapTest {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
 #gapTest input {
   max-width: 30px !important;
   background-color: transparent;
