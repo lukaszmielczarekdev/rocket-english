@@ -72,15 +72,6 @@ const Summary = (props) => {
               <li>+{props.summary} exp</li>
               <li>+{props.summary / 2} [!]</li>
             </ul>
-            {/* <button
-              className="button large"
-              onClick={() => {
-                props.showSummary();
-                props.showMenu();
-              }}
-            >
-              Go Back
-            </button> */}
             <button className="button small">
               <Link
                 to={`/${user.user.currentPlanet}`}

@@ -46,7 +46,7 @@ const Welcome = (props) => {
   const renderResetProgress = () => {
     if (general.general.availablePlanets["crion"].discovered) {
       return (
-        <button onClick={toggleModal} className="button large button-margin">
+        <button onClick={toggleModal} className="button small button-margin">
           New game
         </button>
       );
@@ -78,7 +78,7 @@ const Welcome = (props) => {
                 pattern: /^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/i,
               })}
             />
-            <button type="submit" className="button large">
+            <button type="submit" className="button small">
               Start
             </button>
           </form>
@@ -96,7 +96,7 @@ const Welcome = (props) => {
           onClick={() => {
             setShowLogin(true);
           }}
-          className="button large button-margin"
+          className="button small button-margin"
         >
           I want a challenge
         </button>
@@ -114,7 +114,7 @@ const Welcome = (props) => {
             tour.setTour(true);
             props.history.push("/crion");
           }}
-          className="button large button-margin"
+          className="button small button-margin"
         >
           I'm just a tourist
         </button>
@@ -134,7 +134,7 @@ const Welcome = (props) => {
   const renderContinueGame = () => {
     if (general.general.availablePlanets["crion"].discovered) {
       return (
-        <button className="button large button-margin">
+        <button className="button small button-margin">
           <Link
             onClick={makeCurrentPlanetAvailableAgain()}
             to={`/${user.user.currentPlanet}`}
@@ -198,13 +198,13 @@ const Welcome = (props) => {
               <p>Are you sure?</p>
               <p>All progress will be lost...</p>
               <button
-                className="button large button-margin"
+                className="button small button-margin"
                 onClick={toggleModal}
               >
                 No
               </button>
               <button
-                className="button large button-margin"
+                className="button small button-margin"
                 onClick={resetProgress}
               >
                 Yes

@@ -2,10 +2,11 @@
 #factory {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: 700;
+  font-weight: normal;
   letter-spacing: 0.1rem;
   text-align: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #factory ul {

@@ -26,7 +26,7 @@
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
-  color: inherit;
+  color: yellow;
   letter-spacing: 0.3rem;
 }
 #planet h4 {
@@ -36,6 +36,9 @@
   text-transform: uppercase;
   color: inherit;
   letter-spacing: 0.3rem;
+}
+.planet-info-container h4 {
+  color: yellow !important;
 }
 
 /* layout */
@@ -131,7 +134,7 @@
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  width: min(100%, 70rem);
+  width: min(80%, 70rem);
   padding-bottom: auto;
   text-align: center;
 }
@@ -147,7 +150,6 @@
     margin-inline: auto;
     margin-left: auto;
     margin-right: auto;
-    /* width: min(90%, 70rem); */
     align-items: flex-start;
     border-radius: 10px;
   }
@@ -326,13 +328,12 @@
 }
 @media screen and (max-width: 420px) {
   .logo img {
-    width: 50% !important;
+    width: 30% !important;
   }
 }
 
 /* carousel customization */
 .carousel-card {
-  background-color: rgba(0, 0, 0, 0.3);
   margin: 0.5rem;
   border-radius: 15px;
 }
@@ -354,7 +355,7 @@
 
 .alice-carousel__prev-btn-item,
 .alice-carousel__next-btn-item {
-  color: white;
+  color: white !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -368,6 +369,12 @@
 }
 .alice-carousel__dots {
   margin-top: 0;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  color: white;
+  font-weight: 500;
 }
 
 /* background images */

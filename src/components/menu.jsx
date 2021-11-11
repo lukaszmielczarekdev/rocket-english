@@ -48,11 +48,11 @@ const Menu = (props) => {
                   pattern: /\d/i,
                 })}
               />
-              <button type="submit" className="button large">
+              <button type="submit" className="button small">
                 Start
               </button>
             </form>
-            <button className="button large">
+            <button className="button small">
               <Link
                 to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}

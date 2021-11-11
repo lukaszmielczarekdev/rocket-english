@@ -4,10 +4,11 @@ typography .favorites-container h3 {
 #favorites {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  letter-spacing: 0.05rem;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
   text-align: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   font-size: smaller;
 }
 
@@ -33,7 +34,7 @@ typography .favorites-container h3 {
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
-  color: inherit;
+  color: yellow;
   letter-spacing: 0.3rem;
 }
 
@@ -45,7 +46,6 @@ typography .favorites-container h3 {
 
 #favorites ul li {
   border-left: 0;
-  margin: 1rem 0 0 0;
   padding-left: 0;
   list-style: none;
 }
@@ -74,7 +74,7 @@ typography .favorites-container h3 {
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  width: min(100%, 70rem);
+  width: min(80%, 70rem);
   padding-bottom: auto;
   text-align: center;
 }
@@ -159,7 +159,6 @@ typography .favorites-container h3 {
 
 /* carousel customization */
 #favorites .carousel-card {
-  background-color: rgba(0, 0, 0, 0.3);
   margin: 0.5rem;
   border-radius: 15px;
   padding: 1rem;
@@ -193,7 +192,4 @@ typography .favorites-container h3 {
 }
 #favorites .alice-carousel__dots {
   margin-top: 0;
-}
-#favorites .alice-carousel__dots {
-  display: none;
 }

@@ -21,7 +21,7 @@ export const Factory = (props) => {
     for (let [item, amount] of Object.entries(requirements)) {
       if (amount > inventory.inventory[item]) {
         return (
-          <button style={{ textDecoration: "none" }} className="button large">
+          <button style={{ textDecoration: "none" }} className="button small">
             Not enough items
           </button>
         );
@@ -32,7 +32,7 @@ export const Factory = (props) => {
       <button
         onClick={() => inventory.upgradeRocket(requirements)}
         style={{ textDecoration: "none" }}
-        className="button large"
+        className="button small"
       >
         Upgrade to level {user.user.rocketLvl + 1}
       </button>
@@ -90,7 +90,7 @@ export const Factory = (props) => {
             {user.user.rocketLvl < 5 &&
               renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
           </div>
-          <button className="button large">
+          <button className="button small">
             <Link
               to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}

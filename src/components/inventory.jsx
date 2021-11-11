@@ -48,7 +48,7 @@ const Inventory = (props) => {
           <h3>Inventory</h3>
           <article>
             <ul>{renderInventory()}</ul>
-            <button className="button large">
+            <button className="button small">
               <Link
                 to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}

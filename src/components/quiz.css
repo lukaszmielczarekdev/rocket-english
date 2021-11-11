@@ -1,6 +1,14 @@
-#main form input {
-  margin: 1rem;
+/* typography */
+#quiz {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
+
 /* layout */
 #quiz {
   align-items: center;
@@ -9,6 +17,9 @@
   width: 100%;
   display: grid;
   flex: auto;
+}
+#main form input {
+  margin: 1rem;
 }
 
 /* button */

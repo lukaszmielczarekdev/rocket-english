@@ -106,7 +106,7 @@ const TestMenu = (props) => {
                     pattern: /^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/i,
                   })}
                 />
-                <button type="submit" className="button large">
+                <button type="submit" className="button small">
                   Submit text
                 </button>
               </form>
@@ -120,7 +120,7 @@ const TestMenu = (props) => {
                   ifPrize={mode === "user" ? false : true}
                 />
               )}
-              <button className="button large">
+              <button className="button small">
                 <Link
                   to={`/${user.user.currentPlanet}`}
                   style={{ textDecoration: "none" }}

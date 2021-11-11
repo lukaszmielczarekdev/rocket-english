@@ -51,7 +51,7 @@ const Quiz = (props) => {
   const renderWord = () => {
     if (inventory.inventory.word > 0) {
       return (
-        <button className="button large" onClick={useWord}>
+        <button className="button small" onClick={useWord}>
           Reveal the word
         </button>
       );
@@ -84,12 +84,12 @@ const Quiz = (props) => {
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
-            <button type="submit" className="button large">
+            <button type="submit" className="button small">
               Answer
             </button>
           </form>
 
-          <button className="button large" onClick={props.skipDefinition}>
+          <button className="button small" onClick={props.skipDefinition}>
             Skip
           </button>
           {renderWord()}
@@ -99,10 +99,10 @@ const Quiz = (props) => {
       return (
         <>
           <p>{errorMessage}</p>
-          <button className="button large" onClick={getDefinition}>
+          <button className="button small" onClick={getDefinition}>
             Try again
           </button>
-          <button className="button large">
+          <button className="button small">
             <Link
               to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}

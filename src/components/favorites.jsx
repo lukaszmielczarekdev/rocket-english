@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
@@ -16,6 +16,7 @@ const Favorites = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
+  const favs = useRef([]);
 
   useEffect(() => {
     general.setGamePaused(false);
@@ -40,7 +41,7 @@ const Favorites = (props) => {
     return favorites;
   };
 
-  const places = makeFavoritesList(inventory.inventory.favs).map((element) => (
+  favs.current = makeFavoritesList(inventory.inventory.favs).map((element) => (
     <ArticleCard title={element[0]} description={element[1]} />
   ));
 
@@ -53,15 +54,23 @@ const Favorites = (props) => {
           <div className="padding border">
             <h3>Favorites</h3>
             <article className="favorites-activities-container">
-              <AliceCarousel
-                controlsStrategy={"responsive"}
-                responsive={renders.carousel}
-                keyboardNavigation
-                infinite
-                items={places}
-              />
+              {favs.current.length !== 0 && (
+                <AliceCarousel
+                  controlsStrategy={"responsive"}
+                  responsive={renders.carousel}
+                  keyboardNavigation
+                  infinite
+                  items={favs.current}
+                />
+              )}
+              {favs.current.length === 0 && (
+                <p className="place-description">
+                  Nothing here yet - words with descriptions appear here that
+                  you can save while completing challenges.
+                </p>
+              )}
             </article>
-            <button className="button large">
+            <button className="button small">
               <Link
                 to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}

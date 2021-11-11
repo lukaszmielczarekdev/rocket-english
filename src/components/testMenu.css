@@ -15,10 +15,11 @@
 #testMenu {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: 700;
+  font-weight: normal;
   letter-spacing: 0.1rem;
   text-align: center;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #testMenu input {
@@ -77,9 +78,9 @@
   align-items: center;
   justify-content: center;
   align-content: center;
-  width: 100%;
   display: flex;
   flex: auto;
+  width: min(90%, 70rem);
 }
 .testMenu-wrapper {
   align-items: center;

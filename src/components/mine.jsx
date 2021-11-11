@@ -13,6 +13,7 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
+    padding: "2rem",
     textAlign: "center",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
@@ -135,13 +136,13 @@ const Mine = (props) => {
   const renderMineButton = () => {
     if (inventory.inventory.credits >= 500) {
       return (
-        <button className="button large" onClick={mine}>
+        <button className="button small" onClick={mine}>
           mine - 500[!]
         </button>
       );
     } else {
       return (
-        <button className="button large">Not enough credits - 500[!]</button>
+        <button className="button small">Not enough credits - 500[!]</button>
       );
     }
   };
@@ -168,7 +169,7 @@ const Mine = (props) => {
           <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
             <ul>{renderMineButton()}</ul>
-            <button className="button large">
+            <button className="button small">
               <Link
                 to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}
@@ -186,9 +187,7 @@ const Mine = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Mine summary modal"
       >
-        <button className="button large" onClick={toggleModal}>
-          x
-        </button>
+        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
     </div>

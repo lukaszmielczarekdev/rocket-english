@@ -12,6 +12,9 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
+    padding: "2rem",
+    width: "min(80%, 70rem)",
+    height: "min(80%, 70rem)",
     textAlign: "center",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
@@ -28,7 +31,7 @@ const GapTest = (props) => {
   const { register, handleSubmit } = useForm();
   const formData = useRef();
   const [modalTrigger, setModalTrigger] = useState(false);
-  // const [summary, setSummary] = useState([]);
+  const [summary, setSummary] = useState([]);
 
   const toggleModal = () => {
     setModalTrigger(!modalTrigger);
@@ -61,11 +64,31 @@ const GapTest = (props) => {
         counter++;
       }
     }
-    // make a summary with proper answers and colored labels
+
     if (props.ifPrize) {
+      if (counter) {
+        setSummary([
+          ["exp", 500 * counter],
+          ["credits", 500 * counter],
+          ["steel", 10 * counter],
+          ["aluminum", 5 * counter],
+          ["crystal", 1 * counter],
+        ]);
+      }
       gapTestPrize(counter);
     }
     toggleModal();
+  };
+  const renderSummary = () => {
+    if (summary.length !== 0) {
+      return summary.map((element) => (
+        <li key={element[0]}>
+          + {element[1]} {element[0]}{" "}
+        </li>
+      ));
+    } else {
+      return <p>Keep learning...</p>;
+    }
   };
 
   const onSubmit = (data) => handleSubmitUserData(data);
@@ -102,7 +125,7 @@ const GapTest = (props) => {
       <article className="gapTest-activities-container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <ul>{splitText(props.text)}</ul>
-          <button type="submit" className="button large">
+          <button type="submit" className="button small">
             Submit
           </button>
         </form>
@@ -113,20 +136,10 @@ const GapTest = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Test summary modal"
       >
-        <button
-          className="button large modal-button"
-          onClick={() => {
-            toggleModal();
-          }}
-        >
-          <Link
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            x
-          </Link>
-        </button>
-        {/* <ul>{renderSummary()}</ul> */}
+        <Link to={`/${user.user.currentPlanet}`}>
+          <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+        </Link>
+        <ul>{renderSummary()}</ul>
         <p className="modal-description">{props.text}</p>
       </Modal>
     </div>

@@ -13,6 +13,7 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
+    padding: "2rem",
     textAlign: "center",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
@@ -43,7 +44,7 @@ export const Ufo = (props) => {
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated[user.user.currentPlanet]) {
       return (
-        <button className="button large" onClick={() => fight(1)}>
+        <button className="button small" onClick={() => fight(1)}>
           Fight
         </button>
       );
@@ -57,7 +58,6 @@ export const Ufo = (props) => {
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
     if (result === "loser") {
       inventory.resetInventory();
-      alert(`Lose`);
     } else {
       user.onSetUfo(user.user.currentPlanet);
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
@@ -123,7 +123,7 @@ export const Ufo = (props) => {
             <h3>Ufo</h3>
           </div>
           {renderFightButton()}
-          <button className="button large">
+          <button className="button small">
             <Link
               to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}
@@ -139,9 +139,7 @@ export const Ufo = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Ufo summary modal"
       >
-        <button className="button large" onClick={toggleModal}>
-          x
-        </button>
+        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
     </div>

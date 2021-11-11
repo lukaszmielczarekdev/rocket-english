@@ -141,17 +141,19 @@ const Casino = (props) => {
                 id="submitDepositFormInput"
               />
             </form>
-            <button className="button large" onClick={setUpGamble}>
-              Good Luck
-            </button>
-            <button className="button large">
-              <Link
-                to={`/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
+            <div className="padding border centered">
+              <button className="button small" onClick={setUpGamble}>
+                Good Luck
+              </button>
+              <button className="button small">
+                <Link
+                  to={`/${user.user.currentPlanet}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  Go Back
+                </Link>
+              </button>
+            </div>
           </article>
         </div>
       </section>
@@ -161,9 +163,7 @@ const Casino = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Casino summary modal"
       >
-        <button className="button large modal-button" onClick={toggleModal}>
-          x
-        </button>
+        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
     </div>

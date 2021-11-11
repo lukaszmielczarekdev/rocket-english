@@ -27,7 +27,7 @@ const Shop = (props) => {
       <li key={element[0]}>
         {element[0]}{" "}
         <button
-          className="button large"
+          className="button small cubical"
           onClick={() => {
             shop.buyItem(element[0], 1, element[1], 1);
           }}
@@ -85,7 +85,7 @@ const Shop = (props) => {
               <ul>{shopInv()}</ul>
             </article>
           </div>
-          <button className="button large">
+          <button className="button small">
             <Link
               to={`/${user.user.currentPlanet}`}
               style={{ textDecoration: "none" }}

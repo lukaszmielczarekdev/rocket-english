@@ -5,6 +5,8 @@
   font-weight: normal;
   letter-spacing: 0.1rem;
   text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 #gapTest input {
