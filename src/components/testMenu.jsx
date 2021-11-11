@@ -69,13 +69,13 @@ const TestMenu = (props) => {
           </div>
           <div className="padding border centered">
             <button
-              className={ifVisible("user", "game", "button large")}
+              className={ifVisible("user", "game", "button small")}
               onClick={() => setMode("user")}
             >
               Make your own challenge
             </button>
             <button
-              className={ifVisible("game", "user", "button large")}
+              className={ifVisible("game", "user", "button small")}
               onClick={() => {
                 setMode("game");
                 setDisplayTest(true);
@@ -83,7 +83,7 @@ const TestMenu = (props) => {
             >
               Take a challenge
             </button>
-            <button className={ifVisible("game", "user", "button large")}>
+            <button className={ifVisible("game", "user", "button small")}>
               <Link
                 to={`/${user.user.currentPlanet}`}
                 style={{ textDecoration: "none" }}

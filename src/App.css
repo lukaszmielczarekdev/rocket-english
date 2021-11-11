@@ -190,7 +190,8 @@ a {
 
 /* button */
 .button {
-  background-color: transparent;
+  background-color: white !important;
+  color: rgb(1, 9, 27) !important;
   cursor: pointer;
   display: inline-block;
   height: 1.5rem;
@@ -200,15 +201,21 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  border: 1px solid var(--clr-neutral-100);
+  border-radius: 15px;
+  border: none !important;
   margin: 0.5rem;
+}
+.button:hover {
+  border: none !important;
+  text-decoration: none;
+  background-color: yellow !important;
 }
 
 .button.small {
   font-size: 0.5rem;
   height: 1.6rem;
   line-height: 1.5rem;
-  padding: 0 0.4rem;
+  padding: 0 0.8rem;
 }
 
 .button.large {
