@@ -631,12 +631,12 @@
   .no-webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.jpg) no-repeat center
       center fixed;
-    background-size: 1280px 960px;
+    background-size: 200vh 120vh;
   }
   .webp .crion-wrapper {
     background: url(/src/images/planet-images/960/crion.webp) no-repeat center
       center fixed;
-    background-size: 1280px 960px;
+    background-size: 200vh 120vh;
   }
 
   .no-webp .therion-wrapper {

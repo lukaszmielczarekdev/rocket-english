@@ -133,7 +133,6 @@ const Casino = (props) => {
             <p>Deposit amount</p>
             <form id="submitDepositForm" onSubmit={setUpGamble}>
               <input
-                autoFocus
                 type="number"
                 min="1"
                 max="1000000"
