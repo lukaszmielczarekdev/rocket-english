@@ -114,7 +114,7 @@ export const Ufo = (props) => {
   };
 
   return (
-    <div id="ufo-enemy" className="ufo-wrapper">
+    <div id="ufo-enemy" className="ufo-wrapper flex-auto">
       {renderOrRedirect("ufo")}
       <section className="planet-container main-background border border-radius padding margin-block-planet-container">
         <div className="padding border">
@@ -123,10 +123,13 @@ export const Ufo = (props) => {
             <h3>Ufo</h3>
             <p className="place-description">
               Messing with UFOs can end up bad for you because you can lose all
-              your belongings.
+              your belongings. But if you win, you will gain some valuable items
+              that will be useful for your further journey.
               <br />
-              But if you win, you will gain some valuable items that will be
-              useful for your further journey.
+              Fighting UFOs is considered a noble act by the inhabitants of the
+              galaxy as it makes the area safer.There are even special mercenary
+              groups that are engaged in the pursuit and destruction of alien
+              ships.
             </p>
           </div>
           <div className="padding border centered">

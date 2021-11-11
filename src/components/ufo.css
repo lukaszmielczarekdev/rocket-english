@@ -5,7 +5,7 @@
   letter-spacing: 0.1rem;
   text-align: center;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 }
 
 #ufo-enemy ul {
@@ -48,6 +48,10 @@
   #ufo .split > * {
     flex-basis: 100%;
   }
+}
+
+#ufo-enemy h3 {
+  padding-bottom: 2rem;
 }
 
 /* button */
