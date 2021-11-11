@@ -23,8 +23,16 @@ const PlaceUfo = (props) => {
       : "You can attack and win or lose everything.";
   };
 
+  const ufoAccessModifier = () => {
+    return user.user.ifUfoDefeated[user.user.currentPlanet]
+      ? "ufo-access-denied"
+      : "";
+  };
+
   return (
-    <article className="padding-places border carousel-card">
+    <article
+      className={`padding-places border carousel-card ${ufoAccessModifier()}`}
+    >
       <h4>{props.title}</h4>
       <Link to={ufoLink(user.user.currentPlanet)}>
         <picture className="image fit padding-inline-1">

@@ -44,7 +44,7 @@ export const Ufo = (props) => {
   const renderFightButton = () => {
     if (!user.user.ifUfoDefeated[user.user.currentPlanet]) {
       return (
-        <button className="button small" onClick={() => fight(1)}>
+        <button className="button large" onClick={() => fight(1)}>
           Fight
         </button>
       );
@@ -121,16 +121,25 @@ export const Ufo = (props) => {
           <div className="logo logo-place image fit">
             <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
             <h3>Ufo</h3>
+            <p className="place-description">
+              Messing with UFOs can end up bad for you because you can lose all
+              your belongings.
+              <br />
+              But if you win, you will gain some valuable items that will be
+              useful for your further journey.
+            </p>
           </div>
-          {renderFightButton()}
-          <button className="button small">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
-          </button>
+          <div className="padding border centered">
+            {renderFightButton()}
+            <button className="button small">
+              <Link
+                to={`/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
+            </button>
+          </div>
         </div>
       </section>
       <Modal
@@ -139,7 +148,10 @@ export const Ufo = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Ufo summary modal"
       >
-        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+        <i
+          onClick={toggleModal}
+          className="far fa-times-circle modal-button"
+        ></i>
         <ul>{renderSummary()}</ul>
       </Modal>
     </div>

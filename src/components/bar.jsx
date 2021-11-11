@@ -137,6 +137,12 @@ export const Bar = (props) => {
           />
         </picture>
         <h3>Bar</h3>
+        <p className="place-description">
+          Here the bartender will always listen to you.
+          <br />
+          Ask him about everything, as soon as he knows you will hear the
+          answer.
+        </p>
         <article>
           {loading && renderSpinner("10rem")}
           {!loading && renderContentOrError()}

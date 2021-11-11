@@ -77,11 +77,11 @@ const Shop = (props) => {
           </div>
           <div className="padding-border">
             <article className="margin-bottom-2rem">
-              <h3 className="padding">Inventory</h3>
+              <h3 className="padding">Your inventory</h3>
               <ul>{renderUserInventory()}</ul>
             </article>
             <article>
-              <h3 className="padding">Buy</h3>
+              <h3 className="padding">Store</h3>
               <ul>{shopInv()}</ul>
             </article>
           </div>

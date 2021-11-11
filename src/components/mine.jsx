@@ -165,6 +165,13 @@ const Mine = (props) => {
           <div className="logo logo-place image fit">
             <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
             <h3>Mine</h3>
+            <p className="place-description">
+              Both those who want to earn some extra money with hard work and
+              those who have been forced to work for minor offenses are staying
+              here.
+              <br />
+              Mine managers charge a small fee for the possibility of digging.
+            </p>
           </div>
           <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>
