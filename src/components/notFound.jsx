@@ -46,34 +46,28 @@ export const NotFound = (props) => {
   };
 
   return (
-    <div className="notFound-wrapper flex-auto">
-      <div id="ufo" className="main-background not-found">
-        <section className="ufo-container border padding-botton-3rem">
-          <p className="padding-1rem">
-            It's easy to get lost in space and get kidnapped by UFO...
-          </p>
-          {renderBackButton()}
-          <div id="ufo-kidnap" className="ufo-container">
+    <div id="notFound" className="notFound-wrapper">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
+        <article className="border padding">
+          <div className="ufo-container">
             <img
               src={ufo_kidnap}
               alt="space logo"
-              className="ufo logo logo-place padding-3rem not-found-logo"
+              className="ufo logo logo-place not-found-logo"
             />
           </div>
-          <p className="padding-1rem not-found-">
-            Or maybe take a chance - maybe you will find something interesting
-            in space ?
+          <p className="padding-1rem place-description">
+            In space, it's easy to get lost and kidnapped by a UFO ...
+            <br />
+            There have been numerous cases of victorious confrontations with
+            space aliens, but these clashes did not always end successfully.
+            <br />
+            Better not to stray too far from the main routes, and certainly not
+            alone.
           </p>
-          <button className="button small button-margin">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Take a chance
-            </Link>
-          </button>
-        </section>
-      </div>
+          {renderBackButton()}
+        </article>
+      </section>
     </div>
   );
 };

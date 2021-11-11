@@ -1,19 +1,17 @@
 /* typography */
-
 .ufo-container h3 {
   color: var(--clr-primary-100);
 }
-#ufo {
+#notFound {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  letter-spacing: 0.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   text-align: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: smaller;
+  padding: 1.5rem;
 }
 
-#ufo h2 {
+#notFound h2 {
   font-size: 3rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -22,7 +20,7 @@
   letter-spacing: 0.6rem;
 }
 
-#ufo h3 {
+#notFound h3 {
   font-size: 1rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -30,7 +28,7 @@
   color: inherit;
   letter-spacing: 0.3rem;
 }
-#ufo h4 {
+#notFound h4 {
   font-size: 1rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -40,26 +38,17 @@
 }
 
 /* layout */
-.ufo-wrapper {
-  align-content: center;
-  justify-content: center;
-  display: grid;
-}
-
-#ufo {
+#notFound {
   align-items: center;
   justify-content: center;
   align-content: center;
   width: 100%;
+  display: grid;
+  flex: auto;
 }
 
 .flex-auto {
   flex: auto;
-}
-
-#ufo-kidnap {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 }
 
 /* image */
@@ -84,10 +73,6 @@
   opacity: 0;
   transition: opacity 0.5s, visibility 0.5s;
 }
-/* .ufo-container {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-} */
 
 .ufo-container:hover .ufo {
   visibility: visible;

@@ -19,7 +19,7 @@
 }
 
 #shop h3 {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 #shop article ul {
@@ -55,13 +55,13 @@
 }
 
 /* general */
-.border-bottom {
+#shop .border-bottom {
   border-bottom: 1px solid #ffff;
 }
 
 @media (max-width: 1020px) {
-  .margin-bottom-1rem {
-    margin-bottom: 1rem;
+  .margin-bottom-2rem {
+    margin-bottom: 2rem;
   }
 }
 

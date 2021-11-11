@@ -121,6 +121,12 @@ const Casino = (props) => {
           <div className="logo logo-place image fit">
             <img src={casino} alt="casino logo" width="100em" height="auto" />
             <h3>Casino</h3>
+            <p className="place-description">
+              The dealer will be happy to run the next game.
+              <br />
+              You have to be careful, you never know what tricks are used by
+              seasoned players.
+            </p>
           </div>
           <article className="padding-places">
             <p>Available credits: {inventory.inventory.credits}</p>

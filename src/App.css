@@ -75,6 +75,11 @@ button {
 .text-center {
   text-align: center;
 }
+.place-description {
+  color: yellow;
+  font-weight: normal;
+  padding: 0.5rem;
+}
 
 @media screen and (min-width: 420px) {
   html {

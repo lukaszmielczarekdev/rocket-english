@@ -68,6 +68,12 @@ export const Factory = (props) => {
           <div className="logo logo-place image fit">
             <img src={rocket} alt="factory logo" width="100em" height="auto" />
             <h3>Factory</h3>
+            <p className="place-description">
+              The robotic brigade is constantly building and repairing damaged
+              spacecraft.
+              <br />
+              They are also happy to upgrade the space rocket.
+            </p>
           </div>
           <div>
             {user.user.rocketLvl === 5 && (

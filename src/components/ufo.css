@@ -1,4 +1,4 @@
-#ufo {
+#ufo-enemy {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
   font-weight: 700;
@@ -7,13 +7,13 @@
   padding: 2rem;
 }
 
-#ufo ul {
+#ufo-enemy ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-#ufo ul li {
+#ufo-enemy ul li {
   border-left: 0;
   margin: 1rem 0 0 0;
   padding-left: 0;
