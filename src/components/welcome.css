@@ -79,34 +79,6 @@
   border: 1px solid #e1f5fce1 !important;
 }
 
-/* buttons */
-/* 
-#welcome button {
-  font-family: var(--ff-primary);
-  color: var(--clr-primary-300);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  background-color: var(--clr-neutral-100);
-  padding-inline: 1rem;
-  text-transform: uppercase;
-  border-radius: 15px;
-  margin: 1rem;
-  border: none;
-  text-decoration: none;
-  display: inline-block;
-}
-#welcome button:hover {
-  border: none;
-  text-decoration: none;
-  color: rgb(1, 9, 27) !important;
-  background-color: yellow !important;
-}
-
-#welcome button a {
-  text-decoration: none;
-  display: block;
-} */
-
 #welcome .welcome-form {
   align-content: center;
   justify-content: center;

@@ -27,6 +27,7 @@ import Bathea from "./components/planets/bathea";
 import Axios from "./components/planets/axios";
 import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/testMenu";
+import Help from "./components/help";
 import "./App.css";
 
 export default function App() {
@@ -75,7 +76,7 @@ export default function App() {
     gamePaused: false,
     // if a place is not on the planet it will not be rendered
     availablePlanets: {
-      menu: { available: true, discovered: true, places: [] },
+      menu: { available: true, discovered: true, places: ["help"] },
       crion: {
         available: false,
         discovered: false,
@@ -89,6 +90,7 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       therion: {
@@ -101,6 +103,7 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       crystalia: {
@@ -114,6 +117,7 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       thalia: {
@@ -126,11 +130,12 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       bathea: {
         available: false,
-        places: ["ufo", "bar", "quiz", "pad", "inventory", "favorites"],
+        places: ["ufo", "bar", "quiz", "pad", "inventory", "favorites", "help"],
       },
       axios: {
         available: false,
@@ -143,6 +148,7 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       desertia: {
@@ -155,6 +161,7 @@ export default function App() {
           "inventory",
           "favorites",
           "university",
+          "help",
         ],
       },
       xillon: {
@@ -167,11 +174,20 @@ export default function App() {
           "pad",
           "inventory",
           "favorites",
+          "help",
         ],
       },
       centuria: {
         available: false,
-        places: ["shop", "casino", "quiz", "pad", "inventory", "favorites"],
+        places: [
+          "shop",
+          "casino",
+          "quiz",
+          "pad",
+          "inventory",
+          "favorites",
+          "help",
+        ],
       },
     },
   };
@@ -458,6 +474,7 @@ export default function App() {
                 <Route path="/favorites" component={Favorites} />
                 <Route path="/university" component={TestMenu} />
                 <Route path="/inventory" component={Inventory} />
+                <Route path="/help" component={Help} />
                 <Route path="/xillon" component={Xillon} />
                 <Route path="/centuria" component={Centuria} />
                 <Route path="/crion" component={Crion} />

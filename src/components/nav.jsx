@@ -35,13 +35,8 @@ const Nav = (props) => {
             </NavLink>
           )}
           <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-            {/* <li
-              className={user.user.currentPlanet === "menu" ? "nav-hidden" : "#"}
-            >
-              Welcome {user.user.name}
-            </li> */}
             <li className="nav-links menu">
-              <NavLink className="navbar-navlink" to="#">
+              <NavLink className="navbar-navlink" to="/help">
                 How to Play
               </NavLink>
             </li>
