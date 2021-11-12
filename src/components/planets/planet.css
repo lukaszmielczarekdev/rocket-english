@@ -134,7 +134,7 @@
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  width: min(80%, 70rem);
+  /* width: min(80%, 70rem); */
   padding-bottom: auto;
   text-align: center;
   margin-left: auto;
