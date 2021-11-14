@@ -99,7 +99,14 @@ const GapTest = (props) => {
     const filtered = [];
 
     for (let [index, word] of splittedText.entries()) {
-      if (word === "the" || word === "a" || word === "an") {
+      if (
+        word === "the" ||
+        word === "The" ||
+        word === "a" ||
+        word === "A" ||
+        word === "an" ||
+        word === "An"
+      ) {
         filtered.push(
           <input
             type="text"

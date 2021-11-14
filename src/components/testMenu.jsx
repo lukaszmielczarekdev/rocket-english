@@ -99,11 +99,10 @@ const TestMenu = (props) => {
                 <input
                   type="text"
                   {...register("usertext", {
-                    // placeholder: "5 - 100 characters",
                     required: true,
                     minLength: 5,
-                    maxLength: 100,
-                    pattern: /^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/i,
+                    maxLength: 5000,
+                    pattern: /.*/i,
                   })}
                 />
                 <button type="submit" className="button small">
