@@ -8,6 +8,7 @@
 
   --clr-neutral-100: white;
   --clr-neutral-200: #929191;
+  --clr-neutral-300: rgb(180, 180, 180);
 
   --ff-primary: "Futura", sans-serif;
   --ff-secondary: "Source Sans Pro", Arial, sans-serif;
@@ -144,6 +145,7 @@ img {
 ol,
 ul {
   list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 

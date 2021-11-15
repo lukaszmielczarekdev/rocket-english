@@ -1,5 +1,5 @@
 /* typography */
-#inventory {
+#casino {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
   font-weight: normal;
@@ -9,22 +9,21 @@
   padding-bottom: 2rem;
 }
 
-#inventory ul {
-  margin: 0;
-  padding-left: 0;
-  list-style: none;
+#casino button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
 }
 
-#inventory ul li {
-  border-left: 0;
-  margin: 0.5rem 0 0 0;
-  padding-left: 0;
-  display: block;
-  list-style: none;
+#casino button:hover {
+  border: none;
+}
+
+#casino form {
+  padding: 1rem;
 }
 
 /* layout */
-#inventory {
+#casino {
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -33,56 +32,51 @@
   flex: auto;
 }
 
-#inventory .split {
+#casino .split {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 @media (min-width: 1400px) {
-  #inventory .split {
+  #casino .split {
     flex-direction: row;
   }
-  #inventory .split > * {
+  #casino .split > * {
     flex-basis: 100%;
   }
 }
 
-/* button */
-
-#inventory button {
-  color: var(--clr-primary-100);
-  border: 1px solid var(--clr-primary-100);
-  margin-top: 1rem;
+@media screen and (min-width: 420px) {
+  .logo-place img {
+    width: 20% !important;
+  }
 }
 
-#inventory button:hover {
-  border: none;
-}
 /* background */
+
 @media screen and (min-width: 1281px) {
-  .no-webp .inventory-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
-  .webp .inventory-wrapper {
+  .webp .casino-wrapper {
     background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
       center fixed;
 
     background-size: cover;
   }
 }
-
 @media screen and (max-width: 1280px) {
-  .no-webp .inventory-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
-  .webp .inventory-wrapper {
+  .webp .casino-wrapper {
     background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
       center fixed;
 
@@ -91,13 +85,13 @@
 }
 
 @media screen and (max-width: 640px) {
-  .no-webp .inventory-wrapper {
+  .no-webp .casino-wrapper {
     background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
-  .webp .inventory-wrapper {
+  .webp .casino-wrapper {
     background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
       center fixed;
 

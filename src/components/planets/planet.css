@@ -41,6 +41,10 @@
   color: yellow !important;
 }
 
+.visited {
+  color: var(--clr-neutral-300);
+}
+
 /* layout */
 #planet {
   align-items: center;
@@ -161,6 +165,14 @@
   .desktop {
     display: contents;
   }
+}
+.width-80 {
+  width: min(80%, 70rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .planet-split {

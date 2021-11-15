@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
+import DialogueMenu from "./universal/dialogueMenu";
 import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import shop_logo from "../images/shop.png";
+import "./planets/planet.css";
 import "./shop.css";
 
 const Shop = (props) => {
@@ -27,7 +29,7 @@ const Shop = (props) => {
       <li key={element[0]}>
         {element[0]}{" "}
         <button
-          className="button small cubical"
+          className="button small cubical margin-0-3rem"
           onClick={() => {
             shop.buyItem(element[0], 1, element[1], 1);
           }}
@@ -63,39 +65,70 @@ const Shop = (props) => {
   };
 
   return (
-    <div id="shop" className="shop-wrapper">
+    <main id="shop" className="shop-wrapper">
       {renderOrRedirect("shop")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
-            <h3>Shop</h3>
-            <p className="place-description">
+      <section className="shop-header-container">
+        <article className="shop-split">
+          <header className="content">
+            <h2 className="shop-name">shop</h2>
+            <hr className="underline" />
+            <p className="shop-description">
               From a distance you can see the smile of the salesperson who rubs
               his hands when he sees a new customer.
             </p>
-          </div>
-          <div className="padding-border">
-            <article className="margin-bottom-2rem">
-              <h3 className="padding">Your inventory</h3>
-              <ul>{renderUserInventory()}</ul>
+          </header>
+          <p className="logo logo-place image fit margin-bottom-0">
+            <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
+          </p>
+        </article>
+        <section>
+          <header className="places-header">
+            <h3>Trade</h3>
+            <hr className="underline-places" />
+          </header>
+          <article className="shop-split margin-bottom-2rem">
+            <article className="align-self-flex-start">
+              <header>
+                <h4>Your inventory</h4>
+              </header>
+              <p>
+                <ul>{renderUserInventory()}</ul>
+              </p>
             </article>
-            <article>
-              <h3 className="padding">Store</h3>
-              <ul>{shopInv()}</ul>
+            <article className="align-self-flex-start">
+              <header>
+                <h4>buy</h4>
+              </header>
+              <p>
+                <ul>{shopInv()}</ul>
+              </p>
             </article>
-          </div>
-          <button className="button small">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
-          </button>
-        </div>
+          </article>
+        </section>
+        <section>
+          <header className="places-header">
+            <h3>Talk</h3>
+            <hr className="underline-places" />
+          </header>
+          <article>
+            <header>
+              <h4>shopkeeper</h4>
+            </header>
+            {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
+              <DialogueMenu place={"shop"} />
+            )}
+          </article>
+        </section>
+        <button className="button small">
+          <Link
+            to={`/${user.user.currentPlanet}`}
+            style={{ textDecoration: "none" }}
+          >
+            Walk away
+          </Link>
+        </button>
       </section>
-    </div>
+    </main>
   );
 };
 

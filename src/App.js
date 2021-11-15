@@ -64,6 +64,99 @@ export default function App() {
       Axios: false,
       Desertia: false,
     },
+    dialogues: {
+      crion: [
+        {
+          id: 1,
+          place: "shop",
+          question: "Why aren't you buying goods from customers?",
+          answer:
+            "Once I bought aluminum at a very cheap price, then Galactic Police officers came to me and confiscated all the goods that were supposedly stolen. They said it's been a common situation lately and they are on the trail of a gang that is distributing stolen goods around the galaxy. So far, I have not recovered neither the credits nor the goods, so just in case I have suspended the buying.",
+          completed: false,
+        },
+        {
+          id: 2,
+          place: "shop",
+          question:
+            "Do you know anything about a space rocket that recently landed here?",
+          answer:
+            "Many rockets land here, our planet is a popular tourist attraction. But yeah... I heard that a rocket landed very precisely and slowly recently, but no one has come out of it since then. As you have probably noticed, the inhabitants of the planet are children, and they immediately run to see what lands here.",
+          completed: false,
+        },
+        {
+          id: 3,
+          place: "casino",
+          question: "Do residents visit this place often?",
+          answer:
+            "Residents rarely come here, even if it is to watch tourists play. It is quite a popular place on the planet, so much so that some of the inhabitants have gambling debts. There are those who have been caught cheating and they are now banned from casinos across the galaxy.",
+          completed: false,
+        },
+      ],
+      therion: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      crystalia: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      thalia: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      xillon: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      bathea: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      axios: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      desertia: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+      centuria: [
+        {
+          id: 1,
+          question: "question",
+          answer: "answer",
+          completed: false,
+        },
+      ],
+    },
   };
 
   const [userInfo, setUserInfo] = useState(
@@ -316,12 +409,14 @@ export default function App() {
     setUserInventory(userInventoryDummy);
   };
 
-  // add to favorite
+  // add to favorites
   const handleAddToFavorite = (word, def) => {
     const userInventoryDummy = { ...userInventory };
     userInventoryDummy.favs[word] = def;
     setUserInventory(userInventoryDummy);
   };
+
+  // remove from favorites
   const handleRemoveFromFavorite = (word) => {
     const userInventoryDummy = { ...userInventory };
     delete userInventoryDummy.favs[word];
@@ -350,7 +445,6 @@ export default function App() {
   };
 
   // upgrade the rocket
-
   const handleUpgradeRocket = (giveItems) => {
     const userInventoryDummy = { ...userInventory };
     for (const [item, amount] of Object.entries(giveItems)) {
@@ -373,6 +467,15 @@ export default function App() {
         userInventoryDummy.credits - price * multiplier;
       setUserInventory(userInventoryDummy);
     }
+  };
+
+  // dialogues: mark as completed
+  const handleSetCompleted = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    userDataDummy.dialogues[planet].find(
+      (elem) => elem.id === id
+    ).completed = true;
+    setUserInfo(userDataDummy);
   };
 
   // lvl
@@ -413,7 +516,6 @@ export default function App() {
   };
 
   // set ufo defeated
-
   const setUfoDefeated = (planet) => {
     const userDataDummy = { ...userInfo };
     userDataDummy.ifUfoDefeated[planet] = true;
@@ -460,6 +562,7 @@ export default function App() {
                 onSetPlanet: handleSetPlanet,
                 onSetName: handleSetName,
                 onSetUfo: setUfoDefeated,
+                setDialogueCompleted: handleSetCompleted,
               }}
             >
               <Switch>
