@@ -4,9 +4,10 @@ import { Link, Redirect } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import casino from "../images/casino.png";
+import DialogueMenu from "./universal/dialogueMenu";
+import casino_logo from "../images/casino.png";
 import Modal from "react-modal";
-import "../App.css";
+import "./planets/planet.css";
 import "./casino.css";
 
 Modal.setAppElement(document.getElementById("root"));
@@ -53,11 +54,20 @@ const Casino = (props) => {
     }
   };
 
+  const renderSign = (number) => {
+    return number > 0 ? "+" : "";
+  };
+
+  const setColor = (element) => {
+    return element > 0 ? "win" : "lose";
+  };
+
   const renderSummary = () => {
     if (Array.isArray(summary)) {
       if (summary.length !== 0) {
         return summary.map((element) => (
-          <li key={element[0]}>
+          <li className={`color-${setColor(element[1])}`} key={element[0]}>
+            {renderSign(element[1])}
             {element[1]} {"[!]"}{" "}
           </li>
         ));
@@ -70,7 +80,7 @@ const Casino = (props) => {
   };
 
   const gamble = (amount) => {
-    const winRate = [1, 1.25, 1.75];
+    const winRate = [1.25, 1.75, 2.25, 2.75];
     const loseOrWin = ["loser", "loser", "winner"];
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
     if (result === "loser") {
@@ -80,9 +90,10 @@ const Casino = (props) => {
       toggleModal();
     } else {
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
-      const prize = amount * rate;
+      console.log(rate);
+      const prize = Math.floor(amount * rate);
       inventory.addCredits(prize);
-      founds["credits"] = amount;
+      founds["credits"] = prize;
       casinoSummary(founds);
       toggleModal();
     }
@@ -114,47 +125,81 @@ const Casino = (props) => {
   };
 
   return (
-    <div id="casino" className="casino-wrapper">
+    <main id="casino" className="casino-wrapper">
       {renderOrRedirect("casino")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <img src={casino} alt="casino logo" width="100em" height="auto" />
-            <h3>Casino</h3>
-            <p className="place-description">
-              The dealer will be happy to run the next game.
-              <br />
-              You have to be careful, you never know what tricks are used by
-              seasoned players.
+      <section className="casino-header-container">
+        <article className="casino-split">
+          <header className="content">
+            <h2 className="casino-name">casino</h2>
+            <hr className="underline" />
+            <p className="casino-description">
+              The dealer will be happy to run the next game. You have to be
+              careful, you never know what tricks are used by seasoned players.
             </p>
-          </div>
-          <article className="padding-places">
-            <p>Available credits: {inventory.inventory.credits}</p>
-            <p>Deposit amount</p>
-            <form id="submitDepositForm" onSubmit={setUpGamble}>
-              <input
-                type="number"
-                min="1"
-                max="1000000"
-                required
-                id="submitDepositFormInput"
-              />
-            </form>
-            <div className="padding border centered">
+          </header>
+          <p className="logo logo-place image fit margin-bottom-0">
+            <img
+              src={casino_logo}
+              alt="casino logo"
+              width="100em"
+              height="auto"
+            />
+          </p>
+        </article>
+        <section>
+          <header className="places-header">
+            <h3>gamble</h3>
+            <hr className="underline-places" />
+          </header>
+          <article className="casino-split margin-bottom-2rem">
+            <article className="align-self-flex-start">
+              <header>
+                <h4>available credits</h4>
+              </header>
+              <p>{inventory.inventory.credits}</p>
+            </article>
+            <article className="align-self-flex-start">
+              <header>
+                <h4>play</h4>
+              </header>
+              <p>Deposit</p>
+              <form id="submitDepositForm" onSubmit={setUpGamble}>
+                <input
+                  type="number"
+                  min="1"
+                  max="1000000"
+                  required
+                  id="submitDepositFormInput"
+                />
+              </form>
               <button className="button small" onClick={setUpGamble}>
                 Good Luck
               </button>
-              <button className="button small">
-                <Link
-                  to={`/${user.user.currentPlanet}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  Go Back
-                </Link>
-              </button>
-            </div>
+            </article>
           </article>
-        </div>
+        </section>
+        <section>
+          <header className="places-header">
+            <h3>Talk</h3>
+            <hr className="underline-places" />
+          </header>
+          <article>
+            <header>
+              <h4>croupier</h4>
+            </header>
+            {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
+              <DialogueMenu place={"casino"} />
+            )}
+          </article>
+        </section>
+        <button className="button small">
+          <Link
+            to={`/${user.user.currentPlanet}`}
+            style={{ textDecoration: "none" }}
+          >
+            Walk away
+          </Link>
+        </button>
       </section>
       <Modal
         style={modalStyle}
@@ -165,7 +210,7 @@ const Casino = (props) => {
         <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
-    </div>
+    </main>
   );
 };
 

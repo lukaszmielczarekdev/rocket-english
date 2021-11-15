@@ -41,6 +41,13 @@
   color: yellow !important;
 }
 
+.color-win {
+  color: greenyellow;
+}
+.color-lose {
+  color: red;
+}
+
 .visited {
   color: var(--clr-neutral-300);
 }
