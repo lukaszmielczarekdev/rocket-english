@@ -91,6 +91,14 @@ export default function App() {
             "Residents rarely come here, even if it is to watch tourists play. It is quite a popular place on the planet, so much so that some of the inhabitants have gambling debts. There are those who have been caught cheating and they are now banned from casinos across the galaxy.",
           completed: false,
         },
+        {
+          id: 4,
+          place: "factory",
+          question: "Where do you get the materials from?",
+          answer:
+            "We take spare parts from ships that are no longer repairable or unprofitable to repair. If we have the right parts, we build the necessary elements ourselves. Rare parts are provided by mercenaries who hunt UFOs - these ships are a real treasure. I am waiting for the day when we manage to take over some large ship and we can obtain some alien technology. They supposedly know how to teleport... think how much it would make our lives easier.",
+          completed: false,
+        },
       ],
       therion: [
         {
@@ -111,8 +119,10 @@ export default function App() {
       thalia: [
         {
           id: 1,
-          question: "question",
-          answer: "answer",
+          place: "shop",
+          question: "Where do you get the goods from?",
+          answer:
+            "Until recently, we bought them from customers, but recently we only source from trusted wholesalers. Some time ago, a client was offering large amounts of moonshine, he looked suspicious and looked at me strangely when I told him that moonshine is forbidden on our planet. Same with the rest of the plenets. Weird guy.",
           completed: false,
         },
       ],

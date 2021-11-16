@@ -4,7 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
-import rocket from "../images/rocket.png";
+import DialogueMenu from "./universal/dialogueMenu";
+import rocket_logo from "../images/rocket.png";
 import upgrades from "../utils/rocket";
 import "./factory.css";
 
@@ -61,46 +62,79 @@ export const Factory = (props) => {
   };
 
   return (
-    <div id="factory" className="factory-wrapper">
+    <main id="factory" className="factory-wrapper">
       {renderOrRedirect("factory")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <img src={rocket} alt="factory logo" width="100em" height="auto" />
-            <h3>Factory</h3>
-            <p className="place-description">
+      <section className="factory-header-container">
+        <article className="factory-split">
+          <header className="content">
+            <h2 className="factory-name">factory</h2>
+            <hr className="underline" />
+            <p className="factory-description">
               The robotic brigade is constantly building and repairing damaged
               spacecraft.
               <br />
               They are also happy to upgrade the space rocket.
             </p>
-          </div>
-          <div>
-            {user.user.rocketLvl === 5 && (
-              <p>
-                The rocket is now at its maximum level - {user.user.rocketLvl}
-              </p>
+          </header>
+          <p className="logo logo-place image fit margin-bottom-0">
+            <img
+              src={rocket_logo}
+              alt="factory logo"
+              width="100em"
+              height="auto"
+            />
+          </p>
+        </article>
+        <section>
+          <header className="places-header">
+            <h3>Upgrade</h3>
+            <hr className="underline-places" />
+          </header>
+          <article className="factory-split margin-bottom-2rem">
+            <article className="align-self-flex-start">
+              <header>
+                <h4>build</h4>
+              </header>
+              {user.user.rocketLvl === 5 && (
+                <p>
+                  The rocket is now at its maximum level - {user.user.rocketLvl}
+                </p>
+              )}
+              {user.user.rocketLvl < 5 && (
+                <p>Current rocket level - {user.user.rocketLvl}</p>
+              )}
+              {user.user.rocketLvl < 5 && (
+                <p>Next level cost - {renderRequirements()}</p>
+              )}
+              {user.user.rocketLvl < 5 &&
+                renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
+            </article>
+          </article>
+        </section>
+        <section>
+          <header className="places-header">
+            <h3>Talk</h3>
+            <hr className="underline-places" />
+          </header>
+          <article>
+            <header>
+              <h4>Engineer</h4>
+            </header>
+            {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
+              <DialogueMenu place={"factory"} />
             )}
-            {user.user.rocketLvl < 5 && (
-              <p>Current rocket level - {user.user.rocketLvl}</p>
-            )}
-            {user.user.rocketLvl < 5 && (
-              <p>Next level cost - {renderRequirements()}</p>
-            )}
-            {user.user.rocketLvl < 5 &&
-              renderUpgradeButton(upgrades[user.user.rocketLvl + 1])}
-          </div>
-          <button className="button small">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
-          </button>
-        </div>
+          </article>
+        </section>
+
+        <Link
+          className={"link-button"}
+          to={`/${user.user.currentPlanet}`}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="button small">Walk away</button>
+        </Link>
       </section>
-    </div>
+    </main>
   );
 };
 export default Factory;

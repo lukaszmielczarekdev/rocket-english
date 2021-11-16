@@ -254,6 +254,10 @@
   border: none;
 }
 
+.link-button {
+  display: inline;
+}
+
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .shop-wrapper {

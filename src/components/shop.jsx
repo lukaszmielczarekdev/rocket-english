@@ -119,14 +119,13 @@ const Shop = (props) => {
             )}
           </article>
         </section>
-        <button className="button small">
-          <Link
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            Walk away
-          </Link>
-        </button>
+        <Link
+          className={"link-button"}
+          to={`/${user.user.currentPlanet}`}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="button small">Walk away</button>
+        </Link>
       </section>
     </main>
   );
