@@ -118,6 +118,13 @@ const Quiz = (props) => {
         <div className="loader">{loading && renderSpinner("10rem")}</div>
         {!loading && renderContentOrError()}
       </article>
+      <Link
+        className={"link-button"}
+        to={`/${user.user.currentPlanet}`}
+        style={{ textDecoration: "none" }}
+      >
+        <button className="button small">Go Back</button>
+      </Link>
     </div>
   );
 };
