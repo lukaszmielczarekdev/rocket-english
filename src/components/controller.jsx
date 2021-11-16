@@ -3,10 +3,30 @@ import React, { useState, useRef, useContext, useEffect } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
 import Summary from "./quizSummary";
+import { Redirect } from "react-router-dom";
 import getRandomWords from "../utils/wordsList";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
+import GeneralContext from "../contexts/generalContext";
+import Modal from "react-modal";
 import "./controller.css";
+import "./quiz.css";
+
+Modal.setAppElement(document.getElementById("root"));
+
+const modalStyle = {
+  content: {
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const Controller = (props) => {
   const user = useContext(UserContext);
@@ -14,10 +34,17 @@ const Controller = (props) => {
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
 
+  const general = useContext(GeneralContext);
+
   const [showMenu, setShowMenu] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [key, setKey] = useState(Math.random());
+  const [modalTrigger, setModalTrigger] = useState(false);
+
+  const toggleModal = () => {
+    setModalTrigger(!modalTrigger);
+  };
 
   let quizLength = useRef(0);
   let wordsList = useRef([]);
@@ -87,7 +114,7 @@ const Controller = (props) => {
       // forces the Quiz component to re-render with a new word by changing it's uniqe key
       setKey(Math.random());
     } else {
-      alert("Try again");
+      toggleModal();
     }
   };
 
@@ -118,8 +145,19 @@ const Controller = (props) => {
     handleShowQuiz();
   };
 
+  const renderOrRedirect = (place) => {
+    if (
+      !general.general.availablePlanets[
+        user.user.currentPlanet
+      ].places.includes(place)
+    ) {
+      return <Redirect to="/space" />;
+    }
+  };
+
   return (
-    <div id="main" className="main-wrapper">
+    <main id="quiz" className="quiz-wrapper">
+      {renderOrRedirect("quiz")}
       {showMenu && (
         <Menu
           showMenu={handleShowMenu}
@@ -148,7 +186,18 @@ const Controller = (props) => {
           showSummary={handleShowSummary}
         />
       )}
-    </div>
+      <Modal
+        style={modalStyle}
+        isOpen={modalTrigger}
+        onRequestClose={toggleModal}
+        contentLabel="Quiz answer"
+      >
+        <ul>
+          <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+          <li>Try again</li>
+        </ul>
+      </Modal>
+    </main>
   );
 };
 

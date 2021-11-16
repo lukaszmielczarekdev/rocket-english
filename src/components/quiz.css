@@ -1,12 +1,44 @@
 /* typography */
+.planet-container h3 {
+  color: var(--clr-primary-100);
+}
 #quiz {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: normal;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
+}
+
+#quiz h2 {
+  font-size: 2.5rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#quiz h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: yellow;
+  letter-spacing: 0.3rem;
+}
+#quiz h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+.quiz-info-container h4 {
+  color: yellow !important;
 }
 
 /* layout */
@@ -15,38 +47,284 @@
   justify-content: center;
   align-content: center;
   width: 100%;
-  display: grid;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  display: flex;
   flex: auto;
 }
-#main form input {
+.flex-auto {
+  flex: auto;
+}
+#quiz form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quiz ul,
+li {
+  border-left: 0;
+  padding-left: 0;
+  display: block;
+  list-style: none;
   margin: 1rem;
 }
 
-/* button */
-#main button {
-  font-family: var(--ff-primary);
-  color: var(--clr-primary-100);
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  background-color: var(--clr-primary-000);
-  padding-inline: 0.5rem;
-  text-transform: uppercase;
-  border: 1px solid var(--clr-primary-100);
-  display: block;
-  margin: 1rem auto;
+@media screen and (min-width: 960px) {
+  .content {
+    width: 80%;
+    margin-left: 5rem;
+    margin-right: 3rem;
+  }
 }
-#main button:hover {
-  border: none;
+.quiz-container {
+  display: flex;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
-#main button a {
-  text-decoration: none;
-  display: block;
+.flex-column {
+  flex-direction: column;
+}
+
+.header-container {
+  margin-bottom: 3rem;
+}
+
+.desktop {
+  display: none;
+}
+
+.quiz-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1020px) {
+  .quiz-split {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .quiz-split {
+    flex-direction: row;
+  }
+  .quiz-split > * {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 480px) {
+  .underline {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 70%;
+    margin-top: 1rem;
+  }
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  .margin-bottom-0 {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #quiz h2 {
+    align-self: flex-start;
+    justify-self: left;
+    margin-right: -100px;
+  }
+  .underline {
+    width: 65%;
+    height: 0.1rem;
+    margin-left: -2rem;
+    background-color: white;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 20%;
+    height: 0.1rem;
+    margin-right: -2rem;
+    background-color: white;
+    align-self: center;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+  #quiz .places-header {
+    display: flex;
+    width: min(60%, 70rem);
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+  .places-header h3 {
+    justify-self: center;
+  }
+  .quiz-name {
+    margin-bottom: 0;
+  }
+
+  .quiz-description {
+    margin-bottom: 0 !important;
+    letter-spacing: 0.06rem;
+    margin-right: auto;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .quiz-description {
+    border-left: none;
+  }
+}
+
+.quiz-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .border {
+    border-bottom: none;
+  }
+}
+
+#quiz p {
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  margin-bottom: 0;
+}
+
+.border-radius {
+  border-radius: 10px;
+}
+
+.padding-places {
+  padding: 1rem;
+}
+
+.padding-botton-3rem {
+  padding-bottom: 3rem;
+}
+
+.padding-1rem {
+  padding: 1rem;
+}
+
+.padding-3rem {
+  padding: 3rem;
+}
+
+.margin-1rem {
+  margin: 1rem;
+}
+
+#quiz .button-margin {
+  margin: 0.5rem auto !important;
+}
+
+.margin-block-quiz-container {
+  margin: auto;
+}
+.margin-0-3rem {
+  margin: 0.3rem !important;
+}
+
+.margin-bottom-2rem {
+  margin-bottom: 2rem !important;
+}
+
+.logo img {
+  width: 35% !important;
+}
+
+@media screen and (min-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
+
+/* button */
+#quiz button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+}
+
+#quiz button:hover {
+  border: none;
+}
+.link-button {
+  display: inline;
 }
 
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+}
+
+/* background */
+@media screen and (min-width: 1281px) {
+  .no-webp .quiz-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .quiz-wrapper {
+    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .no-webp .quiz-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .quiz-wrapper {
+    background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .no-webp .quiz-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
+  .webp .quiz-wrapper {
+    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
+      center fixed;
+
+    background-size: cover;
+  }
 }

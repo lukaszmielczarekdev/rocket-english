@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import quiz from "../images/quiz.png";
+import quiz_logo from "../images/quiz.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
@@ -20,22 +20,31 @@ const Menu = (props) => {
   };
 
   return (
-    <div id="quiz">
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <img src={quiz} alt="quiz logo" width="100em" height="auto" />
-            <h3>Quiz</h3>
-          </div>
-          <article className="padding-places">
-            <p className="place-description">
-              There will be someone on every planet who will gladly agree to
-              play the guesswork.
-              <br />
-              Who knows, maybe he'll even give you something as a reward for
-              giving the correct answers.
-            </p>
-            <p>Quiz length:</p>
+    <section className="quiz-header-container">
+      <article className="quiz-split">
+        <header className="content">
+          <h2 className="quiz-name">quiz</h2>
+          <hr className="underline" />
+          <p className="quiz-description">
+            There will be someone on every planet who will gladly agree to play
+            the guesswork. Who knows, maybe he'll even give you something as a
+            reward for giving the correct answers.
+          </p>
+        </header>
+        <p className="logo logo-place image fit margin-bottom-0">
+          <img src={quiz_logo} alt="quiz logo" width="100em" height="auto" />
+        </p>
+      </article>
+      <section>
+        <header className="places-header">
+          <h3>challenge</h3>
+          <hr className="underline-places" />
+        </header>
+        <article className="quiz-split margin-bottom-2rem">
+          <article className="align-self-flex-start">
+            <header>
+              <h4>quiz length</h4>
+            </header>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
                 type="number"
@@ -52,18 +61,17 @@ const Menu = (props) => {
                 Start
               </button>
             </form>
-            <button className="button small">
-              <Link
-                to={`/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
           </article>
-        </div>
+        </article>
       </section>
-    </div>
+      <Link
+        className={"link-button"}
+        to={`/${user.user.currentPlanet}`}
+        style={{ textDecoration: "none" }}
+      >
+        <button className="button small">Go Back</button>
+      </Link>
+    </section>
   );
 };
 

@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
 import api from "../utils/api";
 import "./quiz.css";
@@ -15,7 +14,6 @@ const Quiz = (props) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const general = useContext(GeneralContext);
   const user = useContext(UserContext);
 
   useEffect(() => {
@@ -58,16 +56,6 @@ const Quiz = (props) => {
     }
   };
 
-  const renderOrRedirect = (place) => {
-    if (
-      !general.general.availablePlanets[
-        user.user.currentPlanet
-      ].places.includes(place)
-    ) {
-      return <Redirect to="/space" />;
-    }
-  };
-
   const renderContentOrError = () => {
     if (!errorMessage) {
       return (
@@ -87,12 +75,11 @@ const Quiz = (props) => {
             <button type="submit" className="button small">
               Answer
             </button>
+            {renderWord()}
           </form>
-
           <button className="button small" onClick={props.skipDefinition}>
             Skip
           </button>
-          {renderWord()}
         </>
       );
     } else {
@@ -126,17 +113,12 @@ const Quiz = (props) => {
   };
 
   return (
-    <>
-      {renderOrRedirect("quiz")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <article className="padding-places">
-            <div className="loader">{loading && renderSpinner("10rem")}</div>
-            {!loading && renderContentOrError()}
-          </article>
-        </div>
-      </section>
-    </>
+    <div className="quiz-container width-80">
+      <article className="padding-places">
+        <div className="loader">{loading && renderSpinner("10rem")}</div>
+        {!loading && renderContentOrError()}
+      </article>
+    </div>
   );
 };
 

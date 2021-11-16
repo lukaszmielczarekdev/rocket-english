@@ -3,7 +3,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
-import "./quizSummary.css";
 
 const Summary = (props) => {
   const [summary, setSummary] = useState([]);
@@ -25,25 +24,21 @@ const Summary = (props) => {
   const renderAddOrRemoveButton = (word, def) => {
     if (!inventory.inventory.favs[word]) {
       return (
-        <button
-          className="button small"
+        <i
+          class="far fa-star"
           onClick={() => {
             inventory.addToFavorite(word, def);
           }}
-        >
-          Add to Favorite
-        </button>
+        ></i>
       );
     } else {
       return (
-        <button
-          className="button small"
+        <i
+          className="fas fa-star"
           onClick={() => {
             inventory.removeFromFavorite(word);
           }}
-        >
-          Remove from Favorite
-        </button>
+        ></i>
       );
     }
   };
@@ -52,9 +47,8 @@ const Summary = (props) => {
     if (summary.length !== 0) {
       return summary.map((element) => (
         <li key={element[0]}>
-          {" "}
-          {element[0]} - {element[1]} {console.log(element[0])}
-          {renderAddOrRemoveButton(element[0], element[1])}
+          {renderAddOrRemoveButton(element[0], element[1])} {element[0]} -{" "}
+          {element[1]}
         </li>
       ));
     } else {
@@ -62,27 +56,21 @@ const Summary = (props) => {
     }
   };
   return (
-    <div id="quiz-summary">
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border planet-split">
-          <article className="padding-places">
-            <h3>Summary</h3>
-            <ul>{renderSummary()}</ul>
-            <ul>
-              <li>+{props.summary} exp</li>
-              <li>+{props.summary / 2} [!]</li>
-            </ul>
-            <button className="button small">
-              <Link
-                to={`/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
-          </article>
-        </div>
-      </section>
+    <div className="quiz-container flex-column width-80">
+      <h3>Summary</h3>
+      <ul>{renderSummary()}</ul>
+      <ul>
+        <li>+{props.summary} exp</li>
+        <li>+{props.summary / 2} [!]</li>
+      </ul>
+      <button className="button small">
+        <Link
+          to={`/${user.user.currentPlanet}`}
+          style={{ textDecoration: "none" }}
+        >
+          Go Back
+        </Link>
+      </button>
     </div>
   );
 };
