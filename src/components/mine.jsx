@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
 import GeneralContext from "../contexts/generalContext";
+import DialogueMenu from "./universal/dialogueMenu";
 import mine_logo from "../images/mine.png";
 import Modal from "react-modal";
 import "../App.css";
@@ -120,15 +121,19 @@ const Mine = (props) => {
     setSummary(items);
   };
 
+  const displayCredits = (element) => {
+    return element === "credits" ? "[!]" : element;
+  };
+
   const renderSummary = () => {
     if (summary.length !== 0) {
       return summary.map((element) => (
-        <li key={element[0]}>
-          + {element[1]} {element[0]}{" "}
+        <li className="color-win" key={element[0]}>
+          +{element[1]} {displayCredits(element[0])}
         </li>
       ));
     } else {
-      return <p>Nothing found</p>;
+      return <p className="color-lose">Nothing found</p>;
     }
   };
 
@@ -158,36 +163,61 @@ const Mine = (props) => {
   };
 
   return (
-    <div id="mine" className="mine-wrapper">
+    <main id="mine" className="mine-wrapper">
       {renderOrRedirect("mine")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <div className="padding border">
-          <div className="logo logo-place image fit">
-            <img src={mine_logo} alt="shop logo" width="100em" height="auto" />
-            <h3>Mine</h3>
-            <p className="place-description">
+      <section className="mine-header-container">
+        <article className="mine-split">
+          <header className="content">
+            <h2 className="mine-name">mine</h2>
+            <hr className="underline" />
+            <p className="mine-description">
               Both those who want to earn some extra money with hard work and
               those who have been forced to work for minor offenses are staying
-              here.
-              <br />
-              Mine managers charge a small fee for the possibility of digging.
+              here. Mine managers charge a small fee for the possibility of
+              digging.
             </p>
-          </div>
-          <article className="padding-places">
-            <p>Available credits: {inventory.inventory.credits}</p>
-            <ul>{renderMineButton()}</ul>
-            <button className="button small">
-              <Link
-                to={`/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
+          </header>
+          <p className="logo logo-place image fit margin-bottom-0">
+            <img src={mine_logo} alt="mine logo" width="100em" height="auto" />
+          </p>
+        </article>
+        <section>
+          <header className="places-header">
+            <h3>work</h3>
+            <hr className="underline-places" />
+          </header>
+          <article className="mine-split margin-bottom-2rem">
+            <article className="align-self-flex-start">
+              <header>
+                <h4>available credits</h4>
+              </header>
+              <p>{inventory.inventory.credits}</p>
+              <ul>{renderMineButton()}</ul>
+            </article>
           </article>
-        </div>
+        </section>
+        <section>
+          <header className="places-header">
+            <h3>Talk</h3>
+            <hr className="underline-places" />
+          </header>
+          <article>
+            <header>
+              <h4>miner</h4>
+            </header>
+            {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
+              <DialogueMenu place={"mine"} />
+            )}
+          </article>
+        </section>
+        <Link
+          className={"link-button"}
+          to={`/${user.user.currentPlanet}`}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="button small">Walk away</button>
+        </Link>
       </section>
-
       <Modal
         style={modalStyle}
         isOpen={modalTrigger}
@@ -197,7 +227,7 @@ const Mine = (props) => {
         <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
-    </div>
+    </main>
   );
 };
 
