@@ -20,6 +20,12 @@ const Shop = (props) => {
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
 
+  const renderBuyButton = (element) => {
+    return element <= inventory.inventory.credits
+      ? `${element}[!]`
+      : "Not enough [!]";
+  };
+
   const shopInv = () => {
     const items = [];
     for (let [item, price] of Object.entries(shop.shopInventory)) {
@@ -34,7 +40,7 @@ const Shop = (props) => {
             shop.buyItem(element[0], 1, element[1], 1);
           }}
         >
-          {element[1]}[!]
+          {renderBuyButton(element[1])}
         </button>
       </li>
     ));
