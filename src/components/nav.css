@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #navbar-items h1 {
     font-size: 1.2rem;
     align-self: center;
@@ -43,7 +43,7 @@
   font-size: 1rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .menu-icon,
   .rocket-icon {
     font-size: 1.2rem;
@@ -78,7 +78,7 @@
   width: 100%;
   position: absolute;
   left: -100%;
-  top: 30px;
+  top: 40px;
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -102,7 +102,7 @@
   background: rgb(1, 9, 27);
   left: 0;
   position: absolute;
-  top: 30px;
+  top: 40px;
   opacity: 1;
   transition: all 0.5s ease;
   z-index: 1;
@@ -142,7 +142,12 @@ h1 {
 
 /* media queries */
 
-@media screen and (min-width: 1024px) {
+#navbar-items ul,
+li {
+  list-style: none;
+}
+
+@media screen and (min-width: 1025px) {
   .menu-icon {
     display: none;
   }

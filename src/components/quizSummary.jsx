@@ -3,15 +3,39 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
+import Modal from "react-modal";
+
+Modal.setAppElement(document.getElementById("root"));
+
+const modalStyle = {
+  content: {
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 const Summary = (props) => {
   const [summary, setSummary] = useState([]);
+  const [modalTrigger, setModalTrigger] = useState(false);
+
   useEffect(() => {
     quizSummary(props.wordsWithDefs);
+    toggleModal();
   }, []);
 
   const inventory = useContext(InventoryContext);
   const user = useContext(UserContext);
+
+  const toggleModal = () => {
+    setModalTrigger(!modalTrigger);
+  };
 
   const quizSummary = (object) => {
     const items = [];
@@ -46,7 +70,7 @@ const Summary = (props) => {
   const renderSummary = () => {
     if (summary.length !== 0) {
       return summary.map((element) => (
-        <li key={element[0]}>
+        <li className="padding-05rem" key={element[0]}>
           {renderAddOrRemoveButton(element[0], element[1])} {element[0]} -{" "}
           {element[1]}
         </li>
@@ -59,10 +83,6 @@ const Summary = (props) => {
     <div className="quiz-container flex-column width-80">
       <h3>Summary</h3>
       <ul>{renderSummary()}</ul>
-      <ul>
-        <li>+{props.summary} exp</li>
-        <li>+{props.summary / 2} [!]</li>
-      </ul>
       <Link
         className={"link-button"}
         to={`/${user.user.currentPlanet}`}
@@ -70,6 +90,18 @@ const Summary = (props) => {
       >
         <button className="button small">Go Back</button>
       </Link>
+      <Modal
+        style={modalStyle}
+        isOpen={modalTrigger}
+        onRequestClose={toggleModal}
+        contentLabel="Quiz summary modal"
+      >
+        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+        <ul className="color-win">
+          <li>+{props.summary} exp</li>
+          <li>+{props.summary / 2} [!]</li>
+        </ul>
+      </Modal>
     </div>
   );
 };

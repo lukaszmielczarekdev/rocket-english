@@ -28,6 +28,7 @@
   text-transform: uppercase;
   color: yellow;
   letter-spacing: 0.3rem;
+  margin-bottom: 1rem;
 }
 #quiz h4 {
   font-size: 1rem;
@@ -49,7 +50,6 @@
   width: 100%;
   padding-top: 4rem;
   padding-bottom: 3rem;
-  display: flex;
   flex: auto;
 }
 .flex-auto {
@@ -68,7 +68,10 @@ li {
   padding-left: 0;
   display: block;
   list-style: none;
-  margin: 1rem;
+}
+
+.padding-05rem {
+  padding: 0.5rem;
 }
 
 @media screen and (min-width: 960px) {
