@@ -64,6 +64,23 @@ const Shop = (props) => {
     ));
   };
 
+  const renderBlockedUserInventory = () => {
+    const items = [];
+    for (let [item, amount] of Object.entries(inventory.inventory)) {
+      if (item !== "favs" && item !== "credits" && amount) {
+        items.push([item, amount]);
+      }
+    }
+    return items.map((element) => (
+      <li key={element[0]}>
+        {element[0]} -{" "}
+        <button className="button small cubical margin-0-3rem">
+          Suspended
+        </button>
+      </li>
+    ));
+  };
+
   return (
     <main id="shop" className="shop-wrapper">
       {renderOrRedirect("shop")}
@@ -101,6 +118,14 @@ const Shop = (props) => {
               </header>
               <p>
                 <ul>{shopInv()}</ul>
+              </p>
+            </article>
+            <article className="align-self-flex-start">
+              <header>
+                <h4>sell</h4>
+              </header>
+              <p>
+                <ul>{renderBlockedUserInventory()}</ul>
               </p>
             </article>
           </article>
