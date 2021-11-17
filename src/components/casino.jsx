@@ -151,7 +151,7 @@ const Casino = (props) => {
             <h3>gamble</h3>
             <hr className="underline-places" />
           </header>
-          <article className="casino-split margin-bottom-2rem">
+          <article className="margin-bottom-2rem">
             <article className="align-self-flex-start">
               <header>
                 <h4>available credits</h4>
