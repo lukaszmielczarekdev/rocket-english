@@ -1,38 +1,19 @@
-/* typography  */
-
-.testMenu-container h3 {
+/* typography */
+.planet-container h3 {
   color: var(--clr-primary-100);
 }
-
-.centered {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
 #testMenu {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: normal;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-#testMenu input {
-  max-width: 80%;
-  max-height: 80%;
-  background-color: transparent;
-  color: #ffff;
-  border: none;
-  border-bottom: 1px solid #ffff;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
 }
 
 #testMenu h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
@@ -45,9 +26,8 @@
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
-  color: inherit;
+  color: yellow;
   letter-spacing: 0.3rem;
-  padding: 1rem;
 }
 #testMenu h4 {
   font-size: 1rem;
@@ -56,6 +36,32 @@
   text-transform: uppercase;
   color: inherit;
   letter-spacing: 0.3rem;
+}
+.testMenu-info-container h4 {
+  color: yellow !important;
+}
+
+/* layout */
+#testMenu {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  flex: auto;
+}
+.flex-auto {
+  flex: auto;
+}
+
+@media screen and (min-width: 760px) {
+  .testMenu-activities-container {
+    width: min(90%, 70rem);
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 #testMenu ul {
@@ -72,70 +78,233 @@
   display: inline-block;
 }
 
-/* layout */
-
-#testMenu {
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  flex: auto;
-  width: min(90%, 70rem);
+@media screen and (min-width: 960px) {
+  .content {
+    width: 80%;
+    margin-left: 5rem;
+    margin-right: 3rem;
+  }
 }
-.testMenu-wrapper {
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
+
+.header-container {
+  margin-bottom: 3rem;
+}
+
+.desktop {
+  display: none;
+}
+
+.testMenu-header-split {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.testMenu-container {
-  -moz-align-items: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
+@media screen and (min-width: 1020px) {
+  .testMenu-header-split {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .testMenu-header-split {
+    flex-direction: row;
+  }
+  .testMenu-header-split > * {
+    flex-basis: 100%;
+  }
+}
+
+.testMenu-split {
+  /* display: flex; */
+  flex-direction: row;
   align-items: center;
-  width: min(100%, 70rem);
-  padding-bottom: auto;
-  text-align: center;
 }
-.testMenu-container article article {
-  text-align: center;
+.test-buttons {
+  display: inline-grid;
 }
-.margin-block-testMenu-container {
-  margin: auto;
+
+.test-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-@media screen and (min-width: 1024px) {
-  .testMenu-activities-container {
-    margin-bottom: 2rem;
+
+@media screen and (min-width: 1020px) {
+  .testMenu-split {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .testMenu-split {
+    flex-direction: column;
+  }
+  .testMenu-split > * {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 480px) {
+  .underline {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 70%;
+    margin-top: 1rem;
+  }
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  .margin-bottom-0 {
+    margin-bottom: 0 !important;
   }
 }
 
 @media screen and (min-width: 960px) {
-  .testMenu-activities-container {
-    margin-top: 2rem;
-    width: min(90%, 70rem);
+  #testMenu h2 {
+    align-self: flex-start;
+    justify-self: left;
+    margin-right: -100px;
+  }
+  .underline {
+    width: 65%;
+    height: 0.1rem;
+    margin-left: -2rem;
+    background-color: white;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 20%;
+    height: 0.1rem;
+    margin-right: -2rem;
+    background-color: white;
+    align-self: center;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+  #testMenu .places-header {
+    display: flex;
+    width: min(60%, 70rem);
     margin-inline: auto;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
+  }
+  .places-header h3 {
+    justify-self: center;
+  }
+  .testMenu-name {
+    margin-bottom: 0;
+  }
+
+  .testMenu-description {
+    margin-bottom: 0 !important;
+    letter-spacing: 0.06rem;
+    margin-right: auto;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
   }
 }
 
+@media screen and (max-width: 960px) {
+  .testMenu-description {
+    border-left: none;
+  }
+}
+
+.testMenu-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .border {
+    border-bottom: none;
+  }
+}
+
+#testMenu p {
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  margin-bottom: 0;
+}
+
+.border-radius {
+  border-radius: 10px;
+}
+
+.padding-places {
+  padding: 1rem;
+}
+
+.padding-botton-3rem {
+  padding-bottom: 3rem;
+}
+
+.padding-1rem {
+  padding: 1rem;
+}
+
+.padding-3rem {
+  padding: 3rem;
+}
+
+.margin-1rem {
+  margin: 1rem;
+}
+
+#testMenu .button-margin {
+  margin: 0.5rem auto !important;
+}
+
+.margin-block-testMenu-container {
+  margin: auto;
+}
+.margin-0-3rem {
+  margin: 0.3rem !important;
+}
+
+.margin-bottom-2rem {
+  margin-bottom: 2rem !important;
+}
+
+.logo img {
+  width: 35% !important;
+}
+
+@media screen and (min-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
 .hidden {
   display: none;
 }
 
 /* button */
-
 #testMenu button {
   color: var(--clr-primary-100);
   border: 1px solid var(--clr-primary-100);
-  margin-top: 1rem;
 }
 
 #testMenu button:hover {
   border: none;
+}
+
+.link-button {
+  display: inline;
 }
 
 /* background */

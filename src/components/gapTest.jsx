@@ -129,7 +129,7 @@ const GapTest = (props) => {
 
   return (
     <div id="gapTest" className="padding border">
-      <article className="gapTest-activities-container">
+      <article className="testMenu-activities-container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <ul>{splitText(props.text)}</ul>
           <button type="submit" className="button small">
