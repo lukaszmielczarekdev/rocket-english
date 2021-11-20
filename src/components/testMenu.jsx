@@ -14,6 +14,7 @@ const TestMenu = (props) => {
   const { register, handleSubmit } = useForm();
   const [mode, setMode] = useState(null);
   const [displayTest, setDisplayTest] = useState(null);
+  const [key, setKey] = useState(Math.random());
 
   const userText = useRef();
   const user = useContext(UserContext);
@@ -28,6 +29,9 @@ const TestMenu = (props) => {
     return mode === condition || mode === condition2
       ? `${baseClass} hidden`
       : `${baseClass}`;
+  };
+  const handleSetKey = (number) => {
+    setKey(number);
   };
 
   const renderOrRedirect = (place) => {
@@ -116,6 +120,8 @@ const TestMenu = (props) => {
             >
               {displayTest && (
                 <GapTest
+                  resetKey={handleSetKey}
+                  key={key}
                   text={mode === "user" ? userText.current : getRandomText()}
                   ifPrize={mode === "user" ? false : true}
                 />
@@ -126,6 +132,7 @@ const TestMenu = (props) => {
               onClick={() => {
                 setMode(null);
                 setDisplayTest(false);
+                setKey(Math.random());
               }}
             >
               Go Back

@@ -15,6 +15,17 @@
   border: none;
   border-bottom: 1px solid #ffff;
 }
+.win {
+  color: greenyellow;
+}
+.lose {
+  color: red;
+}
+
+.modal-description {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 
 /* button */
 

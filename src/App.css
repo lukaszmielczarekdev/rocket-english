@@ -252,6 +252,19 @@ a {
   border-radius: 5px;
 }
 
+.list-horizontal {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-horizontal li {
+  border-left: 0 !important;
+  margin: 0.2rem !important;
+  display: inline-block !important;
+  letter-spacing: 0.05rem !important;
+}
+
 /* modal */
 .ReactModalPortal ul,
 .ReactModalPortal ul li {
@@ -259,6 +272,7 @@ a {
   margin: 1rem 0 0 0;
   padding-left: 0;
   display: block;
+  letter-spacing: 0.05rem;
 }
 .ReactModalPortal ul {
   margin: 3rem;

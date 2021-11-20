@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
 import InventoryContext from "../contexts/inventoryContext";
 import Modal from "react-modal";
 import "./gapTest.css";
@@ -32,6 +30,7 @@ const GapTest = (props) => {
   const formData = useRef();
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
+  const [summaryText, setSummaryText] = useState([]);
 
   const toggleModal = () => {
     setModalTrigger(!modalTrigger);
@@ -39,12 +38,6 @@ const GapTest = (props) => {
 
   const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
-  const general = useContext(GeneralContext);
-
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet(user.user.currentPlanet);
-  }, []);
 
   const gapTestPrize = (multiplier) => {
     user.onAddExp(500 * multiplier);
@@ -65,6 +58,8 @@ const GapTest = (props) => {
       }
     }
 
+    makeSummaryTextColored(props.text, formData.current);
+
     if (props.ifPrize) {
       if (counter) {
         setSummary([
@@ -81,14 +76,36 @@ const GapTest = (props) => {
   };
   const renderSummary = () => {
     if (summary.length !== 0) {
-      return summary.map((element) => (
-        <li key={element[0]}>
-          + {element[1]} {element[0]}{" "}
+      return summary.map((element, id) => (
+        <li key={id + 1000}>
+          +{element[1]} {element[0]}{" "}
         </li>
       ));
     } else {
       return <p>Keep learning...</p>;
     }
+  };
+
+  const makeSummaryTextColored = (text, answers) => {
+    const words = text.split(" ");
+    const splitted = splitText(text);
+
+    for (let [id, answer] of Object.entries(answers)) {
+      if (answer.guessed) {
+        splitted[answer.id] = (
+          <li key={id + 10000} className="win">
+            {words[answer.id]}
+          </li>
+        );
+      } else {
+        splitted[answer.id] = (
+          <li key={id + 10000} className="lose">
+            {words[answer.id]}
+          </li>
+        );
+      }
+    }
+    setSummaryText(splitted);
   };
 
   const onSubmit = (data) => handleSubmitUserData(data);
@@ -118,13 +135,14 @@ const GapTest = (props) => {
             })}
           />
         );
-        words[index] = { word: word, guessed: false };
+        words[index] = { id: index, word: word, guessed: false };
       } else {
         filtered.push(word);
       }
     }
+
     formData.current = words;
-    return filtered.map((elem) => <li key={filtered.indexOf(elem)}>{elem}</li>);
+    return filtered.map((elem, id) => <li key={id}>{elem}</li>);
   };
 
   return (
@@ -140,14 +158,19 @@ const GapTest = (props) => {
       <Modal
         style={modalStyle}
         isOpen={modalTrigger}
-        onRequestClose={toggleModal}
-        contentLabel="Test summary modal"
+        onRequestClose={() => props.resetKey(Math.random())}
+        contentLabel="Gap Test summary modal"
       >
-        <Link to={`/${user.user.currentPlanet}`}>
-          <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
-        </Link>
-        <ul>{renderSummary()}</ul>
-        <p className="modal-description">{props.text}</p>
+        <i
+          onClick={() => {
+            props.resetKey(Math.random());
+          }}
+          className="far fa-times-circle modal-button"
+        ></i>
+        <ul className="win">{renderSummary()}</ul>
+        <ul className="list-horizontal modal-description">
+          {summaryText.map((elem) => elem)}
+        </ul>
       </Modal>
     </div>
   );
