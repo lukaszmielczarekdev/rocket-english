@@ -87,7 +87,6 @@
     font-weight: 200;
     font-family: var(--ff-primary);
     text-transform: uppercase;
-    color: yellow !important;
     letter-spacing: 0.6rem;
   }
 
@@ -104,6 +103,17 @@
 
 @media (min-width: 1025px) {
   #welcome .planet-split {
+    flex-direction: row !important;
+  }
+}
+
+.gallery-split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .gallery-split {
     flex-direction: row !important;
   }
 }

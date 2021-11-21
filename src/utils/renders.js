@@ -39,44 +39,43 @@ export const planets = [
   "centuria",
 ];
 
-export const responsiveImage = (imageCategory, image, alt, cls) => {
+export const responsiveImageThumbnail = (imageCategory, image, alt, cls) => {
   return (
     <picture>
       <source
         type="image/webp"
-        media="(max-width: 960px)"
-        srcSet={require(`../images/${imageCategory}/960/${image}.webp`).default}
-      />
-      <source
-        type="image/jpg"
-        media="(max-width: 960px)"
-        srcSet={require(`../images/${imageCategory}/960/${image}.jpg`).default}
-      />
-      <source
-        type="image/webp"
-        media="(max-width: 1280px)"
-        srcSet={
-          require(`../images/${imageCategory}/1280/${image}.webp`).default
-        }
-      />
-      <source
-        type="image/jpg"
-        media="(max-width: 1280px)"
-        srcSet={require(`../images/${imageCategory}/1280/${image}.jpg`).default}
-      />
-      <source
-        type="image/webp"
-        media="(max-width: 1920px)"
+        media="(min-width: 2560px)"
         srcSet={
           require(`../images/${imageCategory}/1920/${image}.webp`).default
         }
       />
       <source
         type="image/jpg"
-        media="(max-width: 1920px)"
+        media="(min-width: 2560px)"
         srcSet={require(`../images/${imageCategory}/1920/${image}.jpg`).default}
       />
-
+      <source
+        type="image/webp"
+        media="(max-width: 2560px)"
+        srcSet={
+          require(`../images/${imageCategory}/1280/${image}.webp`).default
+        }
+      />
+      <source
+        type="image/jpg"
+        media="(max-width: 2560px)"
+        srcSet={require(`../images/${imageCategory}/1280/${image}.jpg`).default}
+      />
+      <source
+        type="image/webp"
+        media="(max-width: 1280px)"
+        srcSet={require(`../images/${imageCategory}/960/${image}.webp`).default}
+      />
+      <source
+        type="image/jpg"
+        media="(max-width: 1280px)"
+        srcSet={require(`../images/${imageCategory}/960/${image}.jpg`).default}
+      />
       <img
         className={`${cls}`}
         alt={`${alt}`}

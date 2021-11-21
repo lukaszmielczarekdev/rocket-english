@@ -4,7 +4,6 @@ import renders from "../../utils/renders";
 import Nav from "../nav";
 import Footer from "../footer";
 import MiniMap from "../universal/miniMap";
-// import { responsiveImage } from "../../utils/renders";
 import { planets } from "../../utils/renders";
 import planetAccess from "../../utils/planetAccess";
 import AliceCarousel from "react-alice-carousel";

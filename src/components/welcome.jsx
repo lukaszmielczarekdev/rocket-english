@@ -1,19 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, Redirect } from "react-router-dom";
+import Nav from "./nav";
+import Footer from "./footer";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import InventoryContext from "../contexts/inventoryContext";
 import TourContext from "../contexts/tourContext";
-import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
-import { useForm } from "react-hook-form";
-import Nav from "./nav";
-import Footer from "./footer";
+import { responsiveImageThumbnail } from "../utils/renders";
 import "./welcome.css";
-import thumbnail_rocket from "../images/thumbnail-rocket.jpg";
-import thumbnail_learn from "../images/thumbnail-learn.jpg";
-import thumbnail_light from "../images/thumbnail-light.jpg";
 
 const Welcome = (props) => {
   const user = useContext(UserContext);
@@ -210,17 +207,15 @@ const Welcome = (props) => {
               </article>
               <article></article>
             </section>
-
-            <section className="planet-info-container planet-split">
+            <section className="planet-info-container gallery-split">
               <article className="flex-centered">
                 <h4>play</h4>
                 <p className="thumbnail logo-place image fit margin-bottom-0">
-                  <img
-                    src={thumbnail_light}
-                    alt="thumbnail"
-                    width="100em"
-                    height="auto"
-                  />
+                  {responsiveImageThumbnail(
+                    "planet-images",
+                    "thumbnail-light",
+                    "play"
+                  )}
                 </p>
                 <p className="width-80">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -231,12 +226,11 @@ const Welcome = (props) => {
               <article className="flex-centered">
                 <h4>learn</h4>
                 <p className="thumbnail logo-place image fit margin-bottom-0">
-                  <img
-                    src={thumbnail_learn}
-                    alt="thumbnail"
-                    width="100em"
-                    height="auto"
-                  />
+                  {responsiveImageThumbnail(
+                    "planet-images",
+                    "thumbnail-learn",
+                    "learn"
+                  )}
                 </p>
                 <p className="width-80">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
@@ -247,12 +241,11 @@ const Welcome = (props) => {
               <article className="flex-centered">
                 <h4>explore</h4>
                 <p className="thumbnail logo-place image fit margin-bottom-0">
-                  <img
-                    src={thumbnail_rocket}
-                    alt="thumbnail"
-                    width="100em"
-                    height="auto"
-                  />
+                  {responsiveImageThumbnail(
+                    "planet-images",
+                    "thumbnail-rocket",
+                    "rocket"
+                  )}
                 </p>
                 <p className="width-80">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
