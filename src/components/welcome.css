@@ -1,18 +1,17 @@
 /* typography */
-
+.welcome-container h3 {
+  color: var(--clr-primary-100);
+}
 #welcome {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
-  font-weight: normal;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   font-size: smaller;
 }
 
 #welcome h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
@@ -25,7 +24,7 @@
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;
-  color: inherit;
+  color: yellow;
   letter-spacing: 0.3rem;
 }
 #welcome h4 {
@@ -36,21 +35,139 @@
   color: inherit;
   letter-spacing: 0.3rem;
 }
+.welcome-info-container h4 {
+  color: yellow !important;
+}
+
+.current-planet {
+  color: yellow;
+}
 
 /* layout */
+
+#intro {
+  margin-top: 2rem;
+  padding: 0 1rem 0 1rem;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -moz-justify-content: -moz-flex-end;
+  -webkit-justify-content: -webkit-flex-end;
+  -ms-justify-content: -ms-flex-end;
+  justify-content: center;
+  position: relative;
+  cursor: default;
+  text-align: center;
+  min-height: 100vh;
+}
 
 #welcome {
   align-items: center;
   justify-content: center;
   align-content: center;
   width: 100%;
-  display: grid;
-  flex: auto;
+  padding-bottom: 3rem;
 }
+
+@media (min-width: 1025px) {
+  .intro-split {
+    display: flex;
+    flex-direction: row !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-title h2 {
+    font-size: 1.5rem !important;
+    font-weight: 200;
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    color: yellow !important;
+    letter-spacing: 0.6rem;
+  }
+
+  .menu-title .underline {
+    width: 60%;
+  }
+}
+
+@media (min-width: 480px) {
+  .intro-split > * {
+    flex-basis: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  #welcome .planet-split {
+    flex-direction: row !important;
+  }
+}
+
+@media (min-width: 480px) {
+  #welcome .planet-split > * {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #intro article {
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #welcome .underline-places {
+    width: 30% !important;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  #welcome .underline-places {
+    width: 60% !important;
+  }
+}
+
+#welcome .underline-places {
+  width: 60%;
+}
+
+#welcome .places-header {
+  width: 100%;
+}
+
+#welcome .header-container {
+  padding-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
 .menu-navbar {
   position: absolute;
   top: 0;
   width: 100%;
+}
+.menu-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 960px) {
+  .content {
+    width: 80%;
+    margin-left: 5rem;
+    margin-right: 3rem;
+  }
 }
 
 /* general */
@@ -83,6 +200,162 @@
   align-content: center;
   justify-content: center;
   display: grid;
+}
+
+.menu-nav {
+  display: inline-flex;
+  padding-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 1025px) {
+  #welcome .places-header {
+    width: 100%;
+    flex-direction: column !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* arrow link*/
+
+.nav-arrow {
+  display: inline-block;
+  padding: 2rem;
+}
+
+.nav-arrow:hover {
+  color: yellow;
+}
+
+@media screen and (max-width: 480px) {
+  .menu-nav {
+    flex-direction: column;
+    padding-top: 1.5rem;
+  }
+}
+
+#welcome .sidebar li {
+  margin: 0.5rem;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 480) {
+  #welcome .sidebar {
+    display: block !important;
+    flex-direction: row !important;
+  }
+}
+
+#welcome .sidebar li {
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  #welcome .sidebar {
+    display: flex;
+    flex-direction: row !important;
+    padding: 3rem !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 0.05rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    justify-content: center;
+    align-content: right;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #welcome .sidebar {
+    display: block;
+    flex-direction: column;
+    border-right: none;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .planet-description {
+    border-left: none;
+  }
+}
+.width-80 {
+  width: min(80%, 70rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.planet-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .border {
+    border-bottom: none;
+  }
+}
+
+.rotate180deg {
+  transform: rotate(180deg);
+}
+
+.not-found p {
+  margin-bottom: 0;
+}
+
+.border-radius {
+  border-radius: 10px;
+}
+
+.padding-places {
+  padding: 1rem;
+}
+
+.padding-botton-3rem {
+  padding-bottom: 3rem;
+}
+
+.padding-1rem {
+  padding: 1rem;
+}
+
+.padding-3rem {
+  padding: 3rem;
+}
+
+.padding-2rem {
+  padding: 2rem;
+}
+
+.margin-1rem {
+  margin: 1rem;
+}
+
+#welcome .button-margin {
+  margin: 0.5rem 0.5rem !important;
+}
+
+.margin-block-planet-container {
+  margin: auto;
+}
+
+.thumbnail img {
+  width: 60% !important;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 480px) {
+  .thumbnail img {
+    width: 90% !important;
+  }
 }
 
 /* background */

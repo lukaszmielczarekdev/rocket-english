@@ -145,7 +145,6 @@
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  /* width: min(80%, 70rem); */
   padding-bottom: auto;
   text-align: center;
   margin-left: auto;
@@ -257,25 +256,6 @@
     justify-content: center;
     align-content: center;
     align-self: center;
-  }
-  .sidebar {
-    display: flex;
-    padding: 1rem !important;
-    margin-bottom: 0 !important;
-    letter-spacing: 0.06rem;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: right;
-    justify-content: center;
-    align-content: right;
-    align-self: center;
-  }
-}
-@media screen and (max-width: 960px) {
-  .sidebar {
-    flex-direction: row;
-    border-right: none;
-    text-align: center;
   }
 }
 

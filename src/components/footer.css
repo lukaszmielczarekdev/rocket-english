@@ -4,5 +4,6 @@
 }
 
 #footer > h3 {
-  color: var(--clr-neutral-100);
+  color: var(--clr-neutral-100) !important;
+  letter-spacing: 0.3rem;
 }
