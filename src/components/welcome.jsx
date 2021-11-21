@@ -39,12 +39,6 @@ const Welcome = (props) => {
     }
   };
 
-  const ifCurrent = (planet) => {
-    return general.general.availablePlanets[planet].available
-      ? "current-planet"
-      : "";
-  };
-
   const handleSubmitUserData = (data) => {
     user.onSetName(data);
     general.setAvailablePlanet("crion");
@@ -266,20 +260,6 @@ const Welcome = (props) => {
                   praesentium.
                 </p>
               </article>
-            </section>
-            <section>
-              <ul className="sidebar">
-                <li>Location:</li>
-                <li className={ifCurrent("crion")}>crion</li>
-                <li className={ifCurrent("therion")}>therion</li>
-                <li className={ifCurrent("crystalia")}>crystalia</li>
-                <li className={ifCurrent("thalia")}>thalia</li>
-                <li className={ifCurrent("bathea")}>bathea</li>
-                <li className={ifCurrent("axios")}>axios</li>
-                <li className={ifCurrent("desertia")}>desertia</li>
-                <li className={ifCurrent("xillon")}>xillon</li>
-                <li className={ifCurrent("centuria")}>centuria</li>
-              </ul>
             </section>
             <a href="#top">
               <i class="rotate180deg nav-arrow far fa-arrow-alt-circle-down fa-2x"></i>

@@ -27,6 +27,18 @@ const renders = {
   },
 };
 
+export const planets = [
+  "crion",
+  "therion",
+  "crystalia",
+  "thalia",
+  "bathea",
+  "axios",
+  "desertia",
+  "xillon",
+  "centuria",
+];
+
 export const responsiveImage = (imageCategory, image, alt, cls) => {
   return (
     <picture>

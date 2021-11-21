@@ -39,10 +39,6 @@
   color: yellow !important;
 }
 
-.current-planet {
-  color: yellow;
-}
-
 /* layout */
 
 #intro {
@@ -120,7 +116,7 @@
 
 @media screen and (max-width: 1024px) {
   #intro article {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -230,46 +226,6 @@
   .menu-nav {
     flex-direction: column;
     padding-top: 1.5rem;
-  }
-}
-
-#welcome .sidebar li {
-  margin: 0.5rem;
-  text-transform: uppercase;
-}
-@media screen and (min-width: 480) {
-  #welcome .sidebar {
-    display: block !important;
-    flex-direction: row !important;
-  }
-}
-
-#welcome .sidebar li {
-  text-align: center;
-}
-
-@media screen and (min-width: 720px) {
-  #welcome .sidebar {
-    display: flex;
-    flex-direction: row !important;
-    padding: 3rem !important;
-    margin-bottom: 0 !important;
-    letter-spacing: 0.05rem;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: right;
-    justify-content: center;
-    align-content: right;
-    align-self: center;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #welcome .sidebar {
-    display: block;
-    flex-direction: column;
-    border-right: none;
-    text-align: center;
   }
 }
 

@@ -1,0 +1,43 @@
+.current-planet {
+  color: yellow;
+}
+
+#planet .sidebar li {
+  margin: 0.5rem;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 480) {
+  #planet .sidebar {
+    display: block !important;
+    flex-direction: row !important;
+  }
+}
+
+#planet .sidebar li {
+  text-align: center;
+}
+
+@media screen and (min-width: 720px) {
+  #planet .sidebar {
+    display: flex;
+    flex-direction: row !important;
+    padding: 3rem !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 0.05rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+    justify-content: center;
+    align-content: right;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #planet .sidebar {
+    display: block;
+    flex-direction: column;
+    border-right: none;
+    text-align: center;
+  }
+}
