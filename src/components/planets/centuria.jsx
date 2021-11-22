@@ -61,7 +61,7 @@ const Centuria = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Launch Pad"}
+      title={"Launch pad"}
       prevPlanet={"xillon"}
       nextPlanet={"crion"}
       prevLabel={"Back to Xillon"}

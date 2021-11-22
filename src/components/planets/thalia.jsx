@@ -72,7 +72,7 @@ const Thalia = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Gas cloud"}
+      title={"Launch pad"}
       prevPlanet={"crystalia"}
       nextPlanet={"bathea"}
       prevLabel={"Back to Crystalia"}

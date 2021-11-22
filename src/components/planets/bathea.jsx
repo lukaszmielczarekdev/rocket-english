@@ -59,7 +59,7 @@ const Bathea = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Gas cloud"}
+      title={"Launch pad"}
       prevPlanet={"thalia"}
       nextPlanet={"axios"}
       prevLabel={"Back to Thalia"}

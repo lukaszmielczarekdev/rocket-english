@@ -72,7 +72,7 @@ const Therion = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Launch Pad"}
+      title={"Launch pad"}
       prevPlanet={"crion"}
       nextPlanet={"crystalia"}
       prevLabel={"Back to Crion"}

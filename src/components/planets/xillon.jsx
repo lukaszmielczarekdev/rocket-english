@@ -72,7 +72,7 @@ const Xillon = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Launch Pad"}
+      title={"Launch pad"}
       prevPlanet={"desertia"}
       nextPlanet={"centuria"}
       prevLabel={"Back to Desertia"}

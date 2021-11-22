@@ -81,7 +81,7 @@ const Crystalia = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Gas cloud"}
+      title={"Launch pad"}
       prevPlanet={"therion"}
       nextPlanet={"thalia"}
       prevLabel={"Back to Therion"}

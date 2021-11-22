@@ -81,7 +81,7 @@ const Desertia = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Gas cloud"}
+      title={"Launch pad"}
       prevPlanet={"axios"}
       nextPlanet={"xillon"}
       prevLabel={"Back to Axios"}

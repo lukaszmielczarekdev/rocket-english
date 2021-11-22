@@ -81,7 +81,7 @@ const Axios = (props) => {
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}
-      title={"Gas cloud"}
+      title={"Launch pad"}
       prevPlanet={"bathea"}
       nextPlanet={"desertia"}
       prevLabel={"Back to Bathea"}
