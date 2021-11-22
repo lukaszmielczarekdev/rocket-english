@@ -175,11 +175,8 @@ const Welcome = (props) => {
                   <h2>explore</h2>
                   <hr className="underline" />
                   <p className="planet-description">
-                    Learn English by exploring the solar system and taking part
-                    in missions. Travel between planets learning interesting
-                    facts about them. Visit numerous interesting places on
-                    planets, gain experience and materials. Upgrade your rocket
-                    to discover new planets and surprises.
+                    Discover an extraordinary world, learn an amazing story,
+                    practice your English, take on challenges.
                   </p>
                 </article>
                 <article className="content menu-title">
@@ -201,7 +198,7 @@ const Welcome = (props) => {
             <section id="gallery" className="planet-split padding-1rem">
               <article className="content menu-title">
                 <div className="places-header">
-                  <h2>enjoy</h2>
+                  <h2>adventure</h2>
                   <hr className="underline-places" />
                 </div>
               </article>
@@ -218,9 +215,7 @@ const Welcome = (props) => {
                   )}
                 </p>
                 <p className="width-80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  a animi inventore voluptatum natus. Rem vel fugit illo dolores
-                  praesentium.
+                  Explore a fantastic galaxy full of interesting places.
                 </p>
               </article>
               <article className="flex-centered">
@@ -233,9 +228,7 @@ const Welcome = (props) => {
                   )}
                 </p>
                 <p className="width-80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  a animi inventore voluptatum natus. Rem vel fugit illo dolores
-                  praesentium.
+                  Take on language challenges and earn rewards.
                 </p>
               </article>
               <article className="flex-centered">
@@ -248,9 +241,7 @@ const Welcome = (props) => {
                   )}
                 </p>
                 <p className="width-80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  a animi inventore voluptatum natus. Rem vel fugit illo dolores
-                  praesentium.
+                  Explore the planets with an upgradeable rocket.
                 </p>
               </article>
             </section>
