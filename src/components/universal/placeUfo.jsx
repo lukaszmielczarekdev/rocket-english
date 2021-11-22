@@ -19,7 +19,7 @@ const PlaceUfo = (props) => {
 
   const ufoDescription = () => {
     return user.user.ifUfoDefeated[user.user.currentPlanet]
-      ? "UFO is already defeated."
+      ? "UFO is defeated or has flown away."
       : "You can attack and win or lose everything.";
   };
 

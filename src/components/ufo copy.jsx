@@ -58,8 +58,6 @@ export const Ufo = (props) => {
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
     if (result === "loser") {
       inventory.resetInventory();
-      user.onSetUfo(user.user.currentPlanet);
-      toggleModal();
     } else {
       user.onSetUfo(user.user.currentPlanet);
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
@@ -96,16 +94,12 @@ export const Ufo = (props) => {
   const renderSummary = () => {
     if (summary.length !== 0) {
       return summary.map((element) => (
-        <li className="color-win" key={element[0]}>
-          +{element[1]} {element[0]}{" "}
+        <li key={element[0]}>
+          + {element[1]} {element[0]}{" "}
         </li>
       ));
     } else {
-      return (
-        <p className="color-lose">
-          You lost. The enemy took your equipment and flew away...
-        </p>
-      );
+      return <p>Nothing found</p>;
     }
   };
 
@@ -120,14 +114,14 @@ export const Ufo = (props) => {
   };
 
   return (
-    <main id="ufo-enemy" className="ufo-wrapper">
+    <div id="ufo-enemy" className="ufo-wrapper flex-auto">
       {renderOrRedirect("ufo")}
-      <section className="ufo-header-container">
-        <article className="ufo-split">
-          <header className="content">
-            <h2 className="ufo-name">ufo</h2>
-            <hr className="underline" />
-            <p className="ufo-description">
+      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
+        <div className="padding border">
+          <div className="logo logo-place image fit">
+            <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
+            <h3>Ufo</h3>
+            <p className="place-description">
               Messing with UFOs can end up bad for you because you can lose all
               your belongings. But if you win, you will gain some valuable items
               that will be useful for your further journey.
@@ -137,52 +131,33 @@ export const Ufo = (props) => {
               groups that are engaged in the pursuit and destruction of alien
               ships.
             </p>
-          </header>
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
-          </p>
-        </article>
-        <section>
-          <header className="places-header">
-            <h3>combat</h3>
-            <hr className="underline-places" />
-          </header>
-          <article className="margin-bottom-2rem">
-            <article className="align-self-flex-start">
-              <header>
-                <h4>attack</h4>
-              </header>
-              {renderFightButton()}
-            </article>
-          </article>
-        </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Go back</button>
-        </Link>
+          </div>
+          <div className="padding border centered">
+            {renderFightButton()}
+            <button className="button small">
+              <Link
+                to={`/${user.user.currentPlanet}`}
+                style={{ textDecoration: "none" }}
+              >
+                Go Back
+              </Link>
+            </button>
+          </div>
+        </div>
       </section>
       <Modal
         style={modalStyle}
         isOpen={modalTrigger}
-        onRequestClose={() => {
-          toggleModal();
-          props.history.push(`/${user.user.currentPlanet}`);
-        }}
+        onRequestClose={toggleModal}
         contentLabel="Ufo summary modal"
       >
         <i
-          onClick={() => {
-            toggleModal();
-            props.history.push(`/${user.user.currentPlanet}`);
-          }}
+          onClick={toggleModal}
           className="far fa-times-circle modal-button"
         ></i>
         <ul>{renderSummary()}</ul>
       </Modal>
-    </main>
+    </div>
   );
 };
 export default Ufo;
