@@ -11,12 +11,6 @@ const PlaceUfo = (props) => {
       : "/ufo";
   };
 
-  const ufoAlt = () => {
-    return user.user.ifUfoDefeated[user.user.currentPlanet]
-      ? "wreckages of defeated spacecrafts"
-      : "some spaceships that don't look very friendly";
-  };
-
   const ufoDescription = () => {
     return user.user.ifUfoDefeated[user.user.currentPlanet]
       ? "UFO is defeated or has flown away."
@@ -43,7 +37,9 @@ const PlaceUfo = (props) => {
             type="image/png"
             width="100em"
             height="auto"
-            alt={ufoAlt(user.user.currentPlanet)}
+            alt={
+              "Several black and menacing looking UFO ships on a yellow background. A UFO logo."
+            }
           />
         </picture>
       </Link>

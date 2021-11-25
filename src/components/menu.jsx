@@ -23,7 +23,7 @@ const Menu = (props) => {
     <section className="quiz-header-container">
       <article className="quiz-split">
         <header className="content">
-          <h2 className="quiz-name">quiz</h2>
+          <h2 className="quiz-name">School</h2>
           <hr className="underline" />
           <p className="quiz-description">
             There will be someone on every planet who will gladly agree to play
@@ -32,7 +32,12 @@ const Menu = (props) => {
           </p>
         </header>
         <p className="logo logo-place image fit margin-bottom-0">
-          <img src={quiz_logo} alt="quiz logo" width="100em" height="auto" />
+          <img
+            src={quiz_logo}
+            alt="A thick red book. A school logo."
+            width="100em"
+            height="auto"
+          />
         </p>
       </article>
       <section>

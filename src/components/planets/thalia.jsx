@@ -11,6 +11,10 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
+import mine_png from "../../images/mine.png";
+import mine_webp from "../../images/mine.webp";
+import university_webp from "../../images/university.webp";
+import university_png from "../../images/university.png";
 
 const Thalia = (props) => {
   const user = useContext(UserContext);
@@ -38,16 +42,27 @@ const Thalia = (props) => {
       link={"casino"}
       img_webp={casino_webp}
       img_png={casino_png}
-      alt={"casino machine"}
+      alt={"The big pink neon sign with the word casino. A Casino logo."}
       description={"Be careful. Gambling is addictive."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
+      title={"Mine"}
+      link={"mine"}
+      img_webp={mine_webp}
+      img_png={mine_png}
+      alt={
+        "A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
+      }
+      description={"Here you can get credits and parts to upgrade your rocket."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
       title={"University"}
       link={"university"}
-      img_webp={quiz_webp}
-      img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      img_webp={university_webp}
+      img_png={university_png}
+      alt={"A diploma with a blue ribbon. A university logo."}
       description={
         "The challenge here is to fill in the gaps in the text. It can also be your own text."
       }
@@ -58,16 +73,18 @@ const Thalia = (props) => {
       link={"shop"}
       img_webp={shop_webp}
       img_png={shop_png}
-      alt={"glowing neon says open"}
+      alt={
+        "A big black neon sign with red lettering that says open. A shop logo."
+      }
       description={"You can buy a lot of useful things here."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceLaunchPad

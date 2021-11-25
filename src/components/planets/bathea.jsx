@@ -39,16 +39,16 @@ const Bathea = (props) => {
       link={"bar"}
       img_webp={bar_webp}
       img_png={bar_png}
-      alt={"glowing neon sign says the bar is open"}
+      alt={"A Shiny black and pink drink neon sign. A bar logo."}
       description={"A place for gossip and meetings."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceUfo

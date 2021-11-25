@@ -63,11 +63,15 @@ const Shop = (props) => {
         items.push([item, amount]);
       }
     }
-    return items.map((element) => (
-      <li key={element[0]}>
-        {element[0]} - {element[1]}{" "}
-      </li>
-    ));
+    if (items.length > 0) {
+      return items.map((element) => (
+        <li key={element[0]}>
+          {element[0]} - {element[1]}{" "}
+        </li>
+      ));
+    } else {
+      return <p>The inventory is empty</p>;
+    }
   };
 
   const renderBlockedUserInventory = () => {
@@ -77,14 +81,18 @@ const Shop = (props) => {
         items.push([item, amount]);
       }
     }
-    return items.map((element) => (
-      <li key={element[0]}>
-        {element[0]} -{" "}
-        <button className="button small cubical margin-0-3rem">
-          Suspended
-        </button>
-      </li>
-    ));
+    if (items.length > 0) {
+      return items.map((element) => (
+        <li key={element[0]}>
+          {element[0]} -{" "}
+          <button className="button small cubical margin-0-3rem">
+            Suspended
+          </button>
+        </li>
+      ));
+    } else {
+      return <p>You have nothing to sell</p>;
+    }
   };
 
   return (
@@ -96,12 +104,20 @@ const Shop = (props) => {
             <h2 className="shop-name">shop</h2>
             <hr className="underline" />
             <p className="shop-description">
-              From a distance you can see the smile of the salesperson who rubs
-              his hands when he sees a new customer.
+              Due to the significant increase in the number of thefts in the
+              galaxy in recent times, stores temporarily suspended the
+              possibility of buying goods - several traders had legal problems
+              after it turned out that the goods that were sold to them were
+              stolen.
             </p>
           </header>
           <p className="logo logo-place image fit margin-bottom-0">
-            <img src={shop_logo} alt="shop logo" width="100em" height="auto" />
+            <img
+              src={shop_logo}
+              alt="A big black neon sign with red lettering that says open. A shop logo."
+              width="100em"
+              height="auto"
+            />
           </p>
         </article>
         <section>

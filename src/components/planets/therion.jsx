@@ -11,6 +11,10 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
+import shop_webp from "../../images/shop.webp";
+import shop_png from "../../images/shop.png";
+import university_webp from "../../images/university.webp";
+import university_png from "../../images/university.png";
 
 const Therion = (props) => {
   const user = useContext(UserContext);
@@ -34,31 +38,44 @@ const Therion = (props) => {
   const items = [
     <PlaceBasic
       onDragStart={handleDragStart}
+      title={"Shop"}
+      link={"shop"}
+      img_webp={shop_webp}
+      img_png={shop_png}
+      alt={
+        "A big black neon sign with red lettering that says open. A shop logo."
+      }
+      description={"You can buy a lot of useful things here."}
+    />,
+    <PlaceBasic
+      onDragStart={handleDragStart}
       title={"Mine"}
       link={"mine"}
       img_webp={mine_webp}
       img_png={mine_png}
-      alt={"a few pink crystals protruding from a brown rock"}
+      alt={
+        "A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
+      }
       description={"Here you can get credits and parts to upgrade your rocket."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
       title={"University"}
       link={"university"}
-      img_webp={quiz_webp}
-      img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      img_webp={university_webp}
+      img_png={university_png}
+      alt={"A diploma with a blue ribbon. A university logo."}
       description={
         "The challenge here is to fill in the gaps in the text. It can also be your own text."
       }
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceBasic
@@ -67,7 +84,7 @@ const Therion = (props) => {
       link={"bar"}
       img_webp={bar_webp}
       img_png={bar_png}
-      alt={"glowing neon sign says the bar is open"}
+      alt={"A Shiny black and pink drink neon sign. A bar logo."}
       description={"A place for gossip and meetings."}
     />,
     <PlaceLaunchPad

@@ -178,7 +178,12 @@ const Mine = (props) => {
             </p>
           </header>
           <p className="logo logo-place image fit margin-bottom-0">
-            <img src={mine_logo} alt="mine logo" width="100em" height="auto" />
+            <img
+              src={mine_logo}
+              alt="A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
+              width="100em"
+              height="auto"
+            />
           </p>
         </article>
         <section>

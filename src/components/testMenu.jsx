@@ -7,7 +7,7 @@ import getRandomText from "../utils/texts";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
-import quiz_logo from "../images/quiz.png";
+import university_logo from "../images/university.png";
 import "./testMenu.css";
 
 const TestMenu = (props) => {
@@ -64,7 +64,12 @@ const TestMenu = (props) => {
             </p>
           </header>
           <p className="logo logo-place image fit margin-bottom-0">
-            <img src={quiz_logo} alt="quiz logo" width="100em" height="auto" />
+            <img
+              src={university_logo}
+              alt="A diploma with a blue ribbon. A university logo."
+              width="100em"
+              height="auto"
+            />
           </p>
         </article>
         <section>

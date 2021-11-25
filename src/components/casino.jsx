@@ -140,7 +140,7 @@ const Casino = (props) => {
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={casino_logo}
-              alt="casino logo"
+              alt="The big pink neon sign with the word casino. A Casino logo."
               width="100em"
               height="auto"
             />

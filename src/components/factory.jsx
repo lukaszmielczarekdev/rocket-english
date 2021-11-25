@@ -79,7 +79,7 @@ export const Factory = (props) => {
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={rocket_logo}
-              alt="factory logo"
+              alt="A large robot and a space rocket, as well as night and stars in the background. Factory logo."
               width="100em"
               height="auto"
             />

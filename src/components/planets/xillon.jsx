@@ -40,7 +40,9 @@ const Xillon = (props) => {
       link={"shop"}
       img_webp={shop_webp}
       img_png={shop_png}
-      alt={"glowing neon says open"}
+      alt={
+        "A big black neon sign with red lettering that says open. A shop logo."
+      }
       description={"You can buy a lot of useful things here."}
     />,
     <PlaceBasic
@@ -49,7 +51,9 @@ const Xillon = (props) => {
       link={"mine"}
       img_webp={mine_webp}
       img_png={mine_png}
-      alt={"a few pink crystals protruding from a brown rock"}
+      alt={
+        "A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
+      }
       description={"Here you can get credits and parts to upgrade your rocket."}
     />,
     <PlaceBasic
@@ -58,16 +62,18 @@ const Xillon = (props) => {
       link={"factory"}
       img_webp={rocket_webp}
       img_png={rocket_png}
-      alt={"a giant rocket factory"}
+      alt={
+        "A large robot and a space rocket, as well as night and stars in the background. Factory logo."
+      }
       description={"Here you can upgrade your rocket."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceLaunchPad

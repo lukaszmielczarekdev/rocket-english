@@ -139,7 +139,12 @@ export const Ufo = (props) => {
             </p>
           </header>
           <p className="logo logo-place image fit margin-bottom-0">
-            <img src={ufo_logo} alt="ufo logo" width="100em" height="auto" />
+            <img
+              src={ufo_logo}
+              alt="Several black and menacing looking UFO ships on a yellow background. A UFO logo."
+              width="100em"
+              height="auto"
+            />
           </p>
         </article>
         <section>

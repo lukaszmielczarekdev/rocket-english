@@ -14,6 +14,8 @@ import ufo_png from "../../images/ufo-logo.png";
 import ufo_webp from "../../images/ufo-logo.webp";
 import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
+import university_webp from "../../images/university.webp";
+import university_png from "../../images/university.png";
 
 const Crystalia = (props) => {
   const user = useContext(UserContext);
@@ -47,16 +49,18 @@ const Crystalia = (props) => {
       link={"factory"}
       img_webp={rocket_webp}
       img_png={rocket_png}
-      alt={"a giant rocket factory"}
+      alt={
+        "A large robot and a space rocket, as well as night and stars in the background. Factory logo."
+      }
       description={"Here you can upgrade your rocket."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceBasic
@@ -65,16 +69,16 @@ const Crystalia = (props) => {
       link={"bar"}
       img_webp={bar_webp}
       img_png={bar_png}
-      alt={"glowing neon sign says the bar is open"}
+      alt={"A Shiny black and pink drink neon sign. A bar logo."}
       description={"A place for gossip and meetings."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
       title={"University"}
       link={"university"}
-      img_webp={quiz_webp}
-      img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      img_webp={university_webp}
+      img_png={university_png}
+      alt={"A diploma with a blue ribbon. A university logo."}
       description={
         "The challenge here is to fill in the gaps in the text. It can also be your own text."
       }

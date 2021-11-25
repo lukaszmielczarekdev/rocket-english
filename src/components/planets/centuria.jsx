@@ -38,7 +38,9 @@ const Centuria = (props) => {
       link={"shop"}
       img_webp={shop_webp}
       img_png={shop_png}
-      alt={"glowing neon says open"}
+      alt={
+        "A big black neon sign with red lettering that says open. A shop logo."
+      }
       description={"You can buy a lot of useful things here."}
     />,
     <PlaceBasic
@@ -47,16 +49,16 @@ const Centuria = (props) => {
       link={"casino"}
       img_webp={casino_webp}
       img_png={casino_png}
-      alt={"casino machine"}
+      alt={"The big pink neon sign with the word casino. A Casino logo."}
       description={"Be careful. Gambling is addictive."}
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
-      title={"Quiz"}
+      title={"School"}
       link={"quiz"}
       img_webp={quiz_webp}
       img_png={quiz_png}
-      alt={"giant letter q made of tiny stars"}
+      alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
     />,
     <PlaceLaunchPad

@@ -262,13 +262,13 @@
 
 @media screen and (min-width: 1281px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/1920/casino.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/1920/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/1920/casino.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -276,13 +276,13 @@
 }
 @media screen and (max-width: 1280px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/casino.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/casino.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -291,13 +291,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.jpg) no-repeat center
+    background: url(/src/images/planet-images/960/casino.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/960/tunnel.webp) no-repeat center
+    background: url(/src/images/planet-images/960/casino.webp) no-repeat center
       center fixed;
 
     background-size: cover;

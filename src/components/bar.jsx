@@ -136,7 +136,7 @@ export const Bar = (props) => {
                 type="image/png"
                 width="100em"
                 height="auto"
-                alt="bar logo - coctail"
+                alt="A Shiny black and pink drink neon sign. A bar logo."
               />
             </picture>
           </p>

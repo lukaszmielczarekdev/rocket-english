@@ -207,6 +207,7 @@ export default function App() {
           "favorites",
           "university",
           "help",
+          "shop",
         ],
       },
       crystalia: {
@@ -234,6 +235,7 @@ export default function App() {
           "favorites",
           "university",
           "help",
+          "mine",
         ],
       },
       bathea: {
@@ -252,6 +254,8 @@ export default function App() {
           "favorites",
           "university",
           "help",
+          "mine",
+          "shop",
         ],
       },
       desertia: {
