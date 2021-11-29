@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 import InventoryContext from "../contexts/inventoryContext";
 import Modal from "react-modal";
-import "./gapTest.css";
+import "./sentenceTest.css";
 
 Modal.setAppElement(document.getElementById("root"));
 
@@ -25,7 +25,7 @@ const modalStyle = {
   },
 };
 
-const GapTest = (props) => {
+const SentenceTest = (props) => {
   const { register, handleSubmit } = useForm();
   const formData = useRef();
   const [modalTrigger, setModalTrigger] = useState(false);
@@ -39,7 +39,7 @@ const GapTest = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
 
-  const gapTestPrize = (multiplier) => {
+  const sentenceTestPrize = (multiplier) => {
     user.onAddExp(500 * multiplier);
     inventory.addItems({
       credits: 500 * multiplier,
@@ -48,10 +48,41 @@ const GapTest = (props) => {
     });
   };
 
+  const addAposToObject = (elem) => {
+    if (elem["word"] === "wasnt") {
+      return "wasn't";
+    } else if (elem["word"] === "werent") {
+      return "weren't";
+    } else if (elem["word"] === "isnt") {
+      return "isn't";
+    } else if (elem["word"] === "arent") {
+      return "aren't";
+    } else {
+      return elem["word"];
+    }
+  };
+
+  const addAposToWord = (word) => {
+    if (word === "wasnt") {
+      return "wasn't";
+    } else if (word === "werent") {
+      return "weren't";
+    } else if (word === "isnt") {
+      return "isn't";
+    } else if (word === "arent") {
+      return "aren't";
+    } else {
+      return word;
+    }
+  };
+
   const handleSubmitUserData = (data) => {
     let counter = 0;
+
     for (let [index, elem] of Object.entries(formData.current)) {
-      if (elem.word === data[index]) {
+      let currentElem = elem;
+      currentElem.word = addAposToObject(currentElem);
+      if (elem.word.toLowerCase() === data[index].toLowerCase()) {
         elem.guessed = true;
         counter++;
       }
@@ -59,17 +90,16 @@ const GapTest = (props) => {
 
     makeSummaryTextColored(props.text, formData.current);
 
-    if (props.ifPrize) {
-      if (counter) {
-        setSummary([
-          ["exp", 50 * counter],
-          ["credits", 50 * counter],
-          ["steel", 5 * counter],
-          ["aluminum", 1 * counter],
-        ]);
-      }
-      gapTestPrize(counter);
+    if (counter) {
+      setSummary([
+        ["exp", 50 * counter],
+        ["credits", 50 * counter],
+        ["steel", 5 * counter],
+        ["aluminum", 1 * counter],
+      ]);
     }
+    sentenceTestPrize(counter);
+
     toggleModal();
   };
 
@@ -81,13 +111,33 @@ const GapTest = (props) => {
         </li>
       ));
     } else {
-      return props.mode !== "user" && <p>Keep learning...</p>;
+      return <p>Keep learning...</p>;
     }
   };
 
+  const makeListItems = (items) => {
+    const listItems = [];
+    for (let [index, item] of Object.entries(items)) {
+      if (typeof item === "string") {
+        if (item === "\n") {
+          listItems.push(<br />);
+        } else {
+          listItems.push(<li key={index}>{item}</li>);
+        }
+      } else {
+        listItems.push(item);
+      }
+    }
+    return listItems;
+  };
+
   const makeSummaryTextColored = (text, answers) => {
-    const words = text.split(" ");
-    const splitted = splitText(text);
+    let words = text
+      .join(" ")
+      .split(" ")
+      .map((elem) => addAposToWord(elem));
+    const replaced = text.join(" ");
+    const splitted = replaced.split(" ");
 
     for (let [id, answer] of Object.entries(answers)) {
       if (answer.guessed) {
@@ -104,33 +154,28 @@ const GapTest = (props) => {
         );
       }
     }
-    setSummaryText(splitted);
+    const list = makeListItems(splitted);
+    setSummaryText(list);
   };
 
   const onSubmit = (data) => handleSubmitUserData(data);
 
-  const splitText = (text) => {
+  const splitSentences = (text) => {
     const words = {};
-    const splittedText = text.split(" ");
+    const joinedSentences = text.join(" ");
+    const splittedText = joinedSentences.split(" ");
     const filtered = [];
 
     for (let [index, word] of splittedText.entries()) {
-      if (
-        word === "the" ||
-        word === "The" ||
-        word === "a" ||
-        word === "A" ||
-        word === "an" ||
-        word === "An"
-      ) {
+      if (props.toReplace.includes(word.toLowerCase())) {
         filtered.push(
           <input
             type="text"
             {...register(String(index), {
               required: true,
               minLength: 1,
-              maxLength: 3,
-              pattern: /^[A-Za-z]+$/i,
+              maxLength: 10,
+              pattern: /^[a-zA-Z ']+$/i,
             })}
           />
         );
@@ -139,16 +184,20 @@ const GapTest = (props) => {
         filtered.push(word);
       }
     }
+    // display-block
 
     formData.current = words;
-    return filtered.map((elem, id) => <li key={id}>{elem}</li>);
+    return filtered.map((elem, id) => {
+      return elem === "\n" ? <br /> : <li key={id}>{elem}</li>;
+    });
   };
 
   return (
-    <div id="gapTest" className="padding border">
+    <div id="sentenceTest" className="padding border">
+      <p>{props.title}</p>
       <article className="testMenu-activities-container">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <ul>{splitText(props.text)}</ul>
+          <ul>{splitSentences(props.text)}</ul>
           <button type="submit" className="button small">
             Submit
           </button>
@@ -158,7 +207,7 @@ const GapTest = (props) => {
         style={modalStyle}
         isOpen={modalTrigger}
         onRequestClose={() => props.resetKey(Math.random())}
-        contentLabel="Gap Test summary modal"
+        contentLabel="Sentence Test summary modal"
       >
         <i
           onClick={() => {
@@ -175,4 +224,4 @@ const GapTest = (props) => {
   );
 };
 
-export default GapTest;
+export default SentenceTest;

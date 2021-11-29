@@ -13,7 +13,7 @@ typography .favorites-container h3 {
 }
 
 #favorites h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 200;
   font-family: var(--ff-primary);
   text-transform: uppercase;

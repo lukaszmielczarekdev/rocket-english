@@ -3,7 +3,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
+import SentenceTest from "./sentenceTest";
 import getRandomText from "../utils/texts";
+import getRandomSentences, {
+  getWordsToReplaceByChosenMode,
+} from "../utils/sentences";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
@@ -13,7 +17,9 @@ import "./testMenu.css";
 const TestMenu = (props) => {
   const { register, handleSubmit } = useForm();
   const [mode, setMode] = useState(null);
-  const [displayTest, setDisplayTest] = useState(null);
+  const [sentenceTestKind, setSentenceTestKind] = useState(null);
+  const [displayGapTest, setDisplayGapTest] = useState(null);
+  const [displaySentenceTest, setDisplaySentenceTest] = useState(null);
   const [key, setKey] = useState(Math.random());
 
   const userText = useRef();
@@ -30,6 +36,19 @@ const TestMenu = (props) => {
       ? `${baseClass} hidden`
       : `${baseClass}`;
   };
+
+  const getTestDescription = (tense) => {
+    if (tense === "pastSimpleToBe") {
+      return "(was/were or wasn’t/weren’t)";
+    } else if (tense === "presentSimpleToBe") {
+      return "(is/are/am or isn’t/aren’t)";
+    } else if (tense === "pastSimpleRegularIrregularVerbs") {
+      return "(past simple forms of the verbs)";
+    } else if (tense === "countableAndUncountable") {
+      return "(a, some or any)";
+    }
+  };
+
   const handleSetKey = (number) => {
     setKey(number);
   };
@@ -45,7 +64,7 @@ const TestMenu = (props) => {
   };
   const handleSubmitUserText = (data) => {
     userText.current = data;
-    setDisplayTest(true);
+    setDisplayGapTest(true);
   };
   const onSubmit = (data) => handleSubmitUserText(data["usertext"]);
 
@@ -77,7 +96,13 @@ const TestMenu = (props) => {
             <h3>challenge</h3>
             <hr className="underline-places" />
           </header>
-          <article className="testMenu-split margin-bottom-2rem">
+          <article
+            className={ifVisible(
+              "sentences",
+              "sentences",
+              "testMenu-split margin-bottom-2rem"
+            )}
+          >
             <header>
               <h4>
                 test
@@ -86,7 +111,7 @@ const TestMenu = (props) => {
               </h4>
             </header>
             <article className={ifVisible(null, "game")}>
-              {!displayTest && (
+              {!displayGapTest && (
                 <form className="test-form" onSubmit={handleSubmit(onSubmit)}>
                   <input
                     type="text"
@@ -105,16 +130,16 @@ const TestMenu = (props) => {
             </article>
             <article className="test-buttons">
               <button
-                className={ifVisible("user", "game", "button small")}
+                className={ifVisible("user", "game", "button large")}
                 onClick={() => setMode("user")}
               >
                 Make your own challenge
               </button>
               <button
-                className={ifVisible("game", "user", "button small")}
+                className={ifVisible("game", "user", "button large")}
                 onClick={() => {
                   setMode("game");
-                  setDisplayTest(true);
+                  setDisplayGapTest(true);
                 }}
               >
                 Take a challenge
@@ -123,9 +148,10 @@ const TestMenu = (props) => {
             <article
               className={ifVisible(null, null, "testMenu-activities-container")}
             >
-              {displayTest && (
+              {displayGapTest && (
                 <GapTest
                   resetKey={handleSetKey}
+                  mode={mode}
                   key={key}
                   text={mode === "user" ? userText.current : getRandomText()}
                   ifPrize={mode === "user" ? false : true}
@@ -136,13 +162,93 @@ const TestMenu = (props) => {
               className={ifVisible(null, null, "button small")}
               onClick={() => {
                 setMode(null);
-                setDisplayTest(false);
+                setDisplayGapTest(false);
                 setKey(Math.random());
               }}
             >
               Go Back
             </button>
           </article>
+
+          <section
+            className={ifVisible(
+              "game",
+              "user",
+              "testMenu-split margin-bottom-2rem"
+            )}
+          >
+            <header>
+              <h4>Complete the sentences</h4>
+            </header>
+            <article
+              className={ifVisible("sentences", "sentences", "test-buttons")}
+            >
+              <button
+                className="button large"
+                onClick={() => {
+                  setMode("sentences");
+                  setSentenceTestKind("pastSimpleToBe");
+                  setDisplaySentenceTest(true);
+                }}
+              >
+                Past simple (was/were)
+              </button>
+              <button
+                className="button large"
+                onClick={() => {
+                  setMode("sentences");
+                  setSentenceTestKind("pastSimpleRegularIrregularVerbs");
+                  setDisplaySentenceTest(true);
+                }}
+              >
+                Past simple (regular/irreg)
+              </button>
+              <button
+                className="button large"
+                onClick={() => {
+                  setMode("sentences");
+                  setSentenceTestKind("presentSimpleToBe");
+                  setDisplaySentenceTest(true);
+                }}
+              >
+                Present simple (am/is/are)
+              </button>
+              <button
+                className="button large"
+                onClick={() => {
+                  setMode("sentences");
+                  setSentenceTestKind("countableAndUncountable");
+                  setDisplaySentenceTest(true);
+                }}
+              >
+                Nouns (a/some/any)
+              </button>
+            </article>
+            <article
+              className={ifVisible(null, null, "testMenu-activities-container")}
+            >
+              {displaySentenceTest && (
+                <SentenceTest
+                  toReplace={getWordsToReplaceByChosenMode(sentenceTestKind)}
+                  mode={sentenceTestKind}
+                  title={getTestDescription(sentenceTestKind)}
+                  resetKey={handleSetKey}
+                  key={key}
+                  text={getRandomSentences(5, sentenceTestKind)}
+                />
+              )}
+            </article>
+            <button
+              className={ifVisible(null, !"sentences", "button small")}
+              onClick={() => {
+                setMode(null);
+                setDisplaySentenceTest(false);
+                setKey(Math.random());
+              }}
+            >
+              Go Back
+            </button>
+          </section>
         </section>
         <section>
           <header className="places-header">

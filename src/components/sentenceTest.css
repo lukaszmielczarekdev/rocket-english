@@ -1,5 +1,5 @@
 /* typography */
-#gapTest {
+#sentenceTest {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
   font-weight: normal;
@@ -8,8 +8,8 @@
   padding-bottom: 2rem;
 }
 
-#gapTest input {
-  max-width: 30px !important;
+#sentenceTest input {
+  max-width: 50px !important;
   background-color: transparent;
   color: #ffff;
   border: none;
@@ -27,14 +27,18 @@
   padding-bottom: 2rem;
 }
 
+.display-block {
+  display: block;
+}
+
 /* button */
 
-#gapTest button {
+#sentenceTest button {
   color: var(--clr-primary-100);
   border: 1px solid var(--clr-primary-100);
   margin-top: 1rem;
 }
 
-#gapTest button:hover {
+#sentenceTest button:hover {
   border: none;
 }

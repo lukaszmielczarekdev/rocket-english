@@ -13,7 +13,9 @@ const MiniMap = (props) => {
 
   const renderMap = (planets) => {
     return planets.map((planet) => (
-      <li className={ifCurrent(planet)}>{planet}</li>
+      <li key={planet} className={ifCurrent(planet)}>
+        {planet}
+      </li>
     ));
   };
 

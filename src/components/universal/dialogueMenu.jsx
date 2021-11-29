@@ -13,7 +13,7 @@ const DialogueMenu = (props) => {
   return (
     <p className="width-80">
       {!conversation && (
-        <button className={"button small"} onClick={handleConversation}>
+        <button className={"button large"} onClick={handleConversation}>
           Talk
         </button>
       )}

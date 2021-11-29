@@ -130,25 +130,25 @@ const Shop = (props) => {
               <header>
                 <h4>Your inventory</h4>
               </header>
-              <p>
+              <div>
                 <ul>{renderUserInventory()}</ul>
-              </p>
+              </div>
             </article>
             <article className="align-self-flex-start">
               <header>
                 <h4>buy</h4>
               </header>
-              <p>
+              <div>
                 <ul>{shopInv()}</ul>
-              </p>
+              </div>
             </article>
             <article className="align-self-flex-start">
               <header>
                 <h4>sell</h4>
               </header>
-              <p>
+              <div>
                 <ul>{renderBlockedUserInventory()}</ul>
-              </p>
+              </div>
             </article>
           </article>
         </section>
