@@ -28,6 +28,8 @@ import Axios from "./components/planets/axios";
 import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/testMenu";
 import Help from "./components/help";
+import dialogues from "./utils/dialogues";
+import { availablePlanets } from "./utils/planetAccess";
 import "./App.css";
 
 export default function App() {
@@ -64,109 +66,7 @@ export default function App() {
       Axios: false,
       Desertia: false,
     },
-    dialogues: {
-      crion: [
-        {
-          id: 1,
-          place: "shop",
-          question: "Why aren't you buying goods from customers?",
-          answer:
-            "Once I bought aluminum at a very cheap price, then Galactic Police officers came to me and confiscated all the goods that were supposedly stolen. They said it's been a common situation lately and they are on the trail of a gang that is distributing stolen goods around the galaxy. So far, I have not recovered neither the credits nor the goods, so just in case I have suspended the buying.",
-          completed: false,
-        },
-        {
-          id: 2,
-          place: "shop",
-          question:
-            "Do you know anything about a space rocket that recently landed here?",
-          answer:
-            "Many rockets land here, our planet is a popular tourist attraction. But yeah... I heard that a rocket landed very precisely and slowly recently, but no one has come out of it since then. As you have probably noticed, the inhabitants of the planet are children, and they immediately run to see what lands here.",
-          completed: false,
-        },
-        {
-          id: 3,
-          place: "casino",
-          question: "Do residents visit this place often?",
-          answer:
-            "Residents rarely come here, even if it is to watch tourists play. It is quite a popular place on the planet, so much so that some of the inhabitants have gambling debts. There are those who have been caught cheating and they are now banned from casinos across the galaxy.",
-          completed: false,
-        },
-        {
-          id: 4,
-          place: "factory",
-          question: "Where do you get the materials from?",
-          answer:
-            "We take spare parts from ships that are no longer repairable or unprofitable to repair. If we have the right parts, we build the necessary elements ourselves. Rare parts are provided by mercenaries who hunt UFOs - these ships are a real treasure. I am waiting for the day when we manage to take over some large ship and we can obtain some alien technology. They supposedly know how to teleport... think how much it would make our lives easier.",
-          completed: false,
-        },
-      ],
-      therion: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      crystalia: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      thalia: [
-        {
-          id: 1,
-          place: "shop",
-          question: "Where do you get the goods from?",
-          answer:
-            "Until recently, we bought them from customers, but recently we only source from trusted wholesalers. Some time ago, a client was offering large amounts of moonshine, he looked suspicious and looked at me strangely when I told him that moonshine is forbidden on our planet. Same with the rest of the plenets. Weird guy.",
-          completed: false,
-        },
-      ],
-      xillon: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      bathea: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      axios: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      desertia: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-      centuria: [
-        {
-          id: 1,
-          question: "question",
-          answer: "answer",
-          completed: false,
-        },
-      ],
-    },
+    dialogues: dialogues,
   };
 
   const [userInfo, setUserInfo] = useState(
@@ -178,125 +78,7 @@ export default function App() {
     newGame: true,
     gamePaused: false,
     // if a place is not on the planet it will not be rendered
-    availablePlanets: {
-      menu: { available: true, discovered: true, places: ["help"] },
-      crion: {
-        available: false,
-        discovered: false,
-        places: [
-          "shop",
-          "casino",
-          "quiz",
-          "factory",
-          "pad",
-          "bar",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-        ],
-      },
-      therion: {
-        available: false,
-        places: [
-          "mine",
-          "bar",
-          "quiz",
-          "pad",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-          "shop",
-        ],
-      },
-      crystalia: {
-        available: false,
-        places: [
-          "ufo",
-          "bar",
-          "quiz",
-          "factory",
-          "pad",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-        ],
-      },
-      thalia: {
-        available: false,
-        places: [
-          "shop",
-          "casino",
-          "quiz",
-          "pad",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-          "mine",
-        ],
-      },
-      bathea: {
-        available: false,
-        places: ["ufo", "bar", "quiz", "pad", "inventory", "favorites", "help"],
-      },
-      axios: {
-        available: false,
-        places: [
-          "ufo",
-          "quiz",
-          "pad",
-          "casino",
-          "factory",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-          "mine",
-          "shop",
-        ],
-      },
-      desertia: {
-        places: [
-          "shop",
-          "casino",
-          "quiz",
-          "pad",
-          "ufo",
-          "inventory",
-          "favorites",
-          "university",
-          "help",
-        ],
-      },
-      xillon: {
-        available: false,
-        places: [
-          "shop",
-          "mine",
-          "quiz",
-          "factory",
-          "pad",
-          "inventory",
-          "favorites",
-          "help",
-        ],
-      },
-      centuria: {
-        available: false,
-        places: [
-          "shop",
-          "casino",
-          "quiz",
-          "pad",
-          "inventory",
-          "favorites",
-          "help",
-        ],
-      },
-    },
+    availablePlanets: availablePlanets,
   };
 
   const handleSetGamePaused = (state) => {

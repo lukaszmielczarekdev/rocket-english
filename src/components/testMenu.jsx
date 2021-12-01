@@ -7,6 +7,7 @@ import SentenceTest from "./sentenceTest";
 import getRandomText from "../utils/texts";
 import getRandomSentences, {
   getWordsToReplaceByChosenMode,
+  getTestDescription,
 } from "../utils/sentences";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
@@ -35,18 +36,6 @@ const TestMenu = (props) => {
     return mode === condition || mode === condition2
       ? `${baseClass} hidden`
       : `${baseClass}`;
-  };
-
-  const getTestDescription = (tense) => {
-    if (tense === "pastSimpleToBe") {
-      return "(was/were or wasn’t/weren’t)";
-    } else if (tense === "presentSimpleToBe") {
-      return "(is/are/am or isn’t/aren’t)";
-    } else if (tense === "pastSimpleRegularIrregularVerbs") {
-      return "(past simple forms of the verbs)";
-    } else if (tense === "countableAndUncountable") {
-      return "(a, some or any)";
-    }
   };
 
   const handleSetKey = (number) => {
@@ -105,7 +94,7 @@ const TestMenu = (props) => {
           >
             <header>
               <h4>
-                test
+                Complete the text
                 <br />
                 (articles)
               </h4>
@@ -260,7 +249,7 @@ const TestMenu = (props) => {
               <h4>Professor</h4>
             </header>
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
-              <DialogueMenu place={"testMenu"} />
+              <DialogueMenu place={"university"} />
             )}
           </article>
         </section>

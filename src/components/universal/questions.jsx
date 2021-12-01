@@ -16,8 +16,8 @@ const Questions = (props) => {
     return user.user.dialogues[user.user.currentPlanet].find(
       (elem) => elem.id === id
     ).completed
-      ? "visited"
-      : "";
+      ? "visited dialog-line"
+      : "dialog-line";
   };
 
   return (
@@ -39,7 +39,10 @@ const Questions = (props) => {
                 {elem.question}
               </li>
             ))}
-          <li className="visited" onClick={props.handleConversation}>
+          <li
+            className="visited dialog-line"
+            onClick={props.handleConversation}
+          >
             That's all...
           </li>
         </ul>

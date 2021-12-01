@@ -152,6 +152,15 @@ ul {
 .flex {
   display: flex;
 }
+
+.dialog-line {
+  border-left: 0;
+  margin: 0.5rem 0 0 0 !important;
+  padding-left: 0;
+  display: block !important;
+  list-style: none;
+}
+
 .flex * {
   padding: 0.25rem;
 }

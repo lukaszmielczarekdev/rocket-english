@@ -59,7 +59,7 @@ export const getWordsToReplaceByChosenMode = (mode) => {
   } else if (mode === "presentSimpleToBe") {
     return ["is", "are", "am", "isnt", "arent"];
   } else if (mode === "countableAndUncountable") {
-    return ["a", "some", "any"];
+    return ["a", "an", "some", "any"];
   } else if (mode === "pastSimpleRegularIrregularVerbs") {
     return [
       "studied",
@@ -76,6 +76,18 @@ export const getWordsToReplaceByChosenMode = (mode) => {
     ];
   } else {
     return [];
+  }
+};
+
+export const getTestDescription = (tense) => {
+  if (tense === "pastSimpleToBe") {
+    return "(was/were or wasn’t/weren’t)";
+  } else if (tense === "presentSimpleToBe") {
+    return "(is/are/am or isn’t/aren’t)";
+  } else if (tense === "pastSimpleRegularIrregularVerbs") {
+    return "(past simple forms of the verbs)";
+  } else if (tense === "countableAndUncountable") {
+    return "(a, an, some or any)";
   }
 };
 
