@@ -1,0 +1,266 @@
+/* typography */
+.planet-container h3 {
+  color: var(--clr-primary-100);
+}
+#definition-search {
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: smaller;
+}
+
+#definition-search h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.6rem;
+}
+
+#definition-search h3 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: yellow;
+  letter-spacing: 0.3rem;
+}
+#definition-search h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+.definition-search-info-container h4 {
+  color: yellow !important;
+}
+
+/* layout */
+#definition-search {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  flex: auto;
+}
+.flex-auto {
+  flex: auto;
+}
+
+#definition-search form {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#definition-search ul li {
+  border-left: 0;
+  margin: 0.5rem 0 0 0;
+  padding-left: 0;
+  display: block;
+  list-style: none;
+}
+
+@media screen and (min-width: 960px) {
+  .content {
+    width: 80%;
+    margin-left: 5rem;
+    margin-right: 3rem;
+  }
+}
+
+.header-container {
+  margin-bottom: 3rem;
+}
+
+.desktop {
+  display: none;
+}
+
+.definition-search-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1020px) {
+  .definition-search-split {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .definition-search-split {
+    flex-direction: row;
+  }
+  .definition-search-split > * {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 480px) {
+  .underline {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 70%;
+    margin-top: 1rem;
+  }
+  .align-self-flex-start {
+    align-self: flex-start;
+  }
+  .margin-bottom-0 {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  #definition-search h2 {
+    align-self: flex-start;
+    justify-self: left;
+    margin-right: -100px;
+  }
+  .underline {
+    width: 65%;
+    height: 0.1rem;
+    margin-left: -2rem;
+    background-color: white;
+    margin-bottom: 25px;
+  }
+  .underline-places {
+    width: 20%;
+    height: 0.1rem;
+    margin-right: -2rem;
+    background-color: white;
+    align-self: center;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+  #definition-search .places-header {
+    display: flex;
+    width: min(60%, 70rem);
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+  .places-header h3 {
+    justify-self: center;
+  }
+  .definition-search-name {
+    margin-bottom: 0;
+  }
+
+  .definition-search-description {
+    margin-bottom: 0 !important;
+    letter-spacing: 0.06rem;
+    margin-right: auto;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .definition-search-description {
+    border-left: none;
+  }
+}
+
+.definition-search-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .border {
+    border-bottom: none;
+  }
+}
+
+#definition-search p {
+  margin-bottom: 1rem;
+}
+
+.not-found p {
+  margin-bottom: 0;
+}
+
+.border-radius {
+  border-radius: 10px;
+}
+
+.padding-places {
+  padding: 1rem;
+}
+
+.padding-botton-3rem {
+  padding-bottom: 3rem;
+}
+
+.padding-1rem {
+  padding: 1rem;
+}
+
+.padding-3rem {
+  padding: 3rem;
+}
+
+.margin-1rem {
+  margin: 1rem;
+}
+
+#definition-search .button-margin {
+  margin: 0.5rem auto !important;
+}
+
+.margin-block-definition-search-container {
+  margin: auto;
+}
+.margin-0-3rem {
+  margin: 0.3rem !important;
+}
+
+.margin-bottom-2rem {
+  margin-bottom: 2rem !important;
+}
+
+.logo img {
+  width: 35% !important;
+}
+
+@media screen and (min-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo img {
+    width: 30% !important;
+  }
+}
+
+/* button */
+#definition-search button {
+  color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-100);
+}
+
+#definition-search button:hover {
+  border: none;
+}
+
+.link-button {
+  display: inline;
+}

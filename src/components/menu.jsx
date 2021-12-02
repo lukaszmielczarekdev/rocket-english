@@ -1,22 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import quiz_logo from "../images/quiz.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
+import DefinitionSearch from "./definitionSearch";
 import "./quiz.css";
 
 const Menu = (props) => {
   const user = useContext(UserContext);
-
+  const [mode, setMode] = useState(null);
+  const [key, setKey] = useState(Math.random());
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => handleSubmitNumber(data["length"]);
 
   const handleSubmitNumber = (number) => {
     const num = number;
     if (num) {
+      changeMode("challenge");
       props.setUpQuiz(num);
       props.showMenu();
     }
+  };
+
+  const changeMode = (mode) => {
+    setMode(mode);
+  };
+
+  const ifVisible = (condition, condition2, baseClass) => {
+    return mode === condition || mode === condition2
+      ? `${baseClass} hidden`
+      : `${baseClass}`;
   };
 
   return (
@@ -40,12 +53,12 @@ const Menu = (props) => {
           />
         </p>
       </article>
-      <section>
+      <section className={ifVisible("learning", "learning", "")}>
         <header className="places-header">
           <h3>challenge</h3>
           <hr className="underline-places" />
         </header>
-        <article className="quiz-split margin-bottom-2rem">
+        <article className={"quiz-split margin-bottom-2rem"}>
           <article className="align-self-flex-start">
             <header>
               <h4>quiz length</h4>
@@ -69,12 +82,24 @@ const Menu = (props) => {
           </article>
         </article>
       </section>
+      <section className={ifVisible("challenge", "challenge", "")}>
+        <DefinitionSearch key={key} changeMode={changeMode} />
+      </section>
+      <button
+        className={ifVisible(null, null, "button small")}
+        onClick={() => {
+          changeMode(null);
+          setKey(Math.random());
+        }}
+      >
+        Go Back
+      </button>
       <Link
         className={"link-button"}
         to={`/${user.user.currentPlanet}`}
         style={{ textDecoration: "none" }}
       >
-        <button className="button small">Go Back</button>
+        <button className="button small">Walk away</button>
       </Link>
     </section>
   );
