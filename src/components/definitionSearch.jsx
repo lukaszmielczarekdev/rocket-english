@@ -59,7 +59,10 @@ export const DefinitionSearch = (props) => {
       return (
         <div>
           <p>{renderDefinition()}</p>
-          <form className="bar-form" onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className="definition-search-form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <input
               type="search"
               {...register("def", {
@@ -70,7 +73,7 @@ export const DefinitionSearch = (props) => {
               })}
             />
             <button type="submit" className="button small">
-              Ask the Bartender
+              Ask the teacher
             </button>
           </form>
         </div>
@@ -89,7 +92,7 @@ export const DefinitionSearch = (props) => {
 
   const renderSpinner = (size) => {
     return (
-      <div className="loader bar-form">
+      <div className="loader definition-search-form">
         <PuffLoader
           loading={loading}
           size={size}
@@ -101,7 +104,10 @@ export const DefinitionSearch = (props) => {
   };
 
   return (
-    <section id="definition-search" className="bar-header-container">
+    <section
+      id="definition-search"
+      className="definition-search-header-container"
+    >
       <header className="places-header">
         <h3>learn</h3>
         <hr className="underline-places" />

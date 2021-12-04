@@ -61,9 +61,10 @@ const Menu = (props) => {
         <article className={"quiz-split margin-bottom-2rem"}>
           <article className="align-self-flex-start">
             <header>
-              <h4>quiz length</h4>
+              <h4>Guess the word</h4>
             </header>
             <form onSubmit={handleSubmit(onSubmit)}>
+              <p>How many words?</p>
               <input
                 type="number"
                 {...register("length", {
@@ -85,22 +86,24 @@ const Menu = (props) => {
       <section className={ifVisible("challenge", "challenge", "")}>
         <DefinitionSearch key={key} changeMode={changeMode} />
       </section>
-      <button
-        className={ifVisible(null, null, "button small")}
-        onClick={() => {
-          changeMode(null);
-          setKey(Math.random());
-        }}
-      >
-        Go Back
-      </button>
-      <Link
-        className={"link-button"}
-        to={`/${user.user.currentPlanet}`}
-        style={{ textDecoration: "none" }}
-      >
-        <button className="button small">Walk away</button>
-      </Link>
+      <section className="nav-buttons">
+        <button
+          className={ifVisible(null, null, "button small")}
+          onClick={() => {
+            changeMode(null);
+            setKey(Math.random());
+          }}
+        >
+          Go Back
+        </button>
+        <Link
+          className={"link-button"}
+          to={`/${user.user.currentPlanet}`}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="button small">Walk away</button>
+        </Link>
+      </section>
     </section>
   );
 };

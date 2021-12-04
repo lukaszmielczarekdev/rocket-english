@@ -62,6 +62,13 @@
   align-items: center;
 }
 
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #quiz ul,
 li {
   border-left: 0;

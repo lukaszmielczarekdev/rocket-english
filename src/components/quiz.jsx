@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import InventoryContext from "../contexts/inventoryContext";
-import UserContext from "../contexts/userContext";
 import PuffLoader from "react-spinners/PuffLoader";
 import api from "../utils/api";
 import "./quiz.css";
@@ -13,8 +11,6 @@ const Quiz = (props) => {
   const [definition, setDefinition] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  const user = useContext(UserContext);
 
   useEffect(() => {
     getDefinition();
@@ -77,7 +73,7 @@ const Quiz = (props) => {
             </button>
             {renderWord()}
           </form>
-          <button className="button small" onClick={props.skipDefinition}>
+          <button className="button small" onClick={props.resetKey}>
             Skip
           </button>
         </>
@@ -88,14 +84,6 @@ const Quiz = (props) => {
           <p>{errorMessage}</p>
           <button className="button small" onClick={getDefinition}>
             Try again
-          </button>
-          <button className="button small">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
           </button>
         </>
       );
@@ -118,13 +106,15 @@ const Quiz = (props) => {
         <div className="loader">{loading && renderSpinner("10rem")}</div>
         {!loading && renderContentOrError()}
       </article>
-      <Link
-        className={"link-button"}
-        to={`/${user.user.currentPlanet}`}
-        style={{ textDecoration: "none" }}
+      <button
+        onClick={() => {
+          props.showQuiz();
+          props.showMenu();
+        }}
+        className="button small"
       >
-        <button className="button small">Go Back</button>
-      </Link>
+        Go back
+      </button>
     </div>
   );
 };

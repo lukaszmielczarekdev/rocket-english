@@ -167,6 +167,8 @@ const Controller = (props) => {
       )}
       {showQuiz && (
         <Quiz
+          showMenu={handleShowMenu}
+          showQuiz={handleShowQuiz}
           count={counter.current}
           len={quizLength.current}
           key={key}
