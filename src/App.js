@@ -30,6 +30,7 @@ import TestMenu from "./components/testMenu";
 import Help from "./components/help";
 import dialogues from "./utils/dialogues";
 import { availablePlanets } from "./utils/planetAccess";
+import mercenaries from "./utils/mercenaries";
 import "./App.css";
 
 export default function App() {
@@ -137,6 +138,7 @@ export default function App() {
     aluminum: 0,
     crystal: 0,
     favs: {},
+    mercenaries: mercenaries,
   };
 
   const [userInventory, setUserInventory] = useState(
@@ -191,7 +193,7 @@ export default function App() {
     setUserInventory(userInventoryDummy);
   };
 
-  // subtract item
+  // subtract an item
   const handleSubtractItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
     userInventoryDummy[item] = userInventoryDummy[item] - amount;
@@ -216,6 +218,30 @@ export default function App() {
   const handleRemoveFromFavorite = (word) => {
     const userInventoryDummy = { ...userInventory };
     delete userInventoryDummy.favs[word];
+    setUserInventory(userInventoryDummy);
+  };
+
+  // hire a mercenary
+  const handleHireMercenary = (ID) => {
+    const userInventoryDummy = { ...userInventory };
+    const selectedMercenary = userInventoryDummy.mercenaries.find(
+      (merc) => merc.id === ID
+    );
+    if (userInventory.credits >= selectedMercenary.price) {
+      selectedMercenary.hired = true;
+      userInventoryDummy.credits =
+        userInventoryDummy.credits - selectedMercenary.price;
+      setUserInventory(userInventoryDummy);
+    }
+  };
+
+  // remove a mercenary
+  const handleRemoveMercenary = (ID) => {
+    const userInventoryDummy = { ...userInventory };
+    const selectedMercenary = userInventoryDummy.mercenaries.find(
+      (merc) => merc.id === ID
+    );
+    selectedMercenary.hired = false;
     setUserInventory(userInventoryDummy);
   };
 
@@ -349,6 +375,8 @@ export default function App() {
               subtractCredits: handleSubtractCredits,
               addToFavorite: handleAddToFavorite,
               removeFromFavorite: handleRemoveFromFavorite,
+              removeMercenary: handleRemoveMercenary,
+              hireMercenary: handleHireMercenary,
             }}
           >
             <UserContext.Provider

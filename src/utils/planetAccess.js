@@ -146,7 +146,6 @@ export const availablePlanets = {
       "quiz",
       "factory",
       "pad",
-      "bar",
       "inventory",
       "favorites",
       "university",

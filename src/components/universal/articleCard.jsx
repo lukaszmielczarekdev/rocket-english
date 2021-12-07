@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import InventoryContext from "../../contexts/inventoryContext";
 
-const PlaceBasic = (props) => {
+const FavoritesCard = (props) => {
   const inventory = useContext(InventoryContext);
   return (
     <article className="padding-places border carousel-card">
@@ -17,4 +17,4 @@ const PlaceBasic = (props) => {
   );
 };
 
-export default PlaceBasic;
+export default FavoritesCard;

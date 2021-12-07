@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import UserContext from "../../contexts/userContext";
-// import Questions from "./questions";
 import "../../App.css";
 
 const Answer = (props) => {

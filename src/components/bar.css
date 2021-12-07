@@ -42,6 +42,15 @@
 }
 
 /* layout */
+
+#bar-container {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  flex: auto;
+}
+
 #bar {
   align-items: center;
   justify-content: center;
@@ -66,7 +75,7 @@
   border-left: 0;
   margin: 0.5rem 0 0 0;
   padding-left: 0;
-  display: block;
+  /* display: block; */
   list-style: none;
 }
 
@@ -309,4 +318,10 @@
 
     background-size: cover;
   }
+}
+
+/* carousel fix */
+
+#bar .alice-carousel__dots-item {
+  margin: 0.5rem;
 }

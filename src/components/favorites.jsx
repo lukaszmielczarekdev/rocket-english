@@ -7,7 +7,7 @@ import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import InventoryContext from "../contexts/inventoryContext";
 import AliceCarousel from "react-alice-carousel";
-import ArticleCard from "../components/universal/articleCard";
+import FavoritesCard from "../components/universal/articleCard";
 import renders from "../utils/renders";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./favorites.css";
@@ -42,7 +42,7 @@ const Favorites = (props) => {
   };
 
   favs.current = makeFavoritesList(inventory.inventory.favs).map((element) => (
-    <ArticleCard title={element[0]} description={element[1]} />
+    <FavoritesCard title={element[0]} description={element[1]} />
   ));
 
   return (

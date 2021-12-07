@@ -9,13 +9,23 @@
   padding-bottom: 2rem;
 }
 
+#inventory-container h4 {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+
 #inventory ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-#inventory ul li {
+#inventory ul li,
+#mercenaries-list ul li {
   border-left: 0;
   margin: 0.5rem 0 0 0;
   padding-left: 0;
@@ -24,6 +34,15 @@
 }
 
 /* layout */
+
+#inventory-container {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  flex: auto;
+}
+
 #inventory {
   align-items: center;
   justify-content: center;
@@ -37,6 +56,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.margin-1rem {
+  margin: 1rem;
 }
 
 @media (min-width: 1400px) {

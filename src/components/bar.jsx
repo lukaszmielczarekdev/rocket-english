@@ -1,19 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
-// import { useForm } from "react-hook-form";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import UserInventory from "../contexts/inventoryContext";
 import DialogueMenu from "./universal/dialogueMenu";
-import "react-alice-carousel/lib/alice-carousel.css";
+import NpcForHireCard from "./universal/npcForHireCard";
+import AliceCarousel from "react-alice-carousel";
+import renders from "../utils/renders";
 import bar_webp from "../images/bar.webp";
 import bar_png from "../images/bar.png";
-import "./bar.css";
 import "../components/planets/planet.css";
+import "react-alice-carousel/lib/alice-carousel.css";
+import "./bar.css";
 
 export const Bar = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
+  const inventory = useContext(UserInventory);
+  const mercenaries = useRef(null);
 
   useEffect(() => {
     general.setGamePaused(false);
@@ -29,18 +34,41 @@ export const Bar = (props) => {
       return <Redirect to="/space" />;
     }
   };
+  const showMercenariesToHire = () => {
+    const hired = inventory.inventory.mercenaries.filter(
+      (merc) => !merc.hired && merc.planet === user.user.currentPlanet
+    );
+
+    if (hired.length !== 0) {
+      return hired.map((elem) => (
+        <NpcForHireCard
+          id={elem.id}
+          name={elem.name}
+          lvl={elem.lvl}
+          price={elem.price}
+          strength={elem.strength}
+          hired={elem.hired}
+        />
+      ));
+    } else {
+      return null;
+    }
+  };
+
+  mercenaries.current = showMercenariesToHire();
 
   return (
-    <main id="bar" className="bar-wrapper">
+    <main id="bar-container" className="bar-wrapper">
       {renderOrRedirect("bar")}
-      <section className="bar-header-container">
+      <section id="bar" className="bar-header-container">
         <article className="bar-split">
           <header className="content">
-            <h2 className="bar-name">bar</h2>
+            <h2 className="bar-name">Bar</h2>
             <hr className="underline" />
             <p className="bar-description">
-              Here the bartender will always listen to you. Ask him about
-              everything, as soon as he knows you will hear the answer.
+              Here you can hire mercenaries who will be happy to go out for you
+              in search of valuable goods for an appropriate reward. You can
+              manage mercenaries in your inventory screen.
             </p>
           </header>
           <p className="logo logo-place image fit margin-bottom-0">
@@ -57,22 +85,33 @@ export const Bar = (props) => {
             </picture>
           </p>
         </article>
-        {/* <section>
+        <section>
           <header className="places-header">
-            <h3>drink</h3>
+            <h3>Hire</h3>
             <hr className="underline-places" />
           </header>
-          <article className="margin-bottom-2rem">
-            <article className="align-self-flex-start">
-              <header>
-                <h4>ask</h4>
-              </header>
-              <p>Word</p>
-              {loading && renderSpinner("10rem")}
-              {!loading && renderContentOrError()}
-            </article>
+          {/* <article className="margin-bottom-2rem"> */}
+          <article className="planet-activities-container">
+            <header>
+              <h4>Mercenaries</h4>
+            </header>
+            {mercenaries.current && (
+              <AliceCarousel
+                controlsStrategy={"responsive"}
+                responsive={renders.carousel}
+                keyboardNavigation
+                infinite
+                items={mercenaries.current}
+              />
+            )}
+            {!mercenaries.current && (
+              <p className="place-description">
+                There is no mercenaries to hire.
+              </p>
+            )}
           </article>
-        </section> */}
+          {/* </article> */}
+        </section>
         <section>
           <header className="places-header">
             <h3>Talk</h3>
@@ -80,7 +119,7 @@ export const Bar = (props) => {
           </header>
           <article>
             <header>
-              <h4>bartender</h4>
+              <h4>Bartender</h4>
             </header>
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"bar"} />
