@@ -1,39 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const CountDownTimer = ({ hoursMinSecs }) => {
-  const { hours = 0, minutes = 0, seconds = 60 } = hoursMinSecs;
-  const [[hrs, mins, secs], setTime] = React.useState([
-    hours,
-    minutes,
-    seconds,
-  ]);
-
-  const tick = () => {
-    if (hrs === 0 && mins === 0 && secs === 0) reset();
-    else if (mins === 0 && secs === 0) {
-      setTime([hrs - 1, 59, 59]);
-    } else if (secs === 0) {
-      setTime([hrs, mins - 1, 59]);
+const Timer = (props) => {
+  const setTimerFromLocalStorage = () => {
+    const storedMins = localStorage.getItem("minutes");
+    const storedSecs = localStorage.getItem("seconds");
+    if (storedMins === null || storedSecs === null) {
+      return [props.mins, props.secs];
     } else {
-      setTime([hrs, mins, secs - 1]);
+      return [
+        Number(localStorage.getItem("minutes")),
+        Number(localStorage.getItem("seconds")) - 1,
+      ];
     }
   };
 
-  const reset = () =>
-    setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
+  const [[mins, secs], setTime] = useState(setTimerFromLocalStorage());
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timerId = setInterval(() => tick(), 1000);
     return () => clearInterval(timerId);
   });
 
+  const reset = () => {
+    setTime([props.mins, props.secs]);
+  };
+
+  const tick = () => {
+    localStorage.setItem("minutes", mins);
+    localStorage.setItem("seconds", secs);
+    if (mins === 0 && secs === 0) {
+      reset();
+    } else if (secs === 0) {
+      console.log(mins, secs);
+      setTime([mins - 1, 59]);
+    } else {
+      setTime([mins, secs - 1]);
+    }
+  };
+
   return (
-    <div>
-      <p>{`${hrs.toString().padStart(2, "0")}:${mins
-        .toString()
-        .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`}</p>
-    </div>
+    <span>{`${mins.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`}</span>
   );
 };
 
-export default CountDownTimer;
+export default Timer;

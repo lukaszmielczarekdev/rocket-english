@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import Timer from "./universal/timer";
 import "./nav.css";
 
 const Nav = (props) => {
@@ -71,6 +72,9 @@ const Nav = (props) => {
               className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
             >
               Exp: {user.user.exp} Level: {user.user.lvl}
+            </li>
+            <li>
+              {!general.general.gamePaused && <Timer mins={5} secs={0} />}
             </li>
           </ul>
         </div>
