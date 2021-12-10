@@ -23,8 +23,11 @@ const PlaceLaunchPad = (props) => {
         props.reqRocketLvlNext,
         tour.tour,
         general.setAvailablePlanet,
+        user.subtractMovementsPoints,
         pad_webp,
-        pad_png
+        pad_png,
+        user.user,
+        general
       )}
       {planetAccess.renderTravelButton(
         props.prevPlanet,
@@ -34,7 +37,10 @@ const PlaceLaunchPad = (props) => {
         props.reqUserLvlPrev,
         props.reqRocketLvlPrev,
         tour.tour,
-        general.setAvailablePlanet
+        general.setAvailablePlanet,
+        user.subtractMovementsPoints,
+        user.user,
+        general
       )}
       {planetAccess.renderTravelButton(
         props.nextPlanet,
@@ -44,7 +50,10 @@ const PlaceLaunchPad = (props) => {
         props.reqUserLvlNext,
         props.reqRocketLvlNext,
         tour.tour,
-        general.setAvailablePlanet
+        general.setAvailablePlanet,
+        user.subtractMovementsPoints,
+        user.user,
+        general
       )}
     </article>
   );

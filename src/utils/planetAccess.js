@@ -38,7 +38,10 @@ const planetAccess = {
     requiredPlayerLvl,
     requiredRocketLvl,
     tourFlag,
-    onClickCallback
+    onClickCallback,
+    movementPointsCallback,
+    userData,
+    generalData
   ) => {
     if (
       planetAccess.checkIfPlanetDiscovered(
@@ -50,13 +53,28 @@ const planetAccess = {
       tourFlag
     ) {
       return (
-        <Link
-          onClick={() => onClickCallback(planet)}
-          to={`/${planet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small button-margin">{label}</button>
-        </Link>
+        <>
+          {userData.movement.currentMovePoints >= 5 && (
+            <Link
+              onClick={() => {
+                movementPointsCallback(5);
+                onClickCallback(planet);
+              }}
+              to={`/${planet}`}
+              style={{ textDecoration: "none" }}
+            >
+              <button className="button small button-margin">{label}</button>
+            </Link>
+          )}
+          {userData.movement.currentMovePoints < 5 && (
+            <button
+              onClick={() => generalData.showToast("5 move points required.")}
+              className="button small button-margin"
+            >
+              {label}
+            </button>
+          )}
+        </>
       );
     } else {
       return (
@@ -81,8 +99,11 @@ const planetAccess = {
     requiredRocketLvl,
     tourFlag,
     onClickCallback,
+    movementPointsCallback,
     image_webp,
-    image_png
+    image_png,
+    userData,
+    generalData
   ) => {
     if (
       planetAccess.checkIfPlanetDiscovered(
@@ -96,19 +117,43 @@ const planetAccess = {
       tourFlag
     ) {
       return (
-        <Link onClick={() => onClickCallback(planet)} to={`/${planet}`}>
-          <picture className="image fit padding-inline-1">
-            <source srcSet={image_webp} type="image/webp" />
-            <source srcSet={image_png} type="image/png" />
-            <img
-              src={image_png}
-              type="image/png"
-              width="100em"
-              height="auto"
-              alt="giant flying rocket"
-            />
-          </picture>
-        </Link>
+        <>
+          {userData.movement.currentMovePoints >= 5 && (
+            <Link
+              onClick={() => {
+                movementPointsCallback(5);
+                onClickCallback(planet);
+              }}
+              to={`/${planet}`}
+            >
+              <picture className="image fit padding-inline-1">
+                <source srcSet={image_webp} type="image/webp" />
+                <source srcSet={image_png} type="image/png" />
+                <img
+                  src={image_png}
+                  type="image/png"
+                  width="100em"
+                  height="auto"
+                  alt="giant flying rocket"
+                />
+              </picture>
+            </Link>
+          )}
+          {userData.movement.currentMovePoints < 5 && (
+            <picture className="image fit padding-inline-1">
+              <source srcSet={image_webp} type="image/webp" />
+              <source srcSet={image_png} type="image/png" />
+              <img
+                onClick={() => generalData.showToast("5 move points required.")}
+                src={image_png}
+                type="image/png"
+                width="100em"
+                height="auto"
+                alt="giant flying rocket"
+              />
+            </picture>
+          )}
+        </>
       );
     } else {
       return (
@@ -116,6 +161,9 @@ const planetAccess = {
           <source srcSet={image_webp} type="image/webp" />
           <source srcSet={image_png} type="image/png" />
           <img
+            onClick={() =>
+              generalData.showToast("You don't meet the requirements.")
+            }
             src={image_png}
             type="image/png"
             width="100em"

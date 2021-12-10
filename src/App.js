@@ -31,6 +31,8 @@ import Help from "./components/help";
 import dialogues from "./utils/dialogues";
 import { availablePlanets } from "./utils/planetAccess";
 import mercenaries from "./utils/mercenaries";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 export default function App() {
@@ -59,6 +61,7 @@ export default function App() {
     name: "Guest",
     lvl: 1,
     rocketLvl: 1,
+    movement: { maxMovePoints: 15, currentMovePoints: 15 },
     exp: 0,
     currentPlanet: "menu",
     ifUfoDefeated: {
@@ -68,6 +71,16 @@ export default function App() {
       Desertia: false,
     },
     dialogues: dialogues,
+  };
+
+  // set user movement points
+  const setMovementPoints = (points) => {
+    const userInfoDummy = { ...userInfo };
+    userInfoDummy.movement = {
+      maxMovePoints: points,
+      currentMovePoints: points,
+    };
+    setUserInfo(userInfoDummy);
   };
 
   const [userInfo, setUserInfo] = useState(
@@ -183,27 +196,27 @@ export default function App() {
   // credits
   const handleAddCredits = (amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy.credits = userInventoryDummy.credits + amount;
+    userInventoryDummy.credits += amount;
     setUserInventory(userInventoryDummy);
   };
 
   const handleSubtractCredits = (amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy.credits = userInventoryDummy.credits - amount;
+    userInventoryDummy.credits -= amount;
     setUserInventory(userInventoryDummy);
   };
 
   // subtract an item
   const handleSubtractItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy[item] = userInventoryDummy[item] - amount;
+    userInventoryDummy[item] -= amount;
     setUserInventory(userInventoryDummy);
   };
 
   // free item
   const handleAddItem = (item, amount) => {
     const userInventoryDummy = { ...userInventory };
-    userInventoryDummy[item] = userInventoryDummy[item] + amount;
+    userInventoryDummy[item] += amount;
     setUserInventory(userInventoryDummy);
   };
 
@@ -229,8 +242,7 @@ export default function App() {
     );
     if (userInventory.credits >= selectedMercenary.price) {
       selectedMercenary.hired = true;
-      userInventoryDummy.credits =
-        userInventoryDummy.credits - selectedMercenary.price;
+      userInventoryDummy.credits -= selectedMercenary.price;
       setUserInventory(userInventoryDummy);
     }
   };
@@ -258,19 +270,43 @@ export default function App() {
   const handleExchange = (giveItems, getItems) => {
     const userInventoryDummy = { ...userInventory };
     for (const [item, amount] of Object.entries(giveItems)) {
-      userInventoryDummy[item] = userInventoryDummy[item] - amount;
+      userInventoryDummy[item] -= amount;
     }
     for (const [item, amount] of Object.entries(getItems)) {
-      userInventoryDummy[item] = userInventoryDummy[item] + amount;
+      userInventoryDummy[item] += amount;
     }
     setUserInventory(userInventoryDummy);
+  };
+
+  // add movement points
+  const handleAddMovementPoints = (pointsToAdd) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    if (
+      userDataDummy.movement.currentMovePoints + pointsToAdd >
+      userDataDummy.movement.maxMovePoints
+    ) {
+      userDataDummy.movement.currentMovePoints =
+        userDataDummy.movement.maxMovePoints;
+    } else {
+      userDataDummy.movement.currentMovePoints += pointsToAdd;
+    }
+    setUserInfo(userDataDummy);
+  };
+
+  // subtract movement points
+  const handleSubtractMovementPoints = (pointsToSubtract) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    if (pointsToSubtract <= userDataDummy.movement.currentMovePoints) {
+      userDataDummy.movement.currentMovePoints -= pointsToSubtract;
+    }
+    setUserInfo(userDataDummy);
   };
 
   // upgrade the rocket
   const handleUpgradeRocket = (giveItems) => {
     const userInventoryDummy = { ...userInventory };
     for (const [item, amount] of Object.entries(giveItems)) {
-      userInventoryDummy[item] = userInventoryDummy[item] - amount;
+      userInventoryDummy[item] -= amount;
     }
     setUserInventory(userInventoryDummy);
 
@@ -284,7 +320,7 @@ export default function App() {
   const handleBuyItem = (item, amount, price, multiplier) => {
     if (userInventory.credits >= price * multiplier) {
       const userInventoryDummy = { ...userInventory };
-      userInventoryDummy[item] = userInventoryDummy[item] + amount;
+      userInventoryDummy[item] += amount;
       userInventoryDummy.credits =
         userInventoryDummy.credits - price * multiplier;
       setUserInventory(userInventoryDummy);
@@ -344,6 +380,8 @@ export default function App() {
     setUserInfo(userDataDummy);
   };
 
+  const notify = (text) => toast(text);
+
   return (
     <TourContext.Provider
       value={{ tour: tourData.tour, setTour: handleSetTour }}
@@ -357,6 +395,7 @@ export default function App() {
           planets: generalData.availablePlanets,
           setAvailablePlanet: handleSetAvailablePlanet,
           changeMultiple: handleMultipleChanges,
+          showToast: notify,
         }}
       >
         <ShopContext.Provider
@@ -387,6 +426,9 @@ export default function App() {
                 onSetName: handleSetName,
                 onSetUfo: setUfoDefeated,
                 setDialogueCompleted: handleSetCompleted,
+                addMovementPoints: handleAddMovementPoints,
+                subtractMovementsPoints: handleSubtractMovementPoints,
+                setMovementPoints: setMovementPoints,
               }}
             >
               <Switch>
@@ -414,6 +456,22 @@ export default function App() {
                 <Route path="/" exact component={Welcome} />
                 <Redirect to="/space" />
               </Switch>
+              <div id={"toast-container"}>
+                <ToastContainer
+                  position="bottom-center"
+                  autoClose={2000}
+                  hideProgressBar
+                  newestOnTop
+                  closeOnClick
+                  closeButton={false}
+                  rtl={false}
+                  pauseOnFocusLoss={false}
+                  draggable={false}
+                  pauseOnHover
+                  theme={"dark"}
+                  limit={3}
+                />
+              </div>
             </UserContext.Provider>
           </InventoryContext.Provider>
         </ShopContext.Provider>

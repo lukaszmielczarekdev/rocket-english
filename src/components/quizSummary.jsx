@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
+import GeneralContext from "../contexts/generalContext";
 import Modal from "react-modal";
 
 Modal.setAppElement(document.getElementById("root"));
@@ -32,6 +33,7 @@ const Summary = (props) => {
 
   const inventory = useContext(InventoryContext);
   const user = useContext(UserContext);
+  const general = useContext(GeneralContext);
 
   const toggleModal = () => {
     setModalTrigger(!modalTrigger);
@@ -52,6 +54,7 @@ const Summary = (props) => {
           class="far fa-star"
           onClick={() => {
             inventory.addToFavorite(word, def);
+            general.showToast("Added to favorites.");
           }}
         ></i>
       );
@@ -61,6 +64,7 @@ const Summary = (props) => {
           className="fas fa-star"
           onClick={() => {
             inventory.removeFromFavorite(word);
+            general.showToast("Removed from favorites.");
           }}
         ></i>
       );

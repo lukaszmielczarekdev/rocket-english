@@ -71,10 +71,17 @@ const Nav = (props) => {
             <li
               className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
             >
-              Exp: {user.user.exp} Level: {user.user.lvl}
+              Lvl: {user.user.lvl}
+            </li>
+            <li
+              className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
+            >
+              <i className="fas fa-walking"></i>
+              {user.user.movement.currentMovePoints}/
+              {user.user.movement.maxMovePoints}
             </li>
             <li>
-              {!general.general.gamePaused && <Timer mins={5} secs={0} />}
+              {!general.general.gamePaused && <Timer mins={1} secs={0} />}
             </li>
           </ul>
         </div>

@@ -113,6 +113,7 @@ const Welcome = (props) => {
             });
             startGame();
             tour.setTour(true);
+            user.setMovementPoints(150);
             props.history.push("/crion");
           }}
           className="button small button-margin"

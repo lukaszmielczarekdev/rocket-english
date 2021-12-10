@@ -30,6 +30,23 @@
   border: none;
 }
 
+/* toast */
+
+#toast-container button {
+  border: none;
+}
+#toast-container {
+  font-weight: normal;
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-100);
+  letter-spacing: 0.05rem;
+  text-align: center;
+}
+
+:root {
+  --toastify-color-dark: var(--clr-primary-800);
+}
+
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .main-wrapper {

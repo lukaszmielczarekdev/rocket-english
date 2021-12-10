@@ -23,12 +23,21 @@ const PlaceUfo = (props) => {
       : "";
   };
 
+  const subtractMovementPointsIfNotDefeated = (points) => {
+    return user.user.ifUfoDefeated[user.user.currentPlanet]
+      ? null
+      : user.subtractMovementsPoints(points);
+  };
+
   return (
     <article
       className={`padding-places border carousel-card ${ufoAccessModifier()}`}
     >
       <h4>{props.title}</h4>
-      <Link to={ufoLink(user.user.currentPlanet)}>
+      <Link
+        onClick={() => subtractMovementPointsIfNotDefeated(5)}
+        to={ufoLink(user.user.currentPlanet)}
+      >
         <picture className="image fit padding-inline-1">
           <source srcSet={props.img_webp} type="image/webp" />
           <source srcSet={props.img_png} type="image/png" />

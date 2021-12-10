@@ -59,7 +59,7 @@ const Shop = (props) => {
   const renderUserInventory = () => {
     const items = [];
     for (let [item, amount] of Object.entries(inventory.inventory)) {
-      if (item !== "favs" && amount) {
+      if (item !== "favs" && item !== "mercenaries" && amount) {
         items.push([item, amount]);
       }
     }
@@ -77,7 +77,13 @@ const Shop = (props) => {
   const renderBlockedUserInventory = () => {
     const items = [];
     for (let [item, amount] of Object.entries(inventory.inventory)) {
-      if (item !== "favs" && item !== "credits" && amount) {
+      if (
+        item !== "favs" &&
+        item !== "credits" &&
+        item !== "mercenaries" &&
+        item !== "crystal" &&
+        amount
+      ) {
         items.push([item, amount]);
       }
     }
@@ -158,9 +164,7 @@ const Shop = (props) => {
             <hr className="underline-places" />
           </header>
           <article>
-            <header>
-              <h4>shopkeeper</h4>
-            </header>
+            <header></header>
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"shop"} />
             )}

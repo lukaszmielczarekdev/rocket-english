@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import UserContext from "../../contexts/userContext";
 
 const Timer = (props) => {
+  const user = useContext(UserContext);
+
   const setTimerFromLocalStorage = () => {
     const storedMins = localStorage.getItem("minutes");
     const storedSecs = localStorage.getItem("seconds");
@@ -9,7 +12,7 @@ const Timer = (props) => {
     } else {
       return [
         Number(localStorage.getItem("minutes")),
-        Number(localStorage.getItem("seconds")) - 1,
+        Number(localStorage.getItem("seconds")),
       ];
     }
   };
@@ -17,21 +20,21 @@ const Timer = (props) => {
   const [[mins, secs], setTime] = useState(setTimerFromLocalStorage());
 
   useEffect(() => {
+    localStorage.setItem("minutes", mins);
+    localStorage.setItem("seconds", secs);
     const timerId = setInterval(() => tick(), 1000);
     return () => clearInterval(timerId);
   });
 
   const reset = () => {
     setTime([props.mins, props.secs]);
+    user.addMovementPoints(5);
   };
 
   const tick = () => {
-    localStorage.setItem("minutes", mins);
-    localStorage.setItem("seconds", secs);
     if (mins === 0 && secs === 0) {
       reset();
     } else if (secs === 0) {
-      console.log(mins, secs);
       setTime([mins - 1, 59]);
     } else {
       setTime([mins, secs - 1]);
