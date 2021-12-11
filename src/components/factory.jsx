@@ -7,6 +7,7 @@ import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import rocket_logo from "../images/rocket.png";
 import upgrades from "../utils/rocket";
+import Footer from "./footer";
 import "./factory.css";
 
 export const Factory = (props) => {
@@ -62,9 +63,9 @@ export const Factory = (props) => {
   };
 
   return (
-    <main id="factory" className="factory-wrapper">
+    <main className="factory-wrapper flex-auto">
       {renderOrRedirect("factory")}
-      <section className="factory-header-container">
+      <section id="factory" className="factory-header-container">
         <article className="factory-split">
           <header className="content">
             <h2 className="factory-name">factory</h2>
@@ -134,6 +135,7 @@ export const Factory = (props) => {
           <button className="button small">Walk away</button>
         </Link>
       </section>
+      <Footer />
     </main>
   );
 };

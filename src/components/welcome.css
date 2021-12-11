@@ -355,13 +355,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/960/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/960/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
       center fixed;
 
     background-size: cover;

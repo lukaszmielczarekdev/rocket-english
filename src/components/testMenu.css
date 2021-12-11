@@ -51,6 +51,16 @@
   padding-bottom: 3rem;
   flex: auto;
 }
+
+.testMenu-wrapper {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .flex-auto {
   flex: auto;
 }
@@ -340,13 +350,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/960/fillthegaps.jpg) no-repeat
+    background: url(/src/images/planet-images/1280/fillthegaps.jpg) no-repeat
       center center fixed;
 
     background-size: cover;
   }
   .webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/960/fillthegaps.webp) no-repeat
+    background: url(/src/images/planet-images/1280/fillthegaps.webp) no-repeat
       center center fixed;
 
     background-size: cover;

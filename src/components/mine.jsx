@@ -7,6 +7,7 @@ import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import mine_logo from "../images/mine.png";
 import Modal from "react-modal";
+import Footer from "./footer";
 import "../App.css";
 import "./mine.css";
 
@@ -163,9 +164,9 @@ const Mine = (props) => {
   };
 
   return (
-    <main id="mine" className="mine-wrapper">
+    <main className="mine-wrapper flex-auto">
       {renderOrRedirect("mine")}
-      <section className="mine-header-container">
+      <section id="mine" className="mine-header-container">
         <article className="mine-split">
           <header className="content">
             <h2 className="mine-name">mine</h2>
@@ -232,6 +233,7 @@ const Mine = (props) => {
         <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
         <ul>{renderSummary()}</ul>
       </Modal>
+      <Footer />
     </main>
   );
 };

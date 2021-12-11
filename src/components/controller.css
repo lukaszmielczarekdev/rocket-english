@@ -80,13 +80,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .main-wrapper {
-    background: url(/src/images/planet-images/960/quiz.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/quiz.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .main-wrapper {
-    background: url(/src/images/planet-images/960/quiz.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/quiz.webp) no-repeat center
       center fixed;
 
     background-size: cover;

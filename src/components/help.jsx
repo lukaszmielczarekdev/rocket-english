@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import Footer from "./footer";
 import shop_webp from "../images/shop.webp";
 import shop_png from "../images/shop.png";
 import rocket_webp from "../images/rocket.webp";
@@ -22,6 +23,7 @@ import quiz_png from "../images/quiz.png";
 import satelite_webp from "../images/satelite.webp";
 import satelite_png from "../images/satelite.png";
 import "./help.css";
+import "./nav.css";
 
 const Help = (props) => {
   const user = useContext(UserContext);
@@ -40,7 +42,7 @@ const Help = (props) => {
 
   return (
     <div className="help-wrapper flex-auto">
-      <div id="help" className="main-background">
+      <main id="help" className="main-background">
         <div className="place-header-container-help">
           <section className="place-split-help header-container-help">
             <header>
@@ -374,7 +376,8 @@ const Help = (props) => {
             Go Back
           </Link>
         </button>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

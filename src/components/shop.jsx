@@ -6,6 +6,7 @@ import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import Footer from "./footer";
 import shop_logo from "../images/shop.png";
 import "./planets/planet.css";
 import "./shop.css";
@@ -102,82 +103,85 @@ const Shop = (props) => {
   };
 
   return (
-    <main id="shop" className="shop-wrapper">
-      {renderOrRedirect("shop")}
-      <section className="shop-header-container">
-        <article className="shop-split">
-          <header className="content">
-            <h2 className="shop-name">shop</h2>
-            <hr className="underline" />
-            <p className="shop-description">
-              Due to the significant increase in the number of thefts in the
-              galaxy in recent times, stores temporarily suspended the
-              possibility of buying goods - several traders had legal problems
-              after it turned out that the goods that were sold to them were
-              stolen.
+    <main className="shop-wrapper flex-auto">
+      <section id="shop">
+        {renderOrRedirect("shop")}
+        <section className="shop-header-container">
+          <article className="shop-split">
+            <header className="content">
+              <h2 className="shop-name">shop</h2>
+              <hr className="underline" />
+              <p className="shop-description">
+                Due to the significant increase in the number of thefts in the
+                galaxy in recent times, stores temporarily suspended the
+                possibility of buying goods - several traders had legal problems
+                after it turned out that the goods that were sold to them were
+                stolen.
+              </p>
+            </header>
+            <p className="logo logo-place image fit margin-bottom-0">
+              <img
+                src={shop_logo}
+                alt="A big black neon sign with red lettering that says open. A shop logo."
+                width="100em"
+                height="auto"
+              />
             </p>
-          </header>
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img
-              src={shop_logo}
-              alt="A big black neon sign with red lettering that says open. A shop logo."
-              width="100em"
-              height="auto"
-            />
-          </p>
-        </article>
-        <section>
-          <header className="places-header">
-            <h3>Trade</h3>
-            <hr className="underline-places" />
-          </header>
-          <article className="shop-split margin-bottom-2rem">
-            <article className="align-self-flex-start">
-              <header>
-                <h4>Your inventory</h4>
-              </header>
-              <div>
-                <ul>{renderUserInventory()}</ul>
-              </div>
-            </article>
-            <article className="align-self-flex-start">
-              <header>
-                <h4>buy</h4>
-              </header>
-              <div>
-                <ul>{shopInv()}</ul>
-              </div>
-            </article>
-            <article className="align-self-flex-start">
-              <header>
-                <h4>sell</h4>
-              </header>
-              <div>
-                <ul>{renderBlockedUserInventory()}</ul>
-              </div>
-            </article>
           </article>
+          <section>
+            <header className="places-header">
+              <h3>Trade</h3>
+              <hr className="underline-places" />
+            </header>
+            <article className="shop-split margin-bottom-2rem">
+              <article className="align-self-flex-start">
+                <header>
+                  <h4>Your inventory</h4>
+                </header>
+                <div>
+                  <ul>{renderUserInventory()}</ul>
+                </div>
+              </article>
+              <article className="align-self-flex-start">
+                <header>
+                  <h4>buy</h4>
+                </header>
+                <div>
+                  <ul>{shopInv()}</ul>
+                </div>
+              </article>
+              <article className="align-self-flex-start">
+                <header>
+                  <h4>sell</h4>
+                </header>
+                <div>
+                  <ul>{renderBlockedUserInventory()}</ul>
+                </div>
+              </article>
+            </article>
+          </section>
+          <section>
+            <header className="places-header">
+              <h3>Talk</h3>
+              <hr className="underline-places" />
+            </header>
+            <article>
+              <header></header>
+              {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
+                <DialogueMenu place={"shop"} />
+              )}
+            </article>
+          </section>
+          <Link
+            className={"link-button"}
+            to={`/${user.user.currentPlanet}`}
+            style={{ textDecoration: "none" }}
+          >
+            <button className="button small">Walk away</button>
+          </Link>
         </section>
-        <section>
-          <header className="places-header">
-            <h3>Talk</h3>
-            <hr className="underline-places" />
-          </header>
-          <article>
-            <header></header>
-            {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
-              <DialogueMenu place={"shop"} />
-            )}
-          </article>
-        </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
       </section>
+      <Footer />
     </main>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
+import Footer from "./footer";
 import Summary from "./quizSummary";
 import { Redirect } from "react-router-dom";
 import getRandomWords from "../utils/wordsList";
@@ -156,49 +157,55 @@ const Controller = (props) => {
   };
 
   return (
-    <main id="quiz" className="quiz-wrapper">
-      {renderOrRedirect("quiz")}
-      {showMenu && (
-        <Menu
-          showMenu={handleShowMenu}
-          showQuiz={handleShowQuiz}
-          setUpQuiz={handleSetUpQuiz}
-        />
-      )}
-      {showQuiz && (
-        <Quiz
-          showMenu={handleShowMenu}
-          showQuiz={handleShowQuiz}
-          count={counter.current}
-          len={quizLength.current}
-          key={key}
-          word={currentWord.current}
-          submitAnswer={handleSubmitAnswer}
-          skipDefinition={handleSkipDefinition}
-          fillTheWord={inputValidation}
-          addAnswerToWord={handleWordsWithAnswers}
-        />
-      )}
-      {showSummary && (
-        <Summary
-          wordsWithDefs={wordsWithAnswers.current}
-          summary={quizPoints.current}
-          showQuiz={handleShowQuiz}
-          showMenu={handleShowMenu}
-          showSummary={handleShowSummary}
-        />
-      )}
-      <Modal
-        style={modalStyle}
-        isOpen={modalTrigger}
-        onRequestClose={toggleModal}
-        contentLabel="Quiz answer"
-      >
-        <ul>
-          <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
-          <li>Try again</li>
-        </ul>
-      </Modal>
+    <main className="quiz-wrapper flex-auto">
+      <section id="quiz">
+        {renderOrRedirect("quiz")}
+        {showMenu && (
+          <Menu
+            showMenu={handleShowMenu}
+            showQuiz={handleShowQuiz}
+            setUpQuiz={handleSetUpQuiz}
+          />
+        )}
+        {showQuiz && (
+          <Quiz
+            showMenu={handleShowMenu}
+            showQuiz={handleShowQuiz}
+            count={counter.current}
+            len={quizLength.current}
+            key={key}
+            word={currentWord.current}
+            submitAnswer={handleSubmitAnswer}
+            skipDefinition={handleSkipDefinition}
+            fillTheWord={inputValidation}
+            addAnswerToWord={handleWordsWithAnswers}
+          />
+        )}
+        {showSummary && (
+          <Summary
+            wordsWithDefs={wordsWithAnswers.current}
+            summary={quizPoints.current}
+            showQuiz={handleShowQuiz}
+            showMenu={handleShowMenu}
+            showSummary={handleShowSummary}
+          />
+        )}
+        <Modal
+          style={modalStyle}
+          isOpen={modalTrigger}
+          onRequestClose={toggleModal}
+          contentLabel="Quiz answer"
+        >
+          <ul>
+            <i
+              onClick={toggleModal}
+              class="far fa-times-circle modal-button"
+            ></i>
+            <li>Try again</li>
+          </ul>
+        </Modal>
+      </section>
+      <Footer />
     </main>
   );
 };

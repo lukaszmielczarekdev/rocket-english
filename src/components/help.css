@@ -422,13 +422,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .help-wrapper {
-    background: url(/src/images/planet-images/960/help.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/help.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .help-wrapper {
-    background: url(/src/images/planet-images/960/help.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/help.webp) no-repeat center
       center fixed;
 
     background-size: cover;

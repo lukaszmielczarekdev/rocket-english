@@ -7,6 +7,7 @@ import UserInventory from "../contexts/inventoryContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import NpcForHireCard from "./universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
+import Footer from "./footer";
 import renders from "../utils/renders";
 import bar_webp from "../images/bar.webp";
 import bar_png from "../images/bar.png";
@@ -58,7 +59,7 @@ export const Bar = (props) => {
   mercenaries.current = showMercenariesToHire();
 
   return (
-    <main id="bar-container" className="bar-wrapper">
+    <main id="bar-container" className="bar-wrapper flex-auto">
       {renderOrRedirect("bar")}
       <section id="bar" className="bar-header-container">
         <article className="bar-split">
@@ -134,6 +135,7 @@ export const Bar = (props) => {
           <button className="button small">Walk away</button>
         </Link>
       </section>
+      <Footer />
     </main>
   );
 };

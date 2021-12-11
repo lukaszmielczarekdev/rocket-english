@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
+import Nav from "./nav";
+import Footer from "./footer";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
@@ -69,44 +71,50 @@ const Inventory = (props) => {
   mercenaries.current = showHiredMercenaries();
 
   return (
-    <div id="inventory-container" className="inventory-wrapper">
-      {renderOrRedirect("inventory")}
-      <section className="planet-container main-background border border-radius padding margin-block-planet-container">
-        <section id="inventory" className="padding border">
-          <article>
+    <section className="inventory-wrapper flex-auto">
+      <Nav />
+      <div id="inventory-container">
+        {renderOrRedirect("inventory")}
+        <section className="planet-container main-background border border-radius padding margin-block-planet-container">
+          <section id="inventory" className="padding border">
+            <article>
+              <header>
+                <h3>Inventory</h3>
+              </header>
+              <ul>{renderInventory()}</ul>
+            </article>
+          </section>
+          <article className="planet-activities-container">
             <header>
-              <h3>Inventory</h3>
+              <h3>Mercenaries</h3>
             </header>
-            <ul>{renderInventory()}</ul>
+            {mercenaries.current && (
+              <AliceCarousel
+                controlsStrategy={"responsive"}
+                responsive={renders.carousel}
+                keyboardNavigation
+                infinite
+                items={mercenaries.current}
+              />
+            )}
+            {!mercenaries.current && (
+              <p className="place-description">
+                You have no mercenaries hired.
+              </p>
+            )}
           </article>
+          <button className="button small">
+            <Link
+              to={`/${user.user.currentPlanet}`}
+              style={{ textDecoration: "none" }}
+            >
+              Go Back
+            </Link>
+          </button>
         </section>
-        <article className="planet-activities-container">
-          <header>
-            <h3>Mercenaries</h3>
-          </header>
-          {mercenaries.current && (
-            <AliceCarousel
-              controlsStrategy={"responsive"}
-              responsive={renders.carousel}
-              keyboardNavigation
-              infinite
-              items={mercenaries.current}
-            />
-          )}
-          {!mercenaries.current && (
-            <p className="place-description">You have no mercenaries hired.</p>
-          )}
-        </article>
-        <button className="button small">
-          <Link
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            Go Back
-          </Link>
-        </button>
-      </section>
-    </div>
+      </div>
+      <Footer />
+    </section>
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
+import Footer from "./footer";
 import SentenceTest from "./sentenceTest";
 import getRandomText from "../utils/texts";
 import getRandomSentences, {
@@ -32,8 +33,8 @@ const TestMenu = (props) => {
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
 
-  const ifVisible = (condition, condition2, baseClass) => {
-    return mode === condition || mode === condition2
+  const ifVisible = (condition, condition2, condition3, baseClass) => {
+    return mode === condition || mode === condition2 || mode === condition3
       ? `${baseClass} hidden`
       : `${baseClass}`;
   };
@@ -58,9 +59,9 @@ const TestMenu = (props) => {
   const onSubmit = (data) => handleSubmitUserText(data["usertext"]);
 
   return (
-    <main id="testMenu" className="testMenu-wrapper">
+    <main className="testMenu-wrapper flex-auto">
       {renderOrRedirect("university")}
-      <section className="testMenu-header-container">
+      <section id="testMenu" className="testMenu-header-container">
         <article className="testMenu-header-split">
           <header className="content">
             <h2 className="testMenu-name">University</h2>
@@ -89,6 +90,7 @@ const TestMenu = (props) => {
             className={ifVisible(
               "sentences",
               "sentences",
+              "sentences",
               "testMenu-split margin-bottom-2rem"
             )}
           >
@@ -99,7 +101,7 @@ const TestMenu = (props) => {
                 (articles)
               </h4>
             </header>
-            <article className={ifVisible(null, "game")}>
+            <article className={ifVisible(null, null, "game")}>
               {!displayGapTest && (
                 <form className="test-form" onSubmit={handleSubmit(onSubmit)}>
                   <input
@@ -119,13 +121,13 @@ const TestMenu = (props) => {
             </article>
             <article className="test-buttons">
               <button
-                className={ifVisible("user", "game", "button large")}
+                className={ifVisible("user", "game", "-", "button large")}
                 onClick={() => setMode("user")}
               >
                 Make your own challenge
               </button>
               <button
-                className={ifVisible("game", "user", "button large")}
+                className={ifVisible("game", "user", "-", "button large")}
                 onClick={() => {
                   setMode("game");
                   setDisplayGapTest(true);
@@ -135,7 +137,12 @@ const TestMenu = (props) => {
               </button>
             </article>
             <article
-              className={ifVisible(null, null, "testMenu-activities-container")}
+              className={ifVisible(
+                null,
+                null,
+                null,
+                "testMenu-activities-container"
+              )}
             >
               {displayGapTest && (
                 <GapTest
@@ -148,7 +155,7 @@ const TestMenu = (props) => {
               )}
             </article>
             <button
-              className={ifVisible(null, null, "button small")}
+              className={ifVisible(null, null, null, "button small")}
               onClick={() => {
                 setMode(null);
                 setDisplayGapTest(false);
@@ -163,6 +170,7 @@ const TestMenu = (props) => {
             className={ifVisible(
               "game",
               "user",
+              "-",
               "testMenu-split margin-bottom-2rem"
             )}
           >
@@ -170,7 +178,12 @@ const TestMenu = (props) => {
               <h4>Complete the sentences</h4>
             </header>
             <article
-              className={ifVisible("sentences", "sentences", "test-buttons")}
+              className={ifVisible(
+                "sentences",
+                "sentences",
+                "sentences",
+                "test-buttons"
+              )}
             >
               <button
                 className="button large"
@@ -214,7 +227,12 @@ const TestMenu = (props) => {
               </button>
             </article>
             <article
-              className={ifVisible(null, null, "testMenu-activities-container")}
+              className={ifVisible(
+                null,
+                null,
+                null,
+                "testMenu-activities-container"
+              )}
             >
               {displaySentenceTest && (
                 <SentenceTest
@@ -228,7 +246,7 @@ const TestMenu = (props) => {
               )}
             </article>
             <button
-              className={ifVisible(null, !"sentences", "button small")}
+              className={ifVisible(null, null, !"sentences", "button small")}
               onClick={() => {
                 setMode(null);
                 setDisplaySentenceTest(false);
@@ -239,7 +257,7 @@ const TestMenu = (props) => {
             </button>
           </section>
         </section>
-        <section>
+        <section className={ifVisible("sentences", "game", "user", "")}>
           <header className="places-header">
             <h3>Talk</h3>
             <hr className="underline-places" />
@@ -261,6 +279,7 @@ const TestMenu = (props) => {
           <button className="button small">Walk away</button>
         </Link>
       </section>
+      <Footer />
     </main>
   );
 };

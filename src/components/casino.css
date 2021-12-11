@@ -55,6 +55,15 @@
   flex: auto;
 }
 
+.casino-wrapper {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 #casino ul li {
   border-left: 0;
   margin: 0.5rem 0 0 0;
@@ -291,13 +300,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/960/casino.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/casino.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/960/casino.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/casino.webp) no-repeat center
       center fixed;
 
     background-size: cover;

@@ -9,6 +9,16 @@
   padding-bottom: 2rem;
 }
 
+#inventory-container h3 {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  color: inherit;
+  letter-spacing: 0.3rem;
+}
+
 #inventory-container h4 {
   font-size: 1rem;
   font-weight: 200;
@@ -48,8 +58,17 @@
   justify-content: center;
   align-content: center;
   width: 100%;
-  display: grid;
+  display: flex;
   flex: auto;
+}
+
+.inventory-wrapper {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #inventory .split {
@@ -82,17 +101,18 @@
 #inventory button:hover {
   border: none;
 }
+
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .inventory-wrapper {
-    background: url(/src/images/planet-images/1920/inventory.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/forest.jpg) no-repeat center
+      center fixed;
 
     background-size: cover;
   }
   .webp .inventory-wrapper {
-    background: url(/src/images/planet-images/1920/inventory.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/forest.webp) no-repeat center
+      center fixed;
 
     background-size: cover;
   }
@@ -100,14 +120,14 @@
 
 @media screen and (max-width: 1280px) {
   .no-webp .inventory-wrapper {
-    background: url(/src/images/planet-images/1280/inventory.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/forest.jpg) no-repeat center
+      center fixed;
 
     background-size: cover;
   }
   .webp .inventory-wrapper {
-    background: url(/src/images/planet-images/1280/inventory.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/forest.webp) no-repeat center
+      center fixed;
 
     background-size: cover;
   }
@@ -115,14 +135,14 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .inventory-wrapper {
-    background: url(/src/images/planet-images/960/inventory.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/forest.jpg) no-repeat center
+      center fixed;
 
     background-size: cover;
   }
   .webp .inventory-wrapper {
-    background: url(/src/images/planet-images/960/inventory.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/forest.webp) no-repeat center
+      center fixed;
 
     background-size: cover;
   }

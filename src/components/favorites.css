@@ -123,14 +123,14 @@ typography .favorites-container h3 {
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1920/sky.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/astronomy.jpg) no-repeat
+      center center fixed;
 
     background-size: cover;
   }
   .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1920/sky.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/astronomy.webp) no-repeat
+      center center fixed;
 
     background-size: cover;
   }
@@ -138,14 +138,14 @@ typography .favorites-container h3 {
 
 @media screen and (max-width: 1280px) {
   .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1280/sky.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/astronomy.jpg) no-repeat
+      center center fixed;
 
     background-size: cover;
   }
   .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1280/sky.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/astronomy.webp) no-repeat
+      center center fixed;
 
     background-size: cover;
   }
@@ -153,14 +153,14 @@ typography .favorites-container h3 {
 
 @media screen and (max-width: 640px) {
   .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/960/sky.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/astronomy.jpg) no-repeat
+      center center fixed;
 
     background-size: cover;
   }
   .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/960/sky.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/astronomy.webp) no-repeat
+      center center fixed;
 
     background-size: cover;
   }

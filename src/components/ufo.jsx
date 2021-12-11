@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import UserInventory from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import Footer from "./footer";
 import ufo_logo from "../images/ufo-logo.png";
 import Modal from "react-modal";
 import "../App.css";
@@ -120,9 +121,9 @@ export const Ufo = (props) => {
   };
 
   return (
-    <main id="ufo-enemy" className="ufo-wrapper">
+    <main className="ufo-wrapper flex-auto">
       {renderOrRedirect("ufo")}
-      <section className="ufo-header-container">
+      <section id="ufo-enemy" className="ufo-header-container">
         <article className="ufo-split">
           <header className="content">
             <h2 className="ufo-name">ufo</h2>
@@ -187,6 +188,7 @@ export const Ufo = (props) => {
         ></i>
         <ul>{renderSummary()}</ul>
       </Modal>
+      <Footer />
     </main>
   );
 };
