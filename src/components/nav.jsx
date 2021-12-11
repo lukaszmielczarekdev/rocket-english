@@ -80,9 +80,11 @@ const Nav = (props) => {
               {user.user.movement.currentMovePoints}/
               {user.user.movement.maxMovePoints}
             </li>
-            <li>
-              {!general.general.gamePaused && <Timer mins={1} secs={0} />}
-            </li>
+            {!general.general.gamePaused && (
+              <li>
+                <Timer mins={1} secs={0} />
+              </li>
+            )}
           </ul>
         </div>
         <i
