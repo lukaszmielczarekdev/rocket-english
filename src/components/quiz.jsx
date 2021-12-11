@@ -73,7 +73,10 @@ const Quiz = (props) => {
             </button>
             {renderWord()}
           </form>
-          <button className="button small" onClick={props.resetKey}>
+          <button
+            className="button small"
+            onClick={() => props.skipDefinition()}
+          >
             Skip
           </button>
         </>
