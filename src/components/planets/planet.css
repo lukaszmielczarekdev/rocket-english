@@ -369,7 +369,7 @@
   }
 }
 .alice-carousel__dots {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .alice-carousel__prev-btn-item,
