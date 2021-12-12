@@ -6,6 +6,7 @@ import UserInventory from "../contexts/inventoryContext";
 import ShopInventory from "../contexts/shopContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
+import Nav from "./nav";
 import Footer from "./footer";
 import shop_logo from "../images/shop.png";
 import "./planets/planet.css";
@@ -104,6 +105,7 @@ const Shop = (props) => {
 
   return (
     <main className="shop-wrapper flex-auto">
+      <Nav />
       <section id="shop">
         {renderOrRedirect("shop")}
         <section className="shop-header-container">

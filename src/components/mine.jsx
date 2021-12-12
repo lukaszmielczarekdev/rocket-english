@@ -7,6 +7,7 @@ import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import mine_logo from "../images/mine.png";
 import Modal from "react-modal";
+import Nav from "./nav";
 import Footer from "./footer";
 import "../App.css";
 import "./mine.css";
@@ -165,6 +166,7 @@ const Mine = (props) => {
 
   return (
     <main className="mine-wrapper flex-auto">
+      <Nav />
       {renderOrRedirect("mine")}
       <section id="mine" className="mine-header-container">
         <article className="mine-split">

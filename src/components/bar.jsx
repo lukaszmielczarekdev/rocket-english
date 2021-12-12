@@ -7,6 +7,7 @@ import UserInventory from "../contexts/inventoryContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import NpcForHireCard from "./universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
+import Nav from "./nav";
 import Footer from "./footer";
 import renders from "../utils/renders";
 import bar_webp from "../images/bar.webp";
@@ -60,6 +61,7 @@ export const Bar = (props) => {
 
   return (
     <main id="bar-container" className="bar-wrapper flex-auto">
+      <Nav />
       {renderOrRedirect("bar")}
       <section id="bar" className="bar-header-container">
         <article className="bar-split">

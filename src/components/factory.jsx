@@ -7,6 +7,7 @@ import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
 import rocket_logo from "../images/rocket.png";
 import upgrades from "../utils/rocket";
+import Nav from "./nav";
 import Footer from "./footer";
 import "./factory.css";
 
@@ -64,6 +65,7 @@ export const Factory = (props) => {
 
   return (
     <main className="factory-wrapper flex-auto">
+      <Nav />
       {renderOrRedirect("factory")}
       <section id="factory" className="factory-header-container">
         <article className="factory-split">

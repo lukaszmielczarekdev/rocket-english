@@ -5,6 +5,7 @@ import InventoryContext from "../contexts/inventoryContext";
 import UserContext from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import DialogueMenu from "./universal/dialogueMenu";
+import Nav from "./nav";
 import Footer from "./footer";
 import casino_logo from "../images/casino.png";
 import Modal from "react-modal";
@@ -127,6 +128,7 @@ const Casino = (props) => {
 
   return (
     <main className="casino-wrapper flex-auto">
+      <Nav />
       <section id="casino">
         {renderOrRedirect("casino")}
         <section className="casino-header-container">

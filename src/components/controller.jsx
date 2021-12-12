@@ -2,6 +2,7 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import Menu from "./menu";
 import Quiz from "./quiz";
+import Nav from "./nav";
 import Footer from "./footer";
 import Summary from "./quizSummary";
 import { Redirect } from "react-router-dom";
@@ -158,6 +159,7 @@ const Controller = (props) => {
 
   return (
     <main className="quiz-wrapper flex-auto">
+      <Nav />
       <section id="quiz">
         {renderOrRedirect("quiz")}
         {showMenu && (

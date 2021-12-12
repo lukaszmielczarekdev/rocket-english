@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
+import Nav from "./nav";
 import Footer from "./footer";
 import SentenceTest from "./sentenceTest";
 import getRandomText from "../utils/texts";
@@ -60,6 +61,7 @@ const TestMenu = (props) => {
 
   return (
     <main className="testMenu-wrapper flex-auto">
+      <Nav />
       {renderOrRedirect("university")}
       <section id="testMenu" className="testMenu-header-container">
         <article className="testMenu-header-split">
