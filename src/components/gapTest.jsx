@@ -157,11 +157,17 @@ const GapTest = (props) => {
       <Modal
         style={modalStyle}
         isOpen={modalTrigger}
-        onRequestClose={() => props.resetKey(Math.random())}
+        onRequestClose={() => {
+          props.resetMode(null);
+          props.hideTest(false);
+          props.resetKey(Math.random());
+        }}
         contentLabel="Gap Test summary modal"
       >
         <i
           onClick={() => {
+            props.resetMode(null);
+            props.hideTest(false);
             props.resetKey(Math.random());
           }}
           className="far fa-times-circle modal-button"

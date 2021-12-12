@@ -20,10 +20,12 @@ import "./testMenu.css";
 const TestMenu = (props) => {
   const { register, handleSubmit } = useForm();
   const [mode, setMode] = useState(null);
-  const [sentenceTestKind, setSentenceTestKind] = useState(null);
+  const sentenceTestKind = useRef(null);
   const [displayGapTest, setDisplayGapTest] = useState(null);
   const [displaySentenceTest, setDisplaySentenceTest] = useState(null);
   const [key, setKey] = useState(Math.random());
+  const randomSentences = useRef(null);
+  const randomText = useRef(null);
 
   const userText = useRef();
   const user = useContext(UserContext);
@@ -131,6 +133,7 @@ const TestMenu = (props) => {
               <button
                 className={ifVisible("game", "user", "-", "button large")}
                 onClick={() => {
+                  randomText.current = getRandomText();
                   setMode("game");
                   setDisplayGapTest(true);
                 }}
@@ -148,10 +151,12 @@ const TestMenu = (props) => {
             >
               {displayGapTest && (
                 <GapTest
+                  resetMode={setMode}
+                  hideTest={setDisplaySentenceTest}
                   resetKey={handleSetKey}
                   mode={mode}
                   key={key}
-                  text={mode === "user" ? userText.current : getRandomText()}
+                  text={mode === "user" ? userText.current : randomText.current}
                   ifPrize={mode === "user" ? false : true}
                 />
               )}
@@ -191,7 +196,11 @@ const TestMenu = (props) => {
                 className="button large"
                 onClick={() => {
                   setMode("sentences");
-                  setSentenceTestKind("pastSimpleToBe");
+                  sentenceTestKind.current = "pastSimpleToBe";
+                  randomSentences.current = getRandomSentences(
+                    5,
+                    sentenceTestKind.current
+                  );
                   setDisplaySentenceTest(true);
                 }}
               >
@@ -201,7 +210,11 @@ const TestMenu = (props) => {
                 className="button large"
                 onClick={() => {
                   setMode("sentences");
-                  setSentenceTestKind("pastSimpleRegularIrregularVerbs");
+                  sentenceTestKind.current = "pastSimpleRegularIrregularVerbs";
+                  randomSentences.current = getRandomSentences(
+                    5,
+                    sentenceTestKind.current
+                  );
                   setDisplaySentenceTest(true);
                 }}
               >
@@ -211,7 +224,11 @@ const TestMenu = (props) => {
                 className="button large"
                 onClick={() => {
                   setMode("sentences");
-                  setSentenceTestKind("presentSimpleToBe");
+                  sentenceTestKind.current = "presentSimpleToBe";
+                  randomSentences.current = getRandomSentences(
+                    5,
+                    sentenceTestKind.current
+                  );
                   setDisplaySentenceTest(true);
                 }}
               >
@@ -221,7 +238,11 @@ const TestMenu = (props) => {
                 className="button large"
                 onClick={() => {
                   setMode("sentences");
-                  setSentenceTestKind("countableAndUncountable");
+                  sentenceTestKind.current = "countableAndUncountable";
+                  randomSentences.current = getRandomSentences(
+                    5,
+                    sentenceTestKind.current
+                  );
                   setDisplaySentenceTest(true);
                 }}
               >
@@ -238,12 +259,16 @@ const TestMenu = (props) => {
             >
               {displaySentenceTest && (
                 <SentenceTest
-                  toReplace={getWordsToReplaceByChosenMode(sentenceTestKind)}
-                  mode={sentenceTestKind}
-                  title={getTestDescription(sentenceTestKind)}
+                  toReplace={getWordsToReplaceByChosenMode(
+                    sentenceTestKind.current
+                  )}
+                  mode={sentenceTestKind.current}
+                  title={getTestDescription(sentenceTestKind.current)}
                   resetKey={handleSetKey}
                   key={key}
-                  text={getRandomSentences(5, sentenceTestKind)}
+                  text={randomSentences.current}
+                  resetMode={setMode}
+                  hideTest={setDisplaySentenceTest}
                 />
               )}
             </article>

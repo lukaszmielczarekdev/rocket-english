@@ -206,12 +206,16 @@ const SentenceTest = (props) => {
       <Modal
         style={modalStyle}
         isOpen={modalTrigger}
-        onRequestClose={() => props.resetKey(Math.random())}
+        onRequestClose={() => {
+          props.resetMode(null);
+          props.hideTest(false);
+        }}
         contentLabel="Sentence Test summary modal"
       >
         <i
           onClick={() => {
-            props.resetKey(Math.random());
+            props.resetMode(null);
+            props.hideTest(false);
           }}
           className="far fa-times-circle modal-button"
         ></i>
