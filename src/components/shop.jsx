@@ -61,7 +61,12 @@ const Shop = (props) => {
   const renderUserInventory = () => {
     const items = [];
     for (let [item, amount] of Object.entries(inventory.inventory)) {
-      if (item !== "favs" && item !== "mercenaries" && amount) {
+      if (
+        item !== "favs" &&
+        item !== "mercenaries" &&
+        item !== "expeditions" &&
+        amount
+      ) {
         items.push([item, amount]);
       }
     }
@@ -84,6 +89,7 @@ const Shop = (props) => {
         item !== "credits" &&
         item !== "mercenaries" &&
         item !== "crystal" &&
+        item !== "expeditions" &&
         amount
       ) {
         items.push([item, amount]);

@@ -7,6 +7,7 @@ import UserContext from "./contexts/userContext";
 import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 import GeneralContext from "./contexts/generalContext";
+import TaskContext from "./contexts/taskContext";
 import TourContext from "./contexts/tourContext";
 import Factory from "./components/factory";
 import Shop from "./components/shop";
@@ -28,14 +29,40 @@ import Axios from "./components/planets/axios";
 import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/testMenu";
 import Help from "./components/help";
+import Modal from "react-modal";
 import dialogues from "./utils/dialogues";
 import { availablePlanets } from "./utils/planetAccess";
 import mercenaries from "./utils/mercenaries";
 import { ToastContainer, toast } from "react-toastify";
+import { renderSummary } from "./utils/summary";
+import Emitter from "./utils/emitter";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
+Modal.setAppElement(document.getElementById("root"));
+
+const modalStyle = {
+  content: {
+    padding: "2rem",
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
 export default function App() {
+  const [modalTrigger, setModalTrigger] = useState(false);
+  const [summary, setSummary] = useState([]);
+  const toggleModal = () => {
+    setModalTrigger(!modalTrigger);
+  };
+
   // checks if any data exists in the localStorage and replaces the null object if needed
   const getData = (localStorageData, initialData) => {
     let data = localStorage.getItem(localStorageData);
@@ -55,6 +82,37 @@ export default function App() {
   const [tourData, setTourData] = useState(
     getData("tourData", initialTourData)
   );
+
+  // task data
+  const initialTaskData = {
+    taskQueue: [],
+  };
+
+  const [taskData, setTaskData] = useState(
+    getData("taskData", initialTaskData)
+  );
+
+  const handleAddATaskToQueue = (id, difficulty, delay) => {
+    const taskDataDummy = JSON.parse(JSON.stringify(taskData));
+    taskDataDummy.taskQueue.push({
+      id: id,
+      taskName: "expedition",
+      difficulty: difficulty,
+      delay: delay,
+      startingTurnNumber: generalData.currentTurnNumber + delay,
+    });
+
+    setTaskData(taskDataDummy);
+  };
+
+  const handleMarkATaskAsFinished = (id) => {
+    const taskDataDummy = JSON.parse(JSON.stringify(taskData));
+    taskDataDummy.taskQueue = taskDataDummy.taskQueue.filter(
+      (task) => task.id !== id
+    );
+
+    setTaskData(taskDataDummy);
+  };
 
   // user data
   const initialUserInfo = {
@@ -91,8 +149,14 @@ export default function App() {
   const initialGeneralData = {
     newGame: true,
     gamePaused: false,
-    // if a place is not on the planet it will not be rendered
+    currentTurnNumber: 0,
     availablePlanets: availablePlanets,
+  };
+
+  const handleIncrementTurnCounter = () => {
+    const generalDataDummy = { ...generalData };
+    generalDataDummy.currentTurnNumber += 1;
+    setGeneralData(generalDataDummy);
   };
 
   const handleSetGamePaused = (state) => {
@@ -167,8 +231,8 @@ export default function App() {
   };
 
   const [shop] = useState(getData("shop", initialShop));
-  //
 
+  //useEffect
   useEffect(() => {
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);
@@ -190,53 +254,76 @@ export default function App() {
   }, [tourData]);
 
   useEffect(() => {
+    localStorage.setItem("taskData", JSON.stringify(taskData));
+  }, [taskData]);
+
+  useEffect(() => {
     handleCalcLvl();
   }, [userInfo.exp]);
 
+  useEffect(() => {
+    Emitter.on("SEND_CONTENT", (summaryContent) => setSummary(summaryContent));
+    Emitter.on("SHOW_MODAL", () => toggleModal());
+  }, []);
+
   // credits
   const handleAddCredits = (amount) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     userInventoryDummy.credits += amount;
     setUserInventory(userInventoryDummy);
   };
 
   const handleSubtractCredits = (amount) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     userInventoryDummy.credits -= amount;
     setUserInventory(userInventoryDummy);
   };
 
   // subtract an item
   const handleSubtractItem = (item, amount) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     userInventoryDummy[item] -= amount;
     setUserInventory(userInventoryDummy);
   };
 
   // free item
   const handleAddItem = (item, amount) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     userInventoryDummy[item] += amount;
     setUserInventory(userInventoryDummy);
   };
 
   // add to favorites
   const handleAddToFavorite = (word, def) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     userInventoryDummy.favs[word] = def;
     setUserInventory(userInventoryDummy);
   };
 
   // remove from favorites
   const handleRemoveFromFavorite = (word) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     delete userInventoryDummy.favs[word];
     setUserInventory(userInventoryDummy);
   };
 
+  // get hired & selected mercenaries
+  const handleGetHiredAndSelectedMercenaries = () => {
+    return userInventory.mercenaries.filter(
+      (merc) => merc.hired && merc.selected && merc.alive && !merc.sended
+    );
+  };
+
+  // get hired & sended mercenaries
+  const handleGetHiredAndSendedMercenaries = () => {
+    return userInventory.mercenaries.filter(
+      (merc) => merc.hired && merc.alive && merc.sended
+    );
+  };
+
   // hire a mercenary
   const handleHireMercenary = (ID) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     const selectedMercenary = userInventoryDummy.mercenaries.find(
       (merc) => merc.id === ID
     );
@@ -249,17 +336,42 @@ export default function App() {
 
   // remove a mercenary
   const handleRemoveMercenary = (ID) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     const selectedMercenary = userInventoryDummy.mercenaries.find(
       (merc) => merc.id === ID
     );
     selectedMercenary.hired = false;
+    selectedMercenary.selected = false;
+    userInventoryDummy.credits += selectedMercenary.price / 2;
+    setUserInventory(userInventoryDummy);
+  };
+
+  // change mercenary status
+  const handleChangeMercenaryStatus = (IDs, action) => {
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
+
+    for (let mercenary of userInventoryDummy.mercenaries) {
+      if (IDs.includes(mercenary.id)) {
+        if (action === "mark") {
+          mercenary.selected = true;
+        } else if (action === "release") {
+          mercenary.selected = false;
+        } else if (action === "dead") {
+          mercenary.alive = false;
+        } else if (action === "sended") {
+          mercenary.selected = false;
+          mercenary.sended = true;
+        } else if (action === "back") {
+          mercenary.sended = false;
+        }
+      }
+    }
     setUserInventory(userInventoryDummy);
   };
 
   // free multiple items
   const handleAddItems = (items) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     for (const [key, value] of Object.entries(items)) {
       userInventoryDummy[key] = userInventoryDummy[key] + value;
     }
@@ -268,7 +380,7 @@ export default function App() {
 
   // exchange multiple items
   const handleExchange = (giveItems, getItems) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     for (const [item, amount] of Object.entries(giveItems)) {
       userInventoryDummy[item] -= amount;
     }
@@ -304,7 +416,7 @@ export default function App() {
 
   // upgrade the rocket
   const handleUpgradeRocket = (giveItems) => {
-    const userInventoryDummy = { ...userInventory };
+    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     for (const [item, amount] of Object.entries(giveItems)) {
       userInventoryDummy[item] -= amount;
     }
@@ -319,7 +431,7 @@ export default function App() {
   // shop
   const handleBuyItem = (item, amount, price, multiplier) => {
     if (userInventory.credits >= price * multiplier) {
-      const userInventoryDummy = { ...userInventory };
+      const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
       userInventoryDummy[item] += amount;
       userInventoryDummy.credits =
         userInventoryDummy.credits - price * multiplier;
@@ -367,7 +479,7 @@ export default function App() {
   // reset inventory
   const resetInventory = () => {
     const userInventoryDummy = { ...userInventory };
-    for (let [item] of Object.entries(userInventory)) {
+    for (let item of ["credits", "stardust", "steel", "aluminum", "crystal"]) {
       userInventoryDummy[item] = 0;
     }
     setUserInventory(userInventoryDummy);
@@ -379,103 +491,138 @@ export default function App() {
     userDataDummy.ifUfoDefeated[planet] = true;
     setUserInfo(userDataDummy);
   };
-
+  // toast
   const notify = (text) => toast(text);
 
   return (
-    <TourContext.Provider
-      value={{ tour: tourData.tour, setTour: handleSetTour }}
+    <TaskContext.Provider
+      value={{
+        task: taskData,
+        taskQueue: taskData.taskQueue,
+        addATaskToQueue: handleAddATaskToQueue,
+        markATaskAsFinished: handleMarkATaskAsFinished,
+      }}
     >
-      <GeneralContext.Provider
+      <TourContext.Provider
         value={{
-          setGamePaused: handleSetGamePaused,
-          setNewGame: handleSetNewGame,
-          setLogin: handleSetLogin,
-          general: generalData,
-          planets: generalData.availablePlanets,
-          setAvailablePlanet: handleSetAvailablePlanet,
-          changeMultiple: handleMultipleChanges,
-          showToast: notify,
+          tour: tourData.tour,
+          setTour: handleSetTour,
         }}
       >
-        <ShopContext.Provider
-          value={{ shopInventory: shop, buyItem: handleBuyItem }}
+        <GeneralContext.Provider
+          value={{
+            incrementTurnCounter: handleIncrementTurnCounter,
+            setGamePaused: handleSetGamePaused,
+            setNewGame: handleSetNewGame,
+            setLogin: handleSetLogin,
+            general: generalData,
+            planets: generalData.availablePlanets,
+            setAvailablePlanet: handleSetAvailablePlanet,
+            changeMultiple: handleMultipleChanges,
+            showToast: notify,
+          }}
         >
-          <InventoryContext.Provider
-            value={{
-              resetInventory: resetInventory,
-              inventory: userInventory,
-              addItem: handleAddItem,
-              addItems: handleAddItems,
-              upgradeRocket: handleUpgradeRocket,
-              exchangeItems: handleExchange,
-              subtractItem: handleSubtractItem,
-              addCredits: handleAddCredits,
-              subtractCredits: handleSubtractCredits,
-              addToFavorite: handleAddToFavorite,
-              removeFromFavorite: handleRemoveFromFavorite,
-              removeMercenary: handleRemoveMercenary,
-              hireMercenary: handleHireMercenary,
-            }}
+          <ShopContext.Provider
+            value={{ shopInventory: shop, buyItem: handleBuyItem }}
           >
-            <UserContext.Provider
+            <InventoryContext.Provider
               value={{
-                user: userInfo,
-                onAddExp: handleAddExp,
-                onSetPlanet: handleSetPlanet,
-                onSetName: handleSetName,
-                onSetUfo: setUfoDefeated,
-                setDialogueCompleted: handleSetCompleted,
-                addMovementPoints: handleAddMovementPoints,
-                subtractMovementsPoints: handleSubtractMovementPoints,
-                setMovementPoints: setMovementPoints,
+                resetInventory: resetInventory,
+                inventory: userInventory,
+                addItem: handleAddItem,
+                addItems: handleAddItems,
+                upgradeRocket: handleUpgradeRocket,
+                exchangeItems: handleExchange,
+                subtractItem: handleSubtractItem,
+                addCredits: handleAddCredits,
+                subtractCredits: handleSubtractCredits,
+                addToFavorite: handleAddToFavorite,
+                removeFromFavorite: handleRemoveFromFavorite,
+                removeMercenary: handleRemoveMercenary,
+                hireMercenary: handleHireMercenary,
+                changeMercenaryStatus: handleChangeMercenaryStatus,
+                getHiredAndSelectedMercenaries:
+                  handleGetHiredAndSelectedMercenaries,
+                getHiredAndSendedMercenaries:
+                  handleGetHiredAndSendedMercenaries,
               }}
             >
-              <Switch>
-                <Route path="/space" exact component={NotFound} />
-                <Route path="/ufo" component={Ufo} />
-                <Route path="/factory" component={Factory} />
-                <Route path="/casino" component={Casino} />
-                <Route path="/quiz" component={Controller} />
-                <Route path="/shop" component={Shop} />
-                <Route path="/bar" component={Bar} />
-                <Route path="/mine" component={Mine} />
-                <Route path="/favorites" component={Favorites} />
-                <Route path="/university" component={TestMenu} />
-                <Route path="/inventory" component={Inventory} />
-                <Route path="/help" component={Help} />
-                <Route path="/xillon" component={Xillon} />
-                <Route path="/centuria" component={Centuria} />
-                <Route path="/crion" component={Crion} />
-                <Route path="/therion" component={Therion} />
-                <Route path="/crystalia" component={Crystalia} />
-                <Route path="/thalia" component={Thalia} />
-                <Route path="/bathea" component={Bathea} />
-                <Route path="/axios" component={Axios} />
-                <Route path="/desertia" component={Desertia} />
-                <Route path="/" exact component={Welcome} />
-                <Redirect to="/space" />
-              </Switch>
-              <div id={"toast-container"}>
-                <ToastContainer
-                  position="bottom-center"
-                  autoClose={2000}
-                  hideProgressBar
-                  newestOnTop
-                  closeOnClick
-                  closeButton={false}
-                  rtl={false}
-                  pauseOnFocusLoss={false}
-                  draggable={false}
-                  pauseOnHover
-                  theme={"dark"}
-                  limit={3}
-                />
-              </div>
-            </UserContext.Provider>
-          </InventoryContext.Provider>
-        </ShopContext.Provider>
-      </GeneralContext.Provider>
-    </TourContext.Provider>
+              <UserContext.Provider
+                value={{
+                  user: userInfo,
+                  onAddExp: handleAddExp,
+                  onSetPlanet: handleSetPlanet,
+                  onSetName: handleSetName,
+                  onSetUfo: setUfoDefeated,
+                  setDialogueCompleted: handleSetCompleted,
+                  addMovementPoints: handleAddMovementPoints,
+                  subtractMovementsPoints: handleSubtractMovementPoints,
+                  setMovementPoints: setMovementPoints,
+                }}
+              >
+                <Switch>
+                  <Route path="/space" exact component={NotFound} />
+                  <Route path="/ufo" component={Ufo} />
+                  <Route path="/factory" component={Factory} />
+                  <Route path="/casino" component={Casino} />
+                  <Route path="/quiz" component={Controller} />
+                  <Route path="/shop" component={Shop} />
+                  <Route path="/bar" component={Bar} />
+                  <Route path="/mine" component={Mine} />
+                  <Route path="/favorites" component={Favorites} />
+                  <Route path="/university" component={TestMenu} />
+                  <Route path="/inventory" component={Inventory} />
+                  <Route path="/help" component={Help} />
+                  <Route path="/xillon" component={Xillon} />
+                  <Route path="/centuria" component={Centuria} />
+                  <Route path="/crion" component={Crion} />
+                  <Route path="/therion" component={Therion} />
+                  <Route path="/crystalia" component={Crystalia} />
+                  <Route path="/thalia" component={Thalia} />
+                  <Route path="/bathea" component={Bathea} />
+                  <Route path="/axios" component={Axios} />
+                  <Route path="/desertia" component={Desertia} />
+                  <Route path="/" exact component={Welcome} />
+                  <Redirect to="/space" />
+                </Switch>
+                <div id={"toast-container"}>
+                  <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop
+                    closeOnClick
+                    closeButton={false}
+                    rtl={false}
+                    pauseOnFocusLoss={false}
+                    draggable={false}
+                    pauseOnHover
+                    theme={"dark"}
+                    limit={3}
+                  />
+                </div>
+                <Modal
+                  style={modalStyle}
+                  isOpen={modalTrigger}
+                  onRequestClose={toggleModal}
+                  contentLabel="Expedition summary modal"
+                >
+                  <i
+                    onClick={toggleModal}
+                    className="far fa-times-circle modal-button"
+                  ></i>
+                  <ul>
+                    <li>
+                      <h4>Expedition results:</h4>
+                    </li>
+                    {renderSummary(summary, " ")}
+                  </ul>
+                </Modal>
+              </UserContext.Provider>
+            </InventoryContext.Provider>
+          </ShopContext.Provider>
+        </GeneralContext.Provider>
+      </TourContext.Provider>
+    </TaskContext.Provider>
   );
 }

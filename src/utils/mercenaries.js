@@ -6,6 +6,9 @@ const mercenaries = [
     price: 3500,
     strength: 37,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "therion",
   },
   {
@@ -15,6 +18,9 @@ const mercenaries = [
     price: 5500,
     strength: 60,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "therion",
   },
   {
@@ -24,6 +30,9 @@ const mercenaries = [
     price: 7500,
     strength: 82,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "therion",
   },
   {
@@ -33,6 +42,9 @@ const mercenaries = [
     price: 8500,
     strength: 95,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "therion",
   },
   {
@@ -42,6 +54,9 @@ const mercenaries = [
     price: 9500,
     strength: 105,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "therion",
   },
   {
@@ -51,6 +66,9 @@ const mercenaries = [
     price: 8500,
     strength: 98,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "crystalia",
   },
   {
@@ -60,6 +78,9 @@ const mercenaries = [
     price: 12500,
     strength: 130,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "crystalia",
   },
   {
@@ -69,6 +90,9 @@ const mercenaries = [
     price: 11000,
     strength: 115,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "crystalia",
   },
   {
@@ -78,6 +102,9 @@ const mercenaries = [
     price: 12500,
     strength: 140,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "crystalia",
   },
   {
@@ -87,6 +114,9 @@ const mercenaries = [
     price: 10500,
     strength: 110,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "bathea",
   },
   {
@@ -96,6 +126,9 @@ const mercenaries = [
     price: 9500,
     strength: 96,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "bathea",
   },
   {
@@ -105,6 +138,9 @@ const mercenaries = [
     price: 16500,
     strength: 180,
     hired: false,
+    selected: false,
+    alive: true,
+    sended: false,
     planet: "bathea",
   },
 ];

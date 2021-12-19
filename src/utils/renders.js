@@ -39,7 +39,13 @@ export const planets = [
   "centuria",
 ];
 
-export const responsiveImageThumbnail = (imageCategory, image, alt, cls) => {
+export const responsiveImageThumbnail = (
+  imageCategory,
+  image,
+  alt,
+  cls,
+  onClickAction
+) => {
   return (
     <picture>
       <source
@@ -77,6 +83,7 @@ export const responsiveImageThumbnail = (imageCategory, image, alt, cls) => {
         srcSet={require(`../images/${imageCategory}/960/${image}.jpg`).default}
       />
       <img
+        onClick={onClickAction}
         className={`${cls}`}
         alt={`${alt}`}
         src={require(`../images/${imageCategory}/1920/${image}.jpg`).default}

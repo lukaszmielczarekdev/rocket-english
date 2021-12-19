@@ -81,6 +81,10 @@
   margin: 1rem;
 }
 
+.margin-bottom-2rem {
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 1400px) {
   #inventory .split {
     flex-direction: row;
@@ -90,15 +94,19 @@
   }
 }
 
+#mercenaries h3 {
+  padding-bottom: 0;
+}
+
 /* button */
 
-#inventory button {
+#inventory-container button {
   color: var(--clr-primary-100);
   border: 1px solid var(--clr-primary-100);
   margin-top: 1rem;
 }
 
-#inventory button:hover {
+#inventory-container button:hover {
   border: none;
 }
 

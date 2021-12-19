@@ -65,7 +65,7 @@ export const Ufo = (props) => {
     } else {
       user.onSetUfo(user.user.currentPlanet);
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
-      const credits = base * rate * 2000;
+      const credits = Math.floor(base * rate * 2000);
       const exp = Math.floor(base * rate * 1300);
       const steel = Math.floor(base * rate * 10) + 1;
       const aluminum = Math.floor(base * rate * 5) + 1;

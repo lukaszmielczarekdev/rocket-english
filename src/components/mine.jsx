@@ -232,7 +232,10 @@ const Mine = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Mine summary modal"
       >
-        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+        <i
+          onClick={toggleModal}
+          className="far fa-times-circle modal-button"
+        ></i>
         <ul>{renderSummary()}</ul>
       </Modal>
       <Footer />

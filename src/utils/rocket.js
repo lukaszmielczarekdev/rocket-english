@@ -1,8 +1,8 @@
 const upgrades = {
-  2: { steel: 20, credits: 2500 },
-  3: { steel: 25, aluminum: 15, credits: 6500 },
-  4: { steel: 55, aluminum: 35, stardust: 10, credits: 8500 },
-  5: { steel: 90, aluminum: 85, stardust: 15, credits: 15000 },
+  2: { steel: 40, credits: 5500 },
+  3: { steel: 55, aluminum: 55, credits: 16500 },
+  4: { steel: 95, aluminum: 80, stardust: 10, credits: 85000 },
+  5: { steel: 140, aluminum: 125, stardust: 15, credits: 150000 },
 };
 
 export default upgrades;

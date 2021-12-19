@@ -38,7 +38,8 @@ export const Bar = (props) => {
   };
   const showMercenariesToHire = () => {
     const hired = inventory.inventory.mercenaries.filter(
-      (merc) => !merc.hired && merc.planet === user.user.currentPlanet
+      (merc) =>
+        !merc.hired && merc.planet === user.user.currentPlanet && merc.alive
     );
 
     if (hired.length !== 0) {
@@ -93,7 +94,6 @@ export const Bar = (props) => {
             <h3>Hire</h3>
             <hr className="underline-places" />
           </header>
-          {/* <article className="margin-bottom-2rem"> */}
           <article className="planet-activities-container">
             <header>
               <h4>Mercenaries</h4>

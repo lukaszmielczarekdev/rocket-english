@@ -19,6 +19,28 @@ const NpcForHireCard = (props) => {
     );
   };
 
+  const renderMercenaryAvatars = (name) => {
+    if (props.hired && !props.selected) {
+      return responsiveImageThumbnail(
+        "mercenaries",
+        name,
+        "mercenary",
+        "",
+        () => inventory.changeMercenaryStatus([props.id], "mark")
+      );
+    } else if (props.hired && props.selected) {
+      return responsiveImageThumbnail(
+        "mercenaries",
+        "Locked",
+        "mercenary",
+        "",
+        () => inventory.changeMercenaryStatus([props.id], "release")
+      );
+    } else {
+      return responsiveImageThumbnail("mercenaries", name, "mercenary", "");
+    }
+  };
+
   return (
     <article
       id="mercenaries-list"
@@ -28,26 +50,23 @@ const NpcForHireCard = (props) => {
         <h4>{props.name}</h4>
       </header>
       <p className="thumbnail logo-place image fit margin-bottom-0">
-        {responsiveImageThumbnail(
-          "planet-images",
-          "thumbnail-rocket",
-          "mercenary"
-        )}
+        {renderMercenaryAvatars(props.name)}
       </p>
       <ul className="align-center">
         <li>Lvl: {props.lvl}</li>
         <li>Price: {props.price}</li>
         <li>Strength: {props.strength}</li>
       </ul>
-
       {!props.hired && renderHireButton()}
-      {props.hired && (
-        <button
-          onClick={() => inventory.removeMercenary(props.id)}
-          className="button small margin-1rem"
-        >
-          Dismiss
-        </button>
+      {props.hired && !props.sended && !props.selected && (
+        <li>
+          <button
+            onClick={() => inventory.removeMercenary(props.id)}
+            className="button small"
+          >
+            Send back
+          </button>
+        </li>
       )}
     </article>
   );

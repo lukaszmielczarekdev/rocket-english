@@ -1,12 +1,12 @@
 /* thumbnails */
 #mercenaries-list .thumbnail img {
-  width: 40% !important;
+  width: 60% !important;
   border-radius: 15px;
 }
 
 @media screen and (max-width: 480px) {
   #mercenaries-list .thumbnail img {
-    width: 60% !important;
+    width: 80% !important;
   }
 }
 
@@ -14,4 +14,8 @@
   #mercenaries-list .thumbnail img {
     max-width: 200px;
   }
+}
+
+#mercenaries-list .thumbnail img {
+  cursor: pointer;
 }
