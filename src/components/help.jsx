@@ -176,7 +176,9 @@ const Help = (props) => {
               fight with the enemy will take place. Depending on the strength of
               the mercenaries, the result of the fight may be different, the
               crew may return safe, or a part of the crew may be killed by the
-              enemy.
+              enemy. After sending the expedition, you can continue the fun,
+              when the expedition returns, its result will appear on the screen
+              wherever you are.
             </p>
           </article>
         </section>
