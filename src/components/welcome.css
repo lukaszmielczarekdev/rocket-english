@@ -326,13 +326,13 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/1920/planet.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/1920/planet.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -340,13 +340,13 @@
 }
 @media screen and (max-width: 1280px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/planet.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/planet.webp) no-repeat center
       center fixed;
 
     background-size: cover;
@@ -355,13 +355,13 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
+    background: url(/src/images/planet-images/1280/planet.jpg) no-repeat center
       center fixed;
 
     background-size: cover;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
+    background: url(/src/images/planet-images/1280/planet.webp) no-repeat center
       center fixed;
 
     background-size: cover;
