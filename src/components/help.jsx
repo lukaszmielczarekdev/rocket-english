@@ -159,15 +159,24 @@ const Help = (props) => {
           <article className="content-help">
             <header className="places-header-help">
               <hr className="underline-places-help-right" />
-              <h3>Bar</h3>
+              <h3>Mercenaries</h3>
             </header>
             <p className="place-description-help">
               Bars are very popular places in the galaxy. These are places for
-              socializing, exchanging ideas and resolving various types of
-              disputes. There is usually one person in such a place who has an
-              extraordinary amount of information on various topics... a
-              bartender. You can ask him about the latest rumors and all kinds
-              of other things.
+              socializing and exchanging views. In the bars you can hire
+              mercenaries who can be sent on expeditions. Each mercenary has its
+              own characteristics such as level, strength or price. In your
+              inventory, you will have access to hired mercenaries, which you
+              can also dismiss and get a refund of half of the mercenary's
+              price. If you have at least one mercenary, you can send
+              expeditions from which mercenaries can bring back valuable loot.
+              The chance of a successful expedition depends on the chosen
+              difficulty level of the expedition and the strength of the crew
+              sent. The crew sent on the expedition can be attacked, then a
+              fight with the enemy will take place. Depending on the strength of
+              the mercenaries, the result of the fight may be different, the
+              crew may return safe, or a part of the crew may be killed by the
+              enemy.
             </p>
           </article>
         </section>
@@ -297,16 +306,22 @@ const Help = (props) => {
           <article className="content-help">
             <header className="places-header-help">
               <hr className="underline-places-help-right" />
-              <h3>University</h3>
+              <h3>Fill the gaps tests</h3>
             </header>
             <p className="place-description-help">
-              At universities, you can take on one of the challenges of
-              completing the text with relevant passages. The professors will be
-              happy to prepare interesting texts, for the completion of which
-              you will receive a prize. If you want, you can prepare your own
-              supplementary text and take the challenge. Let it not be too easy
-              - you will only get rewards for challenges prepared by
-              universities.
+              At universities, you can take on various challenges. One of them
+              is to supplement the randomly selected text with appropriate
+              fragments. The professors will be happy to prepare interesting
+              texts, for the performance of which you will receive a prize. If
+              you want, you can prepare your own supplementary text and take the
+              challenge. Let it not be too easy - you will only get rewards for
+              challenges prepared by universities. Another challenge is
+              completing random sentences with appropriate words. The types of
+              sentences are free to choose from as they are categorized
+              according to the English tenses. In the summary you will see
+              correct answers marked in green for correct answer or red in case
+              of incorrect answer. You will only get a reward for correct
+              answers.
             </p>
           </article>
         </section>
@@ -324,15 +339,17 @@ const Help = (props) => {
           </picture>
           <article className="content-help">
             <header className="places-header-help">
-              <h3>School</h3>
+              <h3>Quizes</h3>
               <hr className="underline-places-help-left" />
             </header>
             <p className="place-description-help">
-              There is a school on every planet, smaller or larger, but there
-              is. You can learn something here. You can also try to guess a word
-              from its description - teachers love such puzzles. Solving quizzes
-              is a great way to gain experience and credits. In stores you can
-              buy an item that will discover a word for you that you can use if
+              There is a school on every planet where you can learn something by
+              asking the teacher for specific words. This way you can learn new
+              words. As a test of your knowledge in school, there is the
+              possibility of creating quizzes that involve guessing words with
+              their description - teachers love such puzzles. Solving quizzes is
+              a great way to gain experience and credits. In stores you can buy
+              a "word" item which will reveal the word for you in the quiz if
               you run out of ideas.
             </p>
           </article>
