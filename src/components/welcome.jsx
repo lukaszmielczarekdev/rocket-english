@@ -163,7 +163,7 @@ const Welcome = (props) => {
 
   return (
     <div className="welcome-wrapper flex-auto">
-      <div className="menu-navbar">
+      <div id="home" className="menu-navbar">
         <Nav />
       </div>
       {renderOrRedirect("menu")}
@@ -246,7 +246,7 @@ const Welcome = (props) => {
                 </p>
               </article>
             </section>
-            <a href="#welcome">
+            <a href="#home">
               <i className="rotate180deg nav-arrow padding-2rem far fa-arrow-alt-circle-down fa-2x"></i>
             </a>
             <Modal

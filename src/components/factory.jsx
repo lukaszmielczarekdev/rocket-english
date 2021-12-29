@@ -64,7 +64,7 @@ export const Factory = (props) => {
   };
 
   return (
-    <main className="factory-wrapper flex-auto">
+    <main id="factory-container" className="factory-wrapper flex-auto">
       <Nav />
       {renderOrRedirect("factory")}
       <section id="factory" className="factory-header-container">

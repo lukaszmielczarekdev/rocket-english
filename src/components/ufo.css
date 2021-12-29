@@ -271,45 +271,51 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/ufo-2.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/ufo-2.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/ufo-2.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/ufo-2.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/ufo-2.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/ufo-2.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

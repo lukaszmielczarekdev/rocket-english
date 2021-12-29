@@ -73,7 +73,7 @@ export const DefinitionSearch = (props) => {
               })}
             />
             <button type="submit" className="button small">
-              Ask the teacher
+              Ask
             </button>
           </form>
         </div>

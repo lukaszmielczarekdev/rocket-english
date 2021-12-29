@@ -320,45 +320,51 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1920/university.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1920/university.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1920/university.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1920/university.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1280/university.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1280/university.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1280/university.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1280/university.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1280/university.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/960/university.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .testMenu-wrapper {
-    background: url(/src/images/planet-images/1280/university.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/960/university.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

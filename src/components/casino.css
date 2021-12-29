@@ -271,44 +271,50 @@
 
 @media screen and (min-width: 1281px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/1920/casino.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/casino.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/1920/casino.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/casino.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 @media screen and (max-width: 1280px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/casino.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/casino.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/casino.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/casino.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/casino.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/casino.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .casino-wrapper {
-    background: url(/src/images/planet-images/1280/casino.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/casino.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

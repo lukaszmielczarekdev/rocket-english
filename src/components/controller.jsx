@@ -158,7 +158,7 @@ const Controller = (props) => {
   };
 
   return (
-    <main className="quiz-wrapper flex-auto">
+    <main className="main-wrapper flex-auto">
       <Nav />
       <section id="quiz">
         {renderOrRedirect("quiz")}

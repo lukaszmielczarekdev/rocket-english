@@ -57,7 +57,7 @@
   justify-content: center;
   align-content: center;
   width: 100%;
-  display: flex;
+  display: block;
   flex-direction: column;
 }
 
@@ -270,45 +270,51 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .mine-wrapper {
-    background: url(/src/images/planet-images/1920/mine.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/mine.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .mine-wrapper {
-    background: url(/src/images/planet-images/1920/mine.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/mine.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .mine-wrapper {
-    background: url(/src/images/planet-images/1280/mine.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/mine.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .mine-wrapper {
-    background: url(/src/images/planet-images/1280/mine.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/mine.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .mine-wrapper {
-    background: url(/src/images/planet-images/1280/mine.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/mine.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .mine-wrapper {
-    background: url(/src/images/planet-images/1280/mine.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/mine.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

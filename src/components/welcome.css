@@ -158,10 +158,9 @@
 }
 
 .menu-navbar {
-  position: absolute;
-  top: 0;
   width: 100%;
 }
+
 .menu-footer {
   position: absolute;
   bottom: 0;

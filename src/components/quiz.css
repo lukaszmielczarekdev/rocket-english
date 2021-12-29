@@ -51,6 +51,7 @@
   padding-top: 4rem;
   padding-bottom: 3rem;
   flex: auto;
+  display: contents;
 }
 
 .quiz-wrapper {
@@ -302,50 +303,4 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* background */
-@media screen and (min-width: 1281px) {
-  .no-webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1920/quiz.jpg) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
-  .webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1920/quiz.webp) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .no-webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1280/quiz.jpg) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
-  .webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1280/quiz.webp) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .no-webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1280/quiz.jpg) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
-  .webp .quiz-wrapper {
-    background: url(/src/images/planet-images/1280/quiz.webp) no-repeat center
-      center fixed;
-
-    background-size: cover;
-  }
 }

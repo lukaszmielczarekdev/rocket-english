@@ -272,45 +272,51 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/1920/shop.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/shop.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/1920/shop.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/shop.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/shop.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/shop.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/shop.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/shop.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

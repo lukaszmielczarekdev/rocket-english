@@ -42,6 +42,16 @@
 }
 
 /* layout */
+
+#factory-container {
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  display: block;
+  flex: auto;
+}
+
 #factory {
   align-items: center;
   justify-content: center;
@@ -270,45 +280,51 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .factory-wrapper {
-    background: url(/src/images/planet-images/1920/fillthegaps.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1920/factory.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .factory-wrapper {
-    background: url(/src/images/planet-images/1920/fillthegaps.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1920/factory.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .factory-wrapper {
-    background: url(/src/images/planet-images/1280/fillthegaps.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1280/factory.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .factory-wrapper {
-    background: url(/src/images/planet-images/1280/fillthegaps.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/1280/factory.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .factory-wrapper {
-    background: url(/src/images/planet-images/1280/fillthegaps.jpg) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/960/factory.jpg);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
   .webp .factory-wrapper {
-    background: url(/src/images/planet-images/1280/fillthegaps.webp) no-repeat
-      center center fixed;
-
+    background: url(/src/images/planet-images/960/factory.webp);
     background-size: cover;
+    overflow: scroll;
+    min-height: 100vh;
+    background-repeat: no-repeat;
   }
 }

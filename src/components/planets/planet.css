@@ -331,7 +331,6 @@
 
 @media screen and (min-width: 420px) {
   .logo img {
-    /* width: 20% !important; */
     width: 50% !important;
   }
 }
@@ -390,369 +389,501 @@
 
 @media screen and (min-width: 1281px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/1920/crion.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/crion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/1920/crion.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/crion.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/1920/therion.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/therion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/1920/therion.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/therion.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1920/crystalia.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/crystalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1920/crystalia.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/crystalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1920/desertia.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/desertia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1920/desertia.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/desertia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1920/xillon.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/xillon.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1920/xillon.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/xillon.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/1920/axios.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/axios.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/1920/axios.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/axios.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1920/thalia.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/thalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1920/thalia.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/thalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1920/bathea.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/bathea.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1920/bathea.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/bathea.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1920/centuria.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/centuria.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1920/centuria.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1920/centuria.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/1920/menu.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/menu.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/1920/menu.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/menu.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/ufo.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1920/ufo.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 1280px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/crion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/crion.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/therion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/therion.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/crystalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/crystalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/desertia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/desertia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/xillon.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/xillon.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/axios.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/axios.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/thalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/thalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/bathea.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/bathea.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.jpg) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/centuria.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.webp) no-repeat
-      center center fixed;
+    background: url(/src/images/planet-images/1280/centuria.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/menu.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/menu.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/ufo.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
-      center fixed;
+    background: url(/src/images/planet-images/1280/ufo.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/crion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/crion.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/therion.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.webp) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/therion.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.jpg) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/crystalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.webp) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/crystalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.jpg) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/desertia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.webp) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/desertia.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/xillon.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/xillon.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/axios.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/axios.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/thalia.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/thalia.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/bathea.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/bathea.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.jpg) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/centuria.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.webp) no-repeat
-      center center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/centuria.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/menu.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/menu.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.jpg) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/ufo.jpg);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.webp) no-repeat center
-      center fixed;
-    background-size: 200vh 120vh;
+    background: url(/src/images/planet-images/960/ufo.webp);
+    overflow: scroll;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
