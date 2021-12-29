@@ -5,19 +5,40 @@ import "../../App.css";
 const Answer = (props) => {
   const user = useContext(UserContext);
 
+  const performASpecialActionIfAvailable = () => {
+    const dialogue = user.user.dialogues[user.user.currentPlanet].find(
+      (elem) => elem.id === props.questionID
+    );
+
+    if (dialogue.specialAction && !dialogue.specialAction.completed)
+      return (
+        <button
+          className="button small"
+          onClick={() => {
+            user.moveWithTheStory(user.user.currentPlanet);
+            props.showAnswer();
+          }}
+        >
+          {dialogue.specialAction.title} ({dialogue.specialAction.requirement}
+          [!])
+        </button>
+      );
+  };
+
   return (
     <>
-      <p>
+      <li className="dialogue-line">
         {
           user.user.dialogues[user.user.currentPlanet].find(
             (elem) => elem.id === props.questionID
           ).answer
         }
-      </p>
+      </li>
+      <li>{performASpecialActionIfAvailable()}</li>
       {props.showAnswer && (
-        <p className="visited" onClick={props.showAnswer}>
+        <li className="visited dialogue-line" onClick={props.showAnswer}>
           Thanks...
-        </p>
+        </li>
       )}
     </>
   );

@@ -93,6 +93,7 @@ const Xillon = (props) => {
   return (
     <div className="xillon-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         planet={"xillon"}
         planetDescription={description}
         places={items}

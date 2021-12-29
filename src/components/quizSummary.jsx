@@ -51,7 +51,7 @@ const Summary = (props) => {
     if (!inventory.inventory.favs[word]) {
       return (
         <i
-          class="far fa-star"
+          className="far fa-star"
           onClick={() => {
             inventory.addToFavorite(word, def);
             general.showToast("Added to favorites.");
@@ -100,7 +100,10 @@ const Summary = (props) => {
         onRequestClose={toggleModal}
         contentLabel="Quiz summary modal"
       >
-        <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+        <i
+          onClick={toggleModal}
+          className="far fa-times-circle modal-button"
+        ></i>
         <ul className="color-win">
           <li>+{props.summary} exp</li>
           <li>+{props.summary / 2} [!]</li>

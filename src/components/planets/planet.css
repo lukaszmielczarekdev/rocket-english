@@ -173,7 +173,7 @@
   }
 }
 .width-80 {
-  width: min(80%, 70rem);
+  width: min(95%, 70rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,6 +208,14 @@
   .underline-places {
     width: 70%;
     margin-top: 1rem;
+  }
+  .width-80 {
+    width: min(80%, 70rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

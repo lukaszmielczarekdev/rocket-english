@@ -104,6 +104,7 @@ const Thalia = (props) => {
   return (
     <div className="thalia-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         bgColor={"thalia"}
         planet={"thalia"}
         planetDescription={description}

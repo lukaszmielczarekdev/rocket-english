@@ -126,6 +126,7 @@ const Axios = (props) => {
   return (
     <div className="axios-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         bgColor={"axios"}
         planet={"axios"}
         planetDescription={description}

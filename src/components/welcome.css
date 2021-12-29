@@ -326,44 +326,50 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/planet.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/planet.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1920/planet.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1920/planet.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 @media screen and (max-width: 1280px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/planet.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/planet.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/planet.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/1280/planet.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
 @media screen and (max-width: 640px) {
   .no-webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/planet.jpg) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/planet.jpg);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
   .webp .welcome-wrapper {
-    background: url(/src/images/planet-images/1280/planet.webp) no-repeat center
-      center fixed;
-
+    background: url(/src/images/planet-images/960/planet.webp);
+    overflow: scroll;
+    min-height: 100vh;
     background-size: cover;
+    background-repeat: no-repeat;
   }
 }

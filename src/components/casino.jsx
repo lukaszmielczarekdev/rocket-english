@@ -92,7 +92,6 @@ const Casino = (props) => {
       toggleModal();
     } else {
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
-      console.log(rate);
       const prize = Math.floor(amount * rate);
       inventory.addCredits(prize);
       founds["credits"] = prize;
@@ -211,7 +210,10 @@ const Casino = (props) => {
           onRequestClose={toggleModal}
           contentLabel="Casino summary modal"
         >
-          <i onClick={toggleModal} class="far fa-times-circle modal-button"></i>
+          <i
+            onClick={toggleModal}
+            className="far fa-times-circle modal-button"
+          ></i>
           <ul>{renderSummary()}</ul>
         </Modal>
       </section>

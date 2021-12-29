@@ -65,8 +65,8 @@ const Favorites = (props) => {
               )}
               {favs.current.length === 0 && (
                 <p className="place-description">
-                  Nothing here yet - words with descriptions appear here that
-                  you can save while completing challenges.
+                  Nothing here yet - words with descriptions that you can save
+                  while completing challenges appear here.
                 </p>
               )}
             </article>

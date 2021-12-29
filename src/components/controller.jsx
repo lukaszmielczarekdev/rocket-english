@@ -201,7 +201,7 @@ const Controller = (props) => {
           <ul>
             <i
               onClick={toggleModal}
-              class="far fa-times-circle modal-button"
+              className="far fa-times-circle modal-button"
             ></i>
             <li>Try again</li>
           </ul>

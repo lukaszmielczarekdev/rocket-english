@@ -31,6 +31,7 @@ import TestMenu from "./components/testMenu";
 import Help from "./components/help";
 import Modal from "react-modal";
 import dialogues from "./utils/dialogues";
+import { narration } from "./utils/dialogues";
 import { availablePlanets } from "./utils/planetAccess";
 import mercenaries from "./utils/mercenaries";
 import { ToastContainer, toast } from "react-toastify";
@@ -43,7 +44,7 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
-    padding: "2rem",
+    padding: "2rem 0 2rem 0",
     textAlign: "center",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
@@ -56,7 +57,7 @@ const modalStyle = {
   },
 };
 
-export default function App() {
+export const App = (props) => {
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
   const toggleModal = () => {
@@ -129,6 +130,7 @@ export default function App() {
       Desertia: false,
     },
     dialogues: dialogues,
+    narration: narration,
   };
 
   // set user movement points
@@ -440,12 +442,110 @@ export default function App() {
   };
 
   // dialogues: mark as completed
-  const handleSetCompleted = (id, planet) => {
+  const handleSetDialogueCompleted = (id, planet) => {
     const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    userDataDummy.dialogues[planet].find(
+    const dialogue = userDataDummy.dialogues[planet].find(
+      (elem) => elem.id === id
+    );
+    dialogue.completed = true;
+
+    if (
+      (dialogue.shownOnce && !dialogue.specialAction) ||
+      dialogue.specialAction.completed
+    ) {
+      dialogue.hidden = true;
+    }
+
+    if (dialogue.shownOnce && dialogue.unlocks !== 0) {
+      const dialogueToUnlock = userDataDummy.dialogues[planet].find(
+        (elem) => elem.id === dialogue.unlocks
+      );
+      dialogueToUnlock.hidden = false;
+    }
+
+    setUserInfo(userDataDummy);
+  };
+
+  // dialogues: mark as shown
+  const handleSetDialogueShown = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    const dialogue = userDataDummy.dialogues[planet].find(
+      (elem) => elem.id === id
+    );
+
+    if (dialogue.shownOnce || dialogue.specialAction.completed) {
+      dialogue.hidden = true;
+    }
+
+    setUserInfo(userDataDummy);
+  };
+
+  // dialogues: set shown and completed
+  const handleSetDialogueShownAndCompleted = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    const dialogue = userDataDummy.dialogues[planet].find(
+      (elem) => elem.id === id
+    );
+    dialogue.specialAction.completed = true;
+    dialogue.hidden = true;
+
+    setUserInfo(userDataDummy);
+  };
+
+  // narration: mark as completed
+  const handleSetNarrationCompleted = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    userDataDummy.narration[planet].find(
       (elem) => elem.id === id
     ).completed = true;
     setUserInfo(userDataDummy);
+  };
+
+  // set special action completed
+  const handleSetSpecialActionCompleted = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    userDataDummy.dialogues[planet].find(
+      (elem) => elem.id === id
+    ).specialAction.completed = true;
+    setUserInfo(userDataDummy);
+  };
+
+  // narration: mark as unlocked
+  const handleSetNarrationUnlocked = (id, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    userDataDummy.narration[planet].find(
+      (elem) => elem.id === id
+    ).unlocked = true;
+    setUserInfo(userDataDummy);
+  };
+
+  // check if narration available
+  const handleCheckIfNarrationAvailable = () => {
+    return userInfo.narration[userInfo.currentPlanet].find(
+      (text) => !text.completed
+    )
+      ? true
+      : false;
+  };
+
+  const handleMoveWithTheStory = (planet) => {
+    if (planet === "bathea") {
+      if (userInventory.credits >= 25000) {
+        handleSubtractCredits(25000);
+        handleSetNarrationUnlocked(1, "axios");
+        handleSetDialogueShownAndCompleted(2, "bathea");
+      } else {
+        notify("Not enough [!]");
+      }
+    } else if (planet === "axios") {
+      handleSetNarrationUnlocked(1, "desertia");
+      handleSetDialogueShownAndCompleted(10, "axios");
+      notify("Expedition prepared");
+    } else if (planet === "xillon") {
+      handleSetNarrationUnlocked(1, "centuria");
+      handleSetDialogueShownAndCompleted(3, "xillon");
+      notify("We won!");
+    }
   };
 
   // lvl
@@ -554,10 +654,16 @@ export default function App() {
                   onSetPlanet: handleSetPlanet,
                   onSetName: handleSetName,
                   onSetUfo: setUfoDefeated,
-                  setDialogueCompleted: handleSetCompleted,
+                  setDialogueShown: handleSetDialogueShown,
+                  setDialogueCompleted: handleSetDialogueCompleted,
+                  setNarrationCompleted: handleSetNarrationCompleted,
+                  setNarrationUnlocked: handleSetNarrationUnlocked,
+                  setSpecialActionCompleted: handleSetSpecialActionCompleted,
                   addMovementPoints: handleAddMovementPoints,
                   subtractMovementsPoints: handleSubtractMovementPoints,
                   setMovementPoints: setMovementPoints,
+                  checkIfNarrationAvailable: handleCheckIfNarrationAvailable,
+                  moveWithTheStory: handleMoveWithTheStory,
                 }}
               >
                 <Switch>
@@ -625,4 +731,6 @@ export default function App() {
       </TourContext.Provider>
     </TaskContext.Provider>
   );
-}
+};
+
+export default App;

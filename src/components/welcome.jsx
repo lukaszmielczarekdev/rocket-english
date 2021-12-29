@@ -246,7 +246,7 @@ const Welcome = (props) => {
                 </p>
               </article>
             </section>
-            <a href="#top">
+            <a href="#welcome">
               <i className="rotate180deg nav-arrow padding-2rem far fa-arrow-alt-circle-down fa-2x"></i>
             </a>
             <Modal

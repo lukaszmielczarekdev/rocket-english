@@ -70,7 +70,9 @@ const Crystalia = (props) => {
       img_webp={bar_webp}
       img_png={bar_png}
       alt={"A Shiny black and pink drink neon sign. A bar logo."}
-      description={"A place for gossip and meetings."}
+      description={
+        "A place for gossip and meetings. You can also hire mercenaries here."
+      }
     />,
     <PlaceBasic
       onDragStart={handleDragStart}
@@ -100,6 +102,7 @@ const Crystalia = (props) => {
   return (
     <div className="crystalia-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         bgColor={"crystalia"}
         planet={"crystalia"}
         planetDescription={description}

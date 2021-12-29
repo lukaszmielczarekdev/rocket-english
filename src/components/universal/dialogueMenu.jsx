@@ -11,7 +11,7 @@ const DialogueMenu = (props) => {
   };
 
   return (
-    <p className="width-80">
+    <section className="width-80 padding-1rem no-padding-top">
       {!conversation && (
         <button className={"button large"} onClick={handleConversation}>
           Talk
@@ -23,7 +23,7 @@ const DialogueMenu = (props) => {
           handleConversation={handleConversation}
         />
       )}
-    </p>
+    </section>
   );
 };
 

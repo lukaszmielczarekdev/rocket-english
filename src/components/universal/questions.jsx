@@ -16,8 +16,8 @@ const Questions = (props) => {
     return user.user.dialogues[user.user.currentPlanet].find(
       (elem) => elem.id === id
     ).completed
-      ? "visited dialog-line"
-      : "dialog-line";
+      ? "visited dialogue-line"
+      : "dialogue-line";
   };
 
   return (
@@ -25,7 +25,7 @@ const Questions = (props) => {
       {!showAnswer && (
         <ul>
           {user.user.dialogues[user.user.currentPlanet]
-            .filter((elem) => elem.place === props.place)
+            .filter((elem) => elem.place === props.place && !elem.hidden)
             .map((elem) => (
               <li
                 key={elem.id}
@@ -40,7 +40,7 @@ const Questions = (props) => {
               </li>
             ))}
           <li
-            className="visited dialog-line"
+            className="visited dialogue-line"
             onClick={props.handleConversation}
           >
             That's all...
@@ -49,11 +49,13 @@ const Questions = (props) => {
       )}
 
       {showAnswer && (
-        <Answer
-          handleConversation={props.handleConversation}
-          showAnswer={handleShowAnswer}
-          questionID={selectedQuestion}
-        />
+        <ul>
+          <Answer
+            handleConversation={props.handleConversation}
+            showAnswer={handleShowAnswer}
+            questionID={selectedQuestion}
+          />
+        </ul>
       )}
     </>
   );

@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 
+const showPlotStatus = (userData, generalData, planet) => {
+  if (!userData.narration[planet].unlocked)
+    generalData.showToast("You have something to do here...");
+};
+
 const planetAccess = {
-  // helper
   checkIfPlanetDiscovered: (
     userLvl,
     rocketLvl,
@@ -48,7 +52,7 @@ const planetAccess = {
         userLvl,
         rocketLvl,
         requiredPlayerLvl,
-        requiredRocketLvl
+        requiredRocketLvl && userData.narration[planet].unlocked
       ) ||
       tourFlag
     ) {
@@ -78,7 +82,13 @@ const planetAccess = {
       );
     } else {
       return (
-        <button className="button small button-margin">
+        <button
+          className="button small button-margin"
+          onClick={() => {
+            generalData.showToast("You don't meet the requirements.");
+            showPlotStatus(userData, generalData, planet);
+          }}
+        >
           {planetAccess.lockedButtonLabel(
             userLvl,
             requiredPlayerLvl,
@@ -112,7 +122,7 @@ const planetAccess = {
         requiredPlayerLvl,
         requiredRocketLvl,
         image_webp,
-        image_png
+        image_png && userData.narration[planet].unlocked
       ) ||
       tourFlag
     ) {
@@ -161,9 +171,10 @@ const planetAccess = {
           <source srcSet={image_webp} type="image/webp" />
           <source srcSet={image_png} type="image/png" />
           <img
-            onClick={() =>
-              generalData.showToast("You don't meet the requirements.")
-            }
+            onClick={() => {
+              generalData.showToast("You don't meet the requirements.");
+              showPlotStatus(userData, generalData, planet);
+            }}
             src={image_png}
             type="image/png"
             width="100em"

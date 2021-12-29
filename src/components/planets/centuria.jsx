@@ -78,6 +78,7 @@ const Centuria = (props) => {
   return (
     <div className="centuria-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         bgColor={"centuria"}
         planet={"centuria"}
         planetDescription={description}

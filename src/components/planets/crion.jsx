@@ -54,7 +54,7 @@ const Crion = (props) => {
       link={"casino"}
       img_webp={casino_webp}
       img_png={casino_png}
-      alt={"The big pink neon sign with the word casino. A Casino logo."}
+      alt={"A big pink neon sign with the word casino. A Casino logo."}
       description={"Be careful. Gambling is addictive."}
     />,
     <PlaceBasic
@@ -105,6 +105,7 @@ const Crion = (props) => {
   return (
     <div className="crion-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         bgColor={"crion"}
         planet={"crion"}
         planetDescription={description}

@@ -174,7 +174,9 @@ const Shop = (props) => {
               <hr className="underline-places" />
             </header>
             <article>
-              <header></header>
+              <header>
+                <h4>Shopkeeper</h4>
+              </header>
               {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
                 <DialogueMenu place={"shop"} />
               )}

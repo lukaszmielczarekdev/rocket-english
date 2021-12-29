@@ -100,6 +100,7 @@ const Desertia = (props) => {
   return (
     <div className="desertia-wrapper flex-auto">
       <Planet
+        key={Math.random()}
         planet={"desertia"}
         planetDescription={description}
         places={items}
