@@ -32,6 +32,7 @@ const Timer = (props) => {
       if (currentTask) {
         Emitter.emit("START_AN_EXPEDITION", currentTask);
         task.markATaskAsFinished(currentTask.id);
+        props.closeMenuForExpedition();
       }
     }
   };

@@ -17,6 +17,12 @@ const Nav = (props) => {
     general.setAvailablePlanet("menu");
   };
 
+  const handleCloseMenuForExpedition = () => {
+    if (clicked) {
+      setClicked(false);
+    }
+  };
+
   return (
     <div id="navbar-wrapper">
       <div id="navbar-items" className="text-center">
@@ -80,9 +86,13 @@ const Nav = (props) => {
               {user.user.movement.currentMovePoints}/
               {user.user.movement.maxMovePoints}
             </li>
-            {user.user.currentPlanet !== "menu" && (
+            {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
               <li>
-                <Timer mins={1} secs={0} />
+                <Timer
+                  closeMenuForExpedition={handleCloseMenuForExpedition}
+                  mins={1}
+                  secs={0}
+                />
               </li>
             )}
           </ul>
