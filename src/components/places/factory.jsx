@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import UserInventory from "../contexts/inventoryContext";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import DialogueMenu from "./universal/dialogueMenu";
-import rocket_logo from "../images/rocket.png";
-import upgrades from "../utils/rocket";
-import Nav from "./nav";
-import Footer from "./footer";
+import UserInventory from "../../contexts/inventoryContext";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import DialogueMenu from "../universal/dialogueMenu";
+import rocket_logo from "../../images/rocket.png";
+import upgrades from "../../utils/rocket";
+import Nav from "../nav";
+import Footer from "../footer";
 import "./factory.css";
 
 export const Factory = (props) => {

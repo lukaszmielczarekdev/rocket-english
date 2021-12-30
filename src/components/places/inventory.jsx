@@ -1,21 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
-import Nav from "./nav";
-import Footer from "./footer";
-import UserInventory from "../contexts/inventoryContext";
-import UserContext from "../contexts/userContext";
-import TaskContext from "../contexts/taskContext";
-import GeneralContext from "../contexts/generalContext";
-import NpcForHireCard from "./universal/npcForHireCard";
+import Nav from "../nav";
+import Footer from "../footer";
+import UserInventory from "../../contexts/inventoryContext";
+import UserContext from "../../contexts/userContext";
+import TaskContext from "../../contexts/taskContext";
+import GeneralContext from "../../contexts/generalContext";
+import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
-import renders from "../utils/renders";
-import Emitter from "../utils/emitter";
-import ActionButton from "./universal/actionButton";
+import renders from "../../utils/renders";
+import Emitter from "../../utils/emitter";
+import ActionButton from "../universal/actionButton";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./inventory.css";
 import "./favorites.css";
-import "./planets/planet.css";
+import "../planets/planet.css";
 
 const Inventory = (props) => {
   const user = useContext(UserContext);

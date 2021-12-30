@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import InventoryContext from "../contexts/inventoryContext";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import DialogueMenu from "./universal/dialogueMenu";
-import Nav from "./nav";
-import Footer from "./footer";
-import casino_logo from "../images/casino.png";
+import InventoryContext from "../../contexts/inventoryContext";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import DialogueMenu from "../universal/dialogueMenu";
+import Nav from "../nav";
+import Footer from "../footer";
+import casino_logo from "../../images/casino.png";
 import Modal from "react-modal";
-import "./planets/planet.css";
+import "../planets/planet.css";
 import "./casino.css";
 
 Modal.setAppElement(document.getElementById("root"));

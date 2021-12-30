@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import UserInventory from "../contexts/inventoryContext";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import Nav from "./nav";
-import Footer from "./footer";
-import ufo_logo from "../images/ufo-logo.png";
+import UserInventory from "../../contexts/inventoryContext";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import Nav from "../nav";
+import Footer from "../footer";
+import ufo_logo from "../../images/ufo-logo.png";
 import Modal from "react-modal";
-import "../App.css";
+import "../../App.css";
 import "./ufo.css";
 
 Modal.setAppElement(document.getElementById("root"));

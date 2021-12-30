@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import UserContext from "../contexts/userContext";
-import InventoryContext from "../contexts/inventoryContext";
-import GeneralContext from "../contexts/generalContext";
-import DialogueMenu from "./universal/dialogueMenu";
-import mine_logo from "../images/mine.png";
+import UserContext from "../../contexts/userContext";
+import InventoryContext from "../../contexts/inventoryContext";
+import GeneralContext from "../../contexts/generalContext";
+import DialogueMenu from "../universal/dialogueMenu";
+import mine_logo from "../../images/mine.png";
 import Modal from "react-modal";
-import Nav from "./nav";
-import Footer from "./footer";
-import "../App.css";
+import Nav from "../nav";
+import Footer from "../footer";
+import "../../App.css";
 import "./mine.css";
 
 Modal.setAppElement(document.getElementById("root"));

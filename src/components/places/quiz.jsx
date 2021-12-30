@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
-import InventoryContext from "../contexts/inventoryContext";
+import InventoryContext from "../../contexts/inventoryContext";
 import PuffLoader from "react-spinners/PuffLoader";
-import api from "../utils/api";
+import api from "../../utils/api";
 import "./quiz.css";
 
 const Quiz = (props) => {

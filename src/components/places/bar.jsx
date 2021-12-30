@@ -1,18 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import UserInventory from "../contexts/inventoryContext";
-import DialogueMenu from "./universal/dialogueMenu";
-import NpcForHireCard from "./universal/npcForHireCard";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import UserInventory from "../../contexts/inventoryContext";
+import DialogueMenu from "../universal/dialogueMenu";
+import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
-import Nav from "./nav";
-import Footer from "./footer";
-import renders from "../utils/renders";
-import bar_webp from "../images/bar.webp";
-import bar_png from "../images/bar.png";
-import "../components/planets/planet.css";
+import Nav from "../nav";
+import Footer from "../footer";
+import renders from "../../utils/renders";
+import bar_webp from "../../images/bar.webp";
+import bar_png from "../../images/bar.png";
+import "../planets/planet.css";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./bar.css";
 

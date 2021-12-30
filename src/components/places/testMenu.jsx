@@ -3,18 +3,18 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
-import Nav from "./nav";
-import Footer from "./footer";
+import Nav from "../nav";
+import Footer from "../footer";
 import SentenceTest from "./sentenceTest";
-import getRandomText from "../utils/texts";
+import getRandomText from "../../utils/texts";
 import getRandomSentences, {
   getWordsToReplaceByChosenMode,
   getTestDescription,
-} from "../utils/sentences";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import DialogueMenu from "./universal/dialogueMenu";
-import university_logo from "../images/university.png";
+} from "../../utils/sentences";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import DialogueMenu from "../universal/dialogueMenu";
+import university_logo from "../../images/university.png";
 import "./testMenu.css";
 
 const TestMenu = (props) => {

@@ -1,15 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
-import DialogueMenu from "./universal/dialogueMenu";
-import UserInventory from "../contexts/inventoryContext";
-import ShopInventory from "../contexts/shopContext";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import Nav from "./nav";
-import Footer from "./footer";
-import shop_logo from "../images/shop.png";
-import "./planets/planet.css";
+import DialogueMenu from "../universal/dialogueMenu";
+import UserInventory from "../../contexts/inventoryContext";
+import ShopInventory from "../../contexts/shopContext";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import Nav from "../nav";
+import Footer from "../footer";
+import shop_logo from "../../images/shop.png";
+import "../planets/planet.css";
 import "./shop.css";
 
 const Shop = (props) => {

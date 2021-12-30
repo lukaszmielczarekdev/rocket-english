@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import quiz_logo from "../images/quiz.png";
+import quiz_logo from "../../images/quiz.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import UserContext from "../contexts/userContext";
+import UserContext from "../../contexts/userContext";
 import DefinitionSearch from "./definitionSearch";
 import "./quiz.css";
 

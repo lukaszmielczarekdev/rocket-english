@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "./footer";
-import UserContext from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
-import ufo_kidnap from "../images/ufo-kidnap.png";
-import "../components/notFound.css";
-import "./planets/planet.css";
+import Footer from "../footer";
+import UserContext from "../../contexts/userContext";
+import GeneralContext from "../../contexts/generalContext";
+import ufo_kidnap from "../../images/ufo-kidnap.png";
+import "./notFound.css";
+import "../planets/planet.css";
 
 export const NotFound = (props) => {
   const user = useContext(UserContext);
