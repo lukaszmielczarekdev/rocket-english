@@ -166,7 +166,7 @@ const Inventory = (props) => {
       Emitter.emit("SHOW_MODAL", true);
     } else {
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
-      const credits = Math.floor(difficulty * rate * 1000);
+      const credits = Math.floor(difficulty * rate * 500);
       const exp = Math.floor(difficulty * rate * 150);
       const steel = Math.floor(difficulty * rate * 5) + 1;
       const aluminum = Math.floor(difficulty * rate * 3) + 1;
