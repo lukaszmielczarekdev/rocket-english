@@ -27,6 +27,9 @@ const Welcome = (props) => {
     }
   }, []);
 
+  const placeDescription =
+    "Get to know an extraordinary galaxy by traveling, having fun and taking on challenges. Discover an amazing world and an amazing story while learning and practicing your English.";
+
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => handleSubmitUserData(data["username"]);
 
@@ -175,10 +178,7 @@ const Welcome = (props) => {
                 <article className="content">
                   <h2>explore</h2>
                   <hr className="underline" />
-                  <p className="planet-description">
-                    Discover an extraordinary world, learn an amazing story,
-                    practice your English, take on challenges.
-                  </p>
+                  <p className="planet-description">{placeDescription}</p>
                 </article>
                 <article className="content menu-title">
                   <div className="places-header">

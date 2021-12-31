@@ -1,0 +1,52 @@
+@media screen and (max-width: 960px) {
+  .text-description {
+    border-left: none;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.text-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+  .text-description {
+    margin-bottom: 0 !important;
+    letter-spacing: 0.06rem;
+    margin-right: auto;
+    text-align: justify;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+
+  .underline {
+    width: 65%;
+    height: 0.1rem;
+    margin-left: -2rem;
+    background-color: white;
+    margin-bottom: 25px;
+  }
+
+  .content {
+    width: 80%;
+    margin-left: 5rem;
+    margin-right: 3rem;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .underline {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+}

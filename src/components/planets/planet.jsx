@@ -4,6 +4,8 @@ import UserContext from "../../contexts/userContext";
 import renders from "../../utils/renders";
 import Nav from "../nav";
 import Footer from "../footer";
+import Article from "../universal/article";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import MiniMap from "../universal/miniMap";
 import { planets } from "../../utils/renders";
 import planetAccess from "../../utils/planetAccess";
@@ -63,13 +65,11 @@ const Planet = (props) => {
         )}
         <div className="planet-header-container">
           <section className="planet-split header-container">
-            <header>
-              <article className="content">
-                <h2 className="planet-name">{props.planet}</h2>
-                <hr className="underline" />
-                <p className="planet-description">{props.planetDescription}</p>
-              </article>
-            </header>
+            <ArticleUnderlined
+              headerSize={"h2"}
+              header={props.planet}
+              text={props.planetDescription}
+            />
             <section></section>
           </section>
           <div className="places-header">
@@ -86,18 +86,24 @@ const Planet = (props) => {
             />
           </section>
           <section className="planet-info-container planet-split">
-            <article className="planet-stats-first">
-              <h4>Climate</h4>
-              <p>{props.climate}</p>
-            </article>
-            <article className="planet-stats-middle">
-              <h4>Infrastructure</h4>
-              <p>{props.infrastructure}</p>
-            </article>
-            <article className="planet-stats-last">
-              <h4>Inhabitants</h4>
-              <p>{props.inhabitants}</p>
-            </article>
+            <Article
+              headerSize={"h4"}
+              header={"Climate"}
+              text={props.climate}
+              styles={"planet-stats-first"}
+            />
+            <Article
+              headerSize={"h4"}
+              header={"Infrastructure"}
+              text={props.infrastructure}
+              styles={"planet-stats-middle"}
+            />
+            <Article
+              headerSize={"h4"}
+              header={"Inhabitants"}
+              text={props.inhabitants}
+              styles={"planet-stats-last"}
+            />
           </section>
           <MiniMap planets={planets} />
         </div>

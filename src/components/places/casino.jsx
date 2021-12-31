@@ -7,6 +7,7 @@ import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import casino_logo from "../../images/casino.png";
 import Modal from "react-modal";
 import "../planets/planet.css";
@@ -39,10 +40,14 @@ const Casino = (props) => {
   const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
   const user = useContext(UserContext);
+
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "The dealer will be happy to run the next game. You have to be careful, you never know what tricks are used by seasoned players.";
 
   const casinoSummary = (object) => {
     if (typeof object === "object") {
@@ -132,15 +137,11 @@ const Casino = (props) => {
         {renderOrRedirect("casino")}
         <section className="casino-header-container">
           <article className="casino-split">
-            <header className="content">
-              <h2 className="casino-name">casino</h2>
-              <hr className="underline" />
-              <p className="casino-description">
-                The dealer will be happy to run the next game. You have to be
-                careful, you never know what tricks are used by seasoned
-                players.
-              </p>
-            </header>
+            <ArticleUnderlined
+              headerSize={"h2"}
+              header={"casino"}
+              text={placeDescription}
+            />
             <p className="logo logo-place image fit margin-bottom-0">
               <img
                 src={casino_logo}

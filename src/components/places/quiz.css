@@ -195,28 +195,6 @@ li {
   .quiz-name {
     margin-bottom: 0;
   }
-
-  .quiz-description {
-    margin-bottom: 0 !important;
-    letter-spacing: 0.06rem;
-    margin-right: auto;
-    text-align: justify;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .quiz-description {
-    border-left: none;
-  }
-}
-
-.quiz-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 @media screen and (min-width: 960px) {

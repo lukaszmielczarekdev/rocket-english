@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import SentenceTest from "./sentenceTest";
 import getRandomText from "../../utils/texts";
 import getRandomSentences, {
@@ -35,6 +36,9 @@ const TestMenu = (props) => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "Already at the entrance you can feel the atmosphere of concentration. You can learn a lot here and test your knowledge, the appropriate level of knowledge will be rewarded.";
 
   const ifVisible = (condition, condition2, condition3, baseClass) => {
     return mode === condition || mode === condition2 || mode === condition3
@@ -67,15 +71,11 @@ const TestMenu = (props) => {
       {renderOrRedirect("university")}
       <section id="testMenu" className="testMenu-header-container">
         <article className="testMenu-header-split">
-          <header className="content">
-            <h2 className="testMenu-name">University</h2>
-            <hr className="underline" />
-            <p className="testMenu-description">
-              Already at the entrance you can feel the atmosphere of
-              concentration. You can learn a lot here and test your knowledge,
-              the appropriate level of knowledge will be rewarded.
-            </p>
-          </header>
+          <ArticleUnderlined
+            headerSize={"h2"}
+            header={"university"}
+            text={placeDescription}
+          />
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={university_logo}

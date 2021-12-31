@@ -67,12 +67,6 @@
 }
 
 @media screen and (min-width: 960px) {
-  .content {
-    width: 80%;
-    margin-left: 5rem;
-    margin-right: 3rem;
-  }
-
   .planet-stats-first {
     margin-left: 5rem;
     margin-right: 1rem;
@@ -202,10 +196,6 @@
   }
 }
 @media screen and (min-width: 480px) {
-  .underline {
-    width: 70%;
-    margin-bottom: 25px;
-  }
   .underline-places {
     width: 70%;
     margin-top: 1rem;
@@ -226,13 +216,7 @@
     justify-self: left;
     margin-right: -100px;
   }
-  .underline {
-    width: 65%;
-    height: 0.1rem;
-    margin-left: -2rem;
-    background-color: white;
-    margin-bottom: 25px;
-  }
+
   .underline-places {
     width: 20%;
     height: 0.1rem;
@@ -242,6 +226,7 @@
     margin-left: 1rem;
     margin-top: 0;
   }
+
   .places-header {
     display: flex;
     width: min(60%, 70rem);
@@ -250,38 +235,10 @@
     margin-right: auto;
     justify-content: center;
   }
+
   .places-header h3 {
     justify-self: center;
   }
-  .planet-name {
-    margin-bottom: 0;
-  }
-
-  .planet-description {
-    margin-bottom: 0 !important;
-    letter-spacing: 0.06rem;
-    margin-right: auto;
-    text-align: justify;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .planet-description {
-    border-left: none;
-  }
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.planet-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 @media screen and (min-width: 960px) {

@@ -9,16 +9,21 @@ import rocket_logo from "../../images/rocket.png";
 import upgrades from "../../utils/rocket";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import "./factory.css";
 
 export const Factory = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(UserInventory);
   const general = useContext(GeneralContext);
+
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "The robotic brigade is constantly building and repairing damaged spacecraft. They are also happy to upgrade the space rocket.";
 
   const renderUpgradeButton = (requirements) => {
     for (let [item, amount] of Object.entries(requirements)) {
@@ -69,16 +74,11 @@ export const Factory = (props) => {
       {renderOrRedirect("factory")}
       <section id="factory" className="factory-header-container">
         <article className="factory-split">
-          <header className="content">
-            <h2 className="factory-name">factory</h2>
-            <hr className="underline" />
-            <p className="factory-description">
-              The robotic brigade is constantly building and repairing damaged
-              spacecraft.
-              <br />
-              They are also happy to upgrade the space rocket.
-            </p>
-          </header>
+          <ArticleUnderlined
+            headerSize={"h2"}
+            header={"factory"}
+            text={placeDescription}
+          />
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={rocket_logo}

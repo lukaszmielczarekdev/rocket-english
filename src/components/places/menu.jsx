@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import UserContext from "../../contexts/userContext";
 import DefinitionSearch from "./definitionSearch";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import "./quiz.css";
 
 const Menu = (props) => {
@@ -12,6 +13,9 @@ const Menu = (props) => {
   const [key, setKey] = useState(Math.random());
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => handleSubmitNumber(data["length"]);
+
+  const placeDescription =
+    "There will be someone on every planet who will gladly agree to play the guesswork. Who knows, maybe he'll even give you something as a reward for giving the correct answers.";
 
   const handleSubmitNumber = (number) => {
     const num = number;
@@ -35,15 +39,11 @@ const Menu = (props) => {
   return (
     <section className="quiz-header-container">
       <article className="quiz-split">
-        <header className="content">
-          <h2 className="quiz-name">School</h2>
-          <hr className="underline" />
-          <p className="quiz-description">
-            There will be someone on every planet who will gladly agree to play
-            the guesswork. Who knows, maybe he'll even give you something as a
-            reward for giving the correct answers.
-          </p>
-        </header>
+        <ArticleUnderlined
+          headerSize={"h2"}
+          header={"school"}
+          text={placeDescription}
+        />
         <p className="logo logo-place image fit margin-bottom-0">
           <img
             src={quiz_logo}

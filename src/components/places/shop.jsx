@@ -8,6 +8,7 @@ import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import shop_logo from "../../images/shop.png";
 import "../planets/planet.css";
 import "./shop.css";
@@ -21,6 +22,9 @@ const Shop = (props) => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "Due to the significant increase in the number of thefts in thegalaxy in recent times, stores temporarily suspended the possibility of buying goods - several traders had legal problemsafter it turned out that the goods that were sold to them were stolen.";
 
   const renderBuyButton = (element) => {
     return element <= inventory.inventory.credits
@@ -116,17 +120,11 @@ const Shop = (props) => {
         {renderOrRedirect("shop")}
         <section className="shop-header-container">
           <article className="shop-split">
-            <header className="content">
-              <h2 className="shop-name">shop</h2>
-              <hr className="underline" />
-              <p className="shop-description">
-                Due to the significant increase in the number of thefts in the
-                galaxy in recent times, stores temporarily suspended the
-                possibility of buying goods - several traders had legal problems
-                after it turned out that the goods that were sold to them were
-                stolen.
-              </p>
-            </header>
+            <ArticleUnderlined
+              headerSize={"h2"}
+              header={"shop"}
+              text={placeDescription}
+            />
             <p className="logo logo-place image fit margin-bottom-0">
               <img
                 src={shop_logo}

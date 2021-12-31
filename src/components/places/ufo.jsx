@@ -6,6 +6,7 @@ import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import ufo_logo from "../../images/ufo-logo.png";
 import Modal from "react-modal";
 import "../../App.css";
@@ -32,10 +33,14 @@ export const Ufo = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(UserInventory);
   const general = useContext(GeneralContext);
+
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "Messing with UFOs can end up bad for you because you can lose all your belongings. But if you win, you will gain some valuable items that will be useful for your further journey. Fighting UFOs is considered a noble act by the inhabitants of the galaxy as it makes the area safer.There are even special mercenary groups that are engaged in the pursuit and destruction of alien ships.";
 
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
@@ -127,20 +132,11 @@ export const Ufo = (props) => {
       {renderOrRedirect("ufo")}
       <section id="ufo-enemy" className="ufo-header-container">
         <article className="ufo-split">
-          <header className="content">
-            <h2 className="ufo-name">ufo</h2>
-            <hr className="underline" />
-            <p className="ufo-description">
-              Messing with UFOs can end up bad for you because you can lose all
-              your belongings. But if you win, you will gain some valuable items
-              that will be useful for your further journey.
-              <br />
-              Fighting UFOs is considered a noble act by the inhabitants of the
-              galaxy as it makes the area safer.There are even special mercenary
-              groups that are engaged in the pursuit and destruction of alien
-              ships.
-            </p>
-          </header>
+          <ArticleUnderlined
+            headerSize={"h2"}
+            header={"ufo"}
+            text={placeDescription}
+          />
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={ufo_logo}

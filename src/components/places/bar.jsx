@@ -7,6 +7,7 @@ import UserInventory from "../../contexts/inventoryContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import Nav from "../nav";
 import Footer from "../footer";
 import renders from "../../utils/renders";
@@ -26,6 +27,9 @@ export const Bar = (props) => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "Here you can hire mercenaries who will be happy to go out for youin search of valuable goods for an appropriate reward. You can manage mercenaries in your inventory screen.";
 
   const renderOrRedirect = (place) => {
     if (
@@ -66,15 +70,11 @@ export const Bar = (props) => {
       {renderOrRedirect("bar")}
       <section id="bar" className="bar-header-container">
         <article className="bar-split">
-          <header className="content">
-            <h2 className="bar-name">Bar</h2>
-            <hr className="underline" />
-            <p className="bar-description">
-              Here you can hire mercenaries who will be happy to go out for you
-              in search of valuable goods for an appropriate reward. You can
-              manage mercenaries in your inventory screen.
-            </p>
-          </header>
+          <ArticleUnderlined
+            headerSize={"h2"}
+            header={"bar"}
+            text={placeDescription}
+          />
           <p className="logo logo-place image fit margin-bottom-0">
             <picture className="fit margin-1rem">
               <source srcSet={bar_webp} type="image/webp" />

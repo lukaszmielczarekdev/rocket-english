@@ -9,6 +9,7 @@ import mine_logo from "../../images/mine.png";
 import Modal from "react-modal";
 import Nav from "../nav";
 import Footer from "../footer";
+import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import "../../App.css";
 import "./mine.css";
 
@@ -33,10 +34,14 @@ const Mine = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   const inventory = useContext(InventoryContext);
+
   useEffect(() => {
     general.setGamePaused(false);
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
+
+  const placeDescription =
+    "Both those who want to earn some extra money with hard work and those who have been forced to work for minor offenses are staying here. Mine managers charge a small fee for the possibility of digging.";
 
   const [modalTrigger, setModalTrigger] = useState(false);
   const [summary, setSummary] = useState([]);
@@ -170,16 +175,11 @@ const Mine = (props) => {
       {renderOrRedirect("mine")}
       <section id="mine" className="mine-header-container">
         <article className="mine-split">
-          <header className="content">
-            <h2 className="mine-name">mine</h2>
-            <hr className="underline" />
-            <p className="mine-description">
-              Both those who want to earn some extra money with hard work and
-              those who have been forced to work for minor offenses are staying
-              here. Mine managers charge a small fee for the possibility of
-              digging.
-            </p>
-          </header>
+          <ArticleUnderlined
+            headerSize={"h2"}
+            header={"mine"}
+            text={placeDescription}
+          />
           <p className="logo logo-place image fit margin-bottom-0">
             <img
               src={mine_logo}
