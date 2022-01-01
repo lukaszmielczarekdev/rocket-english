@@ -1,14 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import UserInventory from "../../contexts/inventoryContext";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
-import ufo_logo from "../../images/ufo-logo.png";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import ufo_webp from "../../images/ufo-logo.webp";
+import ufo_png from "../../images/ufo-logo.png";
 import Modal from "react-modal";
+import Header from "../universal/header";
 import "../../App.css";
 import "./ufo.css";
 
@@ -71,7 +74,7 @@ export const Ufo = (props) => {
       user.onSetUfo(user.user.currentPlanet);
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
       const credits = Math.floor(base * rate * 2000);
-      const exp = Math.floor(base * rate * 1300);
+      const exp = Math.floor(base * rate * 500);
       const steel = Math.floor(base * rate * 10) + 1;
       const aluminum = Math.floor(base * rate * 5) + 1;
       const crystal = Math.floor(base * rate * 1) + 1;
@@ -131,42 +134,27 @@ export const Ufo = (props) => {
       <Nav />
       {renderOrRedirect("ufo")}
       <section id="ufo-enemy" className="ufo-header-container">
-        <article className="ufo-split">
-          <ArticleUnderlined
-            headerSize={"h2"}
-            header={"ufo"}
-            text={placeDescription}
-          />
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img
-              src={ufo_logo}
-              alt="Several black and menacing looking UFO ships on a yellow background. A UFO logo."
-              width="100em"
-              height="auto"
-            />
-          </p>
-        </article>
+        <HeaderWithLogo
+          headerSize={"h2"}
+          header={"ufo"}
+          text={placeDescription}
+          webp={ufo_webp}
+          png={ufo_png}
+          size={"150em"}
+          alt={
+            "Several black and menacing looking UFO ships on a yellow background. A UFO logo."
+          }
+        />
         <section>
-          <header className="places-header">
-            <h3>combat</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"combat"} underline />
           <article className="margin-bottom-2rem">
             <article className="align-self-flex-start">
-              <header>
-                <h4>attack</h4>
-              </header>
+              <Header headerSize={"h4"} header={"attack"} />
               {renderFightButton()}
             </article>
           </article>
         </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Go back</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"Go back"} />
       </section>
       <Modal
         style={modalStyle}

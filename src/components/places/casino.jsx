@@ -1,14 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import InventoryContext from "../../contexts/inventoryContext";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
-import casino_logo from "../../images/casino.png";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import LinkButton from "../universal/linkButton";
+import casino_webp from "../../images/casino.webp";
+import casino_png from "../../images/casino.png";
+import Header from "../universal/header";
 import Modal from "react-modal";
 import "../planets/planet.css";
 import "./casino.css";
@@ -136,37 +139,24 @@ const Casino = (props) => {
       <section id="casino">
         {renderOrRedirect("casino")}
         <section className="casino-header-container">
-          <article className="casino-split">
-            <ArticleUnderlined
-              headerSize={"h2"}
-              header={"casino"}
-              text={placeDescription}
-            />
-            <p className="logo logo-place image fit margin-bottom-0">
-              <img
-                src={casino_logo}
-                alt="The big pink neon sign with the word casino. A Casino logo."
-                width="100em"
-                height="auto"
-              />
-            </p>
-          </article>
+          <HeaderWithLogo
+            headerSize={"h2"}
+            header={"casino"}
+            text={placeDescription}
+            webp={casino_webp}
+            png={casino_png}
+            size={"150em"}
+            alt={"The big pink neon sign with the word casino. A Casino logo."}
+          />
           <section>
-            <header className="places-header">
-              <h3>gamble</h3>
-              <hr className="underline-places" />
-            </header>
+            <Header headerSize={"h3"} header={"gamble"} underline />
             <article className="margin-bottom-2rem">
               <article className="align-self-flex-start">
-                <header>
-                  <h4>available credits</h4>
-                </header>
+                <Header headerSize={"h4"} header={"available credits"} />
                 <p>{inventory.inventory.credits}</p>
               </article>
               <article className="align-self-flex-start">
-                <header>
-                  <h4>play</h4>
-                </header>
+                <Header headerSize={"h4"} header={"play"} />
                 <p>Deposit</p>
                 <form id="submitDepositForm" onSubmit={setUpGamble}>
                   <input
@@ -184,26 +174,18 @@ const Casino = (props) => {
             </article>
           </section>
           <section>
-            <header className="places-header">
-              <h3>Talk</h3>
-              <hr className="underline-places" />
-            </header>
+            <Header headerSize={"h3"} header={"talk"} underline />
             <article>
-              <header>
-                <h4>croupier</h4>
-              </header>
+              <Header headerSize={"h4"} header={"croupier"} />
               {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
                 <DialogueMenu place={"casino"} />
               )}
             </article>
           </section>
-          <Link
-            className={"link-button"}
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            <button className="button small">Walk away</button>
-          </Link>
+          <LinkButton
+            destination={user.user.currentPlanet}
+            title={"walk away"}
+          />
         </section>
         <Modal
           style={modalStyle}

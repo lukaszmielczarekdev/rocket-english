@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import { useForm } from "react-hook-form";
 import GapTest from "./gapTest";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import SentenceTest from "./sentenceTest";
 import getRandomText from "../../utils/texts";
 import getRandomSentences, {
@@ -15,7 +15,10 @@ import getRandomSentences, {
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
-import university_logo from "../../images/university.png";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import university_webp from "../../images/university.webp";
+import university_png from "../../images/university.png";
+import Header from "../universal/header";
 import "./testMenu.css";
 
 const TestMenu = (props) => {
@@ -70,26 +73,17 @@ const TestMenu = (props) => {
       <Nav />
       {renderOrRedirect("university")}
       <section id="testMenu" className="testMenu-header-container">
-        <article className="testMenu-header-split">
-          <ArticleUnderlined
-            headerSize={"h2"}
-            header={"university"}
-            text={placeDescription}
-          />
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img
-              src={university_logo}
-              alt="A diploma with a blue ribbon. A university logo."
-              width="100em"
-              height="auto"
-            />
-          </p>
-        </article>
+        <HeaderWithLogo
+          headerSize={"h2"}
+          header={"university"}
+          text={placeDescription}
+          webp={university_webp}
+          png={university_png}
+          size={"150em"}
+          alt={"A diploma with a blue ribbon. A university logo."}
+        />
         <section>
-          <header className="places-header">
-            <h3>challenge</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"challenge"} underline />
           <article
             className={ifVisible(
               "sentences",
@@ -181,9 +175,7 @@ const TestMenu = (props) => {
               "testMenu-split margin-bottom-2rem"
             )}
           >
-            <header>
-              <h4>Complete the sentences</h4>
-            </header>
+            <Header headerSize={"h4"} header={"complete the sentences"} />
             <article
               className={ifVisible(
                 "sentences",
@@ -285,26 +277,15 @@ const TestMenu = (props) => {
           </section>
         </section>
         <section className={ifVisible("sentences", "game", "user", "")}>
-          <header className="places-header">
-            <h3>Talk</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"talk"} underline />
           <article>
-            <header>
-              <h4>Professor</h4>
-            </header>
+            <Header headerSize={"h4"} header={"professor"} />
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"university"} />
             )}
           </article>
         </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"walk away"} />
       </section>
       <Footer />
     </main>

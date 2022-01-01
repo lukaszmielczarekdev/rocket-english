@@ -1,15 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import UserInventory from "../../contexts/inventoryContext";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
-import rocket_logo from "../../images/rocket.png";
+import factory_webp from "../../images/rocket.webp";
+import factory_png from "../../images/rocket.png";
 import upgrades from "../../utils/rocket";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
+import LinkButton from "../universal/linkButton";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import Header from "../universal/header";
 import "./factory.css";
 
 export const Factory = (props) => {
@@ -73,31 +76,22 @@ export const Factory = (props) => {
       <Nav />
       {renderOrRedirect("factory")}
       <section id="factory" className="factory-header-container">
-        <article className="factory-split">
-          <ArticleUnderlined
-            headerSize={"h2"}
-            header={"factory"}
-            text={placeDescription}
-          />
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img
-              src={rocket_logo}
-              alt="A large robot and a space rocket, as well as night and stars in the background. Factory logo."
-              width="100em"
-              height="auto"
-            />
-          </p>
-        </article>
+        <HeaderWithLogo
+          headerSize={"h2"}
+          header={"factory"}
+          text={placeDescription}
+          webp={factory_webp}
+          png={factory_png}
+          size={"150em"}
+          alt={
+            "A large robot and a space rocket, as well as night and stars in the background. A factory logo."
+          }
+        />
         <section>
-          <header className="places-header">
-            <h3>Upgrade</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"upgrade"} underline />
           <article className="factory-split margin-bottom-2rem">
             <article className="align-self-flex-start">
-              <header>
-                <h4>build</h4>
-              </header>
+              <Header headerSize={"h4"} header={"build"} />
               {user.user.rocketLvl === 5 && (
                 <p>
                   The rocket is now at its maximum level - {user.user.rocketLvl}
@@ -115,27 +109,15 @@ export const Factory = (props) => {
           </article>
         </section>
         <section>
-          <header className="places-header">
-            <h3>Talk</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"talk"} underline />
           <article>
-            <header>
-              <h4>Engineer</h4>
-            </header>
+            <Header headerSize={"h4"} header={"engineer"} />
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"factory"} />
             )}
           </article>
         </section>
-
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"walk away"} />
       </section>
       <Footer />
     </main>

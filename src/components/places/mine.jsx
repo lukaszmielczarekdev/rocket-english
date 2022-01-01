@@ -1,15 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import UserContext from "../../contexts/userContext";
 import InventoryContext from "../../contexts/inventoryContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
-import mine_logo from "../../images/mine.png";
 import Modal from "react-modal";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import Header from "../universal/header";
+import mine_webp from "../../images/mine.webp";
+import mine_png from "../../images/mine.png";
 import "../../App.css";
 import "./mine.css";
 
@@ -82,15 +85,15 @@ const Mine = (props) => {
         founds["credits"] = rate.creditsRate;
       }
       if (foundSteel) {
-        rate.steelRate = Math.floor(Math.random() * 15) + 1;
+        rate.steelRate = Math.floor(Math.random() * 3) + 1;
         founds["steel"] = rate.steelRate;
       }
       if (foundAluminum) {
-        rate.aluminumRate = Math.floor(Math.random() * 5) + 1;
+        rate.aluminumRate = Math.floor(Math.random() * 2) + 1;
         founds["aluminum"] = rate.aluminumRate;
       }
       if (foundStardust) {
-        rate.stardustRate = Math.floor(Math.random() * 5) + 1;
+        rate.stardustRate = Math.floor(Math.random() * 1) + 1;
         founds["stardust"] = rate.stardustRate;
       }
 
@@ -108,7 +111,7 @@ const Mine = (props) => {
       if (founds) {
         const len = Object.keys(founds).length;
         if (len > 0) {
-          const exp = 1000 * len;
+          const exp = 100 * len;
           user.onAddExp(exp);
         }
       }
@@ -174,57 +177,37 @@ const Mine = (props) => {
       <Nav />
       {renderOrRedirect("mine")}
       <section id="mine" className="mine-header-container">
-        <article className="mine-split">
-          <ArticleUnderlined
-            headerSize={"h2"}
-            header={"mine"}
-            text={placeDescription}
-          />
-          <p className="logo logo-place image fit margin-bottom-0">
-            <img
-              src={mine_logo}
-              alt="A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
-              width="100em"
-              height="auto"
-            />
-          </p>
-        </article>
+        <HeaderWithLogo
+          headerSize={"h2"}
+          header={"mine"}
+          text={placeDescription}
+          webp={mine_webp}
+          png={mine_png}
+          size={"150em"}
+          alt={
+            "A large chunk of rock with pink crystal fragments stuck in it. A mine logo."
+          }
+        />
         <section>
-          <header className="places-header">
-            <h3>work</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"work"} underline />
           <article className="mine-split margin-bottom-2rem">
             <article className="align-self-flex-start">
-              <header>
-                <h4>available credits</h4>
-              </header>
+              <Header headerSize={"h4"} header={"available credits"} />
               <p>{inventory.inventory.credits}</p>
               <ul>{renderMineButton()}</ul>
             </article>
           </article>
         </section>
         <section>
-          <header className="places-header">
-            <h3>Talk</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"talk"} underline />
           <article>
-            <header>
-              <h4>miner</h4>
-            </header>
+            <Header headerSize={"h4"} header={"miner"} />
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"mine"} />
             )}
           </article>
         </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"walk away"} />
       </section>
       <Modal
         style={modalStyle}

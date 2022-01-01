@@ -6,6 +6,7 @@ import GeneralContext from "../../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
 import "react-alice-carousel/lib/alice-carousel.css";
 import api from "../../utils/api";
+import Header from "../universal/header";
 import "./definitionSearch.css";
 import "../../components/planets/planet.css";
 
@@ -108,15 +109,10 @@ export const DefinitionSearch = (props) => {
       id="definition-search"
       className="definition-search-header-container"
     >
-      <header className="places-header">
-        <h3>learn</h3>
-        <hr className="underline-places" />
-      </header>
+      <Header headerSize={"h3"} header={"learn"} underline />
       <article className="margin-bottom-2rem">
         <article className="align-self-flex-start">
-          <header>
-            <h4>ask about a word</h4>
-          </header>
+          <Header headerSize={"h4"} header={"ask about a word"} />
           {loading && renderSpinner("10rem")}
           {!loading && renderContentOrError()}
         </article>

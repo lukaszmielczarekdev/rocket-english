@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import Nav from "../nav";
 import Footer from "../footer";
 import UserInventory from "../../contexts/inventoryContext";
@@ -12,6 +13,7 @@ import AliceCarousel from "react-alice-carousel";
 import renders from "../../utils/renders";
 import Emitter from "../../utils/emitter";
 import ActionButton from "../universal/actionButton";
+import Header from "../universal/header";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./inventory.css";
 import "./favorites.css";
@@ -210,16 +212,12 @@ const Inventory = (props) => {
         <section className="planet-container main-background border border-radius padding margin-block-planet-container margin-bottom-2rem">
           <section id="inventory" className="padding border">
             <article>
-              <header>
-                <h3>Inventory</h3>
-              </header>
+              <Header headerSize={"h3"} header={"inventory"} />
               <ul>{renderInventory()}</ul>
             </article>
           </section>
           <article id="mercenaries" className="planet-activities-container">
-            <header>
-              <h3>Mercenaries</h3>
-            </header>
+            <Header headerSize={"h3"} header={"mercenaries"} />
             {mercenaries.current && (
               <AliceCarousel
                 controlsStrategy={"responsive"}
@@ -238,9 +236,7 @@ const Inventory = (props) => {
           </article>
           <section className="padding border">
             <article>
-              <header>
-                <h3>Expedition</h3>
-              </header>
+              <Header headerSize={"h3"} header={"expedition"} />
               {!mercenaries.current && (
                 <p className="place-description">
                   You need at least one mercenary to proceed.
@@ -317,14 +313,7 @@ const Inventory = (props) => {
               )}
             </article>
           </section>
-          <button className="button small">
-            <Link
-              to={`/${user.user.currentPlanet}`}
-              style={{ textDecoration: "none" }}
-            >
-              Go Back
-            </Link>
-          </button>
+          <LinkButton destination={user.user.currentPlanet} title={"go back"} />
         </section>
       </div>
       <Footer />

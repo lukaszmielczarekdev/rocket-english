@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import DialogueMenu from "../universal/dialogueMenu";
 import UserInventory from "../../contexts/inventoryContext";
 import ShopInventory from "../../contexts/shopContext";
@@ -8,8 +9,10 @@ import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
-import shop_logo from "../../images/shop.png";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import Header from "../universal/header";
+import shop_png from "../../images/shop.png";
+import shop_webp from "../../images/shop.webp";
 import "../planets/planet.css";
 import "./shop.css";
 
@@ -119,47 +122,34 @@ const Shop = (props) => {
       <section id="shop">
         {renderOrRedirect("shop")}
         <section className="shop-header-container">
-          <article className="shop-split">
-            <ArticleUnderlined
-              headerSize={"h2"}
-              header={"shop"}
-              text={placeDescription}
-            />
-            <p className="logo logo-place image fit margin-bottom-0">
-              <img
-                src={shop_logo}
-                alt="A big black neon sign with red lettering that says open. A shop logo."
-                width="100em"
-                height="auto"
-              />
-            </p>
-          </article>
+          <HeaderWithLogo
+            headerSize={"h2"}
+            header={"shop"}
+            text={placeDescription}
+            webp={shop_webp}
+            png={shop_png}
+            size={"150em"}
+            alt={
+              "A big black neon sign with red lettering that says open. A shop logo."
+            }
+          />
           <section>
-            <header className="places-header">
-              <h3>Trade</h3>
-              <hr className="underline-places" />
-            </header>
+            <Header headerSize={"h3"} header={"trade"} underline />
             <article className="shop-split margin-bottom-2rem">
               <article className="align-self-flex-start">
-                <header>
-                  <h4>Your inventory</h4>
-                </header>
+                <Header headerSize={"h4"} header={"your inventory"} />
                 <div>
                   <ul>{renderUserInventory()}</ul>
                 </div>
               </article>
               <article className="align-self-flex-start">
-                <header>
-                  <h4>buy</h4>
-                </header>
+                <Header headerSize={"h4"} header={"buy"} />
                 <div>
                   <ul>{shopInv()}</ul>
                 </div>
               </article>
               <article className="align-self-flex-start">
-                <header>
-                  <h4>sell</h4>
-                </header>
+                <Header headerSize={"h4"} header={"sell"} />
                 <div>
                   <ul>{renderBlockedUserInventory()}</ul>
                 </div>
@@ -167,26 +157,18 @@ const Shop = (props) => {
             </article>
           </section>
           <section>
-            <header className="places-header">
-              <h3>Talk</h3>
-              <hr className="underline-places" />
-            </header>
+            <Header headerSize={"h3"} header={"talk"} underline />
             <article>
-              <header>
-                <h4>Shopkeeper</h4>
-              </header>
+              <Header headerSize={"h4"} header={"shopkeeper"} />
               {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
                 <DialogueMenu place={"shop"} />
               )}
             </article>
           </section>
-          <Link
-            className={"link-button"}
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            <button className="button small">Walk away</button>
-          </Link>
+          <LinkButton
+            destination={user.user.currentPlanet}
+            title={"walk away"}
+          />
         </section>
       </section>
       <Footer />

@@ -50,7 +50,7 @@ const Welcome = (props) => {
   const renderResetProgress = () => {
     if (general.general.availablePlanets["crion"].discovered) {
       return (
-        <button onClick={toggleModal} className="button large button-margin">
+        <button onClick={toggleModal} className="button large">
           New game
         </button>
       );
@@ -100,7 +100,7 @@ const Welcome = (props) => {
           onClick={() => {
             setShowLogin(true);
           }}
-          className="button small button-margin"
+          className="button small"
         >
           I want a challenge
         </button>
@@ -119,7 +119,7 @@ const Welcome = (props) => {
             user.setMovementPoints(150);
             props.history.push("/crion");
           }}
-          className="button small button-margin"
+          className="button small"
         >
           I'm just a tourist
         </button>
@@ -144,7 +144,7 @@ const Welcome = (props) => {
           to={`/${user.user.currentPlanet}`}
           style={{ textDecoration: "none" }}
         >
-          <button className="button large button-margin">Continue</button>
+          <button className="button large">Continue</button>
         </Link>
       );
     }
@@ -258,16 +258,10 @@ const Welcome = (props) => {
             >
               <p>Are you sure?</p>
               <p>All progress will be lost...</p>
-              <button
-                className="button small button-margin"
-                onClick={toggleModal}
-              >
+              <button className="button small" onClick={toggleModal}>
                 No
               </button>
-              <button
-                className="button small button-margin"
-                onClick={resetProgress}
-              >
+              <button className="button small" onClick={resetProgress}>
                 Yes
               </button>
             </Modal>

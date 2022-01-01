@@ -73,14 +73,6 @@
   list-style: none;
 }
 
-@media screen and (min-width: 960px) {
-  .content {
-    width: 80%;
-    margin-left: 5rem;
-    margin-right: 3rem;
-  }
-}
-
 .header-container {
   margin-bottom: 3rem;
 }
@@ -110,14 +102,6 @@
   }
 }
 @media screen and (min-width: 480px) {
-  .underline {
-    width: 70%;
-    margin-bottom: 25px;
-  }
-  .underline-places {
-    width: 70%;
-    margin-top: 1rem;
-  }
   .align-self-flex-start {
     align-self: flex-start;
   }
@@ -131,36 +115,6 @@
     align-self: flex-start;
     justify-self: left;
     margin-right: -100px;
-  }
-  .underline {
-    width: 65%;
-    height: 0.1rem;
-    margin-left: -2rem;
-    background-color: white;
-    margin-bottom: 25px;
-  }
-  .underline-places {
-    width: 20%;
-    height: 0.1rem;
-    margin-right: -2rem;
-    background-color: white;
-    align-self: center;
-    margin-left: 1rem;
-    margin-top: 0;
-  }
-  #ufo-enemy .places-header {
-    display: flex;
-    width: min(60%, 70rem);
-    margin-inline: auto;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
-  .places-header h3 {
-    justify-self: center;
-  }
-  .ufo-name {
-    margin-bottom: 0;
   }
 }
 
@@ -217,21 +171,6 @@
   margin-bottom: 2rem !important;
 }
 
-.logo img {
-  width: 35% !important;
-}
-
-@media screen and (min-width: 420px) {
-  .logo img {
-    width: 30% !important;
-  }
-}
-@media screen and (max-width: 420px) {
-  .logo img {
-    width: 30% !important;
-  }
-}
-
 /* button */
 #ufo-enemy button {
   color: var(--clr-primary-100);
@@ -240,10 +179,6 @@
 
 #ufo-enemy button:hover {
   border: none;
-}
-
-.link-button {
-  display: inline;
 }
 
 /* background */

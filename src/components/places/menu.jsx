@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
-import quiz_logo from "../../images/quiz.png";
-import { Link } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import { useForm } from "react-hook-form";
 import UserContext from "../../contexts/userContext";
 import DefinitionSearch from "./definitionSearch";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import Header from "../universal/header";
+import quiz_webp from "../../images/quiz.webp";
+import quiz_png from "../../images/quiz.png";
 import "./quiz.css";
 
 const Menu = (props) => {
@@ -38,31 +40,20 @@ const Menu = (props) => {
 
   return (
     <section className="quiz-header-container">
-      <article className="quiz-split">
-        <ArticleUnderlined
-          headerSize={"h2"}
-          header={"school"}
-          text={placeDescription}
-        />
-        <p className="logo logo-place image fit margin-bottom-0">
-          <img
-            src={quiz_logo}
-            alt="A thick red book. A school logo."
-            width="100em"
-            height="auto"
-          />
-        </p>
-      </article>
+      <HeaderWithLogo
+        headerSize={"h2"}
+        header={"school"}
+        text={placeDescription}
+        webp={quiz_webp}
+        png={quiz_png}
+        size={"150em"}
+        alt={"A thick red book. A school logo."}
+      />
       <section className={ifVisible("learning", "learning", "")}>
-        <header className="places-header">
-          <h3>challenge</h3>
-          <hr className="underline-places" />
-        </header>
+        <Header headerSize={"h3"} header={"challenge"} underline />
         <article className={"quiz-split margin-bottom-2rem"}>
           <article className="align-self-flex-start">
-            <header>
-              <h4>Guess the word</h4>
-            </header>
+            <Header headerSize={"h4"} header={"guess the word"} />
             <form onSubmit={handleSubmit(onSubmit)}>
               <p>How many words?</p>
               <input
@@ -96,13 +87,7 @@ const Menu = (props) => {
         >
           Go Back
         </button>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"walk away"} />
       </section>
     </section>
   );

@@ -89,8 +89,7 @@
 
 @media screen and (min-width: 960px) {
   .planet-activities-container {
-    margin-top: 2rem;
-    width: min(70%, 70rem);
+    width: min(80%, 70rem);
     margin-inline: auto;
     margin-left: auto;
     margin-right: auto;
@@ -131,6 +130,7 @@
   padding-bottom: auto;
   text-align: center;
 }
+
 .header-container {
   margin-bottom: 3rem;
 }
@@ -187,6 +187,10 @@
   }
 }
 
+.planet-split {
+  margin-bottom: 3rem;
+}
+
 @media (min-width: 960px) {
   .planet-split {
     flex-direction: row;
@@ -196,10 +200,6 @@
   }
 }
 @media screen and (min-width: 480px) {
-  .underline-places {
-    width: 70%;
-    margin-top: 1rem;
-  }
   .width-80 {
     width: min(80%, 70rem);
     display: flex;
@@ -215,29 +215,6 @@
     align-self: flex-start;
     justify-self: left;
     margin-right: -100px;
-  }
-
-  .underline-places {
-    width: 20%;
-    height: 0.1rem;
-    margin-right: -2rem;
-    background-color: white;
-    align-self: center;
-    margin-left: 1rem;
-    margin-top: 0;
-  }
-
-  .places-header {
-    display: flex;
-    width: min(60%, 70rem);
-    margin-inline: auto;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
-
-  .places-header h3 {
-    justify-self: center;
   }
 }
 
@@ -275,27 +252,8 @@
   margin: 1rem;
 }
 
-#planet .button-margin {
-  margin: 0.5rem auto !important;
-}
-
 .margin-block-planet-container {
   margin: auto;
-}
-
-.logo img {
-  width: 35% !important;
-}
-
-@media screen and (min-width: 420px) {
-  .logo img {
-    width: 50% !important;
-  }
-}
-@media screen and (max-width: 420px) {
-  .logo img {
-    width: 30% !important;
-  }
 }
 
 /* carousel customization */
@@ -335,12 +293,20 @@
 }
 .alice-carousel__dots {
   margin-top: 0 !important;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .alice-carousel__prev-btn-item,
 .alice-carousel__next-btn-item {
   color: white;
   font-weight: 500;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 /* background images */

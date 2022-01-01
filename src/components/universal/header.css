@@ -1,0 +1,37 @@
+@media screen and (min-width: 480px) {
+  .underline-places {
+    width: 70%;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .underline-places {
+    width: 20%;
+    height: 0.1rem;
+    margin-right: -2rem;
+    background-color: white;
+    align-self: center;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .places-header {
+    display: flex;
+    width: min(60%, 70rem);
+    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  .places-header h1,
+  .places-header h2,
+  .places-header h3,
+  .places-header h4,
+  .places-header h5 {
+    justify-self: center;
+  }
+}

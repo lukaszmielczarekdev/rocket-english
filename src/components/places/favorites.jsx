@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
 import UserContext from "../../contexts/userContext";
@@ -9,6 +9,7 @@ import InventoryContext from "../../contexts/inventoryContext";
 import AliceCarousel from "react-alice-carousel";
 import FavoritesCard from "../../components/universal/articleCard";
 import renders from "../../utils/renders";
+import LinkButton from "../universal/linkButton";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./favorites.css";
 
@@ -70,14 +71,10 @@ const Favorites = (props) => {
                 </p>
               )}
             </article>
-            <button className="button small">
-              <Link
-                to={`/${user.user.currentPlanet}`}
-                style={{ textDecoration: "none" }}
-              >
-                Go Back
-              </Link>
-            </button>
+            <LinkButton
+              destination={user.user.currentPlanet}
+              title={"go back"}
+            />
           </div>
         </section>
       </div>

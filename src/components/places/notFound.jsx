@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import LinkButton from "../universal/linkButton";
 import Footer from "../footer";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
@@ -34,14 +35,7 @@ export const NotFound = (props) => {
       );
     } else {
       return (
-        <button className="button small button-margin">
-          <Link
-            to={`/${user.user.currentPlanet}`}
-            style={{ textDecoration: "none" }}
-          >
-            {`Go back to ${user.user.currentPlanet}`}
-          </Link>
-        </button>
+        <LinkButton destination={user.user.currentPlanet} title={"Go back"} />
       );
     }
   };

@@ -64,7 +64,7 @@ const Planet = (props) => {
           props.planet
         )}
         <div className="planet-header-container">
-          <section className="planet-split header-container">
+          <section className="planet-split">
             <ArticleUnderlined
               headerSize={"h2"}
               header={props.planet}

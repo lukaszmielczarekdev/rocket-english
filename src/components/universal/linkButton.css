@@ -1,0 +1,40 @@
+.link-button {
+  display: inline;
+}
+
+.button {
+  background-color: white !important;
+  color: rgb(1, 9, 27) !important;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5rem;
+  font-size: 0.6rem;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 15px;
+  border: none !important;
+  margin: 0.5rem;
+}
+
+.button:hover {
+  border: none !important;
+  text-decoration: none;
+  background-color: yellow !important;
+}
+
+.button.small {
+  font-size: 0.4rem;
+  height: 1.4rem;
+  line-height: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+.button.large {
+  font-size: 0.6rem;
+  height: 1.8rem;
+  line-height: 1.5rem;
+  padding: 0 0.8rem;
+}

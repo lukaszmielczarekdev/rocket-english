@@ -1,0 +1,21 @@
+.container-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1020px) {
+  .container-split {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .container-split {
+    flex-direction: row;
+  }
+  .container-split > * {
+    flex-basis: 100%;
+  }
+}

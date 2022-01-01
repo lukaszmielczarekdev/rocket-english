@@ -1,18 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import UserInventory from "../../contexts/inventoryContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
-import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import Nav from "../nav";
 import Footer from "../footer";
 import renders from "../../utils/renders";
 import bar_webp from "../../images/bar.webp";
 import bar_png from "../../images/bar.png";
+import HeaderWithLogo from "../universal/headerWithLogo";
+import Header from "../universal/header";
+import LinkButton from "../universal/linkButton";
 import "../planets/planet.css";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./bar.css";
@@ -40,6 +42,7 @@ export const Bar = (props) => {
       return <Redirect to="/space" />;
     }
   };
+
   const showMercenariesToHire = () => {
     const hired = inventory.inventory.mercenaries.filter(
       (merc) =>
@@ -69,35 +72,19 @@ export const Bar = (props) => {
       <Nav />
       {renderOrRedirect("bar")}
       <section id="bar" className="bar-header-container">
-        <article className="bar-split">
-          <ArticleUnderlined
-            headerSize={"h2"}
-            header={"bar"}
-            text={placeDescription}
-          />
-          <p className="logo logo-place image fit margin-bottom-0">
-            <picture className="fit margin-1rem">
-              <source srcSet={bar_webp} type="image/webp" />
-              <source srcSet={bar_png} type="image/png" />
-              <img
-                src={bar_png}
-                type="image/png"
-                width="100em"
-                height="auto"
-                alt="A Shiny black and pink drink neon sign. A bar logo."
-              />
-            </picture>
-          </p>
-        </article>
+        <HeaderWithLogo
+          headerSize={"h2"}
+          header={"bar"}
+          text={placeDescription}
+          webp={bar_webp}
+          png={bar_png}
+          size={"150em"}
+          alt={"A Shiny black and pink drink neon sign. A bar logo."}
+        />
         <section>
-          <header className="places-header">
-            <h3>Hire</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"hire"} underline />
           <article className="planet-activities-container">
-            <header>
-              <h4>Mercenaries</h4>
-            </header>
+            <Header headerSize={"h4"} header={"mercenaries"} />
             {mercenaries.current && (
               <AliceCarousel
                 controlsStrategy={"responsive"}
@@ -113,29 +100,17 @@ export const Bar = (props) => {
               </p>
             )}
           </article>
-          {/* </article> */}
         </section>
         <section>
-          <header className="places-header">
-            <h3>Talk</h3>
-            <hr className="underline-places" />
-          </header>
+          <Header headerSize={"h3"} header={"talk"} underline />
           <article>
-            <header>
-              <h4>Bartender</h4>
-            </header>
+            <Header headerSize={"h4"} header={"bartender"} />
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (
               <DialogueMenu place={"bar"} />
             )}
           </article>
         </section>
-        <Link
-          className={"link-button"}
-          to={`/${user.user.currentPlanet}`}
-          style={{ textDecoration: "none" }}
-        >
-          <button className="button small">Walk away</button>
-        </Link>
+        <LinkButton destination={user.user.currentPlanet} title={"walk away"} />
       </section>
       <Footer />
     </main>
