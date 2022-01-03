@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import DialogueMenu from "../universal/dialogueMenu";
-import UserInventory from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import ShopInventory from "../../contexts/shopContext";
 import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
@@ -18,7 +18,7 @@ import "./shop.css";
 
 const Shop = (props) => {
   const user = useContext(UserContext);
-  const inventory = useContext(UserInventory);
+  const inventory = useContext(InventoryContext);
   const shop = useContext(ShopInventory);
   const general = useContext(GeneralContext);
   useEffect(() => {
@@ -46,7 +46,7 @@ const Shop = (props) => {
         <button
           className="button small cubical margin-0-3rem"
           onClick={() => {
-            shop.buyItem(element[0], 1, element[1], 1);
+            inventory.buyItem(element[0], 1, element[1], 1);
           }}
         >
           {renderBuyButton(element[1])}

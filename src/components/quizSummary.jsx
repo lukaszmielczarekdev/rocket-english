@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import InventoryContext from "../contexts/inventoryContext";
+import { InventoryContext } from "../contexts/inventoryContext";
 import { UserContext } from "../contexts/userContext";
 import GeneralContext from "../contexts/generalContext";
 import Modal from "react-modal";

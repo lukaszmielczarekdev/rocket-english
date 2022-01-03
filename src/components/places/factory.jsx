@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import UserInventory from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
@@ -17,7 +17,7 @@ import "./factory.css";
 
 export const Factory = (props) => {
   const user = useContext(UserContext);
-  const inventory = useContext(UserInventory);
+  const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
 
   useEffect(() => {

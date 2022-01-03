@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
-import UserInventory from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
@@ -22,7 +22,7 @@ import "./bar.css";
 export const Bar = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
-  const inventory = useContext(UserInventory);
+  const inventory = useContext(InventoryContext);
   const mercenaries = useRef(null);
 
   useEffect(() => {

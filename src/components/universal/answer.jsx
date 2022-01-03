@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
-import InventoryContext from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import GeneralContext from "../../contexts/generalContext";
 import "../../App.css";
 

@@ -2,7 +2,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../contexts/userContext";
-import InventoryContext from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import Modal from "react-modal";
 import "./gapTest.css";
 

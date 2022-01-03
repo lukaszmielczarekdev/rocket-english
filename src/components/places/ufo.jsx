@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
-import UserInventory from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import Nav from "../nav";
@@ -34,7 +34,7 @@ const modalStyle = {
 
 export const Ufo = (props) => {
   const user = useContext(UserContext);
-  const inventory = useContext(UserInventory);
+  const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
 
   useEffect(() => {

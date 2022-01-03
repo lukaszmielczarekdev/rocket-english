@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import Nav from "../nav";
 import Footer from "../footer";
-import UserInventory from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
 import TaskContext from "../../contexts/taskContext";
 import GeneralContext from "../../contexts/generalContext";
@@ -21,7 +21,7 @@ import "../planets/planet.css";
 
 const Inventory = (props) => {
   const user = useContext(UserContext);
-  const inventory = useContext(UserInventory);
+  const inventory = useContext(InventoryContext);
   const general = useContext(GeneralContext);
   const task = useContext(TaskContext);
   const mercenaries = useRef(null);

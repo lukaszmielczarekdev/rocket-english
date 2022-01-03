@@ -8,7 +8,7 @@ import Summary from "../quizSummary";
 import { Redirect } from "react-router-dom";
 import getRandomWords from "../../utils/wordsList";
 import { UserContext } from "../../contexts/userContext";
-import InventoryContext from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 import GeneralContext from "../../contexts/generalContext";
 import Modal from "react-modal";
 import "./controller.css";

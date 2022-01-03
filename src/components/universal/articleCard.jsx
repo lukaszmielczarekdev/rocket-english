@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import InventoryContext from "../../contexts/inventoryContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 
 const FavoritesCard = (props) => {
   const inventory = useContext(InventoryContext);
