@@ -12,7 +12,7 @@ import getRandomSentences, {
   getWordsToReplaceByChosenMode,
   getTestDescription,
 } from "../../utils/sentences";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import HeaderWithLogo from "../universal/headerWithLogo";

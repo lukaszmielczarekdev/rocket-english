@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import TourContext from "../../contexts/tourContext";
 import GeneralContext from "../../contexts/generalContext";
 import LinkButton from "./linkButton";

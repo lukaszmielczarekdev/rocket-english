@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Emitter from "../../utils/emitter";
 import GeneralContext from "../../contexts/generalContext";
 import TaskContext from "../../contexts/taskContext";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 
 const Timer = (props) => {
   const user = useContext(UserContext);

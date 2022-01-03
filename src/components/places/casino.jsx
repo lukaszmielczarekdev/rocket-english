@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import InventoryContext from "../../contexts/inventoryContext";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import Nav from "../nav";

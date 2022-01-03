@@ -2,7 +2,7 @@
 import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import UserInventory from "../../contexts/inventoryContext";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import factory_webp from "../../images/rocket.webp";
@@ -28,6 +28,12 @@ export const Factory = (props) => {
   const placeDescription =
     "The robotic brigade is constantly building and repairing damaged spacecraft. They are also happy to upgrade the space rocket.";
 
+  // upgrade the rocket
+  const handleUpgradeRocket = (req) => {
+    inventory.upgradeRocketCost(req);
+    user.upgradeRocket();
+  };
+
   const renderUpgradeButton = (requirements) => {
     for (let [item, amount] of Object.entries(requirements)) {
       if (amount > inventory.inventory[item]) {
@@ -38,10 +44,9 @@ export const Factory = (props) => {
         );
       }
     }
-
     return (
       <button
-        onClick={() => inventory.upgradeRocket(requirements)}
+        onClick={() => handleUpgradeRocket(requirements)}
         style={{ textDecoration: "none" }}
         className="button small"
       >

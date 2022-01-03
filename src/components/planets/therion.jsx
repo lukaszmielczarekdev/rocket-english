@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import mine_png from "../../images/mine.png";
 import mine_webp from "../../images/mine.webp";

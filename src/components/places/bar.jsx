@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import UserInventory from "../../contexts/inventoryContext";
 import DialogueMenu from "../universal/dialogueMenu";

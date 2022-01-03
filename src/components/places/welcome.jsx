@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, Redirect } from "react-router-dom";
 import Nav from "../nav";
 import Footer from "../footer";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import InventoryContext from "../../contexts/inventoryContext";
 import TourContext from "../../contexts/tourContext";

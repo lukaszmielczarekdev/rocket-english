@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import LinkButton from "../universal/linkButton";
 import { useForm } from "react-hook-form";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import DefinitionSearch from "./definitionSearch";
 import HeaderWithLogo from "../universal/headerWithLogo";
 import Header from "../universal/header";

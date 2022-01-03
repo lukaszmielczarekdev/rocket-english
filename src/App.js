@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router";
 import Welcome from "./components/places/welcome";
 import NotFound from "./components/places/notFound";
-import UserContext from "./contexts/userContext";
+import UserDataProvider from "./contexts/userContext";
 import InventoryContext from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 import GeneralContext from "./contexts/generalContext";
@@ -30,8 +30,6 @@ import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/places/testMenu";
 import Help from "./components/places/help";
 import Modal from "react-modal";
-import dialogues from "./utils/dialogues";
-import { narration } from "./utils/dialogues";
 import { availablePlanets } from "./utils/planetAccess";
 import mercenaries from "./utils/mercenaries";
 import { ToastContainer, toast } from "react-toastify";
@@ -114,38 +112,6 @@ export const App = (props) => {
 
     setTaskData(taskDataDummy);
   };
-
-  // user data
-  const initialUserInfo = {
-    name: "Guest",
-    lvl: 1,
-    rocketLvl: 1,
-    movement: { maxMovePoints: 15, currentMovePoints: 15 },
-    exp: 0,
-    currentPlanet: "menu",
-    ifUfoDefeated: {
-      Crystalia: false,
-      Bathea: false,
-      Axios: false,
-      Desertia: false,
-    },
-    dialogues: dialogues,
-    narration: narration,
-  };
-
-  // set user movement points
-  const setMovementPoints = (points) => {
-    const userInfoDummy = { ...userInfo };
-    userInfoDummy.movement = {
-      maxMovePoints: points,
-      currentMovePoints: points,
-    };
-    setUserInfo(userInfoDummy);
-  };
-
-  const [userInfo, setUserInfo] = useState(
-    getData("userInfo", initialUserInfo)
-  );
 
   // general data
   const initialGeneralData = {
@@ -235,9 +201,6 @@ export const App = (props) => {
   const [shop] = useState(getData("shop", initialShop));
 
   //useEffect
-  useEffect(() => {
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-  }, [userInfo]);
 
   useEffect(() => {
     localStorage.setItem("userInventory", JSON.stringify(userInventory));
@@ -258,10 +221,6 @@ export const App = (props) => {
   useEffect(() => {
     localStorage.setItem("taskData", JSON.stringify(taskData));
   }, [taskData]);
-
-  useEffect(() => {
-    handleCalcLvl();
-  }, [userInfo.exp]);
 
   useEffect(() => {
     Emitter.on("SEND_CONTENT", (summaryContent) => setSummary(summaryContent));
@@ -392,42 +351,13 @@ export const App = (props) => {
     setUserInventory(userInventoryDummy);
   };
 
-  // add movement points
-  const handleAddMovementPoints = (pointsToAdd) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    if (
-      userDataDummy.movement.currentMovePoints + pointsToAdd >
-      userDataDummy.movement.maxMovePoints
-    ) {
-      userDataDummy.movement.currentMovePoints =
-        userDataDummy.movement.maxMovePoints;
-    } else {
-      userDataDummy.movement.currentMovePoints += pointsToAdd;
-    }
-    setUserInfo(userDataDummy);
-  };
-
-  // subtract movement points
-  const handleSubtractMovementPoints = (pointsToSubtract) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    if (pointsToSubtract <= userDataDummy.movement.currentMovePoints) {
-      userDataDummy.movement.currentMovePoints -= pointsToSubtract;
-    }
-    setUserInfo(userDataDummy);
-  };
-
   // upgrade the rocket
-  const handleUpgradeRocket = (giveItems) => {
+  const handleUpgradeRocketCost = (giveItems) => {
     const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
     for (const [item, amount] of Object.entries(giveItems)) {
       userInventoryDummy[item] -= amount;
     }
     setUserInventory(userInventoryDummy);
-
-    const userDataDummy = { ...userInfo };
-    userDataDummy.rocketLvl = userDataDummy.rocketLvl + 1;
-    userDataDummy.exp = userDataDummy.exp + 1500;
-    setUserInfo(userDataDummy);
   };
 
   // shop
@@ -441,141 +371,6 @@ export const App = (props) => {
     }
   };
 
-  // dialogues: mark as completed
-  const handleSetDialogueCompleted = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    const dialogue = userDataDummy.dialogues[planet].find(
-      (elem) => elem.id === id
-    );
-    dialogue.completed = true;
-
-    if (
-      (dialogue.shownOnce && !dialogue.specialAction) ||
-      dialogue.specialAction.completed
-    ) {
-      dialogue.hidden = true;
-    }
-
-    if (dialogue.shownOnce && dialogue.unlocks !== 0) {
-      const dialogueToUnlock = userDataDummy.dialogues[planet].find(
-        (elem) => elem.id === dialogue.unlocks
-      );
-      dialogueToUnlock.hidden = false;
-    }
-
-    setUserInfo(userDataDummy);
-  };
-
-  // dialogues: mark as shown
-  const handleSetDialogueShown = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    const dialogue = userDataDummy.dialogues[planet].find(
-      (elem) => elem.id === id
-    );
-
-    if (dialogue.shownOnce || dialogue.specialAction.completed) {
-      dialogue.hidden = true;
-    }
-
-    setUserInfo(userDataDummy);
-  };
-
-  // dialogues: set shown and completed
-  const handleSetDialogueShownAndCompleted = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    const dialogue = userDataDummy.dialogues[planet].find(
-      (elem) => elem.id === id
-    );
-    dialogue.specialAction.completed = true;
-    dialogue.hidden = true;
-
-    setUserInfo(userDataDummy);
-  };
-
-  // narration: mark as completed
-  const handleSetNarrationCompleted = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    userDataDummy.narration[planet].find(
-      (elem) => elem.id === id
-    ).completed = true;
-    setUserInfo(userDataDummy);
-  };
-
-  // set special action completed
-  const handleSetSpecialActionCompleted = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    userDataDummy.dialogues[planet].find(
-      (elem) => elem.id === id
-    ).specialAction.completed = true;
-    setUserInfo(userDataDummy);
-  };
-
-  // narration: mark as unlocked
-  const handleSetNarrationUnlocked = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
-    userDataDummy.narration[planet].find(
-      (elem) => elem.id === id
-    ).unlocked = true;
-    setUserInfo(userDataDummy);
-  };
-
-  // check if narration available
-  const handleCheckIfNarrationAvailable = () => {
-    return userInfo.narration[userInfo.currentPlanet].find(
-      (text) => !text.completed
-    )
-      ? true
-      : false;
-  };
-
-  const handleMoveWithTheStory = (planet) => {
-    if (planet === "bathea") {
-      if (userInventory.credits >= 25000) {
-        handleSubtractCredits(25000);
-        handleSetNarrationUnlocked(1, "axios");
-        handleSetDialogueShownAndCompleted(2, "bathea");
-      } else {
-        notify("Not enough [!]");
-      }
-    } else if (planet === "axios") {
-      handleSetNarrationUnlocked(1, "desertia");
-      handleSetDialogueShownAndCompleted(10, "axios");
-      notify("Expedition prepared");
-    } else if (planet === "xillon") {
-      handleSetNarrationUnlocked(1, "centuria");
-      handleSetDialogueShownAndCompleted(3, "xillon");
-      notify("We won!");
-    }
-  };
-
-  // lvl
-  const handleCalcLvl = () => {
-    const userDataDummy = { ...userInfo };
-    userDataDummy.lvl = Math.floor(userInfo.exp / 1000) + 1;
-    setUserInfo(userDataDummy);
-  };
-
-  // exp
-  const handleAddExp = (amount) => {
-    const userDataDummy = { ...userInfo };
-    userDataDummy.exp = userDataDummy.exp + amount;
-    setUserInfo(userDataDummy);
-  };
-
-  // username
-  const handleSetName = (name) => {
-    const userDataDummy = { ...userInfo };
-    userDataDummy.name = name;
-    setUserInfo(userDataDummy);
-  };
-
-  // current planet
-  const handleSetPlanet = (place) => {
-    const userDataDummy = { ...userInfo };
-    userDataDummy.currentPlanet = place;
-    setUserInfo(userDataDummy);
-  };
-
   // reset inventory
   const resetInventory = () => {
     const userInventoryDummy = { ...userInventory };
@@ -585,12 +380,6 @@ export const App = (props) => {
     setUserInventory(userInventoryDummy);
   };
 
-  // set ufo defeated
-  const setUfoDefeated = (planet) => {
-    const userDataDummy = { ...userInfo };
-    userDataDummy.ifUfoDefeated[planet] = true;
-    setUserInfo(userDataDummy);
-  };
   // toast
   const notify = (text) => toast(text);
 
@@ -631,7 +420,7 @@ export const App = (props) => {
                 inventory: userInventory,
                 addItem: handleAddItem,
                 addItems: handleAddItems,
-                upgradeRocket: handleUpgradeRocket,
+                upgradeRocketCost: handleUpgradeRocketCost,
                 exchangeItems: handleExchange,
                 subtractItem: handleSubtractItem,
                 addCredits: handleAddCredits,
@@ -647,25 +436,7 @@ export const App = (props) => {
                   handleGetHiredAndSendedMercenaries,
               }}
             >
-              <UserContext.Provider
-                value={{
-                  user: userInfo,
-                  onAddExp: handleAddExp,
-                  onSetPlanet: handleSetPlanet,
-                  onSetName: handleSetName,
-                  onSetUfo: setUfoDefeated,
-                  setDialogueShown: handleSetDialogueShown,
-                  setDialogueCompleted: handleSetDialogueCompleted,
-                  setNarrationCompleted: handleSetNarrationCompleted,
-                  setNarrationUnlocked: handleSetNarrationUnlocked,
-                  setSpecialActionCompleted: handleSetSpecialActionCompleted,
-                  addMovementPoints: handleAddMovementPoints,
-                  subtractMovementsPoints: handleSubtractMovementPoints,
-                  setMovementPoints: setMovementPoints,
-                  checkIfNarrationAvailable: handleCheckIfNarrationAvailable,
-                  moveWithTheStory: handleMoveWithTheStory,
-                }}
-              >
+              <UserDataProvider>
                 <Switch>
                   <Route path="/space" exact component={NotFound} />
                   <Route path="/ufo" component={Ufo} />
@@ -724,7 +495,7 @@ export const App = (props) => {
                     {renderSummary(summary, " ")}
                   </ul>
                 </Modal>
-              </UserContext.Provider>
+              </UserDataProvider>
             </InventoryContext.Provider>
           </ShopContext.Provider>
         </GeneralContext.Provider>

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import PuffLoader from "react-spinners/PuffLoader";
 import "react-alice-carousel/lib/alice-carousel.css";

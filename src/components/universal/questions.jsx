@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import Answer from "./answer";
 import "../../App.css";
 

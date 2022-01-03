@@ -5,7 +5,7 @@ import LinkButton from "../universal/linkButton";
 import Nav from "../nav";
 import Footer from "../footer";
 import UserInventory from "../../contexts/inventoryContext";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import TaskContext from "../../contexts/taskContext";
 import GeneralContext from "../../contexts/generalContext";
 import NpcForHireCard from "../universal/npcForHireCard";

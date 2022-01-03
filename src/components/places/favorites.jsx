@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import Nav from "../../components/nav";
 import Footer from "../../components/footer";
-import UserContext from "../../contexts/userContext";
+import { UserContext } from "../../contexts/userContext";
 import GeneralContext from "../../contexts/generalContext";
 import InventoryContext from "../../contexts/inventoryContext";
 import AliceCarousel from "react-alice-carousel";
