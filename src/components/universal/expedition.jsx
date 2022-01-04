@@ -18,6 +18,14 @@ const Expedition = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [task.taskQueue]);
 
+  const expeditionSummary = (object) => {
+    const items = [];
+    for (let [item, amount] of Object.entries(object)) {
+      items.push([item, amount]);
+    }
+    Emitter.emit("SEND_CONTENT", items);
+  };
+
   const handleFightIfLose = (difficulty) => {
     let defendedCounter = 0;
     const killedMercenaries = [];
@@ -55,21 +63,13 @@ const Expedition = (props) => {
         "The crew withdrew",
         "and nobody was hurt.",
       ]);
+    } else if (numberOfAttacked > 0) {
+      fightingMercenaries.unshift(" ");
     }
-
-    fightingMercenaries.unshift(" ");
 
     inventory.changeMercenaryStatus([killedMercenaries], "dead");
 
     Emitter.emit("SEND_CONTENT", fightingMercenaries);
-  };
-
-  const expeditionSummary = (object) => {
-    const items = [];
-    for (let [item, amount] of Object.entries(object)) {
-      items.push([item, amount]);
-    }
-    Emitter.emit("SEND_CONTENT", items);
   };
 
   const handleDifficultyLevels = (difficulty) => {
