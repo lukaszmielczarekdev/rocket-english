@@ -6,7 +6,7 @@ import Nav from "../nav";
 import Footer from "../footer";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
-import TaskContext from "../../contexts/taskContext";
+import { TaskContext } from "../../contexts/taskContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";

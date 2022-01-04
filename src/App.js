@@ -7,7 +7,7 @@ import UserDataProvider from "./contexts/userContext";
 import InventoryProvider from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
 import GeneralDataProvider from "./contexts/generalContext";
-import TaskContext from "./contexts/taskContext";
+import TaskDataProvider from "./contexts/taskContext";
 import TourContext from "./contexts/tourContext";
 import Factory from "./components/places/factory";
 import Shop from "./components/places/shop";
@@ -80,32 +80,10 @@ export const App = (props) => {
     getData("tourData", initialTourData)
   );
 
-  // task data
-  const initialTaskData = {
-    taskQueue: [],
-  };
-
-  const [taskData, setTaskData] = useState(
-    getData("taskData", initialTaskData)
-  );
-
-  const handleMarkATaskAsFinished = (id) => {
-    const taskDataDummy = JSON.parse(JSON.stringify(taskData));
-    taskDataDummy.taskQueue = taskDataDummy.taskQueue.filter(
-      (task) => task.id !== id
-    );
-
-    setTaskData(taskDataDummy);
-  };
-
   const handleSetTour = (state) => {
     const tourDataDummy = { ...tourData };
     tourDataDummy.tour = state;
     setTourData(tourDataDummy);
-  };
-
-  const handleUpdateTaskData = (data) => {
-    setTaskData(data);
   };
 
   // shop
@@ -127,23 +105,12 @@ export const App = (props) => {
   }, [tourData]);
 
   useEffect(() => {
-    localStorage.setItem("taskData", JSON.stringify(taskData));
-  }, [taskData]);
-
-  useEffect(() => {
     Emitter.on("SEND_CONTENT", (summaryContent) => setSummary(summaryContent));
     Emitter.on("SHOW_MODAL", () => toggleModal());
   }, []);
 
   return (
-    <TaskContext.Provider
-      value={{
-        task: taskData,
-        taskQueue: taskData.taskQueue,
-        updateTaskData: handleUpdateTaskData,
-        markATaskAsFinished: handleMarkATaskAsFinished,
-      }}
-    >
+    <TaskDataProvider>
       <TourContext.Provider
         value={{
           tour: tourData.tour,
@@ -202,7 +169,7 @@ export const App = (props) => {
           </ShopContext.Provider>
         </GeneralDataProvider>
       </TourContext.Provider>
-    </TaskContext.Provider>
+    </TaskDataProvider>
   );
 };
 

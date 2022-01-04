@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
-import TaskContext from "../../contexts/taskContext";
+import { TaskContext } from "../../contexts/taskContext";
 import Emitter from "../../utils/emitter";
 
 const Expedition = (props) => {
@@ -63,9 +63,9 @@ const Expedition = (props) => {
         "The crew withdrew",
         "and nobody was hurt.",
       ]);
-    } else if (numberOfAttacked > 0) {
-      fightingMercenaries.unshift(" ");
     }
+
+    fightingMercenaries.unshift(" ");
 
     inventory.changeMercenaryStatus([killedMercenaries], "dead");
 

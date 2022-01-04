@@ -5,17 +5,6 @@ export const InventoryContext = React.createContext();
 InventoryContext.displayName = "InventoryContext";
 
 const InventoryProvider = (props) => {
-  // checks if any data exists in the localStorage and replaces the null object if needed
-  // const getData = (localStorageData, initialData) => {
-  //   let data = localStorage.getItem(localStorageData);
-  //   if (data === null) {
-  //     data = JSON.stringify(initialData);
-  //   }
-  //   return data !== JSON.stringify(initialData)
-  //     ? JSON.parse(data)
-  //     : initialData;
-  // };
-
   const initialUserInventory = {
     credits: 500,
     word: 0,
@@ -27,9 +16,6 @@ const InventoryProvider = (props) => {
     mercenaries: mercenaries,
   };
 
-  // const [userInventory, setUserInventory] = useState(
-  //   getData("userInventory", initialUserInventory)
-  // );
   const [userInventory, setUserInventory] = useState(
     JSON.parse(localStorage.getItem("userInventory")) || initialUserInventory
   );

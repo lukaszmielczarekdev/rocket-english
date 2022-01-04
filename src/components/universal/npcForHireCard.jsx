@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { InventoryContext } from "../../contexts/inventoryContext";
-import TaskContext from "../../contexts/taskContext";
+import { TaskContext } from "../../contexts/taskContext";
 import { responsiveImageThumbnail } from "../../utils/renders";
 import "./npcForHireCard.css";
 
