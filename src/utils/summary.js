@@ -2,8 +2,8 @@ export const handleColorClass = (elem, condition) => {
   return elem[1] === condition ? "color-lose" : "color-win";
 };
 
-export const renderSummary = (summary, includes) => {
-  if (summary.length !== 0 && !summary.includes(includes)) {
+export const renderSummary = (summary, tag) => {
+  if (summary.length !== 0 && !summary.includes(tag)) {
     return summary.map((element) => (
       <li className="color-win" key={element[0]}>
         +{element[1]} {element[0]}{" "}

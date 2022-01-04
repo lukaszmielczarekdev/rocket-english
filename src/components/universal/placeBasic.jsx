@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 
 const PlaceBasic = (props) => {
   const user = useContext(UserContext);

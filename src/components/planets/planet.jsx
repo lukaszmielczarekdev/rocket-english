@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import { UserContext } from "../../contexts/userContext";
 import renders from "../../utils/renders";
 import Nav from "../nav";

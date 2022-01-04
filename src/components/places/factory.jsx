@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import factory_webp from "../../images/rocket.webp";
 import factory_png from "../../images/rocket.png";

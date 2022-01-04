@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
 import HeaderWithLogo from "../universal/headerWithLogo";

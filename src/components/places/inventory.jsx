@@ -7,11 +7,10 @@ import Footer from "../footer";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { UserContext } from "../../contexts/userContext";
 import TaskContext from "../../contexts/taskContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import NpcForHireCard from "../universal/npcForHireCard";
 import AliceCarousel from "react-alice-carousel";
 import renders from "../../utils/renders";
-import Emitter from "../../utils/emitter";
 import ActionButton from "../universal/actionButton";
 import Header from "../universal/header";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -31,11 +30,18 @@ const Inventory = (props) => {
     user.onSetPlanet(user.user.currentPlanet);
   }, []);
 
-  useEffect(() => {
-    Emitter.on("START_AN_EXPEDITION", (expeditionTask) =>
-      startAnExpedition(expeditionTask.difficulty)
-    );
-  }, [general.general.taskQueue]);
+  const addATaskToQueue = (id, difficulty, delay) => {
+    const taskDataDummy = JSON.parse(JSON.stringify(task.task));
+    taskDataDummy.taskQueue.push({
+      id: id,
+      taskName: "expedition",
+      difficulty: difficulty,
+      delay: delay,
+      startingTurnNumber: general.general.currentTurnNumber + delay,
+    });
+
+    task.updateTaskData(taskDataDummy);
+  };
 
   const showHiredMercenaries = () => {
     const hired = inventory.inventory.mercenaries.filter(
@@ -92,110 +98,6 @@ const Inventory = (props) => {
 
   mercenaries.current = showHiredMercenaries();
 
-  const handleDifficultyLevels = (difficulty) => {
-    if (difficulty === 0.5) {
-      return ["loser", "winner", "winner"];
-    } else if (difficulty === 1) {
-      return ["loser", "winner"];
-    } else if (difficulty === 2) {
-      return ["loser", "loser", "winner"];
-    } else if (difficulty === 3) {
-      return ["loser", "loser", "loser", "winner"];
-    }
-  };
-
-  const handleFightIfLose = (difficulty) => {
-    let defendedCounter = 0;
-    const killedMercenaries = [];
-    const fightingMercenaries = [];
-    const selectedMercenaries = inventory.getHiredAndSelectedMercenaries();
-
-    const numberOfAttacked = Math.floor(Math.random() * difficulty);
-
-    for (let i = 0; i < numberOfAttacked; i++) {
-      let randomAliveMercenaries = selectedMercenaries.filter(
-        (merc) => merc.alive
-      );
-
-      let randomMercenary =
-        randomAliveMercenaries[
-          Math.floor(Math.random() * randomAliveMercenaries.length)
-        ];
-
-      if (randomMercenary.strength / difficulty <= difficulty * 10) {
-        randomMercenary.alive = false;
-        killedMercenaries.push(randomMercenary.id);
-        fightingMercenaries.push([randomMercenary.name, "was killed."]);
-      } else {
-        if (defendedCounter < 1) {
-          fightingMercenaries.push([randomMercenary.name, "was defended."]);
-          defendedCounter++;
-        }
-      }
-    }
-
-    inventory.changeMercenaryStatus([killedMercenaries], "dead");
-
-    if (numberOfAttacked === 0) {
-      fightingMercenaries.unshift([
-        "The crew withdrew",
-        "and nobody was hurt.",
-      ]);
-    }
-
-    fightingMercenaries.unshift(" ");
-    Emitter.emit("SEND_CONTENT", fightingMercenaries);
-  };
-  const expeditionSummary = (object) => {
-    const items = [];
-    for (let [item, amount] of Object.entries(object)) {
-      items.push([item, amount]);
-    }
-    Emitter.emit("SEND_CONTENT", items);
-  };
-
-  const startAnExpedition = (difficulty) => {
-    const founds = {};
-    const winRate = [1.2, 1.5, 2.2];
-    const loseOrWin = handleDifficultyLevels(difficulty);
-    const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
-    if (result === "loser") {
-      handleFightIfLose(difficulty);
-      inventory.changeMercenaryStatus(
-        inventory.getHiredAndSendedMercenaries().map((merc) => merc.id),
-        "back"
-      );
-      Emitter.emit("SHOW_MODAL", true);
-    } else {
-      const rate = winRate[Math.floor(Math.random() * winRate.length)];
-      const credits = Math.floor(difficulty * rate * 500);
-      const exp = Math.floor(difficulty * rate * 150);
-      const steel = Math.floor(difficulty * rate * 5) + 1;
-      const aluminum = Math.floor(difficulty * rate * 3) + 1;
-      const crystal = Math.floor(difficulty * rate * 1) + 1;
-      founds["credits"] = credits;
-      founds["exp"] = exp;
-      founds["steel"] = steel;
-      founds["aluminum"] = aluminum;
-      founds["crystal"] = crystal;
-      expeditionSummary(founds);
-
-      user.onAddExp(exp);
-      user.onSetPlanet(user.user.currentPlanet);
-      inventory.addItems({
-        credits: credits,
-        steel: steel,
-        aluminum: aluminum,
-        crystal: crystal,
-      });
-      inventory.changeMercenaryStatus(
-        inventory.getHiredAndSendedMercenaries().map((merc) => merc.id),
-        "back"
-      );
-      Emitter.emit("SHOW_MODAL", true);
-    }
-  };
-
   const countExpeditionETA = (name) => {
     const ETA =
       task.task.taskQueue.find((task) => task.taskName === name)
@@ -248,7 +150,7 @@ const Inventory = (props) => {
                   <>
                     <ActionButton
                       callbackFnc={() => {
-                        task.addATaskToQueue(Date.now(), 0.5, 1);
+                        addATaskToQueue(Date.now(), 0.5, 1);
                         inventory.changeMercenaryStatus(
                           inventory
                             .getHiredAndSelectedMercenaries()
@@ -261,7 +163,7 @@ const Inventory = (props) => {
                     />
                     <ActionButton
                       callbackFnc={() => {
-                        task.addATaskToQueue(Date.now(), 1, 1);
+                        addATaskToQueue(Date.now(), 1, 1);
                         inventory.changeMercenaryStatus(
                           inventory
                             .getHiredAndSelectedMercenaries()
@@ -274,7 +176,7 @@ const Inventory = (props) => {
                     />
                     <ActionButton
                       callbackFnc={() => {
-                        task.addATaskToQueue(Date.now(), 2, 1);
+                        addATaskToQueue(Date.now(), 2, 1);
                         inventory.changeMercenaryStatus(
                           inventory
                             .getHiredAndSelectedMercenaries()
@@ -287,7 +189,7 @@ const Inventory = (props) => {
                     />
                     <ActionButton
                       callbackFnc={() => {
-                        task.addATaskToQueue(Date.now(), 3, 1);
+                        addATaskToQueue(Date.now(), 3, 1);
                         inventory.changeMercenaryStatus(
                           inventory
                             .getHiredAndSelectedMercenaries()

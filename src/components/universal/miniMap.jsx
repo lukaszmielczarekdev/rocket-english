@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import "./miniMap.css";
 
 const MiniMap = (props) => {

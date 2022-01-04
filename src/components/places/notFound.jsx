@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import Footer from "../footer";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import ufo_kidnap from "../../images/ufo-kidnap.png";
 import "./notFound.css";
 import "../planets/planet.css";

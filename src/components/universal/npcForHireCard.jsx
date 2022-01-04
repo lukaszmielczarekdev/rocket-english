@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { InventoryContext } from "../../contexts/inventoryContext";
+import TaskContext from "../../contexts/taskContext";
 import { responsiveImageThumbnail } from "../../utils/renders";
 import "./npcForHireCard.css";
 
 const NpcForHireCard = (props) => {
   const inventory = useContext(InventoryContext);
+  const task = useContext(TaskContext);
 
   const renderHireButton = () => {
     return inventory.inventory.credits >= props.price ? (
@@ -20,7 +22,7 @@ const NpcForHireCard = (props) => {
   };
 
   const renderMercenaryAvatars = (name) => {
-    if (props.hired && !props.selected) {
+    if (props.hired && !props.selected && task.taskQueue.length === 0) {
       return responsiveImageThumbnail(
         "mercenaries",
         name,
@@ -28,7 +30,7 @@ const NpcForHireCard = (props) => {
         "",
         () => inventory.changeMercenaryStatus([props.id], "mark")
       );
-    } else if (props.hired && props.selected) {
+    } else if (props.hired && props.selected && task.taskQueue.length === 0) {
       return responsiveImageThumbnail(
         "mercenaries",
         "Locked",

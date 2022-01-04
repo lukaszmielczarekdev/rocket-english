@@ -5,7 +5,7 @@ import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import ufo_png from "../../images/ufo-logo.png";
 import ufo_webp from "../../images/ufo-logo.webp";
 import quiz_png from "../../images/quiz.png";

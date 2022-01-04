@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import { UserContext } from "../../contexts/userContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import Modal from "react-modal";
 import Nav from "../nav";

@@ -6,15 +6,15 @@ InventoryContext.displayName = "InventoryContext";
 
 const InventoryProvider = (props) => {
   // checks if any data exists in the localStorage and replaces the null object if needed
-  const getData = (localStorageData, initialData) => {
-    let data = localStorage.getItem(localStorageData);
-    if (data === null) {
-      data = JSON.stringify(initialData);
-    }
-    return data !== JSON.stringify(initialData)
-      ? JSON.parse(data)
-      : initialData;
-  };
+  // const getData = (localStorageData, initialData) => {
+  //   let data = localStorage.getItem(localStorageData);
+  //   if (data === null) {
+  //     data = JSON.stringify(initialData);
+  //   }
+  //   return data !== JSON.stringify(initialData)
+  //     ? JSON.parse(data)
+  //     : initialData;
+  // };
 
   const initialUserInventory = {
     credits: 500,
@@ -27,8 +27,11 @@ const InventoryProvider = (props) => {
     mercenaries: mercenaries,
   };
 
+  // const [userInventory, setUserInventory] = useState(
+  //   getData("userInventory", initialUserInventory)
+  // );
   const [userInventory, setUserInventory] = useState(
-    getData("userInventory", initialUserInventory)
+    JSON.parse(localStorage.getItem("userInventory")) || initialUserInventory
   );
 
   useEffect(() => {
@@ -92,7 +95,7 @@ const InventoryProvider = (props) => {
 
   // hire a mercenary
   const handleHireMercenary = (ID) => {
-    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
+    const userInventoryDummy = { ...userInventory };
     const selectedMercenary = userInventoryDummy.mercenaries.find(
       (merc) => merc.id === ID
     );
@@ -105,7 +108,7 @@ const InventoryProvider = (props) => {
 
   // remove a mercenary
   const handleRemoveMercenary = (ID) => {
-    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
+    const userInventoryDummy = { ...userInventory };
     const selectedMercenary = userInventoryDummy.mercenaries.find(
       (merc) => merc.id === ID
     );
@@ -117,7 +120,7 @@ const InventoryProvider = (props) => {
 
   // change mercenary status
   const handleChangeMercenaryStatus = (IDs, action) => {
-    const userInventoryDummy = JSON.parse(JSON.stringify(userInventory));
+    const userInventoryDummy = { ...userInventory };
 
     for (let mercenary of userInventoryDummy.mercenaries) {
       if (IDs.includes(mercenary.id)) {
@@ -135,6 +138,7 @@ const InventoryProvider = (props) => {
         }
       }
     }
+
     setUserInventory(userInventoryDummy);
   };
 
@@ -188,6 +192,32 @@ const InventoryProvider = (props) => {
     setUserInventory(userInventoryDummy);
   };
 
+  // handle expedition data
+  const handleExpeditionInventoryData = (items, IDs, action) => {
+    const userInventoryDummy = { ...userInventory };
+    for (const [key, value] of Object.entries(items)) {
+      userInventoryDummy[key] = userInventoryDummy[key] + value;
+    }
+    for (let mercenary of userInventoryDummy.mercenaries) {
+      if (IDs.includes(mercenary.id)) {
+        if (action === "mark") {
+          mercenary.selected = true;
+        } else if (action === "release") {
+          mercenary.selected = false;
+        } else if (action === "dead") {
+          mercenary.alive = false;
+        } else if (action === "sended") {
+          mercenary.selected = false;
+          mercenary.sended = true;
+        } else if (action === "back") {
+          mercenary.sended = false;
+        }
+      }
+    }
+
+    setUserInventory(userInventoryDummy);
+  };
+
   return (
     <InventoryContext.Provider
       value={{
@@ -208,6 +238,7 @@ const InventoryProvider = (props) => {
         changeMercenaryStatus: handleChangeMercenaryStatus,
         getHiredAndSelectedMercenaries: handleGetHiredAndSelectedMercenaries,
         getHiredAndSendedMercenaries: handleGetHiredAndSendedMercenaries,
+        expeditionInventoryData: handleExpeditionInventoryData,
       }}
     >
       {props.children}
@@ -216,5 +247,3 @@ const InventoryProvider = (props) => {
 };
 
 export default InventoryProvider;
-
-// add buyitem to inventory context, test shop, remove shopcontext

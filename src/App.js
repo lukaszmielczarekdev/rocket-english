@@ -6,7 +6,7 @@ import NotFound from "./components/places/notFound";
 import UserDataProvider from "./contexts/userContext";
 import InventoryProvider from "./contexts/inventoryContext";
 import ShopContext from "./contexts/shopContext";
-import GeneralContext from "./contexts/generalContext";
+import GeneralDataProvider from "./contexts/generalContext";
 import TaskContext from "./contexts/taskContext";
 import TourContext from "./contexts/tourContext";
 import Factory from "./components/places/factory";
@@ -30,10 +30,9 @@ import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/places/testMenu";
 import Help from "./components/places/help";
 import Modal from "react-modal";
-import { availablePlanets } from "./utils/planetAccess";
-import { ToastContainer, toast } from "react-toastify";
 import { renderSummary } from "./utils/summary";
 import Emitter from "./utils/emitter";
+import Expedition from "./components/universal/expedition";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -90,19 +89,6 @@ export const App = (props) => {
     getData("taskData", initialTaskData)
   );
 
-  const handleAddATaskToQueue = (id, difficulty, delay) => {
-    const taskDataDummy = JSON.parse(JSON.stringify(taskData));
-    taskDataDummy.taskQueue.push({
-      id: id,
-      taskName: "expedition",
-      difficulty: difficulty,
-      delay: delay,
-      startingTurnNumber: generalData.currentTurnNumber + delay,
-    });
-
-    setTaskData(taskDataDummy);
-  };
-
   const handleMarkATaskAsFinished = (id) => {
     const taskDataDummy = JSON.parse(JSON.stringify(taskData));
     taskDataDummy.taskQueue = taskDataDummy.taskQueue.filter(
@@ -112,66 +98,15 @@ export const App = (props) => {
     setTaskData(taskDataDummy);
   };
 
-  // general data
-  const initialGeneralData = {
-    newGame: true,
-    gamePaused: false,
-    currentTurnNumber: 0,
-    availablePlanets: availablePlanets,
-  };
-
-  const handleIncrementTurnCounter = () => {
-    const generalDataDummy = { ...generalData };
-    generalDataDummy.currentTurnNumber += 1;
-    setGeneralData(generalDataDummy);
-  };
-
-  const handleSetGamePaused = (state) => {
-    const generalDataDummy = { ...generalData };
-    generalDataDummy.gamePaused = state;
-    setGeneralData(generalDataDummy);
-  };
-
-  const handleSetNewGame = (state) => {
-    const generalDataDummy = { ...generalData };
-    generalDataDummy.newGame = state;
-    setGeneralData(generalDataDummy);
-  };
-
-  const handleMultipleChanges = (param1, value1, param2, value2) => {
-    const generalDataDummy = { ...generalData };
-    generalDataDummy[param1] = value1;
-    generalDataDummy[param2] = value2;
-    setGeneralData(generalDataDummy);
-  };
-
   const handleSetTour = (state) => {
     const tourDataDummy = { ...tourData };
     tourDataDummy.tour = state;
     setTourData(tourDataDummy);
   };
 
-  const handleSetLogin = (state) => {
-    const generalDataDummy = { ...generalData };
-    generalDataDummy.login = state;
-    setGeneralData(generalDataDummy);
+  const handleUpdateTaskData = (data) => {
+    setTaskData(data);
   };
-
-  const handleSetAvailablePlanet = (planet) => {
-    const generalDataDummy = { ...generalData };
-    for (const [key] of Object.entries(generalData.availablePlanets)) {
-      if (key === planet) {
-        generalDataDummy.availablePlanets[key].available = true;
-      } else {
-        generalDataDummy.availablePlanets[key].available = false;
-      }
-    }
-    setGeneralData(generalDataDummy);
-  };
-
-  const [generalData, setGeneralData] = useState(
-    getData("generalData", initialGeneralData)
-  );
 
   // shop
   const initialShop = {
@@ -188,10 +123,6 @@ export const App = (props) => {
   }, [shop]);
 
   useEffect(() => {
-    localStorage.setItem("generalData", JSON.stringify(generalData));
-  }, [generalData]);
-
-  useEffect(() => {
     localStorage.setItem("tourData", JSON.stringify(tourData));
   }, [tourData]);
 
@@ -204,15 +135,12 @@ export const App = (props) => {
     Emitter.on("SHOW_MODAL", () => toggleModal());
   }, []);
 
-  // toast
-  const notify = (text) => toast(text);
-
   return (
     <TaskContext.Provider
       value={{
         task: taskData,
         taskQueue: taskData.taskQueue,
-        addATaskToQueue: handleAddATaskToQueue,
+        updateTaskData: handleUpdateTaskData,
         markATaskAsFinished: handleMarkATaskAsFinished,
       }}
     >
@@ -222,19 +150,7 @@ export const App = (props) => {
           setTour: handleSetTour,
         }}
       >
-        <GeneralContext.Provider
-          value={{
-            incrementTurnCounter: handleIncrementTurnCounter,
-            setGamePaused: handleSetGamePaused,
-            setNewGame: handleSetNewGame,
-            setLogin: handleSetLogin,
-            general: generalData,
-            planets: generalData.availablePlanets,
-            setAvailablePlanet: handleSetAvailablePlanet,
-            changeMultiple: handleMultipleChanges,
-            showToast: notify,
-          }}
-        >
+        <GeneralDataProvider>
           <ShopContext.Provider value={{ shopInventory: shop }}>
             <InventoryProvider>
               <UserDataProvider>
@@ -263,22 +179,7 @@ export const App = (props) => {
                   <Route path="/" exact component={Welcome} />
                   <Redirect to="/space" />
                 </Switch>
-                <div id={"toast-container"}>
-                  <ToastContainer
-                    position="bottom-center"
-                    autoClose={2000}
-                    hideProgressBar
-                    newestOnTop
-                    closeOnClick
-                    closeButton={false}
-                    rtl={false}
-                    pauseOnFocusLoss={false}
-                    draggable={false}
-                    pauseOnHover
-                    theme={"dark"}
-                    limit={3}
-                  />
-                </div>
+                <Expedition />
                 <Modal
                   style={modalStyle}
                   isOpen={modalTrigger}
@@ -299,7 +200,7 @@ export const App = (props) => {
               </UserDataProvider>
             </InventoryProvider>
           </ShopContext.Provider>
-        </GeneralContext.Provider>
+        </GeneralDataProvider>
       </TourContext.Provider>
     </TaskContext.Provider>
   );

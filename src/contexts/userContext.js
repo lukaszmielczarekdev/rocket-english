@@ -6,17 +6,6 @@ export const UserContext = React.createContext();
 UserContext.displayName = "UserContext";
 
 const UserContextProvider = (props) => {
-  // checks if any data exists in the localStorage and replaces the null object if needed
-  const getData = (localStorageData, initialData) => {
-    let data = localStorage.getItem(localStorageData);
-    if (data === null) {
-      data = JSON.stringify(initialData);
-    }
-    return data !== JSON.stringify(initialData)
-      ? JSON.parse(data)
-      : initialData;
-  };
-
   const initialUserInfo = {
     name: "Guest",
     lvl: 1,
@@ -35,7 +24,7 @@ const UserContextProvider = (props) => {
   };
 
   const [userInfo, setUserInfo] = useState(
-    getData("userInfo", initialUserInfo)
+    JSON.parse(localStorage.getItem("userInfo")) || initialUserInfo
   );
 
   useEffect(() => {
@@ -211,6 +200,17 @@ const UserContextProvider = (props) => {
     setUserInfo(userDataDummy);
   };
 
+  // handle Expedition
+  const handleExpeditionUserData = (exp, planet) => {
+    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+    userDataDummy.exp = userDataDummy.exp + exp;
+    userDataDummy.currentPlanet = planet;
+    userDataDummy.narration[planet].find(
+      (elem) => elem.id === 1
+    ).completed = true;
+    setUserInfo(userDataDummy);
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -230,6 +230,7 @@ const UserContextProvider = (props) => {
         subtractMovementsPoints: handleSubtractMovementPoints,
         setMovementPoints: setMovementPoints,
         checkIfNarrationAvailable: handleCheckIfNarrationAvailable,
+        expeditionUserData: handleExpeditionUserData,
       }}
     >
       {props.children}

@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import DialogueMenu from "../universal/dialogueMenu";
 import NpcForHireCard from "../universal/npcForHireCard";

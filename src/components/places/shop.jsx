@@ -6,7 +6,7 @@ import DialogueMenu from "../universal/dialogueMenu";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import ShopInventory from "../../contexts/shopContext";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import Nav from "../nav";
 import Footer from "../footer";
 import HeaderWithLogo from "../universal/headerWithLogo";

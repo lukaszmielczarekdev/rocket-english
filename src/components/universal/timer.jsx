@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import Emitter from "../../utils/emitter";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import TaskContext from "../../contexts/taskContext";
 import { UserContext } from "../../contexts/userContext";
+import { InventoryContext } from "../../contexts/inventoryContext";
 
 const Timer = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   const task = useContext(TaskContext);
+  const inventory = useContext(InventoryContext);
 
   const setTimerFromLocalStorage = () => {
     const storedMins = localStorage.getItem("minutes");
@@ -24,13 +26,16 @@ const Timer = (props) => {
 
   const [[mins, secs], setTime] = useState(setTimerFromLocalStorage());
 
-  const checkTaskQueue = () => {
+  const checkTaskQueue = (members) => {
     if (task.task.taskQueue.length !== 0) {
       const currentTask = task.task.taskQueue.find(
         (task) => task.startingTurnNumber === general.general.currentTurnNumber
       );
       if (currentTask) {
-        Emitter.emit("START_AN_EXPEDITION", currentTask);
+        Emitter.emit("START_AN_EXPEDITION", [
+          currentTask,
+          user.user.currentPlanet,
+        ]);
         task.markATaskAsFinished(currentTask.id);
         props.closeMenuForExpedition();
       }
@@ -45,7 +50,7 @@ const Timer = (props) => {
   });
 
   useEffect(() => {
-    checkTaskQueue();
+    checkTaskQueue(inventory.inventory.mercenaries);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [general.general.currentTurnNumber]);
 

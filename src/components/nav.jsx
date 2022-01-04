@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
-import GeneralContext from "../contexts/generalContext";
+import { GeneralContext } from "../contexts/generalContext";
 import Timer from "./universal/timer";
 import "./nav.css";
 

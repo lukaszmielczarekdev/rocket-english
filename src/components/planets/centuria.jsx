@@ -4,7 +4,7 @@ import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import { UserContext } from "../../contexts/userContext";
-import GeneralContext from "../../contexts/generalContext";
+import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
