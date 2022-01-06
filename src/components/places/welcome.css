@@ -311,17 +311,6 @@
   margin: auto;
 }
 
-.thumbnail img {
-  width: 50% !important;
-  border-radius: 15px;
-}
-
-@media screen and (max-width: 480px) {
-  .thumbnail img {
-    width: 90% !important;
-  }
-}
-
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .welcome-wrapper {

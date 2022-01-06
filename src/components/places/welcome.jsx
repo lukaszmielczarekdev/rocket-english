@@ -9,7 +9,7 @@ import { GeneralContext } from "../../contexts/generalContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { TourContext } from "../../contexts/tourContext";
 import Modal from "react-modal";
-import { responsiveImageThumbnail } from "../../utils/renders";
+import Thumbnail from "../universal/thumbnail";
 import "./welcome.css";
 
 const Welcome = (props) => {
@@ -208,39 +208,36 @@ const Welcome = (props) => {
             <section className="planet-info-container gallery-split">
               <article className="flex-centered">
                 <h4>play</h4>
-                <p className="thumbnail logo-place image fit margin-bottom-0">
-                  {responsiveImageThumbnail(
-                    "planet-images",
-                    "thumbnail-light",
-                    "play"
-                  )}
-                </p>
+                <Thumbnail
+                  styles={"thumbnail"}
+                  imageCategory={"planet-images"}
+                  image={"thumbnail-light"}
+                  alt={"Explore a fantastic galaxy full of interesting places."}
+                />
                 <p className="width-80">
                   Explore a fantastic galaxy full of interesting places.
                 </p>
               </article>
               <article className="flex-centered">
                 <h4>learn</h4>
-                <p className="thumbnail logo-place image fit margin-bottom-0">
-                  {responsiveImageThumbnail(
-                    "planet-images",
-                    "thumbnail-learn",
-                    "learn"
-                  )}
-                </p>
+                <Thumbnail
+                  styles={"thumbnail"}
+                  imageCategory={"planet-images"}
+                  image={"thumbnail-learn"}
+                  alt={"Take on language challenges and earn rewards."}
+                />
                 <p className="width-80">
                   Take on language challenges and earn rewards.
                 </p>
               </article>
               <article className="flex-centered">
                 <h4>explore</h4>
-                <p className="thumbnail logo-place image fit margin-bottom-0">
-                  {responsiveImageThumbnail(
-                    "planet-images",
-                    "thumbnail-rocket",
-                    "rocket"
-                  )}
-                </p>
+                <Thumbnail
+                  styles={"thumbnail"}
+                  imageCategory={"planet-images"}
+                  image={"thumbnail-rocket"}
+                  alt={"Explore the planets with an upgradeable rocket."}
+                />
                 <p className="width-80">
                   Explore the planets with an upgradeable rocket.
                 </p>

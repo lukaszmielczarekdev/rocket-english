@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { InventoryContext } from "../../contexts/inventoryContext";
 import { TaskContext } from "../../contexts/taskContext";
-import { responsiveImageThumbnail } from "../../utils/renders";
+import Thumbnail from "./thumbnail";
 import "./npcForHireCard.css";
 
 const NpcForHireCard = (props) => {
@@ -23,23 +23,35 @@ const NpcForHireCard = (props) => {
 
   const renderMercenaryAvatars = (name) => {
     if (props.hired && !props.selected && task.taskQueue.length === 0) {
-      return responsiveImageThumbnail(
-        "mercenaries",
-        name,
-        "mercenary",
-        "",
-        () => inventory.changeMercenaryStatus([props.id], "mark")
+      return (
+        <Thumbnail
+          onClickAction={() =>
+            inventory.changeMercenaryStatus([props.id], "mark")
+          }
+          imageCategory={"mercenaries"}
+          image={name}
+          alt={"Mercenary portrait"}
+        />
       );
     } else if (props.hired && props.selected && task.taskQueue.length === 0) {
-      return responsiveImageThumbnail(
-        "mercenaries",
-        "Locked",
-        "mercenary",
-        "",
-        () => inventory.changeMercenaryStatus([props.id], "release")
+      return (
+        <Thumbnail
+          onClickAction={() =>
+            inventory.changeMercenaryStatus([props.id], "release")
+          }
+          imageCategory={"mercenaries"}
+          image={"Locked"}
+          alt={"Mercenary portrait"}
+        />
       );
     } else {
-      return responsiveImageThumbnail("mercenaries", name, "mercenary", "");
+      return (
+        <Thumbnail
+          imageCategory={"mercenaries"}
+          image={name}
+          alt={"Mercenary portrait"}
+        />
+      );
     }
   };
 
