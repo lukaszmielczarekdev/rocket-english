@@ -7,7 +7,7 @@ import Footer from "../footer";
 import Article from "../universal/article";
 import ArticleUnderlined from "../universal/articleWithUnderlinedHeader";
 import MiniMap from "../universal/miniMap";
-import { planets } from "../../utils/renders";
+import { planets, modalStyle } from "../../utils/renders";
 import planetAccess from "../../utils/planetAccess";
 import AliceCarousel from "react-alice-carousel";
 import Modal from "react-modal";
@@ -15,24 +15,6 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import "./planet.css";
 
 Modal.setAppElement(document.getElementById("root"));
-
-const modalStyle = {
-  content: {
-    letterSpacing: "0.05rem",
-    padding: "2rem 0 2rem 0",
-    textAlign: "center",
-    backgroundColor: "rgb(1, 9, 27)",
-    borderRadius: "15px",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    maxWidth: "90%",
-    maxHeight: "90%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 const Planet = (props) => {
   const general = useContext(GeneralContext);

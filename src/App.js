@@ -31,27 +31,13 @@ import TestMenu from "./components/places/testMenu";
 import Help from "./components/places/help";
 import Modal from "react-modal";
 import { renderSummary } from "./utils/summary";
+import { modalStyle } from "./utils/renders";
 import Emitter from "./utils/emitter";
 import Expedition from "./components/universal/expedition";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 Modal.setAppElement(document.getElementById("root"));
-
-const modalStyle = {
-  content: {
-    padding: "2rem 0 2rem 0",
-    textAlign: "center",
-    backgroundColor: "rgb(1, 9, 27)",
-    borderRadius: "15px",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 export const App = (props) => {
   const [modalTrigger, setModalTrigger] = useState(false);

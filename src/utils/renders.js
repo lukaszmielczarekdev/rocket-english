@@ -39,6 +39,24 @@ export const planets = [
   "centuria",
 ];
 
+export const modalStyle = {
+  content: {
+    letterSpacing: "0.05rem",
+    padding: "2rem 0 2rem 0",
+    textAlign: "center",
+    backgroundColor: "rgb(1, 9, 27)",
+    borderRadius: "15px",
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    maxWidth: "90%",
+    maxHeight: "90%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
 export const responsiveImageThumbnail = (
   imageCategory,
   image,
