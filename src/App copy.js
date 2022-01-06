@@ -5,10 +5,10 @@ import Welcome from "./components/places/welcome";
 import NotFound from "./components/places/notFound";
 import UserDataProvider from "./contexts/userContext";
 import InventoryProvider from "./contexts/inventoryContext";
-import ShopDataProvider from "./contexts/shopContext";
+import ShopContext from "./contexts/shopContext";
 import GeneralDataProvider from "./contexts/generalContext";
 import TaskDataProvider from "./contexts/taskContext";
-import TourDataProvider from "./contexts/tourContext";
+import TourContext from "./contexts/tourContext";
 import Factory from "./components/places/factory";
 import Shop from "./components/places/shop";
 import Inventory from "./components/places/inventory";
@@ -60,6 +60,50 @@ export const App = (props) => {
     setModalTrigger(!modalTrigger);
   };
 
+  // checks if any data exists in the localStorage and replaces the null object if needed
+  const getData = (localStorageData, initialData) => {
+    let data = localStorage.getItem(localStorageData);
+    if (data === null) {
+      data = JSON.stringify(initialData);
+    }
+    return data !== JSON.stringify(initialData)
+      ? JSON.parse(data)
+      : initialData;
+  };
+
+  // tour data
+  const initialTourData = {
+    tour: false,
+  };
+
+  const [tourData, setTourData] = useState(
+    getData("tourData", initialTourData)
+  );
+
+  const handleSetTour = (state) => {
+    const tourDataDummy = { ...tourData };
+    tourDataDummy.tour = state;
+    setTourData(tourDataDummy);
+  };
+
+  // shop
+  const initialShop = {
+    word: 450,
+    stardust: 5000,
+    steel: 3500,
+    aluminum: 4000,
+  };
+
+  const [shop] = useState(getData("shop", initialShop));
+
+  useEffect(() => {
+    localStorage.setItem("shop", JSON.stringify(shop));
+  }, [shop]);
+
+  useEffect(() => {
+    localStorage.setItem("tourData", JSON.stringify(tourData));
+  }, [tourData]);
+
   useEffect(() => {
     Emitter.on("SEND_CONTENT", (summaryContent) => setSummary(summaryContent));
     Emitter.on("SHOW_MODAL", () => toggleModal());
@@ -67,9 +111,14 @@ export const App = (props) => {
 
   return (
     <TaskDataProvider>
-      <TourDataProvider>
+      <TourContext.Provider
+        value={{
+          tour: tourData.tour,
+          setTour: handleSetTour,
+        }}
+      >
         <GeneralDataProvider>
-          <ShopDataProvider>
+          <ShopContext.Provider value={{ shopInventory: shop }}>
             <InventoryProvider>
               <UserDataProvider>
                 <Switch>
@@ -117,9 +166,9 @@ export const App = (props) => {
                 </Modal>
               </UserDataProvider>
             </InventoryProvider>
-          </ShopDataProvider>
+          </ShopContext.Provider>
         </GeneralDataProvider>
-      </TourDataProvider>
+      </TourContext.Provider>
     </TaskDataProvider>
   );
 };

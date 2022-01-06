@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const TourContext = React.createContext();
+export const TourContext = React.createContext();
 TourContext.displayName = "TourContext";
 
-export default TourContext;
+const TourDataProvider = (props) => {
+  const initialTourData = {
+    tour: false,
+  };
+
+  const [tourData, setTourData] = useState(
+    JSON.parse(localStorage.getItem("tourData")) || initialTourData
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tourData", JSON.stringify(tourData));
+  }, [tourData]);
+
+  const handleSetTour = (state) => {
+    const tourDataDummy = { ...tourData };
+    tourDataDummy.tour = state;
+    setTourData(tourDataDummy);
+  };
+
+  return (
+    <TourContext.Provider
+      value={{
+        tour: tourData.tour,
+        setTour: handleSetTour,
+      }}
+    >
+      {props.children}
+    </TourContext.Provider>
+  );
+};
+
+export default TourDataProvider;

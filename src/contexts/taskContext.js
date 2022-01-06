@@ -9,7 +9,7 @@ const TaskDataProvider = (props) => {
   };
 
   const [taskData, setTaskData] = useState(
-    JSON.parse(localStorage.getItem("userInfo")) || initialTaskData
+    JSON.parse(localStorage.getItem("taskData")) || initialTaskData
   );
 
   useEffect(() => {

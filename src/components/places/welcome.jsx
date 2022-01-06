@@ -7,7 +7,7 @@ import Footer from "../footer";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
-import TourContext from "../../contexts/tourContext";
+import { TourContext } from "../../contexts/tourContext";
 import Modal from "react-modal";
 import { responsiveImageThumbnail } from "../../utils/renders";
 import "./welcome.css";
