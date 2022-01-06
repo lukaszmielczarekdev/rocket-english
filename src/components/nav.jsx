@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 import { GeneralContext } from "../contexts/generalContext";
 import Timer from "./universal/timer";
+import Icon from "./universal/icon";
 import "./nav.css";
 
 const Nav = (props) => {
@@ -26,7 +27,7 @@ const Nav = (props) => {
   return (
     <div id="navbar-wrapper">
       <div id="navbar-items" className="text-center">
-        <i className="fas fa-rocket rocket-icon"></i>
+        <Icon cls={"fas fa-rocket rocket-icon"} />
         <div className="nav-logo">
           {general.general.newGame ? (
             <h1>ROCKET ENGLISH</h1>
@@ -97,12 +98,10 @@ const Nav = (props) => {
             )}
           </ul>
         </div>
-        <i
-          onClick={handleClick}
-          className={
-            clicked ? "menu-icon fas fa-times" : "menu-icon fas fa-bars"
-          }
-        ></i>
+        <Icon
+          cls={clicked ? "menu-icon fas fa-times" : "menu-icon fas fa-bars"}
+          onClickAction={handleClick}
+        />
       </div>
     </div>
   );

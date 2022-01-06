@@ -34,6 +34,7 @@ import { renderSummary } from "./utils/summary";
 import { modalStyle } from "./utils/renders";
 import Emitter from "./utils/emitter";
 import Expedition from "./components/universal/expedition";
+import Icon from "./components/universal/icon";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -90,10 +91,10 @@ export const App = (props) => {
                   onRequestClose={toggleModal}
                   contentLabel="Expedition summary modal"
                 >
-                  <i
-                    onClick={toggleModal}
-                    className="far fa-times-circle modal-button"
-                  ></i>
+                  <Icon
+                    cls={"far fa-times-circle modal-button"}
+                    onClickAction={toggleModal}
+                  />
                   <ul>
                     <li>
                       <h4>Expedition results:</h4>
