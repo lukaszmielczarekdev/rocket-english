@@ -128,7 +128,6 @@ const Welcome = (props) => {
   };
   const startGame = () => {
     general.setAvailablePlanet("crion");
-    general.general.availablePlanets["crion"].discovered = true;
     general.setNewGame(false);
   };
 

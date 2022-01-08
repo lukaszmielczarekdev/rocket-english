@@ -28,6 +28,7 @@ export const availablePlanets = {
   },
   therion: {
     available: false,
+    discovered: false,
     places: [
       "mine",
       "bar",
@@ -42,6 +43,7 @@ export const availablePlanets = {
   },
   crystalia: {
     available: false,
+    discovered: false,
     places: [
       "ufo",
       "bar",
@@ -56,6 +58,7 @@ export const availablePlanets = {
   },
   thalia: {
     available: false,
+    discovered: false,
     places: [
       "shop",
       "casino",
@@ -70,10 +73,12 @@ export const availablePlanets = {
   },
   bathea: {
     available: false,
+    discovered: false,
     places: ["ufo", "bar", "quiz", "pad", "inventory", "favorites", "help"],
   },
   axios: {
     available: false,
+    discovered: false,
     places: [
       "ufo",
       "quiz",
@@ -89,6 +94,8 @@ export const availablePlanets = {
     ],
   },
   desertia: {
+    available: false,
+    discovered: false,
     places: [
       "shop",
       "casino",
@@ -103,6 +110,7 @@ export const availablePlanets = {
   },
   xillon: {
     available: false,
+    discovered: false,
     places: [
       "shop",
       "mine",
@@ -116,6 +124,7 @@ export const availablePlanets = {
   },
   centuria: {
     available: false,
+    discovered: false,
     places: ["shop", "casino", "quiz", "pad", "inventory", "favorites", "help"],
   },
 };

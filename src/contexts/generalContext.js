@@ -69,6 +69,7 @@ const GeneralDataProvider = (props) => {
     for (const [key] of Object.entries(generalData.availablePlanets)) {
       if (key === planet) {
         generalDataDummy.availablePlanets[key].available = true;
+        generalDataDummy.availablePlanets[key].discovered = true;
       } else {
         generalDataDummy.availablePlanets[key].available = false;
       }

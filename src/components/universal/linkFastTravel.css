@@ -1,0 +1,16 @@
+.margin-top-05rem img {
+  margin-top: 0.5rem;
+}
+
+.placeholder {
+  height: 3.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .desktop {
+    display: none;
+  }
+  .placeholder {
+    display: none;
+  }
+}

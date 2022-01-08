@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { GeneralContext } from "../../contexts/generalContext";
+import { UserContext } from "../../contexts/userContext";
+import LinkFastTravel from "./linkFastTravel";
 import "./miniMap.css";
 
 const MiniMap = (props) => {
   const general = useContext(GeneralContext);
+  const user = useContext(UserContext);
 
   const ifCurrent = (planet) => {
     return general.general.availablePlanets[planet].available
@@ -14,7 +17,14 @@ const MiniMap = (props) => {
   const renderMap = (planets) => {
     return planets.map((planet) => (
       <li key={planet} className={ifCurrent(planet)}>
-        {planet}
+        <LinkFastTravel
+          title={planet}
+          available={
+            general.general.availablePlanets[planet].discovered &&
+            planet !== user.user.currentPlanet
+          }
+          linkCallback={general.setAvailablePlanet}
+        />
       </li>
     ));
   };
@@ -22,7 +32,7 @@ const MiniMap = (props) => {
   return (
     <section>
       <ul className="sidebar">
-        <li>Location:</li>
+        <li>Travel:</li>
         {renderMap(props.planets)}
       </ul>
     </section>
