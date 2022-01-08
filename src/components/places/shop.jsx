@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import LinkButton from "../universal/linkButton";
 import DialogueMenu from "../universal/dialogueMenu";
 import { InventoryContext } from "../../contexts/inventoryContext";
-import ShopInventory from "../../contexts/shopContext";
+import { ShopContext } from "../../contexts/shopContext";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import Nav from "../nav";
@@ -19,7 +19,7 @@ import "./shop.css";
 const Shop = (props) => {
   const user = useContext(UserContext);
   const inventory = useContext(InventoryContext);
-  const shop = useContext(ShopInventory);
+  const shop = useContext(ShopContext);
   const general = useContext(GeneralContext);
   useEffect(() => {
     general.setGamePaused(false);
