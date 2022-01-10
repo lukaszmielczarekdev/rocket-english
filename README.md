@@ -9,7 +9,7 @@
 
 ## About the project
 
-Rocket English is a game of guessing definitions based on English words. The user earns points for which he receives levels, trophies and bonuses that help to achieve better results.
+The application uses a gamification system to activate and motivate the user to learn English. The main assumption of the project was to create an interesting space-themed game, containing a mechanism of motivating and rewarding the player who, as a reward for overcoming challenges, wins trophies and gets access to the next levels of the game. The background for the game is a fantastic story about the fate of a lost crew in a mysterious galaxy, the fate of which the player learns gradually. Increasing the player's progress in the game is closely related to overcoming the language challenges. In addition to overcoming story challenges, the game offers the user to create their own challenges through its own test creation mechanism generated on the basis of materials provided by the user.
 
 ## What you need to build the app
 
