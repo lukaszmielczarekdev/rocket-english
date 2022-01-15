@@ -1,8 +1,9 @@
-/* typography  */
-.favorites-container h3 {
+/* typography */
+.trophies-container h3 {
   color: var(--clr-primary-100);
 }
-#favorites {
+
+#trophies {
   font-family: var(--ff-primary);
   color: var(--clr-primary-100);
   font-weight: normal;
@@ -13,7 +14,7 @@
   font-size: smaller;
 }
 
-#favorites h2 {
+#trophies h2 {
   font-size: 2rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -22,7 +23,7 @@
   letter-spacing: 0.6rem;
 }
 
-#favorites h3 {
+#trophies h3 {
   font-size: 1rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -30,7 +31,7 @@
   color: inherit;
   letter-spacing: 0.3rem;
 }
-#favorites h4 {
+#trophies h4 {
   font-size: 1rem;
   font-weight: 200;
   font-family: var(--ff-primary);
@@ -39,13 +40,13 @@
   letter-spacing: 0.3rem;
 }
 
-#favorites ul {
+#trophies ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-#favorites ul li {
+#trophies ul li {
   border-left: 0;
   padding-left: 0;
   list-style: none;
@@ -53,7 +54,7 @@
 
 /* layout */
 
-#favorites {
+#trophies {
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -61,16 +62,13 @@
   display: flex;
   flex: auto;
 }
-.favorites-wrapper {
+.trophies-wrapper {
   align-items: center;
   justify-content: center;
   align-content: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
-.favorites-container {
+.trophies-container {
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
@@ -79,20 +77,26 @@
   padding-bottom: auto;
   text-align: center;
 }
-.favorites-container article article {
+.trophies-container article article {
   text-align: center;
 }
-.margin-block-favorites-container {
+.margin-block-trophies-container {
   margin: auto;
 }
+
+.trophies-activities-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
 @media screen and (min-width: 1024px) {
-  .favorites-activities-container {
+  .trophies-activities-container {
     margin-bottom: 2rem;
   }
 }
 
 @media screen and (min-width: 960px) {
-  .favorites-activities-container {
+  .trophies-activities-container {
     margin-top: 2rem;
     width: min(90%, 70rem);
     margin-inline: auto;
@@ -100,15 +104,15 @@
     margin-right: auto;
   }
 }
-/* button */
 
-#favorites button {
+/* button */
+#trophies button {
   color: var(--clr-primary-100);
   border: 1px solid var(--clr-primary-100);
   margin-top: 1rem;
 }
 
-#favorites button:hover {
+#trophies button:hover {
   border: none;
 }
 
@@ -123,15 +127,15 @@
 
 /* background */
 @media screen and (min-width: 1281px) {
-  .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1920/astronomy.jpg);
+  .no-webp .trophies-wrapper {
+    background: url(/src/images/planet-images/1920/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
-  .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1920/astronomy.webp);
+  .webp .trophies-wrapper {
+    background: url(/src/images/planet-images/1920/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -140,15 +144,15 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1280/astronomy.jpg);
+  .no-webp .trophies-wrapper {
+    background: url(/src/images/planet-images/1280/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
-  .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/1280/astronomy.webp);
+  .webp .trophies-wrapper {
+    background: url(/src/images/planet-images/1280/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -157,55 +161,18 @@
 }
 
 @media screen and (max-width: 640px) {
-  .no-webp .favorites-wrapper {
-    background: url(/src/images/planet-images/960/astronomy.jpg);
+  .no-webp .trophies-wrapper {
+    background: url(/src/images/planet-images/960/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
-  .webp .favorites-wrapper {
-    background: url(/src/images/planet-images/960/astronomy.webp);
+  .webp .trophies-wrapper {
+    background: url(/src/images/planet-images/960/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
-}
-
-/* carousel customization */
-#favorites .carousel-card {
-  margin: 0.5rem;
-  border-radius: 15px;
-  padding: 1rem;
-}
-
-#favorites .alice-carousel {
-  padding-bottom: 2rem;
-  color: inherit;
-}
-
-#favorites .alice-carousel__prev-btn {
-  text-align: center !important;
-}
-#favorites .alice-carousel__prev-btn,
-#favorites .alice-carousel__next-btn {
-  display: inline-block;
-  width: 5% !important;
-}
-
-#favorites .alice-carousel__prev-btn-item,
-#favorites .alice-carousel__next-btn-item {
-  color: white;
-}
-
-@media screen and (max-width: 1024px) {
-  #favorites .alice-carousel__prev-btn,
-  #favorites .alice-carousel__next-btn {
-    display: none !important;
-    width: 5% !important;
-  }
-}
-#favorites .alice-carousel__dots {
-  margin-top: 0;
 }

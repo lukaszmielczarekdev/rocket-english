@@ -28,6 +28,7 @@ import Bathea from "./components/planets/bathea";
 import Axios from "./components/planets/axios";
 import Desertia from "./components/planets/desertia";
 import TestMenu from "./components/places/testMenu";
+import Trophies from "./components/places/trophies";
 import Help from "./components/places/help";
 import Modal from "react-modal";
 import { renderSummary } from "./utils/summary";
@@ -72,6 +73,7 @@ export const App = (props) => {
                   <Route path="/university" component={TestMenu} />
                   <Route path="/inventory" component={Inventory} />
                   <Route path="/help" component={Help} />
+                  <Route path="/trophies" component={Trophies} />
                   <Route path="/xillon" component={Xillon} />
                   <Route path="/centuria" component={Centuria} />
                   <Route path="/crion" component={Crion} />

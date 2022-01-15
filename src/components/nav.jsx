@@ -11,6 +11,7 @@ const Nav = (props) => {
   const [clicked, setClicked] = useState(false);
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
+  const [destroyed, setDestroyed] = useState("fas fa-rocket rocket-icon");
 
   const handleClick = () => setClicked(!clicked);
 
@@ -24,10 +25,25 @@ const Nav = (props) => {
     }
   };
 
+  const destroy = () => {
+    if (destroyed !== "hidden-logo" && !clicked) {
+      setDestroyed("break");
+      setTimeout(() => {
+        setDestroyed("hidden-logo");
+      }, 4700);
+    }
+  };
+
   return (
     <div id="navbar-wrapper">
       <div id="navbar-items" className="text-center">
-        <Icon cls={"fas fa-rocket rocket-icon"} />
+        <span
+          onClick={() => {
+            destroy();
+          }}
+        >
+          <Icon cls={`fas fa-rocket rocket-icon ${destroyed}`} />
+        </span>
         <div className="nav-logo">
           {general.general.newGame ? (
             <h1>ROCKET ENGLISH</h1>
@@ -43,11 +59,21 @@ const Nav = (props) => {
             </NavLink>
           )}
           <ul className={clicked ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-links menu">
-              <NavLink className="navbar-navlink" to="/help">
-                How to Play
-              </NavLink>
-            </li>
+            {(user.user.currentPlanet === "menu" ||
+              general.general.gamePaused) && (
+              <li className="nav-links menu">
+                <NavLink className="navbar-navlink" to="/help">
+                  How to Play
+                </NavLink>
+              </li>
+            )}
+            {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
+              <li className={"nav-links"}>
+                <NavLink className="navbar-navlink" to="/trophies">
+                  <i className="fas fa-trophy"></i> Trophies
+                </NavLink>
+              </li>
+            )}
             {/* <li
               className={
                 user.user.currentPlanet === "menu" ? "nav-links" : "nav-hidden"
@@ -57,28 +83,37 @@ const Nav = (props) => {
                 Contact Me
               </NavLink>
             </li> */}
-            <li
-              className={
-                user.user.currentPlanet !== "menu" ? "nav-links" : "nav-hidden"
-              }
-            >
-              <NavLink className="navbar-navlink" to="/favorites">
-                Favorites
-              </NavLink>
-            </li>
-            <li
-              className={
-                user.user.currentPlanet === "menu" ? "nav-hidden" : "nav-links"
-              }
-            >
-              <NavLink className="navbar-navlink" to="/inventory">
-                Inventory
-              </NavLink>
-            </li>
+            {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
+              <li
+                className={
+                  user.user.currentPlanet !== "menu"
+                    ? "nav-links"
+                    : "nav-hidden"
+                }
+              >
+                <NavLink className="navbar-navlink" to="/favorites">
+                  <i className="fas fa-star"></i> Favorites
+                </NavLink>
+              </li>
+            )}
+            {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
+              <li
+                className={
+                  user.user.currentPlanet === "menu"
+                    ? "nav-hidden"
+                    : "nav-links"
+                }
+              >
+                <NavLink className="navbar-navlink" to="/inventory">
+                  <i className="fas fa-box-open"></i> Inventory
+                </NavLink>
+              </li>
+            )}
             <li
               className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}
             >
-              Lvl: {user.user.lvl}
+              <i className="fas fa-user"></i> {user.user.lvl}{" "}
+              <i className="fas fa-rocket"></i> {user.user.rocketLvl}
             </li>
             <li
               className={user.user.currentPlanet === "menu" ? "nav-hidden" : ""}

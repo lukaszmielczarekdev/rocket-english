@@ -907,7 +907,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: true,
+      unlocked: false,
     },
   ],
   crion: [
@@ -995,7 +995,7 @@ export const narration = {
       content: [
         {
           id: 1,
-          text: "We bribed a prison guard and, disguised as a prison patrol with a dog, led Johnn out of the cell. We disguised him as a patrol member, and under the guise of training in topography outside the prison, we escaped to the rocket with which we got to Axios.",
+          text: "We bribed a prison guard and, disguised as a prison patrol with a dog, led Johnny out of the cell. We disguised him as a patrol member, and under the guise of training in topography outside the prison, we escaped to the rocket with which we got to Axios.",
         },
         {
           id: 2,

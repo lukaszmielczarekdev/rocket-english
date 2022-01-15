@@ -68,10 +68,10 @@ export const Ufo = (props) => {
     const result = loseOrWin[Math.floor(Math.random() * loseOrWin.length)];
     if (result === "loser") {
       inventory.resetInventory();
-      user.onSetUfo(user.user.currentPlanet);
+      user.onSetUfo(user.user.currentPlanet, "getRobbed");
       toggleModal();
     } else {
-      user.onSetUfo(user.user.currentPlanet);
+      user.onSetUfo(user.user.currentPlanet, "ufoDefeated");
       const rate = winRate[Math.floor(Math.random() * winRate.length)];
       const credits = Math.floor(base * rate * 2000);
       const exp = Math.floor(base * rate * 500);

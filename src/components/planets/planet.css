@@ -309,6 +309,14 @@
   -ms-user-select: none;
 }
 
+.carousel-card {
+  transition: transform 0.2s;
+}
+
+.carousel-card:hover {
+  transform: scale(1.05);
+}
+
 /* background images */
 
 @media screen and (min-width: 1281px) {

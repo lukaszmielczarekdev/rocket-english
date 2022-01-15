@@ -61,6 +61,9 @@ const GapTest = (props) => {
 
     if (props.ifPrize) {
       if (counter) {
+        if (counter === Object.keys(formData.current).length) {
+          user.incrementEventCounter("fillTheGapsCompleted");
+        }
         setSummary([
           ["exp", 50 * counter],
           ["credits", 50 * counter],

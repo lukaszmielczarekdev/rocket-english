@@ -106,6 +106,7 @@ const Controller = (props) => {
       wordsList.current[currentIndex.current].guessed = true;
       wordsList.current[currentIndex.current].points = 100;
       currentIndex.current += 1;
+      user.incrementEventCounter("wordsRevealed");
       counter.current += 1;
       if (quizLength.current >= counter.current) {
         currentWord.current = wordsList.current[currentIndex.current].word;

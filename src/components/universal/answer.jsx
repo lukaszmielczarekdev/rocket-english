@@ -14,18 +14,18 @@ const Answer = (props) => {
       if (inventory.inventory.credits >= 25000) {
         inventory.subtractCredits(25000);
         user.setNarrationUnlocked(1, "axios");
-        user.setDialogueShownAndCompleted(2, "bathea");
+        user.setDialogueShownAndCompleted(2, "bathea", "findTheCrew");
         general.showToast("Success!");
       } else {
         general.showToast("Not enough [!]");
       }
     } else if (planet === "axios") {
       user.setNarrationUnlocked(1, "desertia");
-      user.setDialogueShownAndCompleted(10, "axios");
+      user.setDialogueShownAndCompleted(10, "axios", "helpScientists");
       general.showToast("Expedition prepared");
     } else if (planet === "xillon") {
       user.setNarrationUnlocked(1, "centuria");
-      user.setDialogueShownAndCompleted(3, "xillon");
+      user.setDialogueShownAndCompleted(3, "xillon", "winAWar");
       general.showToast("We won!");
     }
   };

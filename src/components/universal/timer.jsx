@@ -4,6 +4,7 @@ import { GeneralContext } from "../../contexts/generalContext";
 import { TaskContext } from "../../contexts/taskContext";
 import { UserContext } from "../../contexts/userContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
+import { checkConditions } from "../../utils/trophies";
 
 const Timer = (props) => {
   const user = useContext(UserContext);
@@ -53,6 +54,10 @@ const Timer = (props) => {
     checkTaskQueue(inventory.inventory.mercenaries);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [general.general.currentTurnNumber]);
+
+  useEffect(() => {
+    checkConditions(user, general, inventory, user.collectATrophy);
+  }, [user, general, inventory, user.collectATrophy]);
 
   const reset = () => {
     setTime([props.mins, props.secs]);

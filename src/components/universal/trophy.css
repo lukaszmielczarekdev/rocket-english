@@ -1,0 +1,25 @@
+img {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trophy img {
+  width: 25% !important;
+}
+
+@media screen and (min-width: 1920px) {
+  .trophy img {
+    width: 20% !important;
+  }
+}
+.trophy {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.trophy:hover {
+  transform: scale(1.05);
+}

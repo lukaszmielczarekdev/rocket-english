@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import dialogues from "../utils/dialogues";
 import { narration } from "../utils/dialogues";
+import { trophies } from "../utils/trophies";
 
 export const UserContext = React.createContext();
 UserContext.displayName = "UserContext";
@@ -21,6 +22,18 @@ const UserContextProvider = (props) => {
     },
     dialogues: dialogues,
     narration: narration,
+    trophies: trophies,
+    events: {
+      findTheCrew: 0,
+      helpScientists: 0,
+      winAWar: 0,
+      expeditions: 0,
+      wordsRevealed: 0,
+      fillTheGapsCompleted: 0,
+      gameFinished: 0,
+      ufoDefeated: 0,
+      getRobbed: 0,
+    },
   };
 
   const [userInfo, setUserInfo] = useState(
@@ -30,6 +43,13 @@ const UserContextProvider = (props) => {
   useEffect(() => {
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);
+
+  const handleIncrementEventCounter = (event) => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.events[event] += 1;
+    console.log(userDataDummy.events[event]);
+    setUserInfo(userDataDummy);
+  };
 
   const handleCalcLvl = () => {
     const userDataDummy = { ...userInfo };
@@ -47,6 +67,16 @@ const UserContextProvider = (props) => {
   const handleAddExp = (amount) => {
     const userDataDummy = { ...userInfo };
     userDataDummy.exp = userDataDummy.exp + amount;
+    setUserInfo(userDataDummy);
+  };
+
+  // trophies
+  const handleCollectATrophy = (id) => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.trophies.find((trophy) => trophy.id === id).collected = true;
+    userDataDummy.exp =
+      userDataDummy.exp +
+      userDataDummy.trophies.find((trophy) => trophy.id === id).reward;
     setUserInfo(userDataDummy);
   };
 
@@ -106,13 +136,14 @@ const UserContextProvider = (props) => {
   };
 
   // dialogues: set shown and completed
-  const handleSetDialogueShownAndCompleted = (id, planet) => {
-    const userDataDummy = JSON.parse(JSON.stringify(userInfo));
+  const handleSetDialogueShownAndCompleted = (id, planet, event) => {
+    const userDataDummy = { ...userInfo };
     const dialogue = userDataDummy.dialogues[planet].find(
       (elem) => elem.id === id
     );
     dialogue.specialAction.completed = true;
     dialogue.hidden = true;
+    userDataDummy.events[event] += 1;
 
     setUserInfo(userDataDummy);
   };
@@ -152,9 +183,10 @@ const UserContextProvider = (props) => {
   };
 
   // set ufo defeated
-  const setUfoDefeated = (planet) => {
+  const setUfoDefeated = (planet, event) => {
     const userDataDummy = { ...userInfo };
     userDataDummy.ifUfoDefeated[planet] = true;
+    userDataDummy.events[event] += 1;
     setUserInfo(userDataDummy);
   };
 
@@ -212,29 +244,33 @@ const UserContextProvider = (props) => {
   };
 
   return (
-    <UserContext.Provider
-      value={{
-        user: userInfo,
-        onAddExp: handleAddExp,
-        onSetPlanet: handleSetPlanet,
-        onSetName: handleSetName,
-        onSetUfo: setUfoDefeated,
-        upgradeRocket: handleUpgradeRocket,
-        setDialogueShown: handleSetDialogueShown,
-        setDialogueCompleted: handleSetDialogueCompleted,
-        setDialogueShownAndCompleted: handleSetDialogueShownAndCompleted,
-        setNarrationCompleted: handleSetNarrationCompleted,
-        setNarrationUnlocked: handleSetNarrationUnlocked,
-        setSpecialActionCompleted: handleSetSpecialActionCompleted,
-        addMovementPoints: handleAddMovementPoints,
-        subtractMovementsPoints: handleSubtractMovementPoints,
-        setMovementPoints: setMovementPoints,
-        checkIfNarrationAvailable: handleCheckIfNarrationAvailable,
-        expeditionUserData: handleExpeditionUserData,
-      }}
-    >
-      {props.children}
-    </UserContext.Provider>
+    <>
+      <UserContext.Provider
+        value={{
+          user: userInfo,
+          onAddExp: handleAddExp,
+          onSetPlanet: handleSetPlanet,
+          onSetName: handleSetName,
+          onSetUfo: setUfoDefeated,
+          upgradeRocket: handleUpgradeRocket,
+          setDialogueShown: handleSetDialogueShown,
+          setDialogueCompleted: handleSetDialogueCompleted,
+          setDialogueShownAndCompleted: handleSetDialogueShownAndCompleted,
+          setNarrationCompleted: handleSetNarrationCompleted,
+          setNarrationUnlocked: handleSetNarrationUnlocked,
+          setSpecialActionCompleted: handleSetSpecialActionCompleted,
+          addMovementPoints: handleAddMovementPoints,
+          subtractMovementsPoints: handleSubtractMovementPoints,
+          setMovementPoints: setMovementPoints,
+          checkIfNarrationAvailable: handleCheckIfNarrationAvailable,
+          expeditionUserData: handleExpeditionUserData,
+          collectATrophy: handleCollectATrophy,
+          incrementEventCounter: handleIncrementEventCounter,
+        }}
+      >
+        {props.children}
+      </UserContext.Provider>
+    </>
   );
 };
 

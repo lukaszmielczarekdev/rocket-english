@@ -40,9 +40,9 @@ const SentenceTest = (props) => {
   const inventory = useContext(InventoryContext);
 
   const sentenceTestPrize = (multiplier) => {
-    user.onAddExp(500 * multiplier);
+    user.onAddExp(50 * multiplier);
     inventory.addItems({
-      credits: 500 * multiplier,
+      credits: 50 * multiplier,
       steel: 10 * multiplier,
       aluminum: 5 * multiplier,
     });
@@ -91,6 +91,9 @@ const SentenceTest = (props) => {
     makeSummaryTextColored(props.text, formData.current);
 
     if (counter) {
+      if (counter === Object.keys(formData.current).length) {
+        user.incrementEventCounter("fillTheGapsCompleted");
+      }
       setSummary([
         ["exp", 50 * counter],
         ["credits", 50 * counter],
@@ -184,7 +187,6 @@ const SentenceTest = (props) => {
         filtered.push(word);
       }
     }
-    // display-block
 
     formData.current = words;
     return filtered.map((elem, id) => {
