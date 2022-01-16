@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
+import PlaceVortex from "../universal/placeVortex";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
@@ -11,6 +12,8 @@ import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import shop_webp from "../../images/shop.webp";
 import shop_png from "../../images/shop.png";
+import vortex_webp from "../../images/vortex.webp";
+import vortex_png from "../../images/vortex.png";
 
 const Centuria = (props) => {
   const user = useContext(UserContext);
@@ -60,6 +63,12 @@ const Centuria = (props) => {
       img_png={quiz_png}
       alt={"A thick red book. A school logo."}
       description={"You can test yourself and gain exp here."}
+    />,
+    <PlaceVortex
+      onDragStart={handleDragStart}
+      title={"Vortex"}
+      img_webp={vortex_webp}
+      img_png={vortex_png}
     />,
     <PlaceLaunchPad
       onDragStart={handleDragStart}

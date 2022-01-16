@@ -10,6 +10,7 @@ import { InventoryContext } from "../../contexts/inventoryContext";
 import { TourContext } from "../../contexts/tourContext";
 import Modal from "react-modal";
 import Thumbnail from "../universal/thumbnail";
+import { modalStyle } from "../../utils/renders";
 import "./welcome.css";
 
 const Welcome = (props) => {
@@ -19,6 +20,17 @@ const Welcome = (props) => {
   const inventory = useContext(InventoryContext);
   const [showModal, setShowModal] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [narrationModalTrigger, setNarrationModalTrigger] = useState(false);
+  const toggleNarrationModal = () => {
+    setNarrationModalTrigger(!narrationModalTrigger);
+  };
+
+  useEffect(() => {
+    if (user.checkIfNarrationAvailable()) {
+      toggleNarrationModal();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     general.setGamePaused(true);
@@ -26,6 +38,26 @@ const Welcome = (props) => {
       user.onSetPlanet("menu");
     }
   }, []);
+
+  const handleDisplayContent = () => {
+    const uncompleted = user.user.narration["menu"].find(
+      (elem) => elem.completed === false
+    );
+    if (uncompleted) {
+      return uncompleted.content.map((contentType) => (
+        <li key={contentType.id}>{contentType.text}</li>
+      ));
+    }
+  };
+
+  const handleDisplayTitle = () => {
+    const uncompleted = user.user.narration["menu"].find(
+      (elem) => elem.completed === false
+    );
+    if (uncompleted) {
+      return uncompleted.title;
+    }
+  };
 
   const placeDescription =
     "Get to know an extraordinary galaxy by traveling, having fun and taking on challenges. Discover an amazing world and an amazing story while learning and practicing your English.";
@@ -149,7 +181,7 @@ const Welcome = (props) => {
     }
   };
 
-  const modalStyle = {
+  const menuModalStyle = {
     content: {
       textAlign: "center",
       backgroundColor: "rgb(1, 9, 27)",
@@ -247,7 +279,7 @@ const Welcome = (props) => {
             </a>
             <Modal
               id="modal"
-              style={modalStyle}
+              style={menuModalStyle}
               isOpen={showModal}
               onRequestClose={toggleModal}
               contentLabel="New game confirmation modal"
@@ -259,6 +291,23 @@ const Welcome = (props) => {
               </button>
               <button className="button small" onClick={resetProgress}>
                 Yes
+              </button>
+            </Modal>
+            <Modal
+              style={modalStyle}
+              isOpen={narrationModalTrigger}
+              contentLabel="Narration modal"
+            >
+              <h3>{handleDisplayTitle()}</h3>
+              <ul>{handleDisplayContent()}</ul>
+              <button
+                className="button small"
+                onClick={() => {
+                  user.startNewGamePlus();
+                  toggleNarrationModal();
+                }}
+              >
+                close
               </button>
             </Modal>
           </article>

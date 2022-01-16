@@ -867,8 +867,11 @@ const dialogues = {
     {
       id: 1,
       unlocks: 0,
-      question: "question",
-      answer: "answer",
+      place: "casino",
+      question:
+        "There aren't many gamers here, how do you make a living with so few customers?",
+      answer:
+        "We don't care about popularity at all, we don't want crowds on our planet. What we earn is enough for us, it's a family business.",
       completed: false,
       shownOnce: false,
       hidden: false,
@@ -882,6 +885,33 @@ const dialogues = {
       question: "Tell me about the past simple form of 'to be'.",
       answer:
         "We use was/were as the past simple forms of be. Was is used for I/he/she/it and were for you/we/they. The negative forms are was not (wasn’t) and were not (weren’t). Was/were are the past forms of am/is/are. Examples: I was in my rocket yesterday. We were happy after shopping. Sharik wasn't hungry. We were curious of that new planet. I'm good. => I was good. She is in my rocket. => She was in my rocket yesterday.",
+      completed: false,
+      shownOnce: false,
+      hidden: false,
+      specialAction: false,
+      plot: false,
+    },
+    {
+      id: 3,
+      unlocks: 0,
+      place: "shop",
+      question:
+        "What is the point of running a shop in such a deserted place? Isn't it better to move somewhere else?",
+      answer:
+        "This is my home, clients are mostly neighbors. I know I'd make more money on Axios, but I don't want to leave this planet. Plus, there's crime and gangs on Axios, and it's quiet and peaceful here.",
+      completed: false,
+      shownOnce: false,
+      hidden: false,
+      specialAction: false,
+      plot: false,
+    },
+    {
+      id: 4,
+      unlocks: 0,
+      place: "shop",
+      question: "Do the inhabitants of the planet travel often?",
+      answer:
+        "Rather no, we are not drawn to other planets. We would like our planet not to interest anyone either, but since some strangers are already here, we don't want to be rude and we don't drive them out. We are peaceful, although secretive.",
       completed: false,
       shownOnce: false,
       hidden: false,
@@ -925,7 +955,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   therion: [
@@ -939,7 +969,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   crystalia: [
@@ -953,7 +983,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   thalia: [
@@ -971,7 +1001,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   bathea: [
@@ -985,7 +1015,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   axios: [
@@ -995,7 +1025,7 @@ export const narration = {
       content: [
         {
           id: 1,
-          text: "We bribed a prison guard and, disguised as a prison patrol with a dog, led Johnny out of the cell. We disguised him as a patrol member, and under the guise of training in topography outside the prison, we escaped to the rocket with which we got to Axios.",
+          text: "We bribed a prison guard and, disguised as a prison patrol with a dog, led Johnn out of the cell. We disguised him as a patrol member, and under the guise of training in topography outside the prison, we escaped to the rocket with which we got to Axios.",
         },
         {
           id: 2,
@@ -1007,7 +1037,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   desertia: [
@@ -1025,7 +1055,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   xillon: [
@@ -1047,7 +1077,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
   centuria: [
@@ -1065,7 +1095,7 @@ export const narration = {
         },
       ],
       completed: false,
-      unlocked: false,
+      unlocked: true,
     },
   ],
 };

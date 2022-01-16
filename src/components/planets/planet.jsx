@@ -29,12 +29,26 @@ const Planet = (props) => {
       toggleNarrationModal();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user.user]);
 
   const handleDisplayContent = () => {
-    return user.user.narration[user.user.currentPlanet][0].content.map(
-      (contentType) => <li key={contentType.id}>{contentType.text}</li>
+    const uncompleted = user.user.narration[user.user.currentPlanet].find(
+      (elem) => elem.completed === false
     );
+    if (uncompleted) {
+      return uncompleted.content.map((contentType) => (
+        <li key={contentType.id}>{contentType.text}</li>
+      ));
+    }
+  };
+
+  const handleDisplayTitle = () => {
+    const uncompleted = user.user.narration[user.user.currentPlanet].find(
+      (elem) => elem.completed === false
+    );
+    if (uncompleted) {
+      return uncompleted.title;
+    }
   };
 
   return (
@@ -95,12 +109,12 @@ const Planet = (props) => {
         isOpen={narrationModalTrigger}
         contentLabel="Narration modal"
       >
-        <h3>{user.user.narration[user.user.currentPlanet][0].title}</h3>
+        <h3>{handleDisplayTitle()}</h3>
         <ul>{handleDisplayContent()}</ul>
         <button
           className="button small"
           onClick={() => {
-            user.setNarrationCompleted(1, user.user.currentPlanet);
+            user.setNarrationCompleted(user.user.currentPlanet);
             toggleNarrationModal();
           }}
         >

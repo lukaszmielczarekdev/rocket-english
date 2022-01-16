@@ -23,6 +23,8 @@ const UserContextProvider = (props) => {
     dialogues: dialogues,
     narration: narration,
     trophies: trophies,
+    vortexAccess: false,
+    gameFinished: false,
     events: {
       findTheCrew: 0,
       helpScientists: 0,
@@ -30,7 +32,6 @@ const UserContextProvider = (props) => {
       expeditions: 0,
       wordsRevealed: 0,
       fillTheGapsCompleted: 0,
-      gameFinished: 0,
       ufoDefeated: 0,
       getRobbed: 0,
     },
@@ -54,6 +55,31 @@ const UserContextProvider = (props) => {
   const handleCalcLvl = () => {
     const userDataDummy = { ...userInfo };
     userDataDummy.lvl = Math.floor(userInfo.exp / 1000) + 1;
+    setUserInfo(userDataDummy);
+  };
+
+  const handleVortexAccess = () => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.vortexAccess = true;
+    setUserInfo(userDataDummy);
+  };
+
+  const handleSetGameFinished = () => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.currentPlanet = "menu";
+    userDataDummy.gameFinished = true;
+    userDataDummy.narration["menu"].find(
+      (elem) => elem.id === 1
+    ).unlocked = true;
+    setUserInfo(userDataDummy);
+  };
+
+  const handleStartNewGamePlus = () => {
+    const userDataDummy = { ...userInfo };
+    userDataDummy.currentPlanet = "centuria";
+    userDataDummy.narration["menu"].find(
+      (elem) => elem.id === 1
+    ).completed = true;
     setUserInfo(userDataDummy);
   };
 
@@ -95,10 +121,10 @@ const UserContextProvider = (props) => {
   };
 
   // narration: mark as completed
-  const handleSetNarrationCompleted = (id, planet) => {
+  const handleSetNarrationCompleted = (planet) => {
     const userDataDummy = JSON.parse(JSON.stringify(userInfo));
     userDataDummy.narration[planet].find(
-      (elem) => elem.id === id
+      (elem) => elem.completed === false
     ).completed = true;
     setUserInfo(userDataDummy);
   };
@@ -151,7 +177,7 @@ const UserContextProvider = (props) => {
   // check if narration available
   const handleCheckIfNarrationAvailable = () => {
     return userInfo.narration[userInfo.currentPlanet].find(
-      (text) => !text.completed
+      (text) => !text.completed && text.unlocked
     )
       ? true
       : false;
@@ -266,6 +292,9 @@ const UserContextProvider = (props) => {
           expeditionUserData: handleExpeditionUserData,
           collectATrophy: handleCollectATrophy,
           incrementEventCounter: handleIncrementEventCounter,
+          setGameFinished: handleSetGameFinished,
+          setVortexAccess: handleVortexAccess,
+          startNewGamePlus: handleStartNewGamePlus,
         }}
       >
         {props.children}

@@ -26,6 +26,7 @@ const Answer = (props) => {
     } else if (planet === "xillon") {
       user.setNarrationUnlocked(1, "centuria");
       user.setDialogueShownAndCompleted(3, "xillon", "winAWar");
+      user.setVortexAccess();
       general.showToast("We won!");
     }
   };

@@ -17,12 +17,6 @@ const PlaceUfo = (props) => {
       : "You can attack and win or lose everything.";
   };
 
-  const ufoAccessModifier = () => {
-    return user.user.ifUfoDefeated[user.user.currentPlanet]
-      ? "ufo-access-denied"
-      : "";
-  };
-
   const subtractMovementPointsIfNotDefeated = (points) => {
     return user.user.ifUfoDefeated[user.user.currentPlanet]
       ? null
@@ -30,9 +24,7 @@ const PlaceUfo = (props) => {
   };
 
   return (
-    <article
-      className={`padding-places border carousel-card ${ufoAccessModifier()}`}
-    >
+    <article className={`padding-places border carousel-card`}>
       <h4>{props.title}</h4>
       <Link
         onClick={() => subtractMovementPointsIfNotDefeated(5)}
