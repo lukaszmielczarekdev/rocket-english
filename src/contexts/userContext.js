@@ -3,40 +3,40 @@ import dialogues from "../utils/dialogues";
 import { narration } from "../utils/dialogues";
 import { trophies } from "../utils/trophies";
 
+export const initialUserInfo = {
+  name: "Guest",
+  lvl: 1,
+  rocketLvl: 1,
+  movement: { maxMovePoints: 15, currentMovePoints: 15 },
+  exp: 0,
+  currentPlanet: "menu",
+  ifUfoDefeated: {
+    Crystalia: false,
+    Bathea: false,
+    Axios: false,
+    Desertia: false,
+  },
+  dialogues: dialogues,
+  narration: narration,
+  trophies: trophies,
+  vortexAccess: false,
+  gameFinished: false,
+  events: {
+    findTheCrew: 0,
+    helpScientists: 0,
+    winAWar: 0,
+    expeditions: 0,
+    wordsRevealed: 0,
+    fillTheGapsCompleted: 0,
+    ufoDefeated: 0,
+    getRobbed: 0,
+  },
+};
+
 export const UserContext = React.createContext();
 UserContext.displayName = "UserContext";
 
 const UserContextProvider = (props) => {
-  const initialUserInfo = {
-    name: "Guest",
-    lvl: 1,
-    rocketLvl: 1,
-    movement: { maxMovePoints: 15, currentMovePoints: 15 },
-    exp: 0,
-    currentPlanet: "menu",
-    ifUfoDefeated: {
-      Crystalia: false,
-      Bathea: false,
-      Axios: false,
-      Desertia: false,
-    },
-    dialogues: dialogues,
-    narration: narration,
-    trophies: trophies,
-    vortexAccess: false,
-    gameFinished: false,
-    events: {
-      findTheCrew: 0,
-      helpScientists: 0,
-      winAWar: 0,
-      expeditions: 0,
-      wordsRevealed: 0,
-      fillTheGapsCompleted: 0,
-      ufoDefeated: 0,
-      getRobbed: 0,
-    },
-  };
-
   const [userInfo, setUserInfo] = useState(
     JSON.parse(localStorage.getItem("userInfo")) || initialUserInfo
   );

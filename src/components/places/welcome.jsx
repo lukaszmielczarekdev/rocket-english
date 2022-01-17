@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import Nav from "../nav";
 import Footer from "../footer";
+import UsernameForm from "../universal/usernameForm";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
@@ -18,6 +18,7 @@ const Welcome = (props) => {
   const general = useContext(GeneralContext);
   const tour = useContext(TourContext);
   const inventory = useContext(InventoryContext);
+  let history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [narrationModalTrigger, setNarrationModalTrigger] = useState(false);
@@ -62,21 +63,10 @@ const Welcome = (props) => {
   const placeDescription =
     "Get to know an extraordinary galaxy by traveling, having fun and taking on challenges. Discover an amazing world and an amazing story while learning and practicing your English.";
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => handleSubmitUserData(data["username"]);
-
   const renderOrRedirect = (planet) => {
     if (!general.general.availablePlanets[planet].available) {
       return <Redirect to="/space" />;
     }
-  };
-
-  const handleSubmitUserData = (data) => {
-    user.onSetName(data);
-    general.setAvailablePlanet("crion");
-    general.general.availablePlanets["crion"].discovered = true;
-    tour.setTour(false);
-    props.history.push("/crion");
   };
 
   const renderResetProgress = () => {
@@ -101,25 +91,7 @@ const Welcome = (props) => {
 
   const renderLogin = () => {
     if (showLogin) {
-      return (
-        <>
-          <p>What's your name?</p>
-          <form className="welcome-form" onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              {...register("username", {
-                required: true,
-                minLength: 3,
-                maxLength: 15,
-                pattern: /^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/i,
-              })}
-            />
-            <button type="submit" className="button small">
-              Start
-            </button>
-          </form>
-        </>
-      );
+      return <UsernameForm />;
     } else {
       return renderNewGame();
     }
@@ -149,7 +121,7 @@ const Welcome = (props) => {
             startGame();
             tour.setTour(true);
             user.setMovementPoints(150);
-            props.history.push("/crion");
+            history.push("/crion");
           }}
           className="button small"
         >
@@ -160,7 +132,6 @@ const Welcome = (props) => {
   };
   const startGame = () => {
     general.setAvailablePlanet("crion");
-    general.setNewGame(false);
   };
 
   const makeCurrentPlanetAvailableAgain = () => {

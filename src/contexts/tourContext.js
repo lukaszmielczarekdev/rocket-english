@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 export const TourContext = React.createContext();
 TourContext.displayName = "TourContext";
 
-const TourDataProvider = (props) => {
-  const initialTourData = {
-    tour: false,
-  };
+export const initialTourData = {
+  tour: false,
+};
 
+const TourDataProvider = (props) => {
   const [tourData, setTourData] = useState(
     JSON.parse(localStorage.getItem("tourData")) || initialTourData
   );

@@ -4,18 +4,18 @@ import mercenaries from "../utils/mercenaries";
 export const InventoryContext = React.createContext();
 InventoryContext.displayName = "InventoryContext";
 
-const InventoryProvider = (props) => {
-  const initialUserInventory = {
-    credits: 500,
-    word: 0,
-    stardust: 0,
-    steel: 0,
-    aluminum: 0,
-    crystal: 0,
-    favs: {},
-    mercenaries: mercenaries,
-  };
+export const initialUserInventory = {
+  credits: 500,
+  word: 0,
+  stardust: 0,
+  steel: 0,
+  aluminum: 0,
+  crystal: 0,
+  favs: {},
+  mercenaries: mercenaries,
+};
 
+const InventoryProvider = (props) => {
   const [userInventory, setUserInventory] = useState(
     JSON.parse(localStorage.getItem("userInventory")) || initialUserInventory
   );

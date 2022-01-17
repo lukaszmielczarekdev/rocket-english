@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 export const TaskContext = React.createContext();
 TaskContext.displayName = "TaskContext";
 
-const TaskDataProvider = (props) => {
-  const initialTaskData = {
-    taskQueue: [],
-  };
+export const initialTaskData = {
+  taskQueue: [],
+};
 
+const TaskDataProvider = (props) => {
   const [taskData, setTaskData] = useState(
     JSON.parse(localStorage.getItem("taskData")) || initialTaskData
   );

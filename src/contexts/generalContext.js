@@ -5,6 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 export const GeneralContext = React.createContext();
 GeneralContext.displayName = "GeneralContext";
 
+export const initialGeneralData = {
+  newGame: true,
+  gamePaused: false,
+  currentTurnNumber: 0,
+  availablePlanets: availablePlanets,
+};
+
 const GeneralDataProvider = (props) => {
   // checks if any data exists in the localStorage and replaces the null object if needed
   const getData = (localStorageData, initialData) => {
@@ -15,14 +22,6 @@ const GeneralDataProvider = (props) => {
     return data !== JSON.stringify(initialData)
       ? JSON.parse(data)
       : initialData;
-  };
-
-  // general data
-  const initialGeneralData = {
-    newGame: true,
-    gamePaused: false,
-    currentTurnNumber: 0,
-    availablePlanets: availablePlanets,
   };
 
   const [generalData, setGeneralData] = useState(
