@@ -53,10 +53,10 @@ const Menu = (props) => {
         <Header headerSize={"h3"} header={"challenge"} underline />
         <article className={"quiz-split margin-bottom-2rem"}>
           <article className="align-self-flex-start">
-            <Header headerSize={"h4"} header={"guess the word"} />
+            <Header headerSize={"h4"} header={"guess a word"} />
             <form onSubmit={handleSubmit(onSubmit)}>
-              <p>How many words?</p>
               <input
+                placeholder={"How many? (1 - 50)"}
                 type="number"
                 {...register("length", {
                   required: true,

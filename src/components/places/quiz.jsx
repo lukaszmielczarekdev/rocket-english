@@ -60,6 +60,7 @@ const Quiz = (props) => {
           <p>{definition}</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
+              placeholder="Answer"
               type="text"
               {...register("answer", {
                 required: true,
@@ -69,7 +70,7 @@ const Quiz = (props) => {
               })}
             />
             <button type="submit" className="button small">
-              Answer
+              Submit
             </button>
             {renderWord()}
           </form>

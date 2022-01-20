@@ -113,7 +113,7 @@ const Welcome = (props) => {
             inventory.addItems({
               credits: 44500,
               steel: 500,
-              word: 100,
+              word: 99,
               stardust: 500,
               aluminum: 500,
               crystal: 500,

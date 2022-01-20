@@ -55,12 +55,14 @@ const Summary = (props) => {
         <button className="button small">Go Back</button>
       </Link>
       <Modal
+        appElement={document.getElementById("quiz")}
         style={modalStyle}
         isOpen={modalTrigger}
         onRequestClose={toggleModal}
         contentLabel="Quiz summary modal"
       >
         <Icon
+          datatestid={"summaryCloseModalButton"}
           cls={"far fa-times-circle modal-button"}
           onClickAction={toggleModal}
         />

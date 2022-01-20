@@ -194,6 +194,7 @@ const Controller = (props) => {
           />
         )}
         <Modal
+          appElement={document.getElementById("quiz")}
           style={modalStyle}
           isOpen={modalTrigger}
           onRequestClose={toggleModal}
@@ -201,6 +202,7 @@ const Controller = (props) => {
         >
           <ul>
             <i
+              data-testid={"quizCloseModalButton"}
               onClick={toggleModal}
               className="far fa-times-circle modal-button"
             ></i>

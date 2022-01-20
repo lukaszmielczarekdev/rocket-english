@@ -49,6 +49,7 @@ const Nav = (props) => {
             <h1>ROCKET ENGLISH</h1>
           ) : (
             <NavLink
+              className={"navbar-link"}
               onClick={() => {
                 handleOpenMenu();
                 general.setNewGame(false);

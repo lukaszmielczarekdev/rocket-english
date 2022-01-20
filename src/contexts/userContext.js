@@ -48,7 +48,6 @@ const UserContextProvider = (props) => {
   const handleIncrementEventCounter = (event) => {
     const userDataDummy = { ...userInfo };
     userDataDummy.events[event] += 1;
-    console.log(userDataDummy.events[event]);
     setUserInfo(userDataDummy);
   };
 

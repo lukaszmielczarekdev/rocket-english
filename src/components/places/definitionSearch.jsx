@@ -66,6 +66,7 @@ export const DefinitionSearch = (props) => {
           >
             <input
               type="search"
+              placeholder="Type a word"
               {...register("def", {
                 required: true,
                 minLength: 3,

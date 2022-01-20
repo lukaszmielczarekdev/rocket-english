@@ -6,7 +6,7 @@ InventoryContext.displayName = "InventoryContext";
 
 export const initialUserInventory = {
   credits: 500,
-  word: 0,
+  word: 1,
   stardust: 0,
   steel: 0,
   aluminum: 0,
