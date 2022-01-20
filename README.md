@@ -5,6 +5,7 @@
 - [About the project]
 - [What you need to build the app]
 - [Getting started]
+- [Tests]
 - [More info]
 
 ## About the project
@@ -41,6 +42,12 @@ The **build** folder will appear in the project directory.
 npm start
 ```
 
+## Tests
+
+```
+npm test
+```
+
 ## More info
 
 [How to CONTRIBUTE](./CONTRIBUTING.md)
@@ -50,4 +57,5 @@ npm start
 [about the project]: #about-the-project
 [what you need to build the app]: #what-you-need-to-build-the-app
 [getting started]: #getting-started
+[tests]: #tests
 [more info]: #more-info
