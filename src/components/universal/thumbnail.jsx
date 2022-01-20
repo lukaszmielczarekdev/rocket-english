@@ -53,6 +53,7 @@ const Thumbnail = (props) => {
         }
       />
       <img
+        className="shadow-bg"
         onClick={props.onClickAction}
         alt={`${props.alt}`}
         src={
