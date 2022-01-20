@@ -15,17 +15,26 @@ describe("Controller component (with API)", () => {
       );
     });
 
-    fireEvent.change(screen.getByPlaceholderText("How many? (1 - 50)"), {
-      target: { value: 1 },
+    await waitFor(async () => {
+      fireEvent.click(await screen.findByText("Start"));
     });
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByText("Start"));
+    await waitFor(async () => {
+      fireEvent.change(
+        await screen.findByPlaceholderText("How many? (1 - 50)"),
+        {
+          target: { value: 1 },
+        }
+      );
+    });
+
+    await waitFor(async () => {
+      fireEvent.click(await screen.findByText("Start"));
     });
 
     await waitFor(
       async () => {
-        fireEvent.change(screen.getByPlaceholderText("Answer"), {
+        fireEvent.change(await screen.findByPlaceholderText("Answer"), {
           target: { value: "test" },
         });
       },
@@ -49,7 +58,7 @@ describe("Controller component (with API)", () => {
   });
 
   test("Checks the skip option", async () => {
-    await waitFor(() => {
+    await waitFor(async () => {
       renderWithContext(
         <BrowserRouter>
           <Controller />
@@ -57,12 +66,17 @@ describe("Controller component (with API)", () => {
       );
     });
 
-    fireEvent.change(screen.getByPlaceholderText("How many? (1 - 50)"), {
-      target: { value: 1 },
+    await waitFor(async () => {
+      fireEvent.change(
+        await screen.findByPlaceholderText("How many? (1 - 50)"),
+        {
+          target: { value: 1 },
+        }
+      );
     });
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByText("Start"));
+    await waitFor(async () => {
+      fireEvent.click(await screen.findByText("Start"));
     });
 
     await waitFor(
@@ -90,12 +104,17 @@ describe("Controller component (with API)", () => {
       );
     });
 
-    fireEvent.change(screen.getByPlaceholderText("How many? (1 - 50)"), {
-      target: { value: 1 },
+    await waitFor(async () => {
+      fireEvent.change(
+        await screen.findByPlaceholderText("How many? (1 - 50)"),
+        {
+          target: { value: 1 },
+        }
+      );
     });
 
-    await waitFor(() => {
-      fireEvent.click(screen.getByText("Start"));
+    await waitFor(async () => {
+      fireEvent.click(await screen.findByText("Start"));
     });
 
     await waitFor(
