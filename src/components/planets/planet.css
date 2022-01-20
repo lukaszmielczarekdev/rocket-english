@@ -321,14 +321,26 @@
 
 @media screen and (min-width: 1281px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/1920/crion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/crion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/1920/crion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/crion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -336,14 +348,26 @@
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/1920/therion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/therion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/1920/therion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/therion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -351,14 +375,26 @@
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1920/crystalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/crystalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1920/crystalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/crystalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -366,14 +402,26 @@
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1920/desertia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/desertia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1920/desertia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/desertia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -381,14 +429,26 @@
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1920/xillon.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/xillon.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1920/xillon.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/xillon.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -396,14 +456,26 @@
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/1920/axios.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/axios.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/1920/axios.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/axios.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -411,14 +483,26 @@
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1920/thalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/thalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1920/thalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/thalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -426,14 +510,26 @@
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1920/bathea.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/bathea.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1920/bathea.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/bathea.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -441,14 +537,26 @@
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1920/centuria.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/centuria.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1920/centuria.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/centuria.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -456,14 +564,26 @@
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/1920/menu.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/menu.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/1920/menu.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/menu.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -471,14 +591,26 @@
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/ufo.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1920/ufo.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/ufo.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -488,14 +620,26 @@
 
 @media screen and (max-width: 1280px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/crion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/1280/crion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/crion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -503,14 +647,26 @@
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/therion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/1280/therion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/therion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -518,14 +674,26 @@
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/crystalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/1280/crystalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/crystalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -533,14 +701,26 @@
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/desertia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/1280/desertia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/desertia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -548,14 +728,26 @@
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/xillon.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/1280/xillon.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/xillon.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -563,14 +755,26 @@
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/axios.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/1280/axios.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/axios.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -578,14 +782,26 @@
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/thalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/1280/thalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/thalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -593,14 +809,26 @@
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/bathea.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/1280/bathea.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/bathea.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -608,14 +836,26 @@
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/centuria.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/1280/centuria.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/centuria.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -623,14 +863,26 @@
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/menu.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/1280/menu.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/menu.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -638,14 +890,26 @@
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/ufo.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/1280/ufo.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/ufo.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -655,14 +919,26 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .crion-wrapper {
-    background: url(/src/images/planet-images/960/crion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/crion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crion-wrapper {
-    background: url(/src/images/planet-images/960/crion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/crion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -670,14 +946,26 @@
   }
 
   .no-webp .therion-wrapper {
-    background: url(/src/images/planet-images/960/therion.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/therion.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .therion-wrapper {
-    background: url(/src/images/planet-images/960/therion.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/therion.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -685,14 +973,26 @@
   }
 
   .no-webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/960/crystalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/crystalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .crystalia-wrapper {
-    background: url(/src/images/planet-images/960/crystalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/crystalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -700,14 +1000,26 @@
   }
 
   .no-webp .desertia-wrapper {
-    background: url(/src/images/planet-images/960/desertia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/desertia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .desertia-wrapper {
-    background: url(/src/images/planet-images/960/desertia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/desertia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -715,14 +1027,26 @@
   }
 
   .no-webp .xillon-wrapper {
-    background: url(/src/images/planet-images/960/xillon.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/xillon.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .xillon-wrapper {
-    background: url(/src/images/planet-images/960/xillon.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/xillon.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -730,14 +1054,26 @@
   }
 
   .no-webp .axios-wrapper {
-    background: url(/src/images/planet-images/960/axios.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/axios.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .axios-wrapper {
-    background: url(/src/images/planet-images/960/axios.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/axios.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -745,14 +1081,26 @@
   }
 
   .no-webp .thalia-wrapper {
-    background: url(/src/images/planet-images/960/thalia.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/thalia.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .thalia-wrapper {
-    background: url(/src/images/planet-images/960/thalia.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/thalia.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -760,14 +1108,26 @@
   }
 
   .no-webp .bathea-wrapper {
-    background: url(/src/images/planet-images/960/bathea.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/bathea.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .bathea-wrapper {
-    background: url(/src/images/planet-images/960/bathea.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/bathea.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -775,14 +1135,26 @@
   }
 
   .no-webp .centuria-wrapper {
-    background: url(/src/images/planet-images/960/centuria.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/centuria.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .centuria-wrapper {
-    background: url(/src/images/planet-images/960/centuria.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/centuria.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -790,14 +1162,26 @@
   }
 
   .no-webp .menu-wrapper {
-    background: url(/src/images/planet-images/960/menu.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/menu.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .menu-wrapper {
-    background: url(/src/images/planet-images/960/menu.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/menu.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
@@ -805,14 +1189,26 @@
   }
 
   .no-webp .ufo-wrapper {
-    background: url(/src/images/planet-images/960/ufo.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/ufo.jpg);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .webp .ufo-wrapper {
-    background: url(/src/images/planet-images/960/ufo.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/ufo.webp);
     overflow: scroll;
     min-height: 100vh;
     background-size: cover;

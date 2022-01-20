@@ -187,14 +187,26 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/1920/shop.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/shop.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/1920/shop.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/shop.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -204,14 +216,26 @@
 
 @media screen and (max-width: 1280px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/shop.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/1280/shop.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/shop.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -221,14 +245,26 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .shop-wrapper {
-    background: url(/src/images/planet-images/960/shop.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/shop.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .shop-wrapper {
-    background: url(/src/images/planet-images/960/shop.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/shop.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;

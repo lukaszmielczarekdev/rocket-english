@@ -128,14 +128,26 @@
 /* background */
 @media screen and (min-width: 1281px) {
   .no-webp .trophies-wrapper {
-    background: url(/src/images/planet-images/1920/sky.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .trophies-wrapper {
-    background: url(/src/images/planet-images/1920/sky.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1920/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -145,14 +157,26 @@
 
 @media screen and (max-width: 1280px) {
   .no-webp .trophies-wrapper {
-    background: url(/src/images/planet-images/1280/sky.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .trophies-wrapper {
-    background: url(/src/images/planet-images/1280/sky.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/1280/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
@@ -162,14 +186,26 @@
 
 @media screen and (max-width: 640px) {
   .no-webp .trophies-wrapper {
-    background: url(/src/images/planet-images/960/sky.jpg);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/sky.jpg);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
     background-repeat: no-repeat;
   }
   .webp .trophies-wrapper {
-    background: url(/src/images/planet-images/960/sky.webp);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/src/images/planet-images/960/sky.webp);
     background-size: cover;
     overflow: scroll;
     min-height: 100vh;
