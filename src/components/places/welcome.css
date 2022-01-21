@@ -157,7 +157,7 @@
 
 #welcome .header-container {
   padding-top: 1rem !important;
-  padding-bottom: 2rem !important;
+  padding-bottom: 3rem !important;
 }
 
 @media (min-width: 1025px) {
@@ -384,7 +384,7 @@
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.6) 20%,
         rgba(0, 0, 0, 1) 100%
       ),
       url("/src/images/planet-images/960/planet.webp") no-repeat;
@@ -397,7 +397,7 @@
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0.6) 20%,
         rgba(0, 0, 0, 1) 100%
       ),
       url("/src/images/planet-images/960/planet.webp") no-repeat;

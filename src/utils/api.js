@@ -6,7 +6,7 @@ const api = {
     const response = await axios(endpoint);
     throwOnErrorStatusCode(response.status);
     const definition = getSingleWordDefinition(response.data);
-    return definition;
+    return definition.charAt(0).toUpperCase() + definition.slice(1);
   },
 };
 

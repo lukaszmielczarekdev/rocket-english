@@ -157,6 +157,8 @@ const Welcome = (props) => {
       textAlign: "center",
       backgroundColor: "rgb(1, 9, 27)",
       borderRadius: "15px",
+      boxShadow: "0 0 25px rgba(0, 0, 0, 0.5)",
+      borderColor: "rgb(1, 9, 27)",
       top: "50%",
       left: "50%",
       right: "auto",
@@ -250,6 +252,7 @@ const Welcome = (props) => {
             </a>
             <Modal
               id="modal"
+              closeTimeoutMS={500}
               style={menuModalStyle}
               isOpen={showModal}
               onRequestClose={toggleModal}
@@ -265,6 +268,7 @@ const Welcome = (props) => {
               </button>
             </Modal>
             <Modal
+              id="modal2"
               style={modalStyle}
               isOpen={narrationModalTrigger}
               contentLabel="Narration modal"

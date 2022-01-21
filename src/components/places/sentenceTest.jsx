@@ -16,6 +16,8 @@ const modalStyle = {
     textAlign: "center",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
+    boxShadow: "0 0 25px rgba(0, 0, 0, 0.5)",
+    borderColor: "rgb(1, 9, 27)",
     top: "50%",
     left: "50%",
     right: "auto",

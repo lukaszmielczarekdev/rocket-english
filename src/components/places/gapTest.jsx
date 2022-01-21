@@ -10,6 +10,8 @@ Modal.setAppElement(document.getElementById("root"));
 
 const modalStyle = {
   content: {
+    boxShadow: "0 0 25px rgba(0, 0, 0, 0.5)",
+    borderColor: "rgb(1, 9, 27)",
     padding: "2rem",
     width: "min(80%, 70rem)",
     height: "min(80%, 70rem)",

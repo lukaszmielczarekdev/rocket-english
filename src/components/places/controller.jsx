@@ -19,6 +19,8 @@ Modal.setAppElement(document.getElementById("root"));
 const modalStyle = {
   content: {
     textAlign: "center",
+    boxShadow: "0 0 25px rgba(0, 0, 0, 0.5)",
+    borderColor: "rgb(1, 9, 27)",
     backgroundColor: "rgb(1, 9, 27)",
     borderRadius: "15px",
     top: "50%",
@@ -97,7 +99,7 @@ const Controller = (props) => {
   };
 
   const handleSubmitAnswer = (data) => {
-    const answer = data;
+    const answer = data.toLowerCase();
     inputValidation(answer);
   };
 

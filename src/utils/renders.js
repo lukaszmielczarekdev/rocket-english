@@ -41,6 +41,8 @@ export const planets = [
 
 export const modalStyle = {
   content: {
+    boxShadow: "0 0 25px rgba(0, 0, 0, 0.5)",
+    borderColor: "rgb(1, 9, 27)",
     letterSpacing: "0.05rem",
     padding: "2rem 0 2rem 0",
     textAlign: "center",

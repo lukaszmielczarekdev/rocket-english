@@ -13,6 +13,7 @@ import AliceCarousel from "react-alice-carousel";
 import Modal from "react-modal";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "./planet.css";
+import "../../App.css";
 
 Modal.setAppElement(document.getElementById("root"));
 
@@ -105,6 +106,7 @@ const Planet = (props) => {
         </div>
       </div>
       <Modal
+        id="modal3"
         style={modalStyle}
         isOpen={narrationModalTrigger}
         contentLabel="Narration modal"

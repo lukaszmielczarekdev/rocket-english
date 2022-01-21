@@ -36,7 +36,7 @@ const Summary = (props) => {
       return summary.map((element) => (
         <li className="padding-05rem" key={element[0]}>
           <FavoritesButton word={element[0]} definition={element[1]} />{" "}
-          {element[0]} - {element[1]}
+          {element[0].toUpperCase()} - {element[1]}
         </li>
       ));
     } else {

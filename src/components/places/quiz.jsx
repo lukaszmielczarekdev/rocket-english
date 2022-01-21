@@ -64,7 +64,7 @@ const Quiz = (props) => {
               type="text"
               {...register("answer", {
                 required: true,
-                minLength: 3,
+                minLength: 2,
                 maxLength: 15,
                 pattern: /^[A-Za-z]+$/i,
               })}

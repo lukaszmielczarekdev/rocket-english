@@ -32,7 +32,7 @@ export const DefinitionSearch = (props) => {
     setDefinition(false);
     setErrorMessage((errorMessage = false));
     try {
-      setWord((word = input));
+      setWord((word = input.toLowerCase()));
       const def = await api.getWordData(input);
       setDefinition(def);
     } catch (err) {
@@ -47,7 +47,7 @@ export const DefinitionSearch = (props) => {
 
   const renderDefinition = () => {
     if (definition) {
-      return `${word} - ${definition}`;
+      return `${word.charAt(0).toUpperCase() + word.slice(1)} - ${definition}`;
     }
   };
 
@@ -69,8 +69,8 @@ export const DefinitionSearch = (props) => {
               placeholder="Type a word"
               {...register("def", {
                 required: true,
-                minLength: 3,
-                maxLength: 15,
+                minLength: 2,
+                maxLength: 20,
                 pattern: /^[A-Za-z]+$/i,
               })}
             />
