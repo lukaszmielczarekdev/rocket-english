@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../contexts/userContext";
 import Answer from "./answer";
-import "../../App.css";
+import "./questions.css";
 
 const Questions = (props) => {
   const user = useContext(UserContext);
@@ -16,8 +16,8 @@ const Questions = (props) => {
     return user.user.dialogues[user.user.currentPlanet].find(
       (elem) => elem.id === id
     ).completed
-      ? "visited dialogue-line"
-      : "dialogue-line";
+      ? "visited dialogue-line cursor-pointer"
+      : "dialogue-line cursor-pointer";
   };
 
   return (
@@ -40,7 +40,7 @@ const Questions = (props) => {
               </li>
             ))}
           <li
-            className="visited dialogue-line"
+            className="visited dialogue-line cursor-pointer"
             onClick={props.handleConversation}
           >
             That's all...

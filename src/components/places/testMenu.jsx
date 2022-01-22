@@ -277,7 +277,7 @@ const TestMenu = (props) => {
           </section>
         </section>
         <section className={ifVisible("sentences", "game", "user", "")}>
-          <Header headerSize={"h3"} header={"talk"} underline />
+          <Header headerSize={"h3"} header={"learn / talk"} underline />
           <article>
             <Header headerSize={"h4"} header={"professor"} />
             {user.user.dialogues[user.user.currentPlanet].length !== 0 && (

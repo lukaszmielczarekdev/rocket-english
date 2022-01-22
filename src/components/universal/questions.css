@@ -1,0 +1,16 @@
+.dialogue-line {
+  border-left: 0;
+  margin: 1rem 0 1rem 0 !important;
+  padding-left: 0;
+  display: block !important;
+  list-style: none;
+  white-space: pre-line;
+}
+
+.visited {
+  color: var(--clr-neutral-300);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
