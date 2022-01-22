@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 import { GeneralContext } from "../contexts/generalContext";
@@ -9,9 +9,22 @@ import "./nav.css";
 
 const Nav = (props) => {
   const [clicked, setClicked] = useState(false);
+  const ref = useRef();
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   const [destroyed, setDestroyed] = useState("fas fa-rocket rocket-icon");
+
+  useEffect(() => {
+    const checkIfClickedOutsideList = (e) => {
+      if (clicked && ref.current && !ref.current.contains(e.target)) {
+        setClicked(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutsideList);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutsideList);
+    };
+  }, [clicked]);
 
   const handleClick = () => setClicked(!clicked);
 
@@ -35,7 +48,7 @@ const Nav = (props) => {
   };
 
   return (
-    <div id="navbar-wrapper">
+    <div id="navbar-wrapper" ref={ref}>
       <div id="navbar-items" className="text-center">
         <span
           onClick={() => {
