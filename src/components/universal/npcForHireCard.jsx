@@ -47,6 +47,11 @@ const NpcForHireCard = (props) => {
     } else {
       return (
         <Thumbnail
+          onClickAction={
+            inventory.inventory.credits >= props.price
+              ? () => inventory.hireMercenary(props.id)
+              : ""
+          }
           imageCategory={"mercenaries"}
           image={name}
           alt={"Mercenary portrait"}

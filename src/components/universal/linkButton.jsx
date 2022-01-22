@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import debounce from "../../utils/debounce";
 import "./linkButton.css";
 
 const LinkButton = (props) => {
@@ -10,7 +11,10 @@ const LinkButton = (props) => {
   const renderButton = () => {
     if (props.empty) {
       return (
-        <button onClick={props.emptyCallback} className={renderSize()}>
+        <button
+          onClick={debounce(props.emptyCallback, 1000)}
+          className={renderSize()}
+        >
           {props.title}
         </button>
       );

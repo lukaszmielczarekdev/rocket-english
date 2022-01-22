@@ -9,7 +9,7 @@ const FavoritesCard = (props) => {
         <h4>{props.title}</h4>
         <i
           onClick={() => inventory.removeFromFavorite(props.title)}
-          class="fas fa-times fav-del-button"
+          class="fas fa-times fav-del-button cursor-pointer"
         ></i>
       </div>
       <p className="align-center">{props.description}</p>
