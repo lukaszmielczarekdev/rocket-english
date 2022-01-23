@@ -1,10 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -17,12 +15,7 @@ import university_webp from "../../images/university.webp";
 import university_png from "../../images/university.png";
 
 const Thalia = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("thalia");
-  }, []);
+  useSetPlanet("thalia");
 
   const description =
     "Discovered by accident during a research expedition by the Space Research Agency, which was looking for new sources of fossil fuels. The name comes from the name of the expedition member who discovered the planet. After landing, traces of an ancient civilization unlike any previously known were discovered here. The scouts also found strange, very steep tunnels leading deep into the planet. Recently, a portal of unknown origin was also discovered on the planet, which is currently being researched by scientists. I am looking for volunteers who will take part in an expedition that will undertake a journey through the portal and may be the first to land on a hitherto unknown planet, as long as my assumptions as to where it is leading are correct.";

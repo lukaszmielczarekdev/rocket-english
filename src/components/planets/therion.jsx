@@ -1,10 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import mine_png from "../../images/mine.png";
 import mine_webp from "../../images/mine.webp";
 import quiz_png from "../../images/quiz.png";
@@ -17,12 +15,7 @@ import university_webp from "../../images/university.webp";
 import university_png from "../../images/university.png";
 
 const Therion = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("therion");
-  }, []);
+  useSetPlanet("therion");
 
   const description =
     "It is perhaps the strangest planet in the galaxy, consisting mostly of rock and gas that surrounds the planet's core and extends over 100 km. From the outside, the planet looks like a gigantic cloud from which the rocks connected by bridges protrude. The pressure in the lower parts of the gas cloud can crush a spacecraft, as a corporation found out when sending an expedition in search of natural deposits in the rocks.";

@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -22,12 +20,7 @@ import university_webp from "../../images/university.webp";
 import university_png from "../../images/university.png";
 
 const Axios = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("axios");
-  }, []);
+  useSetPlanet("axios");
 
   const description =
     "A planet full of contrasts. On the one hand, it is one of the most modern places, the galactic cradle of business and the center of business. In the center of the planet there is a specific climate of greed and money, all those who want to get rich quickly come here. Feel success, determination and stress. On the other hand, in the northern part of the planet, there are vast districts of poverty in the valley, from which you can see huge skyscrapers that used to be the workplace of many inhabitants.";

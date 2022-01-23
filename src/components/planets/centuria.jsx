@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceVortex from "../universal/placeVortex";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -16,12 +14,7 @@ import vortex_webp from "../../images/vortex.webp";
 import vortex_png from "../../images/vortex.png";
 
 const Centuria = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("centuria");
-  }, []);
+  useSetPlanet("centuria");
 
   const description =
     "A recently discovered planet that is the target of many smugglers due to the characteristics of its inhabitants. Poorly connected, and the surrounding clouds make navigation even more difficult. Besides, this place is not very well known, it is not very clear what is in the deeper layers of the planet, because its hard shell is an obstacle that is difficult to penetrate. It is suspected that there may be some valuable resources here, as most inhabitants react nervously to any mention of research on the planet. Or maybe they're just afraid of the arrival of strangers.";

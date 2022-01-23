@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import casino_webp from "../../images/casino.webp";
 import casino_png from "../../images/casino.png";
 import quiz_png from "../../images/quiz.png";
@@ -18,12 +16,7 @@ import university_webp from "../../images/university.webp";
 import university_png from "../../images/university.png";
 
 const Desertia = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("desertia");
-  }, []);
+  useSetPlanet("desertia");
 
   const description =
     "The planet is highly developed in terms of religion, the inhabitants believe in the sun god - Helios. He was the subject of their entire lives. It is a livelihood and famous mainly for religious tourism and donors. Some of the buildings were funded by large corporations - unofficially it is said that only to improve the image, although their CEOs strongly refute these allegations.";

@@ -1,10 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import mine_png from "../../images/mine.png";
 import mine_webp from "../../images/mine.webp";
 import quiz_png from "../../images/quiz.png";
@@ -15,12 +13,7 @@ import rocket_png from "../../images/rocket.png";
 import rocket_webp from "../../images/rocket.webp";
 
 const Xillon = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("xillon");
-  }, []);
+  useSetPlanet("xillon");
 
   const description =
     "The planet is very rich in precious metals, for which there is a constant war here. It was once a mining center that made a fortune by extracting underground resources. Workers' towns and mines were established here, providing employment to hundreds of thousands of inhabitants. The current situation is the result of a war between corporations that invested in the local mines, until one day one of them decided to take over the entire mining sector.";

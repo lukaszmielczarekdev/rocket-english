@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
+import useSetPlanet from "../hooks/useSetPlanet";
 import Planet from "./planet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import quiz_png from "../../images/quiz.png";
 import quiz_webp from "../../images/quiz.webp";
 import bar_png from "../../images/bar.png";
@@ -18,12 +16,7 @@ import university_webp from "../../images/university.webp";
 import university_png from "../../images/university.png";
 
 const Crystalia = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("crystalia");
-  }, []);
+  useSetPlanet("crystalia");
 
   const infrastructure =
     "There are mainly mining settlements and towns with public buildings, shops, bars and casinos. The extensive rail network serves both for the transport of crystals and for the transport of passengers.";

@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import Planet from "./planet";
+import useSetPlanet from "../hooks/useSetPlanet";
 import PlaceBasic from "../universal/placeBasic";
 import PlaceLaunchPad from "../universal/placeLaunchPad";
 import PlaceUfo from "../universal/placeUfo";
-import { UserContext } from "../../contexts/userContext";
-import { GeneralContext } from "../../contexts/generalContext";
 import ufo_png from "../../images/ufo-logo.png";
 import ufo_webp from "../../images/ufo-logo.webp";
 import quiz_png from "../../images/quiz.png";
@@ -14,13 +12,7 @@ import bar_png from "../../images/bar.png";
 import bar_webp from "../../images/bar.webp";
 
 const Bathea = (props) => {
-  const user = useContext(UserContext);
-  const general = useContext(GeneralContext);
-
-  useEffect(() => {
-    general.setGamePaused(false);
-    user.onSetPlanet("bathea");
-  }, []);
+  useSetPlanet("bathea");
 
   const description =
     "The rock-ice structure is different from the rest of the planets, it is not a place to settle if someone is looking for a place for a family, it is a desert where soldiers come to train in harsh conditions. It houses a maximum security prison, although due to overcrowding in other facilities, there are also convicts of minor offenses here.";
