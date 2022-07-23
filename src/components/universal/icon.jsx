@@ -6,9 +6,7 @@ const Icon = (props) => {
     <i
       data-testid={props.datatestid}
       className={props.cls}
-      onClick={
-        props.onClickAction ? () => debounce(props.onClickAction, 200) : null
-      }
+      onClick={props.onClickAction ? debounce(props.onClickAction, 200) : null}
     ></i>
   );
 };

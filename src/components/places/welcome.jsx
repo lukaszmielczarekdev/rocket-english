@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import Nav from "../nav";
 import Footer from "../footer";
-import UsernameForm from "../universal/usernameForm";
 import { UserContext } from "../../contexts/userContext";
 import { GeneralContext } from "../../contexts/generalContext";
 import { InventoryContext } from "../../contexts/inventoryContext";
@@ -13,14 +12,13 @@ import Thumbnail from "../universal/thumbnail";
 import { modalStyle } from "../../utils/renders";
 import "./welcome.css";
 
-const Welcome = (props) => {
+const Welcome = () => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   const tour = useContext(TourContext);
   const inventory = useContext(InventoryContext);
   let history = useHistory();
   const [showModal, setShowModal] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const [narrationModalTrigger, setNarrationModalTrigger] = useState(false);
   const toggleNarrationModal = () => {
     setNarrationModalTrigger(!narrationModalTrigger);
@@ -30,7 +28,6 @@ const Welcome = (props) => {
     if (user.checkIfNarrationAvailable()) {
       toggleNarrationModal();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -90,24 +87,15 @@ const Welcome = (props) => {
   };
 
   const renderLogin = () => {
-    if (showLogin) {
-      return <UsernameForm />;
-    } else {
-      return renderNewGame();
-    }
+    return renderNewGame();
   };
 
   const renderNewGame = () => {
     return (
       <>
-        <button
-          onClick={() => {
-            setShowLogin(true);
-          }}
-          className="button small"
-        >
-          I want a challenge
-        </button>
+        <Link to={"/auth"} style={{ textDecoration: "none" }}>
+          <button className="button small">I want a challenge</button>
+        </Link>
         <button
           onClick={() => {
             inventory.addItems({

@@ -5,6 +5,8 @@ import { UserContext } from "../contexts/userContext";
 import { GeneralContext } from "../contexts/generalContext";
 import Timer from "./universal/timer";
 import Icon from "./universal/icon";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/auth";
 import "./nav.css";
 
 const Nav = (props) => {
@@ -13,6 +15,8 @@ const Nav = (props) => {
   const user = useContext(UserContext);
   const general = useContext(GeneralContext);
   const [destroyed, setDestroyed] = useState("fas fa-rocket rocket-icon");
+  const { currentUser } = useSelector((state) => state.user.auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const checkIfClickedOutsideList = (e) => {
@@ -59,7 +63,9 @@ const Nav = (props) => {
         </span>
         <div className="nav-logo">
           {general.general.newGame ? (
-            <h1>ROCKET ENGLISH</h1>
+            <NavLink to="/">
+              <h1>ROCKET ENGLISH</h1>
+            </NavLink>
           ) : (
             <NavLink
               className={"navbar-link"}
@@ -136,6 +142,7 @@ const Nav = (props) => {
               {user.user.movement.currentMovePoints}/
               {user.user.movement.maxMovePoints}
             </li>
+
             {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
               <li>
                 <Timer
@@ -143,6 +150,17 @@ const Nav = (props) => {
                   mins={1}
                   secs={0}
                 />
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-links menu">
+                <NavLink
+                  className="navbar-navlink"
+                  to="/"
+                  onClick={() => dispatch(logout())}
+                >
+                  Logout
+                </NavLink>
               </li>
             )}
           </ul>
