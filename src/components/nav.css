@@ -167,6 +167,19 @@
   text-decoration: none;
   color: yellow;
 }
+.logout-button {
+  text-decoration: none;
+  color: rgb(235, 110, 105);
+}
+
+.save-button {
+  text-decoration: none;
+  color: rgb(125, 215, 120);
+}
+
+.save-button:hover {
+  color: white;
+}
 
 .menu-icon,
 .rocket-icon {

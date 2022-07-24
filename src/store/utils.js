@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 export const notify = (message) => toast(message);
 
 export const getStoreData = (path, initialData) => {
-  const persistedStore = JSON.parse(localStorage.getItem("appStore"));
+  const persistedStore = JSON.parse(localStorage.getItem("rocket-english"));
   const storeDestination = get(persistedStore, path);
 
   return storeDestination ? storeDestination : initialData;

@@ -51,6 +51,29 @@ export const deleteUser = createAsyncThunk(
   }
 );
 
+export const updateProgress = createAsyncThunk(
+  "auth/updateProgress",
+  async (update) => {
+    try {
+      const { data } = await api.updateProgress(update);
+      return data;
+    } catch (error) {
+      console.log(error);
+      notify(error.response.data.message);
+    }
+  }
+);
+
+export const saveGame = createAsyncThunk("auth/saveGame", async (save) => {
+  try {
+    const { data } = await api.saveGame(save);
+    return data;
+  } catch (error) {
+    console.log(error);
+    notify(error.response.data.message);
+  }
+});
+
 const slice = createSlice({
   name: "auth",
   initialState: getStoreData("user.auth", INITIAL_STATE),
@@ -130,6 +153,27 @@ const slice = createSlice({
       state.status = "success";
     },
     [deleteUser.rejected]: (state) => {
+      state.status = "failed";
+    },
+    [updateProgress.pending]: (state) => {
+      state.status = "loading";
+    },
+    [updateProgress.fulfilled]: (state, action) => {
+      state.currentUser.progress = action.payload;
+      state.status = "success";
+    },
+    [updateProgress.rejected]: (state) => {
+      state.status = "failed";
+    },
+    [saveGame.pending]: (state) => {
+      state.status = "loading";
+    },
+    [saveGame.fulfilled]: (state, action) => {
+      state.currentUser.progress = action.payload;
+      notify("Game saved");
+      state.status = "success";
+    },
+    [saveGame.rejected]: (state) => {
       state.status = "failed";
     },
   },

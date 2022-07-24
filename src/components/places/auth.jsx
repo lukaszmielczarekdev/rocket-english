@@ -108,10 +108,14 @@ const Auth = (props) => {
             <h3>Welcome</h3>
             <article className="auth-activities-container">
               {redirect && <Redirect to={"/"} />}
-              <>
-                <PuffLoader loading={status === "loading"} size={150} />
+              <div className="auth-form-container">
+                <PuffLoader
+                  loading={status === "loading"}
+                  size={150}
+                  color={"#ffffff"}
+                />
                 {status !== "loading" && (
-                  <div className="auth-form-container">
+                  <>
                     <RiLock2Line size={"2rem"} />
                     <span className="margin-05-0">
                       {isSignUp ? "Sign Up" : "Sign In"}
@@ -236,9 +240,10 @@ const Auth = (props) => {
                           : "Don't have an account? Sign Up "}
                       </span>
                     </form>
-                  </div>
+                  </>
                 )}
-              </>
+              </div>
+              {/* )} */}
             </article>
           </div>
         </section>

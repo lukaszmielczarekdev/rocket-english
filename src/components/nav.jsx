@@ -7,9 +7,10 @@ import Timer from "./universal/timer";
 import Icon from "./universal/icon";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/auth";
+import { saveGame } from "../store/auth";
 import "./nav.css";
 
-const Nav = (props) => {
+const Nav = () => {
   const [clicked, setClicked] = useState(false);
   const ref = useRef();
   const user = useContext(UserContext);
@@ -94,15 +95,6 @@ const Nav = (props) => {
                 </NavLink>
               </li>
             )}
-            {/* <li
-              className={
-                user.user.currentPlanet === "menu" ? "nav-links" : "nav-hidden"
-              }
-            >
-              <NavLink className="navbar-navlink" to="#">
-                Contact Me
-              </NavLink>
-            </li> */}
             {user.user.currentPlanet !== "menu" && !general.general.gamePaused && (
               <li
                 className={
@@ -153,9 +145,17 @@ const Nav = (props) => {
               </li>
             )}
             {currentUser && (
-              <li className="nav-links menu">
+              <li
+                className="nav-links menu save-button"
+                onClick={() => dispatch(saveGame(currentUser.progress))}
+              >
+                Save
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-links menu logout-button">
                 <NavLink
-                  className="navbar-navlink"
+                  className=" logout-button"
                   to="/"
                   onClick={() => dispatch(logout())}
                 >
