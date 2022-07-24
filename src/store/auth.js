@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getStoreData, notify } from "./utils";
 import { googleLogout } from "@react-oauth/google";
+import { cloneDeep } from "lodash";
 import * as api from "../api";
 
 const INITIAL_STATE = {
@@ -77,14 +78,163 @@ export const saveGame = createAsyncThunk("auth/saveGame", async (save) => {
 const slice = createSlice({
   name: "auth",
   initialState: getStoreData("user.auth", INITIAL_STATE),
+
   reducers: {
-    logout: (state, action) => {
+    logout: (state) => {
       localStorage.removeItem("rocket-english-profile");
       state.currentUser = null;
       state.status = null;
       googleLogout();
     },
+    currentPlanetSet: (state, action) => {
+      state.currentUser.progress.currentPlanet = action.payload;
+    },
+    trophyCollected: (state, action) => {
+      state.currentUser.progress.trophiesCollected = [
+        ...state.currentUser.progress.trophiesCollected,
+        action.payload,
+      ];
+      notify("Trophy collected");
+    },
+    expAdded: (state, action) => {
+      state.currentUser.progress.exp =
+        state.currentUser.progress.exp + action.payload;
+
+      notify(`+${action.payload} exp`);
+    },
+    eventCounterIncremented: (state, action) => {
+      const events = { ...state.currentUser.progress.eventsHappened };
+      events[action.payload] += 1;
+      state.currentUser.progress.eventsHappened = events;
+    },
+    playerLvlCalculated: (state) => {
+      state.currentUser.progress.characterLvl =
+        Math.floor(state.currentUser.progress.exp / 1000) + 1;
+    },
+    vortexUnlocked: (state) => {
+      state.currentUser.progress.vortexAccess = true;
+      notify("Vortex unlocked");
+    },
+    gameFinished: (state) => {
+      state.currentUser.progress.currentPlanet = "menu";
+      state.currentUser.progress.gameFinished = true;
+      state.currentUser.progress.narration.unlocked = [
+        ...state.currentUser.progress.narration.unlocked,
+        "menu",
+      ];
+      notify("Congratulations: GAME FINISHED!");
+    },
+    newGamePlusStarted: (state) => {
+      state.currentUser.progress.currentPlanet = "centuria";
+      state.currentUser.progress.gameFinished = true;
+      state.currentUser.progress.narration.completed = [
+        ...state.currentUser.progress.narration.completed,
+        "menu",
+      ];
+      notify("WELCOME TO NEW GAME PLUS");
+    },
+    narrationCompleted: (state, action) => {
+      state.currentUser.progress.narration.completed = [
+        ...state.currentUser.progress.narration.completed,
+        action.payload,
+      ];
+    },
+    spcialCompleted: (state, action) => {
+      const dialogues = cloneDeep(state.currentUser.progress.dialogues);
+      dialogues[action.payload].specialCompleted = true;
+
+      state.currentUser.progress.dialogues = dialogues;
+    },
+    narrationUnlocked: (state, action) => {
+      state.currentUser.progress.narration.unlocked = [
+        ...state.currentUser.progress.narration.unlocked,
+        action.payload,
+      ];
+    },
+    dialogueHided: (state, { planet, id }) => {
+      const dialogues = cloneDeep(state.currentUser.progress.dialogues);
+      if (
+        dialogues[planet].shownOnce.includes(id) ||
+        dialogues[planet].spcialCompleted
+      ) {
+        dialogues[planet].hidden.push(id);
+        state.currentUser.progress.dialogues = dialogues;
+      }
+    },
+    dialogueShownAndCompleted: (state, { id, planet, event }) => {
+      const dialogues = cloneDeep(state.currentUser.progress.dialogues);
+      dialogues[planet].specialCompleted = true;
+      dialogues[planet].hidden.push(id);
+      const events = { ...state.currentUser.progress.eventsHappened };
+      events[event] += 1;
+      state.currentUser.progress.dialogues = dialogues;
+      state.currentUser.progress.eventsHappened = events;
+    },
+    dialogueCompleted: (state, { id, unlockId, planet }) => {
+      const dialogues = cloneDeep(state.currentUser.progress.dialogues);
+      dialogues[planet].completed.push(id);
+
+      if (
+        (dialogues[planet].shownOnce.includes(id) &&
+          dialogues[planet].specialActions.includes(id)) ||
+        dialogues[planet].specialCompleted === true
+      ) {
+        dialogues[planet].hidden.push(id);
+      }
+
+      if (dialogues[planet].shownOnce.includes(id) && unlockId !== 0) {
+        dialogues[planet].hidden = dialogues[planet].hidden.filter(
+          (index) => index !== unlockId
+        );
+      }
+      state.currentUser.progress.dialogues = dialogues;
+    },
+    ufoDefeated: (state, action) => {
+      state.currentUser.progress.ufoDefeated = [
+        ...state.currentUser.progress.ufoDefeated,
+        action.payload,
+      ];
+      const events = { ...state.currentUser.progress.eventsHappened };
+      events["ufoDefeated"] += 1;
+      state.currentUser.progress.eventsHappened = events;
+    },
+    movementPointsAdded: (state, action) => {
+      if (
+        state.currentUser.progress.movement.currentMovePoints + action.payload >
+        state.currentUser.progress.movement.maxMovePoints
+      ) {
+        state.currentUser.progress.movement.currentMovePoints =
+          state.currentUser.progress.movement.maxMovePoints;
+      } else {
+        state.currentUser.progress.movement.currentMovePoints += action.payload;
+      }
+    },
+    movementPointsSubtracted: (state, action) => {
+      if (
+        action.payload <= state.currentUser.progress.movement.currentMovePoints
+      ) {
+        state.currentUser.progress.movement.currentMovePoints -= action.payload;
+      }
+    },
+    movementPointsSet: (state, action) => {
+      state.currentUser.progress.movement.currentMovePoints = action.payload;
+      state.currentUser.progress.movement.maxMovePoints = action.payload;
+    },
+    rocketUpgraded: (state) => {
+      state.currentUser.progress.rocketLvl += 1;
+      state.currentUser.progress.exp += 1000;
+      notify("Rocket upgraded\n\n + 1000 exp");
+    },
+    expeditionArrived: (state, { exp, planet }) => {
+      state.currentUser.progress.exp += exp;
+      state.currentUser.progress.currentPlanet = planet;
+      state.currentUser.progress.narration.completed = [
+        ...state.currentUser.progress.narration.completed,
+        planet,
+      ];
+    },
   },
+
   extraReducers: {
     [signin.pending]: (state) => {
       state.status = "loading";
@@ -179,5 +329,27 @@ const slice = createSlice({
   },
 });
 
-export const { logout } = slice.actions;
+export const {
+  logout,
+  currentPlanetSet,
+  trophyCollected,
+  expAdded,
+  eventCounterIncremented,
+  playerLvlCalculated,
+  vortexUnlocked,
+  gameFinished,
+  newGamePlusStarted,
+  narrationCompleted,
+  spcialCompleted,
+  narrationUnlocked,
+  dialogueHided,
+  dialogueShownAndCompleted,
+  dialogueCompleted,
+  ufoDefeated,
+  movementPointsAdded,
+  movementPointsSubtracted,
+  movementPointsSet,
+  rocketUpgraded,
+  expeditionArrived,
+} = slice.actions;
 export default slice.reducer;
